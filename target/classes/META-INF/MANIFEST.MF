@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: btas
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: MJ
+Implementation-Vendor-Id: es.uji.btas
+Build-Jdk: 1.8.0_161
+Implementation-URL: http://projects.spring.io/spring-boot/btas/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

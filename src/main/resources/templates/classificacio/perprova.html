@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<meta charset="UTF-8" />
+	<title>Prova per pais</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+	<h1>Nadadors de Espanya, classificats per prova</h1>
+	
+	<div th:each="prova: ${classificacions.keySet()}">
+		<h4 th:text="${prova}"></h4>
+		<ul>
+			<li th:each="nadador: ${classificacions.get(prova)}"><span th:text="${nadador.nom}"></span></li>
+		</ul>
+	</div>
+</body>
+</html>
