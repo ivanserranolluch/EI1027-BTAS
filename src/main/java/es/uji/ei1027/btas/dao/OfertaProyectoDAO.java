@@ -50,7 +50,7 @@ public class OfertaProyectoDAO {
 				ofertaProyecto.getEstado(), ofertaProyecto.getItinerario(),ofertaProyecto.getFechaDeAlta(),ofertaProyecto.getFechaUltimoCambio());
 	}
 		
-	public void updateOfertaEstado(OfertaProyecto ofertaProyecto) {
+	public void updateOfertaProyecto(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
 				"update Oferta set estado = ? where id=?", ofertaProyecto.getEstado(),ofertaProyecto.getId());
 	}
