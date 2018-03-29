@@ -1,0 +1,48 @@
+package es.uji.ei1027.btas.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+
+import es.uji.ei1027.btas.model.OfertaProyecto;
+
+
+
+public class OfertaProyectoDAO {
+	
+	private JdbcTemplate jdbcTemplate;
+    
+	@Autowired
+	public void setDataSource(DataSource dataSource) {
+	        this.jdbcTemplate = new JdbcTemplate(dataSource); 
+	}
+
+	private static final class OfertaProyectoMapper implements RowMapper<OfertaProyecto> { 
+
+	    public OfertaProyecto mapRow(ResultSet rs, int rowNum) throws SQLException { 
+	        OfertaProyecto ofertaProyecto = new OfertaProyecto();
+	        ofertaProyecto.setId(rs.getString("id"));
+	        ofertaProyecto.setTarea(rs.getString("tarea"));
+	        ofertaProyecto.setEstado(rs.getString("estado"));
+	        ofertaProyecto.setFechaAlta(rs.getTime("fechaAlta"));
+	        ofertaProyecto.setFechaAlta(rs.getTime("fechaUltimoCambio"));
+	        return ofertaProyecto;
+	    }
+	}
+
+	public List<OfertaProyecto> getOfertas() {
+		return this.jdbcTemplate.query(
+		     	"select id,tarea,objetivo,estado,fechaDeAlta,fechaUltimoCambio,itinerario  from ofertaProyecto;", 
+		     	new OfertaProyectoMapper());
+	}
+	
+	public List<OfertaProyecto> getItinerario(String itinerario){
+		return this.jdbcTemplate.query("SELECT * FROM OfertaProyecto WHERE itinerario=?;", new Object[] {itinerario}, new OfertaProyectoMapper());
+	}
+}
