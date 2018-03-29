@@ -10,9 +10,9 @@ public class OfertaProyecto {
 	private String tarea;
 	private String objetivo;
 	private String estado;
+	private String itinerario;
 	private Time fechaAlta;
 	private Time fechaUltimoCambio;
-	private String itinerario;
 	private HashSet<Estudiante> estudiantesInscritos;
 	private HashSet<PeticionRevision> peticionesRevision;
 	
@@ -77,6 +77,15 @@ public class OfertaProyecto {
 	}
 	public String getEstado() {
 		return estado;
+	}
+	public Time getFechaUltimoCambio() {
+		return fechaUltimoCambio;
+	}
+	public void setFechaUltimoCambio(Time fechaUltimoCambio) {
+		this.fechaUltimoCambio = fechaUltimoCambio;
+	}
+	public Time getFechaDeAlta() {
+		return fechaAlta;
 	}
 	
 	

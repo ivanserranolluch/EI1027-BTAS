@@ -9,9 +9,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-
 import es.uji.ei1027.btas.model.OfertaProyecto;
-
 
 
 public class OfertaProyectoDAO {
@@ -30,6 +28,7 @@ public class OfertaProyectoDAO {
 	        ofertaProyecto.setId(rs.getString("id"));
 	        ofertaProyecto.setTarea(rs.getString("tarea"));
 	        ofertaProyecto.setEstado(rs.getString("estado"));
+	        ofertaProyecto.setItinerario(rs.getString("itinerario"));
 	        ofertaProyecto.setFechaAlta(rs.getTime("fechaAlta"));
 	        ofertaProyecto.setFechaAlta(rs.getTime("fechaUltimoCambio"));
 	        return ofertaProyecto;
@@ -40,6 +39,26 @@ public class OfertaProyectoDAO {
 		return this.jdbcTemplate.query(
 		     	"select id,tarea,objetivo,estado,fechaDeAlta,fechaUltimoCambio,itinerario  from ofertaProyecto;", 
 		     	new OfertaProyectoMapper());
+	}
+	public OfertaProyecto getOfertaProyecto(String id) {
+		return this.jdbcTemplate.queryForObject("select * from ofertaProyecto where id=?",  new Object[] {id}, new OfertaProyectoMapper());
+	}
+	
+	public void addOferta(OfertaProyecto ofertaProyecto) {
+		this.jdbcTemplate.update(
+				"insert into Oferta(id,tarea,estado,itinerario,fechaDeAlta,fechaDeUltimoCambio) values(?, ?, ?, ?)", ofertaProyecto.getId(), ofertaProyecto.getTarea(),
+				ofertaProyecto.getEstado(), ofertaProyecto.getItinerario(),ofertaProyecto.getFechaDeAlta(),ofertaProyecto.getFechaUltimoCambio());
+	}
+		
+	public void updateOfertaEstado(OfertaProyecto ofertaProyecto) {
+		this.jdbcTemplate.update(
+				"update Oferta set estado = ? where id=?", ofertaProyecto.getEstado(),ofertaProyecto.getId());
+	}
+		
+	public void deleteOferta(String id) {
+		this.jdbcTemplate.update(
+		        "delete from ofertaProyecto where id = ?",
+		        id);
 	}
 	
 	public List<OfertaProyecto> getItinerario(String itinerario){

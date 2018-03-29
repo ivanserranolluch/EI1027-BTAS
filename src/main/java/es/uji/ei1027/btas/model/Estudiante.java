@@ -3,14 +3,14 @@ package es.uji.ei1027.btas.model;
 import java.util.HashSet;
 
 public class Estudiante extends Persona {
-
+	
+	private String al;
 	private String apellidos;
 	private int numCreditosAprobados;
 	private double notaMedia;
 	private String itinerario;
 	private int numAsigPendiente;
 	private int semestreInicioEstancia;
-	private String al;
 	private HashSet<PreferenciasEstudiante> preferencias;
 
 
@@ -60,5 +60,69 @@ public class Estudiante extends Persona {
 		return false;
 	}
 
+	public void setAl(String al) {
+		this.al = al;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
+
+	public void setNumCreditosAprobados(int numCreditosAprobados) {
+		this.numCreditosAprobados = numCreditosAprobados;
+	}
+
+	public void setNotaMedia(double notaMedia) {
+		this.notaMedia = notaMedia;
+	}
+
+	public void setItinerario(String itinerario) {
+		this.itinerario = itinerario;
+	}
+
+	public void setNumAsigPendiente(int numAsigPendiente) {
+		this.numAsigPendiente = numAsigPendiente;
+	}
+
+	public void setSemestreInicioEstancia(int semestreInicioEstancia) {
+		this.semestreInicioEstancia = semestreInicioEstancia;
+	}
+
+	public void setPreferencias(HashSet<PreferenciasEstudiante> preferencias) {
+		this.preferencias = preferencias;
+	}
+
+	public String getAl() {
+		return al;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public int getNumCreditosAprobados() {
+		return numCreditosAprobados;
+	}
+
+	public double getNotaMedia() {
+		return notaMedia;
+	}
+
+	public String getItinerario() {
+		return itinerario;
+	}
+
+	public int getNumAsigPendiente() {
+		return numAsigPendiente;
+	}
+
+	public int getSemestreInicioEstancia() {
+		return semestreInicioEstancia;
+	}
+
+	public HashSet<PreferenciasEstudiante> getPreferencias() {
+		return preferencias;
+	}
+	
 
 }

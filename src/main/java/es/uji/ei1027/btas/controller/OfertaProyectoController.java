@@ -19,9 +19,9 @@ private OfertaProyectoService ofertaProyectoService;
 	
 
 	@RequestMapping("/peritinerario")
-	public String listClsfPerPais(Model model){
+	public String listOfertaPerItinerari(Model model){
 		model.addAttribute("classificacions", ofertaProyectoService.getOfertasItinerario("INGENIERA_SOFTWARE"));
-		return "classificacio/perpais";
+		return "ofertaProyecte/perItinerari";
 	}
 
 }
