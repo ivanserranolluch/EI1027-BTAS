@@ -5,8 +5,8 @@ import java.sql.Date;
 
 public class PreferenciasEstudiante {
 	private int id;
-	private String estudianteDni;
-	private String ofertaProyectoId;
+	private Estudiante estudiante;
+	private OfertaProyecto ofertaProyecto;
 	private int orden;
 	private String estado;
 	private Date fechaUltimoCambio;
@@ -17,21 +17,37 @@ public class PreferenciasEstudiante {
 		super();
 	}
 	
-	public PreferenciasEstudiante(int id,String estudianteDni, String ofertaProyectoId,
+	public PreferenciasEstudiante(int id,Estudiante estudiante, OfertaProyecto ofertaProyecto,
 			int orden,Date fechaUltimoCambio,String estado) {
 		this.id= id;
-		this.estudianteDni = estudianteDni;
-		this.ofertaProyectoId = ofertaProyectoId;
+		this.estudiante = estudiante;
+		this.ofertaProyecto = ofertaProyecto;
 		this.orden = orden;
 		this.fechaUltimoCambio = fechaUltimoCambio;
 		this.estado = estado;
 	}
 	
+	public Estudiante getEstudiante() {
+		return estudiante;
+	}
+
+	public void setEstudiante(Estudiante estudiante) {
+		this.estudiante = estudiante;
+	}
+
+	public OfertaProyecto getOfertaProyecto() {
+		return ofertaProyecto;
+	}
+
+	public void setOfertaProyecto(OfertaProyecto ofertaProyecto) {
+		this.ofertaProyecto = ofertaProyecto;
+	}
+
 	public PreferenciasEstudiante (PreferenciasEstudiante preferenciasEstudiante) {
 		
 		this.id= preferenciasEstudiante.id;
-		this.estudianteDni = preferenciasEstudiante.estudianteDni;
-		this.ofertaProyectoId = preferenciasEstudiante.ofertaProyectoId;
+		this.estudiante = preferenciasEstudiante.estudiante;
+		this.ofertaProyecto = preferenciasEstudiante.ofertaProyecto;
 		this.orden = preferenciasEstudiante.orden;
 		this.fechaUltimoCambio = preferenciasEstudiante.fechaUltimoCambio;
 		this.estado = preferenciasEstudiante.estado;
@@ -43,18 +59,7 @@ public class PreferenciasEstudiante {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getEstudianteDni() {
-		return estudianteDni;
-	}
-	public void setEstudianteDni(String estudianteDni) {
-		this.estudianteDni = estudianteDni;
-	}
-	public String getOfertaProyectoId() {
-		return ofertaProyectoId;
-	}
-	public void setOfertaProyectoId(String ofertaProyectoId) {
-		this.ofertaProyectoId = ofertaProyectoId;
-	}
+	
 	public int getOrden() {
 		return orden;
 	}
@@ -69,6 +74,9 @@ public class PreferenciasEstudiante {
 	}
 	public String getEstado() {
 		return estado;
+	}
+	public String getDni() {
+		return estudiante.getDni();
 	}
 	public void setEstado(String estado) {
 		this.estado = estado;
