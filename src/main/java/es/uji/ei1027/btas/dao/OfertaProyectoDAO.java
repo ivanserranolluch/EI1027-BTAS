@@ -27,9 +27,10 @@ public class OfertaProyectoDAO {
 	        OfertaProyecto ofertaProyecto = new OfertaProyecto();
 	        ofertaProyecto.setId(rs.getString("id"));
 	        ofertaProyecto.setTarea(rs.getString("tarea"));
+	        ofertaProyecto.setObjetivo(rs.getString("objetivo"));
 	        ofertaProyecto.setEstado(rs.getString("estado"));
 	        ofertaProyecto.setItinerario(rs.getString("itinerario"));
-	        ofertaProyecto.setFechaAlta(rs.getTime("fechaAlta"));
+	        ofertaProyecto.setFechaAlta(rs.getTime("fechaDeAlta"));
 	        ofertaProyecto.setFechaAlta(rs.getTime("fechaUltimoCambio"));
 	        return ofertaProyecto;
 	    }
@@ -46,13 +47,13 @@ public class OfertaProyectoDAO {
 	
 	public void addOferta(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
-				"insert into Oferta(id,tarea,estado,itinerario,fechaDeAlta,fechaDeUltimoCambio) values(?, ?, ?, ?)", ofertaProyecto.getId(), ofertaProyecto.getTarea(),
-				ofertaProyecto.getEstado(), ofertaProyecto.getItinerario(),ofertaProyecto.getFechaDeAlta(),ofertaProyecto.getFechaUltimoCambio());
+				"insert into OfertaProyecto(id,tarea,objetivo,estado,itinerario,fechaDeAlta,fechaDeUltimoCambio) values(?, ?, ?, ?)", ofertaProyecto.getId(), ofertaProyecto.getTarea(),
+				ofertaProyecto.getObjetivo(),ofertaProyecto.getEstado(), ofertaProyecto.getItinerario(),ofertaProyecto.getFechaDeAlta(),ofertaProyecto.getFechaUltimoCambio());
 	}
 		
 	public void updateOfertaProyecto(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
-				"update Oferta set estado = ? where id=?", ofertaProyecto.getEstado(),ofertaProyecto.getId());
+				"update OfertaProyecto set estado = ? where id=?", ofertaProyecto.getEstado(),ofertaProyecto.getId());
 	}
 		
 	public void deleteOferta(String id) {

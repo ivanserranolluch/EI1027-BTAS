@@ -33,7 +33,7 @@ public class PreferenciasEstudianteDAO {
 	
 	public List<PreferenciasEstudiante> getPreferencies() {
 		return this.jdbcTemplate.query(
-		     	"select id, orden,fechaUltimoCambio, estado from preferenciasEstudiante;", 
+		     	"select id,id_ofertaProyecto,id_estudiante,orden,fechaUltimoCambio, estado from preferenciasEstudiante;", 
 		     	new PreferenciasEstudianteMapper());
 	}
 	

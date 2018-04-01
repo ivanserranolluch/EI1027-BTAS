@@ -6,10 +6,10 @@ public class Estudiante extends Persona {
 	
 	private String al;
 	private String apellidos;
-	private int numCreditosAprobados;
-	private double notaMedia;
 	private String itinerario;
+	private double notaMedia;
 	private int numAsigPendiente;
+	private int numCreditosAprobados;
 	private int semestreInicioEstancia;
 	private HashSet<PreferenciasEstudiante> preferencias;
 
@@ -19,25 +19,25 @@ public class Estudiante extends Persona {
 	public Estudiante(String dni, Direccion direccion, String nombre, String apellidos, String telefono, String email, 
 			int numCreditosAprobados, double notaMedia,String itinerario, int numAsigPendiente, int semestreInicioEstancia, String al, HashSet<PreferenciasEstudiante> preferencias) {
 		super(dni,direccion,nombre,telefono,email);
+		this.al= al;
 		this.apellidos= apellidos;
 		this.numCreditosAprobados= numCreditosAprobados;
 		this.notaMedia= notaMedia;
 		this.itinerario=itinerario;
 		this.numAsigPendiente= numAsigPendiente;
 		this.semestreInicioEstancia= semestreInicioEstancia;
-		this.al= al;
 		this.preferencias = preferencias;
 	}
 
 	public Estudiante(Estudiante estudiante) {
 		super(estudiante);
+		this.al= estudiante.al;
 		this.apellidos= estudiante.apellidos;
 		this.numCreditosAprobados= estudiante.numCreditosAprobados;
 		this.notaMedia= estudiante.notaMedia;
 		this.itinerario=estudiante.itinerario;
 		this.numAsigPendiente= estudiante.numAsigPendiente;
 		this.semestreInicioEstancia= estudiante.semestreInicioEstancia;
-		this.al= estudiante.al;
 		this.preferencias = estudiante.preferencias;
 
 		

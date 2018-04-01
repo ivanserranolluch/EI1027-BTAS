@@ -33,8 +33,9 @@ public class EstudianteDAO {
 	        estudiante.setEmail(rs.getString("email"));
 	        estudiante.setItinerario(rs.getString("itinerario"));
 	        estudiante.setNotaMedia(rs.getDouble("notaMedia"));
-	        estudiante.setNumAsigPendiente(rs.getInt("asigPendiente"));
+	        estudiante.setNumAsigPendiente(rs.getInt("numAsigPend"));
 	        estudiante.setNumCreditosAprobados(rs.getInt("creditosAprobados"));
+	        estudiante.setSemestreInicioEstancia(rs.getInt("semestreInicioEstancia"));
 	        
 	        return estudiante;
 	    }
@@ -52,14 +53,14 @@ public class EstudianteDAO {
 	
 	public void addEstudiante(Estudiante estudiante) {
 		this.jdbcTemplate.update(
-				"insert into Estudiante(nom, numFederat, edat, sexe) values(?, ?, ?, ?)", estudiante.getDni(), estudiante.getAl(),estudiante.getNombre(),
+				"insert into Estudiante(dni,al,nombre,apellidos,telefono,email,itinerario,notaMedia,numAsigPend,creditosAprobados,semestreInicioEstancia) values(?, ?, ?, ?)", estudiante.getDni(), estudiante.getAl(),estudiante.getNombre(),
 				estudiante.getApellidos(), estudiante.getTelefono(),estudiante.getEmail(),estudiante.getItinerario(),estudiante.getNotaMedia(),estudiante.getNumAsigPendiente(),
-				estudiante.getNumCreditosAprobados());
+				estudiante.getNumCreditosAprobados(),estudiante.getSemestreInicioEstancia());
 	}
 	//cambia el periodo delInicio de las practicas
 	public void updateEstudiante(Estudiante estudiante) {
 		this.jdbcTemplate.update(
-				"update Estudiante set semestreInicio = ? where dni = ?", estudiante.getSemestreInicioEstancia(), estudiante.getDni());
+				"update Estudiante set semestreInicioEstancia = ? where dni = ?", estudiante.getSemestreInicioEstancia(), estudiante.getDni());
 	}
 		
 	public void deleteEstudiante(String dni) {
