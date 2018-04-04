@@ -1,15 +1,20 @@
 package es.uji.ei1027.btas.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import es.uji.ei1027.btas.dao.PreferenciasEstudianteDAO;
 import es.uji.ei1027.btas.model.PreferenciasService;
-import es.uji.ei1027.btas.model.OfertaProyectoService;
 
+
+@Controller
+@RequestMapping("/estudiante/preferenciasEstudiante")
 public class PreferenciasController {
 	
 private PreferenciasService estudianteService;
+private PreferenciasEstudianteDAO preferenciasEstudianteDao;
 	
 	@Autowired
 	public void set (PreferenciasService estudianteService){
@@ -18,7 +23,7 @@ private PreferenciasService estudianteService;
 	
 
 	@RequestMapping("/peritinerario")
-	public String listClsfPerPais(Model model){
+	public String listPrefPorEstudiante(Model model){
 		model.addAttribute("classificacions", estudianteService.getPreferenciasEstudiante("paco"));
 		return "preferencies/perEstudiante";
 	}

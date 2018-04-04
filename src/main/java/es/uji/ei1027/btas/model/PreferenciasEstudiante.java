@@ -81,4 +81,9 @@ public class PreferenciasEstudiante {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	public boolean introducirPreferencia(PreferenciasEstudiante preferencia) {
+		if (preferencia.estudiante.getPreferencias().size()<4)
+			preferencia.estudiante.getPreferencias().add(preferencia);
+		return false;
+	}
 }

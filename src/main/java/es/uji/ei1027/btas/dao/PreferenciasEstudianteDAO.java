@@ -38,9 +38,9 @@ public class PreferenciasEstudianteDAO {
 		     	"select id,id_ofertaProyecto,id_estudiante,orden,fechaUltimoCambio, estado from preferenciasEstudiante;", 
 		     	new PreferenciasEstudianteMapper());
 	}
-	public List<PreferenciasEstudiante> getOfertaDePreferencies(String dni){
-		return this.jdbcTemplate.query("SELECT * FROM preferenciasEstudiante WHERE dni=?;",
-				new Object[] {dni}, new PreferenciasEstudianteMapper());
+	public List<PreferenciasEstudiante> getOfertaDePreferencies(String id_estudiante){
+		return this.jdbcTemplate.query("SELECT * FROM preferenciasEstudiante WHERE id_estudiante=?;",
+				new Object[] {id_estudiante}, new PreferenciasEstudianteMapper());
 	}
 	public void addPreferenciasEstudiante(PreferenciasEstudiante preferenciasEstudiante) {
 		this.jdbcTemplate.update(

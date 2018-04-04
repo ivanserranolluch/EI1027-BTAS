@@ -1,0 +1,9 @@
+package es.uji.ei1027.btas.model;
+
+public enum Itinerario {
+
+	INGENIERIASOFTWARE,
+	SISTEMASINFORMACION,
+	TECNOLOGIASINFORMACION,
+	INGENIERIAHARWARE
+}

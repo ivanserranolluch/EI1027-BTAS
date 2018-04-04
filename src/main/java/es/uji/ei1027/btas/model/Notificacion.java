@@ -12,7 +12,7 @@ public Notificacion() {
 	super();
 }
 
-public Notificacion(int id,PersonaContacto personaContaco,String emailBBC,String emailCCD, String mensaje) {
+public Notificacion(int id,PersonaContacto personaContacto,String emailBBC,String emailCCD, String mensaje) {
 
 this.id=id;
 this.personaContacto = personaContacto;
@@ -30,4 +30,5 @@ public Notificacion(Notificacion notificacion) {
 	this.mensaje = notificacion.mensaje;
 	
 }
+
 }
