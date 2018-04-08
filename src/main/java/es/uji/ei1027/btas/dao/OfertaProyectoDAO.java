@@ -25,13 +25,13 @@ public class OfertaProyectoDAO {
 
 	    public OfertaProyecto mapRow(ResultSet rs, int rowNum) throws SQLException { 
 	        OfertaProyecto ofertaProyecto = new OfertaProyecto();
-	        ofertaProyecto.setId(rs.getString("id"));
+	        ofertaProyecto.setId(rs.getInt("id"));
 	        ofertaProyecto.setTarea(rs.getString("tarea"));
 	        ofertaProyecto.setObjetivo(rs.getString("objetivo"));
 	        ofertaProyecto.setEstado(rs.getString("estado"));
 	        ofertaProyecto.setItinerario(rs.getString("itinerario"));
 	        ofertaProyecto.setFechaAlta(rs.getTime("fechaDeAlta"));
-	        ofertaProyecto.setFechaAlta(rs.getTime("fechaUltimoCambio"));
+	        //ofertaProyecto.setFechaAlta(rs.getTime("fechaUltimoCambio"));
 	        return ofertaProyecto;
 	    }
 	}
@@ -45,10 +45,16 @@ public class OfertaProyectoDAO {
 		return this.jdbcTemplate.queryForObject("select * from ofertaProyecto where id=?",  new Object[] {id}, new OfertaProyectoMapper());
 	}
 	
-	public void addOferta(OfertaProyecto ofertaProyecto) {
+/*	public void addOferta(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
 				"insert into OfertaProyecto(id,tarea,objetivo,estado,itinerario,fechaDeAlta,fechaDeUltimoCambio) values(?, ?, ?, ?)", ofertaProyecto.getId(), ofertaProyecto.getTarea(),
 				ofertaProyecto.getObjetivo(),ofertaProyecto.getEstado(), ofertaProyecto.getItinerario(),ofertaProyecto.getFechaDeAlta(),ofertaProyecto.getFechaUltimoCambio());
+	}*/
+		
+	public void addOferta(OfertaProyecto ofertaProyecto) {
+		this.jdbcTemplate.update(
+				"insert into OfertaProyecto(id,tarea,objetivo,estado,itinerario,fechaDeAlta,fechaDeUltimoCambio) values(?, ?, ?)", ofertaProyecto.getId(), ofertaProyecto.getTarea(),
+				ofertaProyecto.getObjetivo(),ofertaProyecto.getEstado(), ofertaProyecto.getItinerario(),ofertaProyecto.getFechaDeAlta());
 	}
 		
 	public void updateOfertaProyecto(OfertaProyecto ofertaProyecto) {

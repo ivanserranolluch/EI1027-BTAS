@@ -5,38 +5,72 @@ import java.util.HashSet;
 
 public class OfertaProyecto {
 	
-	private String id;
+	private int id;
 	private String tarea;
 	private String objetivo;
-	private String estado;
-	private String itinerario;
+	private EstadoOferta estado;
+	private Itinerario itinerario;
 	private Time fechaAlta;
-	private Time fechaUltimoCambio;
-	private HashSet<Estudiante> estudiantesInscritos;
+	//private Time fechaUltimoCambio;
+	private HashSet<Asignacion> asignaciones;
 	private HashSet<PeticionRevision> peticionesRevision;
 	
 	
-	
-	public boolean introducirOferta() {
-		return false;
-	}
-	public boolean eliminarOferta() {
-		return false;
-	}
-	public boolean asignarOferta() {
-		return false;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
 	public OfertaProyecto() {
 		super();
 	}
-	public String getId() {
+	
+	public OfertaProyecto(int id, String tarea, String objetivo, Time fechaAlta, HashSet<Asignacion> asignaciones,HashSet<PeticionRevision> peticionesRevision) {
+		this.id=id;
+		this.tarea=tarea;
+		this.objetivo=objetivo;
+		this.fechaAlta=fechaAlta;
+		this.asignaciones=asignaciones;
+		this.peticionesRevision=peticionesRevision;
+		this.estado=EstadoOferta.SIN_DEFINIR;
+		this.itinerario=Itinerario.SIN_DEFINIR;
+	}
+//	public boolean introducirOferta() {
+//		return false;
+//	}
+//	public boolean eliminarOferta() {
+//		return false;
+//	}
+//	public boolean asignarOferta() {
+//		return false;
+//	}
+
+	public void setEstado(String descripcionEstado) {
+		switch(descripcionEstado) {	
+		case "Sin definir":
+			estado=EstadoOferta.SIN_DEFINIR;
+			break;
+		case "Introducida":
+			estado=EstadoOferta.INTRODUCIDA;
+			break;
+		case "Pendiente de revision":
+			estado=EstadoOferta.PENDIENTE_REVISION;
+			break;
+		case "Aceptada":
+			estado=EstadoOferta.ACEPTADA;
+			break;
+		case "Rechazada":
+			estado=EstadoOferta.RECHAZADA;
+			break;
+		case "Visible para los alumnos":
+			estado=EstadoOferta.VISIBLE_ALUMNOS;
+		case "Asignada":
+			estado=EstadoOferta.ASIGNADA;
+			break;
+		}
+	}
+	
+
+	
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getTarea() {
@@ -57,16 +91,32 @@ public class OfertaProyecto {
 	}
 	
 	public String getItinerario() {
-		return itinerario;
+		return itinerario.getDescripcion();
 	}
-	public void setItinerario(String itinerario) {
-		this.itinerario = itinerario;
+	public void setItinerario(String itinerarioDescrip) {
+		switch(itinerarioDescrip) {	
+		case "Sin definir":
+			itinerario=Itinerario.SIN_DEFINIR;
+			break;
+		case "Ingenieria de Software":
+			itinerario=Itinerario.INGENIERIA_SOFTWARE;
+			break;
+		case "Sistemas de la Informacion":
+			itinerario=Itinerario.SISTEMAS_INFORMACION;
+			break;
+		case "Tecnologias de la Informacion":
+			itinerario=Itinerario.TECNOLOGIAS_INFORMACION;
+			break;
+		case "Ingenieria de Computadores":
+			itinerario=Itinerario.INGENIERIA_COMPUTADORES;
+			break;
+		}
 	}
-	public HashSet<Estudiante> getEstudiantesInscritos() {
-		return estudiantesInscritos;
+	public HashSet<Asignacion> getAsignaciones() {
+		return asignaciones;
 	}
-	public void setEstudiantesInscritos(HashSet<Estudiante> estudiantesInscritos) {
-		this.estudiantesInscritos = estudiantesInscritos;
+	public void setAsignaciones(HashSet<Asignacion> asignaciones) {
+		this.asignaciones= asignaciones;
 	}
 	public HashSet<PeticionRevision> getPeticionesRevision() {
 		return peticionesRevision;
@@ -75,14 +125,9 @@ public class OfertaProyecto {
 		this.peticionesRevision = peticionesRevision;
 	}
 	public String getEstado() {
-		return estado;
+		return estado.getDescripcion();
 	}
-	public Time getFechaUltimoCambio() {
-		return fechaUltimoCambio;
-	}
-	public void setFechaUltimoCambio(Time fechaUltimoCambio) {
-		this.fechaUltimoCambio = fechaUltimoCambio;
-	}
+	
 	public Time getFechaDeAlta() {
 		return fechaAlta;
 	}

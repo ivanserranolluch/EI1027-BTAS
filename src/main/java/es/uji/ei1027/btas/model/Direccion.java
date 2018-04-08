@@ -2,42 +2,63 @@ package es.uji.ei1027.btas.model;
 
 public class Direccion {
 
-	private CP cp;
-	private String direccion;
-	private String numeroVivienda;
+	private int id_dir;
+	private int cp;
+	private String calle;
+	private int numero;
+	private String ciudad;
+	
 	
 	public Direccion(){
 		super();
 	}
 	
-	public Direccion(CP cp, String direccion, String numeroVivienda){
+	public Direccion(int id_dir,int cp, String calle, int numero,String ciudad){
+		this.id_dir=id_dir;
+		this.ciudad=ciudad;
 		this.cp=cp;
-		this.direccion=direccion;
-		this.numeroVivienda=numeroVivienda;
+		this.calle=calle;
+		this.numero=numero;
 	}
 
-	public CP getCp() {
+	public int getCp() {
 		return cp;
 	}
 
-	public void setCp(CP cp) {
+	public void setCp(int cp) {
 		this.cp = cp;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getCalle() {
+		return calle;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setCalle(String calle) {
+		this.calle = calle;
 	}
 
-	public String getNumeroVivienda() {
-		return numeroVivienda;
+	public int getNumero() {
+		return numero;
 	}
 
-	public void setNumeroVivienda(String numeroVivienda) {
-		this.numeroVivienda = numeroVivienda;
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+	
+	public String getCiudad() {
+		return ciudad;
+	}
+	
+	public void setCiudad(String ciudad) {
+		this.ciudad=ciudad;
+	}
+	
+	public int getIdDir() {
+		return id_dir;
+	}
+	
+	public void setIdDir(int id_dir) {
+		this.id_dir=id_dir;
 	}
 	
 	
