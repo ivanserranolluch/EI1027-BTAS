@@ -22,7 +22,11 @@ public abstract class Contacto {
 		this.email=email;
 	}
 	
+	public abstract int getId();
+	
 	public abstract  List<Integer> getDirecciones();
+	
+	public abstract void setDirecciones(List<Integer> direcciones);
 	
 	public abstract String getNombre();
 	
