@@ -12,7 +12,7 @@ import es.uji.ei1027.btas.model.Estudiante;
 import es.uji.ei1027.btas.model.PreferenciasEstudiante;
 
 @Service
-public class PreferenciasEstudianteSvc implements PreferenciasService{
+public class PreferenciasEstudianteSvc implements PreferenciasEstudianteService{
 	
 	@Autowired
 	EstudianteDAO estudianteDao;

@@ -6,18 +6,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.uji.ei1027.btas.dao.PreferenciasEstudianteDAO;
-import es.uji.ei1027.btas.services.PreferenciasService;
+import es.uji.ei1027.btas.services.PreferenciasEstudianteService;
 
 
 @Controller
 @RequestMapping("/preferenciasEstudiante")
 public class PreferenciasEstudianteController {
 	
-private PreferenciasService estudianteService;
+private PreferenciasEstudianteService estudianteService;
 //private PreferenciasEstudianteDAO preferenciasEstudianteDao;
 	
 	@Autowired
-	public void set (PreferenciasService estudianteService){
+	public void set (PreferenciasEstudianteService estudianteService){
 		this.estudianteService = estudianteService;
 	}
 	

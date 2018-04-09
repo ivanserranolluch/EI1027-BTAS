@@ -6,7 +6,7 @@ import java.util.Map;
 import es.uji.ei1027.btas.model.Estudiante;
 import es.uji.ei1027.btas.model.PreferenciasEstudiante;
 
-public interface PreferenciasService {
+public interface PreferenciasEstudianteService {
 
 	public List<PreferenciasEstudiante> getPreferenciasEstudiante(String estudiante_id);
 
