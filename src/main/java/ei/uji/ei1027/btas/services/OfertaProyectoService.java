@@ -1,6 +1,8 @@
-package es.uji.ei1027.btas.model;
+package ei.uji.ei1027.btas.services;
 
 import java.util.List;
+
+import es.uji.ei1027.btas.model.OfertaProyecto;
 
 
 public interface OfertaProyectoService {

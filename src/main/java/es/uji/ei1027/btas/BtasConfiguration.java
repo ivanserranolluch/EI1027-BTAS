@@ -8,13 +8,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+import es.uji.ei1027.btas.dao.OfertaProyectoDAO;
+
+
 
 
 @Configuration
 public class BtasConfiguration {
 	
 
-	
+	@Bean
+	@Primary
+	public OfertaProyectoDAO nadador(){
+	     return new OfertaProyectoDAO();
+	}
 
 	
 	/*@Bean

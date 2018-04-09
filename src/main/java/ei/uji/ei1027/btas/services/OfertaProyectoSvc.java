@@ -5,14 +5,15 @@ import java.util.List;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import es.uji.ei1027.btas.dao.EstudianteDAO;
 import es.uji.ei1027.btas.dao.OfertaProyectoDAO;
 
 import es.uji.ei1027.btas.model.OfertaProyecto;
-import es.uji.ei1027.btas.model.OfertaProyectoService;
 
-public abstract class OfertaProyectoSvc implements OfertaProyectoService{
+@Service
+public class OfertaProyectoSvc implements OfertaProyectoService{
 
 	@Autowired
 	EstudianteDAO estudianteDao;
@@ -28,13 +29,14 @@ public List<OfertaProyecto> getOfertas() {
 		return listaOfertas;
 		
 	}
-	public List<OfertaProyecto> getOfertasPorItinerario(String itinerario) {
+	public List<OfertaProyecto> getOfertasItinerario(String itinerario) {
 		
 		List<OfertaProyecto> listaProyectoItinerario= ofertaProyectoDao.getItinerario(itinerario);
 		
 		return listaProyectoItinerario;
 		
 	}
+	
 	
 	
 }

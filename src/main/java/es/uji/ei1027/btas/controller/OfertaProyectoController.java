@@ -9,10 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
+import ei.uji.ei1027.btas.services.OfertaProyectoService;
 import es.uji.ei1027.btas.dao.OfertaProyectoDAO;
 import es.uji.ei1027.btas.model.OfertaProyecto;
-import es.uji.ei1027.btas.model.OfertaProyectoService;
 
 @Controller
 @RequestMapping("/ofertaProyecto")
@@ -24,8 +23,8 @@ private OfertaProyectoService ofertaProyectoService;
 private OfertaProyectoDAO ofertaProyectoDAO;
 	
 	@Autowired
-	public void set (OfertaProyectoService classificacioService){
-		this.ofertaProyectoService = classificacioService;
+	public void set (OfertaProyectoService ofertaProyectoService){
+		this.ofertaProyectoService = ofertaProyectoService;
 	}
 	
 
