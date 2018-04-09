@@ -3,15 +3,19 @@ package ei.uji.ei1027.btas.services;
 
 
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 
 import es.uji.ei1027.btas.dao.EstudianteDAO;
 
 import es.uji.ei1027.btas.dao.PreferenciasEstudianteDAO;
+import es.uji.ei1027.btas.model.Estudiante;
+import es.uji.ei1027.btas.model.PreferenciasEstudiante;
 
 
-public class PreferenciasEstudianteSvc {
+public class PreferenciasEstudianteSvc implements PreferenciasService{
 	
 	@Autowired
 	EstudianteDAO estudianteDao;
@@ -19,18 +23,18 @@ public class PreferenciasEstudianteSvc {
 	@Autowired
 	PreferenciasEstudianteDAO preferenciasEstudianteDao;
 	
-	/*
+	
 	@Override
-	public Map<String, List<Estudiante>> getClassificationByCountry(String id) {
-		List<PreferenciasEstudiante> classProva = preferenciasEstudianteDao.getOfertaDePreferencies("id");
-		HashMap<String, List<Nadador>> nadadorsPerPais = new HashMap<>();
-		for (PreferenciasEstudiante clsf : classProva){
+	public List<PreferenciasEstudiante> getPreferenciasEstudiante(String id) {
+		List<PreferenciasEstudiante> listaPreferencias = preferenciasEstudianteDao.getOfertaDePreferencies("id");
+		//HashMap<String, List<Nadador>> nadadorsPerPais = new HashMap<>();
+		/*for (PreferenciasEstudiante clsf : listaPreferencias){
 			Nadador nadador = nadadorDao.getNadador(clsf.getNomNadador());
 			if (!nadadorsPerPais.containsKey(nadador.getPais()))
 				nadadorsPerPais.put(nadador.getPais(),new ArrayList<Nadador>());
 				nadadorsPerPais.get(nadador.getPais()).add(nadador);
-		}
-		return nadadorsPerPais;
+		}*/
+		return listaPreferencias;
 	}
-*/
+
 }

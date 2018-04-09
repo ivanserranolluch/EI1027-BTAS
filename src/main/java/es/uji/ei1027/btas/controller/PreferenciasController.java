@@ -10,11 +10,11 @@ import es.uji.ei1027.btas.dao.PreferenciasEstudianteDAO;
 
 
 @Controller
-@RequestMapping("/estudiante/preferenciasEstudiante")
+@RequestMapping("/preferenciasEstudiante")
 public class PreferenciasController {
 	
 private PreferenciasService estudianteService;
-private PreferenciasEstudianteDAO preferenciasEstudianteDao;
+//private PreferenciasEstudianteDAO preferenciasEstudianteDao;
 	
 	@Autowired
 	public void set (PreferenciasService estudianteService){

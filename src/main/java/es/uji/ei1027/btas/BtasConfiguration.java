@@ -19,7 +19,7 @@ public class BtasConfiguration {
 
 	@Bean
 	@Primary
-	public OfertaProyectoDAO nadador(){
+	public OfertaProyectoDAO oferta(){
 	     return new OfertaProyectoDAO();
 	}
 

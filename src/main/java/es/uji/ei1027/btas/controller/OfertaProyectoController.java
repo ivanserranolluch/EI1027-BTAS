@@ -18,21 +18,23 @@ import es.uji.ei1027.btas.model.OfertaProyecto;
 
 public class OfertaProyectoController {
 	
-private OfertaProyectoService ofertaProyectoService;
+//private OfertaProyectoService ofertaProyectoService;
 
 private OfertaProyectoDAO ofertaProyectoDAO;
 	
-	@Autowired
+	/*@Autowired
 	public void set (OfertaProyectoService ofertaProyectoService){
 		this.ofertaProyectoService = ofertaProyectoService;
+	}*/
+	public void setOfertaProyectoDAO (OfertaProyectoDAO ofertaProyectoDAO){
+		this.ofertaProyectoDAO = ofertaProyectoDAO;
 	}
-	
 
-	@RequestMapping("/peritinerario")
+	/*@RequestMapping("/peritinerario")
 	public String listOfertaPerItinerari(Model model){
 		model.addAttribute("classificacions", ofertaProyectoService.getOfertasItinerario("INGENIERA_SOFTWARE"));
 		return "ofertaProyecto/perItinerari";
-	}
+	}*/
 	
 	//OPERACION LISTAR
 	
