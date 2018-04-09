@@ -124,8 +124,8 @@ public class OfertaProyecto {
 	public void setPeticionesRevision(HashSet<PeticionRevision> peticionesRevision) {
 		this.peticionesRevision = peticionesRevision;
 	}
-	public String getEstado() {
-		return estado.getDescripcion();
+	public EstadoOferta getEstado() {
+		return estado;
 	}
 	
 	public Time getFechaDeAlta() {

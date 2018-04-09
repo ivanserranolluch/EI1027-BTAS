@@ -65,17 +65,17 @@ private OfertaProyectoDAO ofertaProyectoDAO;
 		}
 		
 		@RequestMapping(value="/update/{id}", method=RequestMethod.POST)
-		public String processUpdateSubmit(@PathVariable String id, @ModelAttribute("ofertaProyecto") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
+		public String processUpdateSubmit(@PathVariable int id, @ModelAttribute("ofertaProyecto") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
 			if(bindingResult.hasErrors())
 				return "ofertaProyecto/update";
-			ofertaProyectoDAO.updateOfertaProyecto(ofertaProyecto);
+			ofertaProyectoDAO.updateOfertaProyecto(id,ofertaProyecto.getEstado());
 			return "redirect:../list";
 		}
 		
 			
 		//OPERACION  BORRAR
 		@RequestMapping(value="/delete/{id}")
-		public String processDelete(@PathVariable String id) {
+		public String processDelete(@PathVariable int id) {
 			ofertaProyectoDAO.deleteOferta(id);
 			return "redirect:../list";
 		}

@@ -9,6 +9,8 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+
+import es.uji.ei1027.btas.model.EstadoOferta;
 import es.uji.ei1027.btas.model.OfertaProyecto;
 
 
@@ -53,22 +55,22 @@ public class OfertaProyectoDAO {
 		
 	public void addOferta(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
-				"insert into OfertaProyecto(id,tarea,objetivo,estado,itinerario,fechaDeAlta,fechaDeUltimoCambio) values(?, ?, ?)", ofertaProyecto.getId(), ofertaProyecto.getTarea(),
+				"insert into OfertaProyecto2(id,tarea,objetivo,estado,itinerario,fechaDeAlta,fechaDeUltimoCambio) values(?, ?, ?)", ofertaProyecto.getId(), ofertaProyecto.getTarea(),
 				ofertaProyecto.getObjetivo(),ofertaProyecto.getEstado(), ofertaProyecto.getItinerario(),ofertaProyecto.getFechaDeAlta());
 	}
 		
-	public void updateOfertaProyecto(OfertaProyecto ofertaProyecto) {
+	public void updateOfertaProyecto(int id,EstadoOferta estado) {
 		this.jdbcTemplate.update(
-				"update OfertaProyecto set estado = ? where id=?", ofertaProyecto.getEstado(),ofertaProyecto.getId());
+				"update OfertaProyecto2 set estado = ? where id=?", estado.getDescripcion(),id);
 	}
 		
-	public void deleteOferta(String id) {
+	public void deleteOferta(int id) {
 		this.jdbcTemplate.update(
-		        "delete from ofertaProyecto where id = ?",
+		        "delete from ofertaProyecto2 where id = ?",
 		        id);
 	}
 	
 	public List<OfertaProyecto> getItinerario(String itinerario){
-		return this.jdbcTemplate.query("SELECT * FROM OfertaProyecto WHERE itinerario=?;", new Object[] {itinerario}, new OfertaProyectoMapper());
+		return this.jdbcTemplate.query("SELECT * FROM OfertaProyecto2 WHERE itinerario=?;", new Object[] {itinerario}, new OfertaProyectoMapper());
 	}
 }

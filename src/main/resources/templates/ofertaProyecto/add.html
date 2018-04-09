@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<meta charset="UTF-8" />
+	<title>Crear nou nadador</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+	<h2>Nova oferta</h2>
+	<form action="#" th:action="@{/oferta/add}" th:object="${oferta}" method="post">
+		<table>
+			<tr>
+				<td><label>id</label></td>
+				<td><input type="text" th:field="*{id}" /></td>
+			</tr>
+			<tr>
+				<td><label>tarea</label></td>
+				<td><input type="text" th:field="*{tarea}" /></td>
+			</tr>
+			<tr>
+				<td><label>objetivo</label></td>
+				<td><input type="text" th:field="*{objetivo}" /></td>
+			</tr>
+			<tr>
+				<td><label>estado</label></td>
+				<td><input type="number" th:field="*{estado}" /></td>
+			</tr>
+			<tr>
+				<td><label>itinerario</label></td>
+				<td><input type="text" th:field="*{itinerario}" /></td>
+			</tr>
+			<tr>
+				<td><label>fechaAlta</label></td>
+				<td><input type="text" th:field="*{fechaAlta}" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Afegeix oferta" /></td>
+				
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
