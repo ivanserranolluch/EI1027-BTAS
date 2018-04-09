@@ -11,7 +11,7 @@ import es.uji.ei1027.btas.services.PreferenciasService;
 
 @Controller
 @RequestMapping("/preferenciasEstudiante")
-public class PreferenciasController {
+public class PreferenciasEstudianteController {
 	
 private PreferenciasService estudianteService;
 //private PreferenciasEstudianteDAO preferenciasEstudianteDao;
