@@ -29,7 +29,7 @@ public class EstudianteDAO {
 	        estudiante.setAl(rs.getString("al"));
 	        estudiante.setNombre(rs.getString("nombre"));
 	        estudiante.setApellidos(rs.getString("apellidos"));
-	        estudiante.setTelefono(rs.getString("telefono"));
+	        estudiante.setTelefono(rs.getInt("telefono"));
 	        estudiante.setEmail(rs.getString("email"));
 	        estudiante.setItinerario(rs.getString("itinerario"));
 	        estudiante.setNotaMedia(rs.getDouble("notaMedia"));

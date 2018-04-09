@@ -1,12 +1,13 @@
 package es.uji.ei1027.btas.model;
 
 import java.util.HashSet;
+import java.util.List;
 
-public class Estudiante extends Persona {
+public class Estudiante extends Contacto {
 	
 	private String al;
 	private String apellidos;
-	private String itinerario;
+	private Itinerario itinerario;
 	private double notaMedia;
 	private int numAsigPendiente;
 	private int numCreditosAprobados;
@@ -16,20 +17,20 @@ public class Estudiante extends Persona {
 
 	public Estudiante() {super();}
 
-	public Estudiante(String dni, Direccion direccion, String nombre, String apellidos, String telefono, String email, 
-			int numCreditosAprobados, double notaMedia,String itinerario, int numAsigPendiente, int semestreInicioEstancia, String al, HashSet<PreferenciasEstudiante> preferencias) {
+	public Estudiante(String dni, List<Direccion> direccion, String nombre, String apellidos, int telefono, String email, 
+			int numCreditosAprobados, double notaMedia, int numAsigPendiente, int semestreInicioEstancia, String al, HashSet<PreferenciasEstudiante> preferencias) {
 		super(dni,direccion,nombre,telefono,email);
 		this.al= al;
 		this.apellidos= apellidos;
 		this.numCreditosAprobados= numCreditosAprobados;
 		this.notaMedia= notaMedia;
-		this.itinerario=itinerario;
+		this.itinerario=Itinerario.SIN_DEFINIR;
 		this.numAsigPendiente= numAsigPendiente;
 		this.semestreInicioEstancia= semestreInicioEstancia;
 		this.preferencias = preferencias;
 	}
 
-	public Estudiante(Estudiante estudiante) {
+/*	public Estudiante(Estudiante estudiante) {
 		super(estudiante);
 		this.al= estudiante.al;
 		this.apellidos= estudiante.apellidos;
@@ -41,24 +42,9 @@ public class Estudiante extends Persona {
 		this.preferencias = estudiante.preferencias;
 
 		
-	}
+	}*/
 
-	public boolean seleccionarOferta() {
-
-		return false;
-	}
-	public boolean borrarOferta() {
-
-		return false;
-	}
-	public boolean ordenarOfertaPreferencia() {
-
-		return false;
-	}
-	public boolean crearPeticionRevision() {
-
-		return false;
-	}
+	
 
 	public void setAl(String al) {
 		this.al = al;
@@ -76,8 +62,24 @@ public class Estudiante extends Persona {
 		this.notaMedia = notaMedia;
 	}
 
-	public void setItinerario(String itinerario) {
-		this.itinerario = itinerario;
+	public void setItinerario(String itinerarioDescrip) {
+		switch(itinerarioDescrip) {	
+		case "Sin definir":
+			itinerario=Itinerario.SIN_DEFINIR;
+			break;
+		case "Ingenieria de Software":
+			itinerario=Itinerario.INGENIERIA_SOFTWARE;
+			break;
+		case "Sistemas de la Informacion":
+			itinerario=Itinerario.SISTEMAS_INFORMACION;
+			break;
+		case "Tecnologias de la Informacion":
+			itinerario=Itinerario.TECNOLOGIAS_INFORMACION;
+			break;
+		case "Ingenieria de Computadores":
+			itinerario=Itinerario.INGENIERIA_COMPUTADORES;
+			break;
+		}
 	}
 
 	public void setNumAsigPendiente(int numAsigPendiente) {
@@ -108,7 +110,7 @@ public class Estudiante extends Persona {
 		return notaMedia;
 	}
 
-	public String getItinerario() {
+	public Itinerario getItinerario() {
 		return itinerario;
 	}
 
@@ -124,5 +126,44 @@ public class Estudiante extends Persona {
 		return preferencias;
 	}
 	
+	public String getDni(){
+		return super.getId();
+	}
+	
+	public void setDni(String nuevoDni) {
+		super.setId(nuevoDni);
+	}
+	
+	public List<Direccion> getDirecciones(){
+		return super.getDirecciones();
+	}
+	
+	public String getNombre() {
+		return super.getNombre();
+	}
+	
+	public int getTelefono() {
+		return super.getTelefono();
+	}
+	
+	public String getEmail() {
+		return super.getEmail();
+	}
+	
+	public void setDirecciones(List<Direccion> lista) {
+		super.setDirecciones(lista);
+	}
+	
+	public void setNombre(String nombreNuevo) {
+		super.setNombre(nombreNuevo);
+	}
+	
+	public void setTelefono(int telefonoNuevo) {
+		super.setTelefono(telefonoNuevo);
+	}
+	
+	public void setEmail(String emailNuevo) {
+		super.setEmail(emailNuevo);
+	}
 
 }

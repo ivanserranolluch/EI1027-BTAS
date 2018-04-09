@@ -14,7 +14,7 @@ public class Empresa extends Contacto{
 		super();
 	}
 
-	public Empresa(int cif, List<Direccion> direccion, String nombre, int telefono, String email, String direccionWeb, HashSet<Estancia> ofertasEstancia, List<PersonaContacto> personas ) {
+	public Empresa(String cif, List<Direccion> direccion, String nombre, int telefono, String email, String direccionWeb, HashSet<Estancia> ofertasEstancia, List<PersonaContacto> personas ) {
 		super(cif,direccion,nombre,telefono,email);
 		this.direccionWeb = direccionWeb;
 		this.ofertasEstancia = ofertasEstancia;
@@ -32,6 +32,14 @@ public class Empresa extends Contacto{
 
 	}*/
 
+	public String getCif() {
+		return super.getId();
+	}
+	
+	public void setCif(String nuevoCif) {
+		super.setId(nuevoCif);
+	}
+	
 	public void setDireccionWeb(String web) {
 		direccionWeb=web;
 	}

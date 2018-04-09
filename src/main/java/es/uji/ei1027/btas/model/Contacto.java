@@ -4,7 +4,7 @@ import java.util.List;
 
 public abstract class Contacto {
 
-	private int id;
+	private String id;
 	private List<Direccion> listaDirecciones;
 	private String nombre;
 	private int telefono;
@@ -14,7 +14,7 @@ public abstract class Contacto {
 		super();
 	}
 	
-	public Contacto(int id, List<Direccion> lista, String nombre, int telefono, String email) {
+	public Contacto(String id, List<Direccion> lista, String nombre, int telefono, String email) {
 		this.id=id;
 		this.listaDirecciones=lista;
 		this.nombre=nombre;
@@ -22,7 +22,7 @@ public abstract class Contacto {
 		this.email=email;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	
@@ -56,5 +56,10 @@ public abstract class Contacto {
 	
 	public void setEmail(String email) {
 		this.email=email;
+	}
+
+	public void setId(String nuevoDni) {
+		id=nuevoDni;
+		
 	}
 }
