@@ -61,5 +61,18 @@ public class Direccion {
 		this.id_dir=id_dir;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder st= new StringBuilder();
+		st.append("Identificador: ");
+		st.append(id_dir);
+		st.append("\nCalle: "+calle+", numero: ");
+		st.append(numero);
+		st.append(".\n CP: "+cp+"\n");
+		st.append("Ciudad: "+ciudad);
+		
+		return st.toString();
+	}
+	
 	
 }
