@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ei.uji.ei1027.btas.services.PreferenciasService;
 import es.uji.ei1027.btas.dao.PreferenciasEstudianteDAO;
+import es.uji.ei1027.btas.services.PreferenciasService;
 
 
 @Controller
@@ -22,10 +22,10 @@ private PreferenciasService estudianteService;
 	}
 	
 
-	@RequestMapping("/peritinerario")
+	/*@RequestMapping("/peritinerario")
 	public String listPrefPorEstudiante(Model model){
 		model.addAttribute("classificacions", estudianteService.getPreferenciasEstudiante("paco"));
 		return "preferencies/perEstudiante";
-	}
+	}*/
 
 }
