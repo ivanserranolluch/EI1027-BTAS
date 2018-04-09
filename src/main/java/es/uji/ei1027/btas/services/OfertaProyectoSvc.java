@@ -22,7 +22,7 @@ public class OfertaProyectoSvc implements OfertaProyectoService{
 	OfertaProyectoDAO ofertaProyectoDao;
 	
 	
-public List<OfertaProyecto> getOfertas() {
+	public List<OfertaProyecto> getOfertas() {
 		
 		List<OfertaProyecto> listaOfertas= ofertaProyectoDao.getOfertas();
 		

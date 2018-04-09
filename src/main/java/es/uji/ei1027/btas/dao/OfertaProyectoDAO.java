@@ -1,5 +1,6 @@
 package es.uji.ei1027.btas.dao;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -11,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import es.uji.ei1027.btas.connection.ConnectionManager;
 import es.uji.ei1027.btas.model.EstadoOferta;
 import es.uji.ei1027.btas.model.OfertaProyecto;
 
@@ -28,24 +30,26 @@ public class OfertaProyectoDAO {
 
 	    public OfertaProyecto mapRow(ResultSet rs, int rowNum) throws SQLException { 
 	        OfertaProyecto ofertaProyecto = new OfertaProyecto();
-	        ofertaProyecto.setId(rs.getInt("id"));
+	        ofertaProyecto.setId(rs.getInt("id_tarea"));
 	        ofertaProyecto.setTarea(rs.getString("tarea"));
 	        ofertaProyecto.setObjetivo(rs.getString("objetivo"));
 	        ofertaProyecto.setEstado(rs.getString("estado"));
 	        ofertaProyecto.setItinerario(rs.getString("itinerario"));
-	        ofertaProyecto.setFechaAlta(rs.getTime("fechaDeAlta"));
+	        ofertaProyecto.setFechaAlta(rs.getTime("fechaalta"));
 	        //ofertaProyecto.setFechaAlta(rs.getTime("fechaUltimoCambio"));
 	        return ofertaProyecto;
 	    }
 	}
 
 	public List<OfertaProyecto> getOfertas() {
-		return this.jdbcTemplate.query(
-		     	"select id,tarea,objetivo,estado,fechaDeAlta,fechaUltimoCambio,itinerario  from ofertaProyecto;", 
-		     	new OfertaProyectoMapper());
+		
+			return this.jdbcTemplate.query(
+			     	"select *  from ofertaProyecto2;", 
+			     	new OfertaProyectoMapper());
+		
 	}
 	public OfertaProyecto getOfertaProyecto(String id) {
-		return this.jdbcTemplate.queryForObject("select * from ofertaProyecto where id=?",  new Object[] {id}, new OfertaProyectoMapper());
+		return this.jdbcTemplate.queryForObject("select * from ofertaProyecto2 where id=?",  new Object[] {id}, new OfertaProyectoMapper());
 	}
 	
 /*	public void addOferta(OfertaProyecto ofertaProyecto) {
