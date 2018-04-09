@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Primary;
 
 import es.uji.ei1027.btas.dao.OfertaProyectoDAO;
 import es.uji.ei1027.btas.dao.PreferenciasEstudianteDAO;
+import es.uji.ei1027.btas.services.OfertaProyectoService;
+import es.uji.ei1027.btas.services.OfertaProyectoSvc;
 
 
 
@@ -20,8 +22,8 @@ public class BtasConfiguration {
 
 	@Bean
 	@Primary
-	public OfertaProyectoDAO oferta(){
-	     return new OfertaProyectoDAO();
+	public OfertaProyectoService ofertaProyectoService(){
+	     return new OfertaProyectoSvc();
 	}
 
 	@Bean

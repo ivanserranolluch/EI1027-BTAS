@@ -15,8 +15,8 @@ import es.uji.ei1027.btas.model.OfertaProyecto;
 @Service
 public class OfertaProyectoSvc implements OfertaProyectoService{
 
-	@Autowired
-	EstudianteDAO estudianteDao;
+	/*@Autowired
+	EstudianteDAO estudianteDao;*/
 	
 	@Autowired
 	OfertaProyectoDAO ofertaProyectoDao;

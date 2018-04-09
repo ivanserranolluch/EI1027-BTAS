@@ -21,7 +21,7 @@ public class OfertaProyectoController {
 	
 //private OfertaProyectoService ofertaProyectoService;
 
-private OfertaProyectoDAO ofertaProyectoDAO;
+	private OfertaProyectoDAO ofertaProyectoDAO;
 	
 	/*@Autowired
 	public void set (OfertaProyectoService ofertaProyectoService){

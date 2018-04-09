@@ -17,7 +17,7 @@ import es.uji.ei1027.btas.model.EstadoOferta;
 import es.uji.ei1027.btas.model.OfertaProyecto;
 
 @Repository
-public class OfertaProyectoDAO {
+public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 	
 	private JdbcTemplate jdbcTemplate;
     
