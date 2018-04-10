@@ -9,10 +9,10 @@
 	<h2>Nova oferta</h2>
 	<form action="#" th:action="@{/ofertaProyecto/add}" th:object="${ofertaProyecto}" method="post">
 		<table>
-			<tr>
+			  <tr>
 				<td><label>id</label></td>
 				<td><input type="text" th:field="*{id}" /></td>
-			</tr>
+			</tr>  
 			<tr>
 				<td><label>id de la Estancia</label></td>
 				<td><input type="text" th:field="*{idEstancia}" /></td>
@@ -28,40 +28,30 @@
 			</tr>
 			
 			<tr>
-				 <td><label>itinerario</label></td> 
-				<td><input type="text" th:field="*{itinerario}" /></td>
-				 <!-- 
-				 <fieldset>
-        			<legend>Elige un itinerario</legend>
-        			   <label>
-				            <input type="radio" name="itinerario" value="Sin definir" th:field="*{itinerario}"/> Sin definir
-				        </label>
-				        <label>
-				            <input type="radio" name="itinerario" value="Tecnologias Web" th:field="*{itinerario}"/> Tecnologias de la Informacion
-				        </label>
-				        <label>
-				            <input type="radio" name="itinerario" value="Ingenieria de Software" th:field="*{itinerario}"/> Ingenieria del Software
-				        </label>
-				        <label>
-				            <input type="radio" name="itinerario" value="Sistemes de Informacio" th:field="*{itinerario}"/> Sitemas de la Informacion
-				           
-				        </label>
-				          <label>
-				            <input type="radio" name="itinerario" value="Ingenieria de Computadores" th:field="*{itinerario}"/> Ingenieria de Computadores
-				        </label>
-				    </fieldset>
-				     --> 
-			
-			</tr>
+				 <!-- <td><label>itinerario</label></td> 
+				<td><input type="text" th:field="*{itinerario}" /></td> -->
+						</tr>
+		
 			<tr>
 				<td><label>fechaAlta</label></td>
 				<td><input type="date" th:field="*{fechaAlta}" /></td>
 			</tr>
 			<tr>
+			<label>Itinerario</label>
+			
+		<select name="Itinerarios" th:field="*{itinerario}">       			
+			       <option value="Sin definir">Sin definir</option> 
+			       <option value="Ingenieria de Software">Ingenieria de Software</option> 
+			       <option value="Tecnologias Web">Tecnologias Web</option>
+			       <option value="Sistemes de Informacio">Sistemas de la Informacion</option> 
+			       <option value="Ingenieria de Computadores">Ingenieria de computadores</option> 
+		</select></tr>
+			<tr>
 				<td colspan="2"><input type="submit" value="Afegeix oferta" /></td>
 				
 			</tr>
 		</table>
+		
 		
 	</form>
 	<li><a href="list.html">Atras</a></li>

@@ -9,7 +9,7 @@ public interface OfertaProyectoDAOInterface {
 
 	public List<OfertaProyecto> getOfertas();
 	
-	public OfertaProyecto getOfertaProyecto(String id);
+	public OfertaProyecto getOfertaProyecto(int id);
 	
 	public void addOferta(OfertaProyecto ofertaProyecto);
 	

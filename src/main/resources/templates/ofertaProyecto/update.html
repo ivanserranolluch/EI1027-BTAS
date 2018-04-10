@@ -7,15 +7,54 @@
 </head>
 <body>
 	<h2>Nova oferta</h2>
-	<form action="#" th:action="@{/oferta/update}" th:object="${oferta}" method="post">
+	<form action="#" th:action="@{/ofertaProyecto/update}" th:object="${ofertaProyecto}" method="post">
 		<table>
+<!-- 			<tr> -->
+<!-- 				<td><label>id</label></td> -->
+<!-- 				<td><input type="text" th:field="*{id}" /></td> -->
+<!-- 			</tr> -->
+			
+			  
 			<tr>
-				<td><label>id</label></td>
-				<td><input type="text" th:field="*{id}" /></td>
+				<td><label>id de la Estancia</label></td>
+				<td><input type="text" th:field="*{idEstancia}" /></td>
+			</tr>
+			<tr>
+				<td><label>tarea</label></td>
+				<td><input type="text" th:field="*{tarea}" /></td>
 			</tr>
 			
+			<tr>
+				<td><label>objetivo</label></td>
+				<td><input type="text" th:field="*{objetivo}" /></td>
+			</tr>
+			
+
+			<tr>
+				<td><label>fechaAlta</label></td>
+				<td><input type="date" th:field="*{fechaAlta}" /></td>
+			</tr>
+			<tr>
+			<label>Itinerario</label>
+			
+		<select name="Itinerarios" th:field="*{itinerario}">       			
+			       <option value="Sin definir">Sin definir</option> 
+			       <option value="Ingenieria de Software">Ingenieria de Software</option> 
+			       <option value="Tecnologias Web">Tecnologias Web</option>
+			       <option value="Sistemes de Informacio">Sistemas de la Informacion</option> 
+			       <option value="Ingenieria de Computadores">Ingenieria de computadores</option> 
+		</select></tr>
+			<tr>
 				<td><label>estado</label></td>
-				<td><input type="number" th:field="*{estado}" /></td>
+				<select name="estado" th:field="*{estado}">       			
+			       <option value="Sin Definir">Sin definir</option> 
+			       <option value="Introducida">Introducida</option> 
+			       <option value="Aceptada">Aceptada</option>
+			       <option value="Rechazada">Rechazada</option> 
+			       <option value="Visible para los alumnos">Visible para los alumnos</option> 
+			       <option value="Asignada">Asignada</option>
+		
+		</select>
 			</tr>
 			
 			

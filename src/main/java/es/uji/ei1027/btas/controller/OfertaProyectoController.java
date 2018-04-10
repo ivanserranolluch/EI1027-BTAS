@@ -71,7 +71,7 @@ public class OfertaProyectoController {
 		}
 		
 		@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
-		public String editOfertaProyecto(Model model, @PathVariable String id){
+		public String editOfertaProyecto(Model model, @PathVariable int id){
 			model.addAttribute("ofertaProyecto", ofertaProyectoDAO.getOfertaProyecto(id));
 			return "ofertaProyecto/update";
 		}

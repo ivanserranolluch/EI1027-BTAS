@@ -2,7 +2,7 @@ package es.uji.ei1027.btas.model;
 
 public enum EstadoOferta {
 	
-	SIN_DEFINIR("Sin definir"),
+	SIN_DEFINIR("Sin Definir"),
 	INTRODUCIDA("Introducida"),
 	PENDIENTE_REVISION("Pendiente de revision"),
 	ACEPTADA("Aceptada"),

@@ -1,9 +1,12 @@
 package es.uji.ei1027.btas.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
@@ -48,8 +51,8 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 			     	new OfertaProyectoMapper());
 		
 	}
-	public OfertaProyecto getOfertaProyecto(String id) {
-		return this.jdbcTemplate.queryForObject("select * from ofertaProyecto where id=?",  new Object[] {id}, new OfertaProyectoMapper());
+	public OfertaProyecto getOfertaProyecto(int id) {
+		return this.jdbcTemplate.queryForObject("select * from ofertaProyecto where id_oferta=?",  new Object[] {id}, new OfertaProyectoMapper());
 	}
 	
 /*	public void addOferta(OfertaProyecto ofertaProyecto) {
@@ -66,16 +69,73 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 		
 	public void updateOfertaProyecto(int id,EstadoOferta estado) {
 		this.jdbcTemplate.update(
-				"update OfertaProyecto set estado = ? where id=?", estado.getDescripcion(),id);
+				"update OfertaProyecto set estado = ? where id_oferta=?", estado.getDescripcion(),id);
 	}
 		
 	public void deleteOferta(int id) {
 		this.jdbcTemplate.update(
-		        "delete from ofertaProyecto where id = ?",
+		        "delete from ofertaProyecto where id_oferta = ?",
 		        id);
 	}
 	
 	public List<OfertaProyecto> getItinerario(String itinerario){
 		return this.jdbcTemplate.query("SELECT * FROM OfertaProyecto WHERE itinerario=?;", new Object[] {itinerario}, new OfertaProyectoMapper());
 	}
-}
+	/*
+	private static int getNextId() {
+		Connection conn = null;
+		try {
+			conn = dataSource.getConnection(); 
+			if (conn==null)
+				Log.severe("JDBC no trobat");
+		}
+		catch (SQLException e) {
+			Log.severe("Error creant connexió JDBC");
+			e.printStackTrace();
+			return -1;
+		}
+		List<Integer> listId = new ArrayList<Integer>();
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		try {
+			stmt = conn.prepareStatement("select pais,capital from pais");
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				listId.add(rs.getInt("id_oferta"));
+				
+			}
+		}
+		catch (SQLException e) {
+			Log.severe("Error executant PreparedStatement");
+			e.printStackTrace();
+			return -1;
+		}
+		finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				}
+				catch (SQLException e) {
+					Log.warning("Error tancant ResultSet");
+					e.printStackTrace();
+				}
+			}
+			if (stmt != null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					Log.warning("Error tancant PreparedStatement");
+					e.printStackTrace();
+				}
+			}
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				Log.warning("Error tancant connexi� JDBC");				
+				e.printStackTrace();
+			}
+		}
+		return listId.get(-1)+1;
+
+	}
+*/}
