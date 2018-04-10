@@ -2,16 +2,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
 	<meta charset="UTF-8" />
-	<title>Crear nou nadador</title>
+	<title>Crear nova oferta</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 </head>
 <body>
 	<h2>Nova oferta</h2>
-	<form action="#" th:action="@{/oferta/add}" th:object="${oferta}" method="post">
+	<form action="#" th:action="@{/ofertaProyecto/add}" th:object="${ofertaProyecto}" method="post">
 		<table>
 			<tr>
 				<td><label>id</label></td>
 				<td><input type="text" th:field="*{id}" /></td>
+			</tr>
+			<tr>
+				<td><label>id de la Estancia</label></td>
+				<td><input type="text" th:field="*{idEstancia}" /></td>
 			</tr>
 			<tr>
 				<td><label>tarea</label></td>
@@ -21,23 +25,44 @@
 				<td><label>objetivo</label></td>
 				<td><input type="text" th:field="*{objetivo}" /></td>
 			</tr>
+			
 			<tr>
-				<td><label>estado</label></td>
-				<td><input type="number" th:field="*{estado}" /></td>
-			</tr>
-			<tr>
-				<td><label>itinerario</label></td>
-				<td><input type="text" th:field="*{itinerario}" /></td>
+				 <td><label>itinerario</label></td> 
+				<td><input type="text" th:field="*{objetivo}" /></td>
+				 <!-- 
+				 <fieldset>
+        			<legend>Elige un itinerario</legend>
+        			   <label>
+				            <input type="radio" name="itinerario" value="Sin definir" th:field="*{itinerario}"/> Sin definir
+				        </label>
+				        <label>
+				            <input type="radio" name="itinerario" value="Tecnologias Web" th:field="*{itinerario}"/> Tecnologias de la Informacion
+				        </label>
+				        <label>
+				            <input type="radio" name="itinerario" value="Ingenieria de Software" th:field="*{itinerario}"/> Ingenieria del Software
+				        </label>
+				        <label>
+				            <input type="radio" name="itinerario" value="Sistemes de Informacio" th:field="*{itinerario}"/> Sitemas de la Informacion
+				           
+				        </label>
+				          <label>
+				            <input type="radio" name="itinerario" value="Ingenieria de Computadores" th:field="*{itinerario}"/> Ingenieria de Computadores
+				        </label>
+				    </fieldset>
+				     --> 
+			
 			</tr>
 			<tr>
 				<td><label>fechaAlta</label></td>
-				<td><input type="text" th:field="*{fechaAlta}" /></td>
+				<td><input type="date" th:field="*{fechaAlta}" /></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="Afegeix oferta" /></td>
 				
 			</tr>
 		</table>
+		
 	</form>
+	<li><a href="list.html">Atras</a></li>
 </body>
 </html>

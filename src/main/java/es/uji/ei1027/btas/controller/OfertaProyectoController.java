@@ -55,9 +55,12 @@ public class OfertaProyectoController {
 		
 		@RequestMapping(value="/add", method=RequestMethod.POST)
 		public String processAddSubmit(@ModelAttribute("ofertaProyecto") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
-			if (bindingResult.hasErrors())
+			if (bindingResult.hasErrors()){
+				System.out.println(bindingResult);
 				return "ofertaProyecto/add";
-			ofertaProyectoDAO.addOferta(ofertaProyecto);
+				
+			}
+				ofertaProyectoDAO.addOferta(ofertaProyecto);
 			return "redirect:list.html";
 		}
 		

@@ -30,13 +30,13 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 
 	    public OfertaProyecto mapRow(ResultSet rs, int rowNum) throws SQLException { 
 	        OfertaProyecto ofertaProyecto = new OfertaProyecto();
-	        ofertaProyecto.setId(rs.getInt("id_tarea"));
+	        ofertaProyecto.setId(rs.getInt("id_oferta"));
 	        ofertaProyecto.setTarea(rs.getString("tarea"));
 	        ofertaProyecto.setObjetivo(rs.getString("objetivo"));
 	        ofertaProyecto.setEstado(rs.getString("estado"));
 	        ofertaProyecto.setItinerario(rs.getString("itinerario"));
-	        ofertaProyecto.setFechaAlta(rs.getTime("fechaalta"));
-	        //ofertaProyecto.setFechaAlta(rs.getTime("fechaUltimoCambio"));
+	        ofertaProyecto.setFechaAlta(rs.getDate("fechaalta"));
+	        ofertaProyecto.setIdEstancia(rs.getInt("id_estancia"));
 	        return ofertaProyecto;
 	    }
 	}
@@ -44,12 +44,12 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 	public List<OfertaProyecto> getOfertas() {
 		
 			return this.jdbcTemplate.query(
-			     	"select *  from ofertaProyecto2;", 
+			     	"select * from ofertaProyecto", 
 			     	new OfertaProyectoMapper());
 		
 	}
 	public OfertaProyecto getOfertaProyecto(String id) {
-		return this.jdbcTemplate.queryForObject("select * from ofertaProyecto2 where id=?",  new Object[] {id}, new OfertaProyectoMapper());
+		return this.jdbcTemplate.queryForObject("select * from ofertaProyecto where id=?",  new Object[] {id}, new OfertaProyectoMapper());
 	}
 	
 /*	public void addOferta(OfertaProyecto ofertaProyecto) {
@@ -60,22 +60,22 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 		
 	public void addOferta(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
-				"insert into OfertaProyecto2(id,tarea,objetivo,estado,itinerario,fechaDeAlta,fechaDeUltimoCambio) values(?, ?, ?)", ofertaProyecto.getId(), ofertaProyecto.getTarea(),
-				ofertaProyecto.getObjetivo(),ofertaProyecto.getEstado(), ofertaProyecto.getItinerario(),ofertaProyecto.getFechaDeAlta());
+				"insert into OfertaProyecto(id_oferta,tarea,objetivo,estado,itinerario,fechaalta,id_estancia) values(?, ?, ?,?,?,?,?)", ofertaProyecto.getId(), ofertaProyecto.getTarea(),
+				ofertaProyecto.getObjetivo(),ofertaProyecto.getEstado(), ofertaProyecto.getItinerario(),ofertaProyecto.getFechaAlta(), ofertaProyecto.getIdEstancia());
 	}
 		
 	public void updateOfertaProyecto(int id,EstadoOferta estado) {
 		this.jdbcTemplate.update(
-				"update OfertaProyecto2 set estado = ? where id=?", estado.getDescripcion(),id);
+				"update OfertaProyecto set estado = ? where id=?", estado.getDescripcion(),id);
 	}
 		
 	public void deleteOferta(int id) {
 		this.jdbcTemplate.update(
-		        "delete from ofertaProyecto2 where id = ?",
+		        "delete from ofertaProyecto where id = ?",
 		        id);
 	}
 	
 	public List<OfertaProyecto> getItinerario(String itinerario){
-		return this.jdbcTemplate.query("SELECT * FROM OfertaProyecto2 WHERE itinerario=?;", new Object[] {itinerario}, new OfertaProyectoMapper());
+		return this.jdbcTemplate.query("SELECT * FROM OfertaProyecto WHERE itinerario=?;", new Object[] {itinerario}, new OfertaProyectoMapper());
 	}
 }
