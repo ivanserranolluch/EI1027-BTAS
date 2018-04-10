@@ -2,6 +2,7 @@ package es.uji.ei1027.btas.model;
 
 import java.util.Date;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.HashSet;
 
 public class OfertaProyecto {
@@ -21,7 +22,7 @@ public class OfertaProyecto {
 	public OfertaProyecto() {
 		super();
 		//this.itinerario=Itinerario.SIN_DEFINIR;
-		//this.estado=EstadoOferta.INTRODUCIDA;
+		this.estado=EstadoOferta.INTRODUCIDA;
 
 	}
 	
@@ -96,25 +97,25 @@ public class OfertaProyecto {
 		this.fechaAlta = time;
 	}
 	
-	public String getItinerario() {
-		return itinerario.getDescripcion();
+	public Itinerario getItinerario() {
+		return itinerario;
 	}
 	public void setItinerario(String itinerarioDescrip) {
 		switch(itinerarioDescrip) {	
 		case "Sin definir":
-			itinerario=Itinerario.SIN_DEFINIR;
+			this.itinerario=Itinerario.SIN_DEFINIR;
 			break;
 		case "Ingenieria de Software":
-			itinerario=Itinerario.INGENIERIA_SOFTWARE;
+			this.itinerario=Itinerario.INGENIERIA_SOFTWARE;
 			break;
 		case "Sistemes de Informacio":
-			itinerario=Itinerario.SISTEMAS_INFORMACION;
+			this.itinerario=Itinerario.SISTEMAS_INFORMACION;
 			break;
 		case "Tecnologias Web":
-			itinerario=Itinerario.TECNOLOGIAS_INFORMACION;
+			this.itinerario=Itinerario.TECNOLOGIAS_INFORMACION;
 			break;
 		case "Ingenieria de Computadores":
-			itinerario=Itinerario.INGENIERIA_COMPUTADORES;
+			this.itinerario=Itinerario.INGENIERIA_COMPUTADORES;
 			break;
 		}
 	}

@@ -33,7 +33,8 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 	        ofertaProyecto.setId(rs.getInt("id_oferta"));
 	        ofertaProyecto.setTarea(rs.getString("tarea"));
 	        ofertaProyecto.setObjetivo(rs.getString("objetivo"));
-	        ofertaProyecto.setEstado(rs.getString("estado"));
+	        //ofertaProyecto.setEstado(rs.getString("estado"));
+	        System.out.println(rs.getString("itinerario"));
 	        ofertaProyecto.setItinerario(rs.getString("itinerario"));
 	        ofertaProyecto.setFechaAlta(rs.getDate("fechaalta"));
 	        ofertaProyecto.setIdEstancia(rs.getInt("id_estancia"));
@@ -60,8 +61,8 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 		
 	public void addOferta(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
-				"insert into OfertaProyecto(id_oferta,tarea,objetivo,estado,itinerario,fechaalta,id_estancia) values(?, ?, ?,?,?,?,?)", ofertaProyecto.getId(), ofertaProyecto.getTarea(),
-				ofertaProyecto.getObjetivo(),ofertaProyecto.getEstado(), ofertaProyecto.getItinerario(),ofertaProyecto.getFechaAlta(), ofertaProyecto.getIdEstancia());
+				"insert into OfertaProyecto(id_oferta,fechaalta,itinerario,estado,objetivo,tarea,id_estancia) values(?, ?, ?, ?, ?, ?, ?)", ofertaProyecto.getId(), ofertaProyecto.getFechaAlta(),
+				ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(), ofertaProyecto.getIdEstancia());
 	}
 		
 	public void updateOfertaProyecto(int id,EstadoOferta estado) {

@@ -1,9 +1,15 @@
 package es.uji.ei1027.btas.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -84,6 +90,12 @@ public class OfertaProyectoController {
 		public String processDelete(@PathVariable int id) {
 			ofertaProyectoDAO.deleteOferta(id);
 			return "redirect:../list";
+		}
+		
+		@InitBinder
+		public void initBinder(final WebDataBinder binder){
+		  final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd"); 
+		  binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 		}
 
 	

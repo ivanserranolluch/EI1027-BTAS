@@ -4,8 +4,8 @@ public enum Itinerario {
 
 	SIN_DEFINIR("Sin definir"),
 	INGENIERIA_SOFTWARE("Ingenieria de Software"),
-	SISTEMAS_INFORMACION("Sistemas de la Informacion"),
-	TECNOLOGIAS_INFORMACION("Tecnologias de la Informacion"),
+	SISTEMAS_INFORMACION("Sistemes de Informacio"),
+	TECNOLOGIAS_INFORMACION("Tecnologias Web"),
 	INGENIERIA_COMPUTADORES("Ingenieria de Computadores");
 	
 	private String descripcion;
