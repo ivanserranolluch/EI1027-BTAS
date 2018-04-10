@@ -34,7 +34,6 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 	        ofertaProyecto.setTarea(rs.getString("tarea"));
 	        ofertaProyecto.setObjetivo(rs.getString("objetivo"));
 	        //ofertaProyecto.setEstado(rs.getString("estado"));
-	        System.out.println(rs.getString("itinerario"));
 	        ofertaProyecto.setItinerario(rs.getString("itinerario"));
 	        ofertaProyecto.setFechaAlta(rs.getDate("fechaalta"));
 	        ofertaProyecto.setIdEstancia(rs.getInt("id_estancia"));
