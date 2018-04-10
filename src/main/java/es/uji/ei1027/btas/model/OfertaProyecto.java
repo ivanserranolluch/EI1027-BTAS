@@ -1,5 +1,6 @@
 package es.uji.ei1027.btas.model;
 
+import java.util.Date;
 import java.sql.Time;
 import java.util.HashSet;
 
@@ -10,7 +11,8 @@ public class OfertaProyecto {
 	private String objetivo;
 	private EstadoOferta estado;
 	private Itinerario itinerario;
-	private Time fechaAlta;
+	private Date fechaAlta;
+	private int idEstancia;
 	//private Time fechaUltimoCambio;
 	private HashSet<Asignacion> asignaciones;
 	private HashSet<PeticionRevision> peticionesRevision;
@@ -18,17 +20,21 @@ public class OfertaProyecto {
 	
 	public OfertaProyecto() {
 		super();
+		//this.itinerario=Itinerario.SIN_DEFINIR;
+		//this.estado=EstadoOferta.INTRODUCIDA;
+
 	}
 	
-	public OfertaProyecto(int id, String tarea, String objetivo, Time fechaAlta, HashSet<Asignacion> asignaciones,HashSet<PeticionRevision> peticionesRevision) {
+	public OfertaProyecto(int id, String tarea, String objetivo, Date fechaAlta, HashSet<Asignacion> asignaciones,HashSet<PeticionRevision> peticionesRevision, int id_estancia) {
 		this.id=id;
 		this.tarea=tarea;
 		this.objetivo=objetivo;
 		this.fechaAlta=fechaAlta;
 		this.asignaciones=asignaciones;
 		this.peticionesRevision=peticionesRevision;
-		this.estado=EstadoOferta.SIN_DEFINIR;
+		this.estado=EstadoOferta.INTRODUCIDA;
 		this.itinerario=Itinerario.SIN_DEFINIR;
+		this.idEstancia=id_estancia;
 	}
 //	public boolean introducirOferta() {
 //		return false;
@@ -86,7 +92,7 @@ public class OfertaProyecto {
 		this.objetivo = objetivo;
 	}
 	
-	public void setFechaAlta(Time time) {
+	public void setFechaAlta(Date time) {
 		this.fechaAlta = time;
 	}
 	
@@ -101,10 +107,10 @@ public class OfertaProyecto {
 		case "Ingenieria de Software":
 			itinerario=Itinerario.INGENIERIA_SOFTWARE;
 			break;
-		case "Sistemas de la Informacion":
+		case "Sistemes de Informacio":
 			itinerario=Itinerario.SISTEMAS_INFORMACION;
 			break;
-		case "Tecnologias de la Informacion":
+		case "Tecnologias Web":
 			itinerario=Itinerario.TECNOLOGIAS_INFORMACION;
 			break;
 		case "Ingenieria de Computadores":
@@ -128,10 +134,17 @@ public class OfertaProyecto {
 		return estado;
 	}
 	
-	public Time getFechaDeAlta() {
+	public Date getFechaAlta() {
 		return fechaAlta;
 	}
 	
+	public int getIdEstancia(){
+		return idEstancia;
+	}
+	
+	public void setIdEstancia(int idEstancia){
+		this.idEstancia=idEstancia;
+	}
 	
 	
 }

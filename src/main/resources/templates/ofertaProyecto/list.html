@@ -26,7 +26,7 @@
 				<td th:text="${oferta.estado}"></td>
 				<td th:text="${oferta.itinerario}"></td>
 				<td th:text="${oferta.fechaAlta}"></td>
-				<td><a th:href="@{/nadador/update/{nom}{nom=${nadador.nom}}}">Edita</a></td>
+				<td><a th:href="@{/ofertaproyecto/update/{id}{id=${oferta.id}}}">Edita</a></td>
 				<td><a th:href="@{/nadador/delete/{nom}{nom=${nadador.nom}}}">Esborra</a></td>
 			</tr>
 		</tbody>
