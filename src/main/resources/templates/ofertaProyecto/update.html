@@ -37,16 +37,16 @@
 			<tr>
 			<label>Itinerario</label>
 			
-		<select name="Itinerarios" th:field="*{itinerario}">       			
+		<select name="Itinerarios" th:field="*{descItinerario}">       			
 			       <option value="Sin definir">Sin definir</option> 
 			       <option value="Ingenieria de Software">Ingenieria de Software</option> 
 			       <option value="Tecnologias Web">Tecnologias Web</option>
 			       <option value="Sistemes de Informacio">Sistemas de la Informacion</option> 
 			       <option value="Ingenieria de Computadores">Ingenieria de computadores</option> 
-		</select></tr>
+		</select></tr> 
 			<tr>
-				<td><label>estado</label></td>
-				<select name="estado" th:field="*{estado}">       			
+				<label>Estado</label>
+				<select name="estado" th:field="*{descEstado}">       			
 			       <option value="Sin Definir">Sin definir</option> 
 			       <option value="Introducida">Introducida</option> 
 			       <option value="Aceptada">Aceptada</option>

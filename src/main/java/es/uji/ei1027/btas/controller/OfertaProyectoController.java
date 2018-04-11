@@ -72,15 +72,21 @@ public class OfertaProyectoController {
 		
 		@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
 		public String editOfertaProyecto(Model model, @PathVariable int id){
+			System.out.println("prepepeewrwerewne");
 			model.addAttribute("ofertaProyecto", ofertaProyectoDAO.getOfertaProyecto(id));
+			System.out.println("antes return");
 			return "ofertaProyecto/update";
 		}
 		
 		@RequestMapping(value="/update/{id}", method=RequestMethod.POST)
 		public String processUpdateSubmit(@PathVariable int id, @ModelAttribute("ofertaProyecto") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
-			if(bindingResult.hasErrors())
+			System.out.println("prepepne");
+			if(bindingResult.hasErrors()){
+				System.out.println(bindingResult.hasErrors());
 				return "ofertaProyecto/update";
-			ofertaProyectoDAO.updateOfertaProyecto(id,ofertaProyecto.getEstado());
+			}
+			System.out.println("pene");	
+			ofertaProyectoDAO.updateOfertaProyecto(id,ofertaProyecto.getEstado(),ofertaProyecto.getItinerario());
 			return "redirect:../list";
 		}
 		
@@ -94,7 +100,7 @@ public class OfertaProyectoController {
 		
 		@InitBinder
 		public void initBinder(final WebDataBinder binder){
-		  final SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd"); 
+		  final SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-DD"); 
 		  binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 		}
 

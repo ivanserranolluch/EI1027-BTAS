@@ -17,6 +17,7 @@ import org.springframework.stereotype.Repository;
 
 import es.uji.ei1027.btas.connection.ConnectionManager;
 import es.uji.ei1027.btas.model.EstadoOferta;
+import es.uji.ei1027.btas.model.Itinerario;
 import es.uji.ei1027.btas.model.OfertaProyecto;
 
 @Repository
@@ -36,7 +37,7 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 	        ofertaProyecto.setId(rs.getInt("id_oferta"));
 	        ofertaProyecto.setTarea(rs.getString("tarea"));
 	        ofertaProyecto.setObjetivo(rs.getString("objetivo"));
-	        //ofertaProyecto.setEstado(rs.getString("estado"));
+	        ofertaProyecto.setEstado(rs.getString("estado"));
 	        ofertaProyecto.setItinerario(rs.getString("itinerario"));
 	        ofertaProyecto.setFechaAlta(rs.getDate("fechaalta"));
 	        ofertaProyecto.setIdEstancia(rs.getInt("id_estancia"));
@@ -67,9 +68,9 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 				ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(), ofertaProyecto.getIdEstancia());
 	}
 		
-	public void updateOfertaProyecto(int id,EstadoOferta estado) {
+	public void updateOfertaProyecto(int id,EstadoOferta estado, Itinerario itinerario) {
 		this.jdbcTemplate.update(
-				"update OfertaProyecto set estado = ? where id_oferta=?", estado.getDescripcion(),id);
+				"update OfertaProyecto set estado = ? where id_oferta=? and itinerario=?", estado.getDescripcion(),id, itinerario.getDescripcion());
 	}
 		
 	public void deleteOferta(int id) {
@@ -78,8 +79,8 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 		        id);
 	}
 	
-	public List<OfertaProyecto> getItinerario(String itinerario){
-		return this.jdbcTemplate.query("SELECT * FROM OfertaProyecto WHERE itinerario=?;", new Object[] {itinerario}, new OfertaProyectoMapper());
+	public List<OfertaProyecto> getItinerario(Itinerario itinerario){
+		return this.jdbcTemplate.query("SELECT * FROM OfertaProyecto WHERE itinerario=?;", new Object[] {itinerario.getDescripcion()}, new OfertaProyectoMapper());
 	}
 	/*
 	private static int getNextId() {

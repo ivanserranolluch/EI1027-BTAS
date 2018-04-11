@@ -11,7 +11,9 @@ public class OfertaProyecto {
 	private String tarea;
 	private String objetivo;
 	private EstadoOferta estado;
+	private String descEstado;
 	private Itinerario itinerario;
+	private String descItinerario;
 	private Date fechaAlta;
 	private int idEstancia;
 	//private Time fechaUltimoCambio;
@@ -23,6 +25,7 @@ public class OfertaProyecto {
 		super();
 		//this.itinerario=Itinerario.SIN_DEFINIR;
 		this.estado=EstadoOferta.INTRODUCIDA;
+		this.descEstado=EstadoOferta.INTRODUCIDA.getDescripcion();
 
 	}
 	
@@ -34,8 +37,10 @@ public class OfertaProyecto {
 		this.asignaciones=asignaciones;
 		this.peticionesRevision=peticionesRevision;
 		this.estado=EstadoOferta.INTRODUCIDA;
+		this.descEstado=EstadoOferta.INTRODUCIDA.getDescripcion();
 		this.itinerario=Itinerario.SIN_DEFINIR;
 		this.idEstancia=id_estancia;
+		this.descItinerario=Itinerario.SIN_DEFINIR.getDescripcion();
 	}
 //	public boolean introducirOferta() {
 //		return false;
@@ -70,6 +75,7 @@ public class OfertaProyecto {
 			estado=EstadoOferta.ASIGNADA;
 			break;
 		}
+		this.descEstado=estado.getDescripcion();
 	}
 	
 
@@ -118,7 +124,24 @@ public class OfertaProyecto {
 			this.itinerario=Itinerario.INGENIERIA_COMPUTADORES;
 			break;
 		}
+		this.descItinerario=itinerario.getDescripcion();
 	}
+	public String getDescEstado() {
+		return descEstado;
+	}
+
+	public void setDescEstado(String descEstado) {
+		this.descEstado = descEstado;
+	}
+
+	public String getDescItinerario() {
+		return descItinerario;
+	}
+
+	public void setDescItinerario(String descItinerario) {
+		this.descItinerario = descItinerario;
+	}
+
 	public HashSet<Asignacion> getAsignaciones() {
 		return asignaciones;
 	}
