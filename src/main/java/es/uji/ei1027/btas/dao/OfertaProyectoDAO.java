@@ -68,9 +68,9 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 				ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(), ofertaProyecto.getIdEstancia());
 	}
 		
-	public void updateOfertaProyecto(int id,EstadoOferta estado, Itinerario itinerario) {
+	public void updateOfertaProyecto(int id,EstadoOferta estado) {
 		this.jdbcTemplate.update(
-				"update OfertaProyecto set estado = ? where id_oferta=? and itinerario=?", estado.getDescripcion(),id, itinerario.getDescripcion());
+				"update OfertaProyecto set estado = ? where id_oferta=?", estado.getDescripcion(),id);
 	}
 		
 	public void deleteOferta(int id) {

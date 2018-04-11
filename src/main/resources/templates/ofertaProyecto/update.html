@@ -7,8 +7,9 @@
 </head>
 <body>
 	<h2>Nova oferta</h2>
-	<form action="#" th:action="@{/ofertaProyecto/update}" th:object="${ofertaProyecto}" method="post">
+	<form action="#" th:action="@{/ofertaProyecto/update/} + ${ofertaProyecto.id}" th:object="${ofertaProyecto}" method="post">
 		<table>
+		
 <!-- 			<tr> -->
 <!-- 				<td><label>id</label></td> -->
 <!-- 				<td><input type="text" th:field="*{id}" /></td> -->

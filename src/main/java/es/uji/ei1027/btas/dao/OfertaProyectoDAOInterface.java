@@ -14,7 +14,7 @@ public interface OfertaProyectoDAOInterface {
 	
 	public void addOferta(OfertaProyecto ofertaProyecto);
 	
-	public void updateOfertaProyecto(int id,EstadoOferta estado, Itinerario itinerario);
+	public void updateOfertaProyecto(int id,EstadoOferta estado);
 	
 	public void deleteOferta(int id);
 	
