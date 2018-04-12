@@ -1,5 +1,6 @@
 package es.uji.ei1027.btas.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import es.uji.ei1027.btas.model.EstadoOferta;
@@ -14,7 +15,9 @@ public interface OfertaProyectoDAOInterface {
 	
 	public void addOferta(OfertaProyecto ofertaProyecto);
 	
-	public void updateOfertaProyecto(int id,EstadoOferta estado);
+	public void updateOfertaProyectoEstado(int id,String estado);
+	
+	public void updateOfertaProyecto(int id, String estado, String itinerario, int id_estancia, Date fechaAlta, String objetvio, String tarea);
 	
 	public void deleteOferta(int id);
 	

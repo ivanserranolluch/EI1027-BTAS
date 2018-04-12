@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -68,9 +69,9 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 				ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(), ofertaProyecto.getIdEstancia());
 	}
 		
-	public void updateOfertaProyecto(int id,EstadoOferta estado) {
+	public void updateOfertaProyectoEstado(int id,String estado) {
 		this.jdbcTemplate.update(
-				"update OfertaProyecto set estado = ? where id_oferta=?", estado.getDescripcion(),id);
+				"update OfertaProyecto set estado = ? where id_oferta=?", estado,id);
 	}
 		
 	public void deleteOferta(int id) {
@@ -139,4 +140,11 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 		return listId.get(-1)+1;
 
 	}
-*/}
+*/
+	@Override
+	public void updateOfertaProyecto(int id, String estado, String itinerario, int id_estancia, Date fechaAlta,
+			String objetivo, String tarea) {
+		this.jdbcTemplate.update(
+				"update OfertaProyecto set estado = ?,itinerario=?,id_estancia=?,fechaalta=?,tarea=?,objetivo=? where id_oferta=?", estado,itinerario,id_estancia,fechaAlta,tarea,objetivo,id);
+		
+	}}

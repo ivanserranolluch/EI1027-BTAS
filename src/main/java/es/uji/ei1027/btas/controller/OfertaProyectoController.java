@@ -86,7 +86,8 @@ public class OfertaProyectoController {
 				return "ofertaProyecto/update";
 			}
 			System.out.println("pene");	
-			ofertaProyectoDAO.updateOfertaProyecto(id,ofertaProyecto.getEstado());
+	
+			ofertaProyectoDAO.updateOfertaProyecto(id,ofertaProyecto.getDescEstado(), ofertaProyecto.getDescItinerario(), ofertaProyecto.getIdEstancia(),ofertaProyecto.getFechaAlta(),ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea());
 			System.out.println("despues de pene");
 			return "redirect:../list";
 		}

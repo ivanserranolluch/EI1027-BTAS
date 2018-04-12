@@ -69,7 +69,7 @@ public class OfertaProyecto {
 		case "Rechazada":
 			estado=EstadoOferta.RECHAZADA;
 			break;
-		case "Visible para los alumnos":
+		case "Visible alumnos":
 			estado=EstadoOferta.VISIBLE_ALUMNOS;
 		case "Asignada":
 			estado=EstadoOferta.ASIGNADA;

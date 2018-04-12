@@ -7,7 +7,7 @@ public enum EstadoOferta {
 	PENDIENTE_REVISION("Pendiente de revision"),
 	ACEPTADA("Aceptada"),
 	RECHAZADA("Rechazada"),
-	VISIBLE_ALUMNOS("Visible para los alumnos"),
+	VISIBLE_ALUMNOS("Visible alumnos"),
 	ASIGNADA("Asignada");
 	
 	private String descripcion;
