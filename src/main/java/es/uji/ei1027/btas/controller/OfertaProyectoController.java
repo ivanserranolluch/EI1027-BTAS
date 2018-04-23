@@ -51,6 +51,16 @@ public class OfertaProyectoController {
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
 			return "ofertaProyecto/list";
 		}
+		@RequestMapping("/listes")
+		public String listOfertasEstudiant(Model model) {
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
+			return "ofertaProyecto/listes";
+		}
+		/*@RequestMapping("/listitinerario")
+		public String listOfertasItinerario(Model model) {
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
+			return "ofertaProyecto/list";
+		}*/
 
 		//OPERACION CREAR
 		@RequestMapping(value="/add")
@@ -72,9 +82,8 @@ public class OfertaProyectoController {
 		
 		@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
 		public String editOfertaProyecto(Model model, @PathVariable int id){
-			System.out.println("prepepeewrwerewne");
+			
 			model.addAttribute("ofertaProyecto", ofertaProyectoDAO.getOfertaProyecto(id));
-			System.out.println("antes return");
 			return "ofertaProyecto/update";
 		}
 		
@@ -85,7 +94,7 @@ public class OfertaProyectoController {
 				System.out.println(bindingResult.hasErrors());
 				return "ofertaProyecto/update";
 			}
-			System.out.println("pene");	
+			
 	
 			ofertaProyectoDAO.updateOfertaProyecto(id,ofertaProyecto.getDescEstado(), ofertaProyecto.getDescItinerario(), ofertaProyecto.getIdEstancia(),ofertaProyecto.getFechaAlta(),ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea());
 			System.out.println("despues de pene");

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8" />
 	<title>Crear nova oferta</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 	<h2>Nova oferta</h2>
@@ -11,7 +12,7 @@
 		<table>
 			  <tr>
 				<td><label>id</label></td>
-				<td><input type="text" th:field="*{id}" /></td>
+				<td><input type="text" th:field="*{id}" placeholder="identificador oferta" /></td>
 			</tr>  
 			<tr>
 				<td><label>id de la Estancia</label></td>
@@ -19,12 +20,12 @@
 			</tr>
 			<tr>
 				<td><label>tarea</label></td>
-				<td><input type="text" th:field="*{tarea}" /></td>
+				<td><input type="text" th:field="*{tarea}" placeholder="tarea a realizar" /></td>
 			</tr>
 			
 			<tr>
 				<td><label>objetivo</label></td>
-				<td><input type="text" th:field="*{objetivo}" /></td>
+				<td><input type="text" th:field="*{objetivo}" placeholder="objetivo de la práctica"/></td>
 			</tr>
 			
 			<tr>
