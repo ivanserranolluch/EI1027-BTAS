@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>Gestionar Ofertas</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+</head>
+<body>
+	<h1>Lista de Ofertas</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Id_Oferta</th>
+				<th>tarea</th>
+				<th>objetivo</th>
+				<th>estado</th>
+				<th>itinerario</th>
+				<th>fechaAlta</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="oferta: ${ofertas}">
+				<td th:text="${oferta.id}"></td>
+				<td th:text="${oferta.tarea}"></td>
+				<td th:text="${oferta.objetivo}"></td>
+				<td th:text="${oferta.descEstado}"></td>
+				<td th:text="${oferta.descItinerario}"></td>
+				<td th:text="${oferta.fechaAlta}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
