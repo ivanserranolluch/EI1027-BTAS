@@ -52,7 +52,18 @@ public class Asignacion {
 		return estadoAsignacion;
 	}
 
-	public void setEstadoAsignacion(EstadoAsignacion estadoAsignacion) {
+	public void setEstadoAsignacion(String descripcionEstadoAsignacion) {
+		switch (descripcionEstadoAsignacion) {
+		case "Aceptada":
+			estadoAsignacion=EstadoAsignacion.ACEPTADA;
+			break;
+		case "Rechazada":
+			estadoAsignacion=EstadoAsignacion.RECHAZADA;
+			break;
+		case "Traspasada":
+			estadoAsignacion=EstadoAsignacion.TRASPASADA;
+			break;
+		}
 		this.estadoAsignacion = estadoAsignacion;
 	}
 

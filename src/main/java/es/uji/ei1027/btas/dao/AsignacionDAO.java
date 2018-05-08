@@ -22,12 +22,12 @@ public class AsignacionDAO  implements AsignacionDAOInterface{
 	        this.jdbcTemplate = new JdbcTemplate(dataSource); 
 	}
 	
-	private static final class AsignacionMapper implements RowMapper{
+	private static final class AsignacionMapper implements RowMapper<Asignacion>{
 		public Asignacion mapRow(ResultSet rs, int rowNum) throws SQLException{
 			Asignacion asignacion = new Asignacion();
 			asignacion.setFechaAceptacion(rs.getDate("fechaAsignacion"));
 			asignacion.setFechaPropuesta(rs.getDate("fechaPropuesta"));
-			//asignacion.setEstadoAsignacion(rs.getString("estado"));
+			asignacion.setEstadoAsignacion(rs.getString("estado"));
 			asignacion.setFechaRechazo(rs.getDate("fechaRechazo"));
 			asignacion.setFechaTraspaso(rs.getDate("fechaTraspaso"));
 			asignacion.setComentarioPetCambio(rs.getString("comentarioPetCambio"));
@@ -51,7 +51,7 @@ public class AsignacionDAO  implements AsignacionDAOInterface{
 	@Override
 	public Asignacion getAsignacionEstudiante(String dniE) {
 		
-		return null;
+		return this.jdbcTemplate.queryForObject("select * from asignacion where dniE=?", new Object[] {dniE}, new AsignacionMapper());
 	}
 	
 

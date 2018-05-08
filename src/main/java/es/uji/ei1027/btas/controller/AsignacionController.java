@@ -17,7 +17,7 @@ public class AsignacionController {
 	//OPERACION AÑADIR
 	
 	@RequestMapping(value="/add")
-	public String addAsignación(Model model) {
+	public String addAsignacion(Model model) {
 		model.addAttribute("asignacion",new Asignacion());
 		return "asignacion/add";
 		
