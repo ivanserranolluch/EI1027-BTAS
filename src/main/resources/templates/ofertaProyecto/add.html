@@ -9,7 +9,7 @@
 <body>
 	<h2>Nova oferta</h2>
 	<form action="#" th:action="@{/ofertaProyecto/add}" th:object="${ofertaProyecto}" method="post">
-		<table>
+		<table class="table table-bordered">
 			  <tr>
 				<td><label>id</label></td>
 				<td><input type="text" th:field="*{id}" placeholder="identificador oferta" /></td>

@@ -10,7 +10,7 @@
 <body>
 	<h2>oferta</h2>
 	<form action="#" th:action="@{/ofertaProyecto/delete}" th:object="${oferta}" method="post">
-		<table>
+		<table class="table table-bordered">
 			<tr>
 				<td><label>id</label></td>
 				<td><input type="text" th:field="*{id}" /></td>
