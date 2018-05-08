@@ -8,8 +8,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
+
 import es.uji.ei1027.btas.dao.OfertaProyectoDAO;
 import es.uji.ei1027.btas.dao.PreferenciasEstudianteDAO;
+import es.uji.ei1027.btas.services.AsignacionService;
+import es.uji.ei1027.btas.services.AsignacionSvc;
 import es.uji.ei1027.btas.services.OfertaProyectoService;
 import es.uji.ei1027.btas.services.OfertaProyectoSvc;
 
@@ -31,6 +34,13 @@ public class BtasConfiguration {
 	public PreferenciasEstudianteDAO preferencias() {
 		return new PreferenciasEstudianteDAO();
 	}
+	
+	@Bean
+	@Primary
+	public AsignacionService asignacionService() {
+		return new AsignacionSvc();
+	}
+	
 	/*@Bean
 	public ProvaController provaController(){
 		final ProvaController provaController = new ProvaController();
