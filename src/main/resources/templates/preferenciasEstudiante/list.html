@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>Gestionar Preferencias</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>Lista de Preferencias</h1>
+	<table   class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>orden</th>
+				<th>estado</th>
+				<th>fechaUltimoCambio</th>
+				<th>dni</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="preferenciasEstudiante: ${preferencias}">
+				<td th:text="${preferenciasEstudiante.id}"></td>
+				<td th:text="${preferenciasEstudiante.orden}"></td>
+				<td th:text="${preferenciasEstudiante.descEstado}"></td>
+				<td th:text="${preferenciasEstudiante.fechaUltimoCambio}"></td>
+				<td th:text="${preferenciasEstudiante.dni}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="add.html">Afegeix preferencia</a>
+</body>
+</html>

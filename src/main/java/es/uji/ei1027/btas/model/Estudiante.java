@@ -8,6 +8,7 @@ public class Estudiante extends Contacto {
 	private String al;
 	private String apellidos;
 	private Itinerario itinerario;
+	private String descItinerario;
 	private double notaMedia;
 	private int numAsigPendiente;
 	private int numCreditosAprobados;
@@ -25,6 +26,7 @@ public class Estudiante extends Contacto {
 		this.numCreditosAprobados= numCreditosAprobados;
 		this.notaMedia= notaMedia;
 		this.itinerario=Itinerario.SIN_DEFINIR;
+		this.descItinerario=Itinerario.SIN_DEFINIR.getDescripcion();
 		this.numAsigPendiente= numAsigPendiente;
 		this.semestreInicioEstancia= semestreInicioEstancia;
 		this.preferencias = preferencias;
@@ -46,6 +48,14 @@ public class Estudiante extends Contacto {
 
 	
 
+	public String getDescItinerario() {
+		return descItinerario;
+	}
+
+	public void setDescItinerario(String descItinerario) {
+		this.descItinerario = descItinerario;
+	}
+
 	public void setAl(String al) {
 		this.al = al;
 	}
@@ -65,21 +75,26 @@ public class Estudiante extends Contacto {
 	public void setItinerario(String itinerarioDescrip) {
 		switch(itinerarioDescrip) {	
 		case "Sin definir":
-			itinerario=Itinerario.SIN_DEFINIR;
+			this.itinerario=Itinerario.SIN_DEFINIR;
 			break;
 		case "Ingenieria de Software":
-			itinerario=Itinerario.INGENIERIA_SOFTWARE;
+			this.itinerario=Itinerario.INGENIERIA_SOFTWARE;
 			break;
-		case "Sistemas de la Informacion":
-			itinerario=Itinerario.SISTEMAS_INFORMACION;
+		case "Sistemes de Informacio":
+			this.itinerario=Itinerario.SISTEMAS_INFORMACION;
 			break;
-		case "Tecnologias de la Informacion":
-			itinerario=Itinerario.TECNOLOGIAS_INFORMACION;
+		case "Tecnologias Web":
+			this.itinerario=Itinerario.TECNOLOGIAS_INFORMACION;
 			break;
 		case "Ingenieria de Computadores":
-			itinerario=Itinerario.INGENIERIA_COMPUTADORES;
+			this.itinerario=Itinerario.INGENIERIA_COMPUTADORES;
+			break;
+		default:
+			this.itinerario=Itinerario.SIN_DEFINIR;
 			break;
 		}
+		this.descItinerario= itinerario.getDescripcion();
+		
 	}
 
 	public void setNumAsigPendiente(int numAsigPendiente) {
@@ -121,6 +136,8 @@ public class Estudiante extends Contacto {
 	public int getSemestreInicioEstancia() {
 		return semestreInicioEstancia;
 	}
+	
+	
 
 	public HashSet<PreferenciasEstudiante> getPreferencias() {
 		return preferencias;
@@ -165,5 +182,5 @@ public class Estudiante extends Contacto {
 	public void setEmail(String emailNuevo) {
 		super.setEmail(emailNuevo);
 	}
-
+	
 }

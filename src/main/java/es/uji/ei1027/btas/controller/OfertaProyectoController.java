@@ -48,11 +48,14 @@ public class OfertaProyectoController {
 	
 		@RequestMapping("/list")
 		public String listOfertas(Model model) {
+			System.out.println("entro aqui");
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
 			return "ofertaProyecto/list";
 		}
 		@RequestMapping("/listes")
+		
 		public String listOfertasEstudiant(Model model) {
+			System.out.println("entro aqui");
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
 			return "ofertaProyecto/listes";
 		}
@@ -65,6 +68,7 @@ public class OfertaProyectoController {
 		//OPERACION CREAR
 		@RequestMapping(value="/add")
 		public String addOfertaProyecto(Model model) {
+			System.out.println("enqweqwtro aqui");
 			model.addAttribute("ofertaProyecto", new OfertaProyecto());
 			return "ofertaProyecto/add";
 		}
@@ -89,15 +93,16 @@ public class OfertaProyectoController {
 		
 		@RequestMapping(value="/update/{id}", method=RequestMethod.POST)
 		public String processUpdateSubmit(@PathVariable int id, @ModelAttribute("ofertaProyecto") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
-			System.out.println("prepepne");
+			
 			if(bindingResult.hasErrors()){
 				System.out.println(bindingResult.hasErrors());
 				return "ofertaProyecto/update";
 			}
 			
 	
-			ofertaProyectoDAO.updateOfertaProyecto(id,ofertaProyecto.getDescEstado(), ofertaProyecto.getDescItinerario(), ofertaProyecto.getIdEstancia(),ofertaProyecto.getFechaAlta(),ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea());
-			System.out.println("despues de pene");
+			ofertaProyectoDAO.updateOfertaProyecto(id,ofertaProyecto.getDescEstado(), ofertaProyecto.getDescItinerario(), 
+					ofertaProyecto.getIdEstancia(),ofertaProyecto.getFechaAlta(),ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea());
+			
 			return "redirect:../list";
 		}
 		

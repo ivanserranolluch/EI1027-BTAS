@@ -23,7 +23,7 @@ public class PreferenciasEstudianteSvc implements PreferenciasEstudianteService{
 	
 	@Override
 	public List<PreferenciasEstudiante> getPreferenciasEstudiante(String id) {
-		List<PreferenciasEstudiante> listaPreferencias = preferenciasEstudianteDao.getOfertaDePreferencies("id");
+		List<PreferenciasEstudiante> listaPreferencias = preferenciasEstudianteDao.getPreferencies();
 		//HashMap<String, List<Nadador>> nadadorsPerPais = new HashMap<>();
 		/*for (PreferenciasEstudiante clsf : listaPreferencias){
 			Nadador nadador = nadadorDao.getNadador(clsf.getNomNadador());
