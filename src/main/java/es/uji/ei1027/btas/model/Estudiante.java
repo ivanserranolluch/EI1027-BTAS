@@ -18,7 +18,7 @@ public class Estudiante extends Contacto {
 
 	public Estudiante() {super();}
 
-	public Estudiante(String dni, Direccion direccion, String nombre, String apellidos, int telefono, String email, 
+	public Estudiante(String dni, int direccion, String nombre, String apellidos, int telefono, String email, 
 			int numCreditosAprobados, double notaMedia, int numAsigPendiente, int semestreInicioEstancia, String al, HashSet<PreferenciasEstudiante> preferencias) {
 		super(dni,direccion,nombre,telefono,email);
 		this.al= al;
@@ -149,7 +149,7 @@ public class Estudiante extends Contacto {
 		super.setId(nuevoDni);
 	}
 	
-	public Direccion getDireccion(){
+	public int getDireccion(){
 		return super.getDireccion();
 	}
 	
@@ -165,7 +165,7 @@ public class Estudiante extends Contacto {
 		return super.getEmail();
 	}
 	
-	public void setDirecciones(List<Direccion> lista) {
+	public void setDirecciones(int lista) {
 		super.setDirecciones(lista);
 	}
 	

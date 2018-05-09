@@ -14,7 +14,7 @@ public class Empresa extends Contacto{
 		super();
 	}
 
-	public Empresa(String cif, Direccion direccion, String nombre, int telefono, String email, String direccionWeb, HashSet<Estancia> ofertasEstancia, List<PersonaContacto> personas ) {
+	public Empresa(String cif, int direccion, String nombre, int telefono, String email, String direccionWeb, HashSet<Estancia> ofertasEstancia, List<PersonaContacto> personas ) {
 		super(cif,direccion,nombre,telefono,email);
 		this.direccionWeb = direccionWeb;
 		this.ofertasEstancia = ofertasEstancia;
