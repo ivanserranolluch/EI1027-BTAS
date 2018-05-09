@@ -6,10 +6,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired; 
 import org.springframework.stereotype.Controller; 
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult; 
 import org.springframework.web.bind.annotation.ModelAttribute; 
 import org.springframework.web.bind.annotation.RequestMapping; 
-import org.springframework.web.bind.annotation.RequestMethod; 
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import es.uji.ei1027.btas.dao.UserDao;
 import es.uji.ei1027.btas.model.UserDetails;
@@ -46,7 +48,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String checkLogin(@ModelAttribute("user") UserDetails user,  		
+	public String checkLogin(@ModelAttribute("user") UserDetails user, 		
 				BindingResult bindingResult, HttpSession session) {
 		UserValidator userValidator = new UserValidator(); 
 		userValidator.validate(user, bindingResult); 
