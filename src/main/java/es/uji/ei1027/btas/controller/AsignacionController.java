@@ -23,6 +23,14 @@ public class AsignacionController {
 		
 	}
 	
+	//OPERACION LISTAR ASIGNACIONES
+	@RequestMapping(value="/list")
+	public String listAsignacion(Model model) {
+		model.addAttribute("asignacion",new Asignacion());
+		return "asignacion/add";
+		
+	}
+	
 	
 
 }
