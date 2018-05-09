@@ -2,25 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
 	<meta charset="UTF-8" />
-	<title>Crear nou nadador</title>
+	<title>Actualiza un tutor</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
 	
 </head>
 <body>
-	<h2>Nuevo Estudiante</h2>
-	<form action="#" th:action="@{/estudiante/update/} + ${estudiante.id}" th:object="${estudiante}" method="post">
+	<h2>Tutor</h2>
+	<form action="#" th:action="@{/tutor/update/} + ${tutor.id}" th:object="${tutor}" method="post">
 		<table>
-		
-<!-- 			<tr> -->
-<!-- 				<td><label>id</label></td> -->
-<!-- 				<td><input type="text" th:field="*{id}" /></td> -->
-<!-- 			</tr> -->
-			
-			  
 			<tr>
-				<td><label>al</label></td>
-				<td><input type="text" th:field="*{al}" /></td>
+				<td><label>id direccion</label></td>
+				<td><input type="number" th:field="*{id_dir}" /></td>
 			</tr>
 			<tr>
 				<td><label>nombre</label></td>
@@ -28,43 +21,29 @@
 			</tr>
 			
 			<tr>
-				<td><label>apellidos</label></td>
-				<td><input type="text" th:field="*{apellidos}" /></td>
-			</tr>
-		
-		
-			<tr>
-			<label>Itinerario</label>
-			
-		<select name="Itinerarios" th:field="*{descItinerario}">       			
-			       <option value="Sin definir">Sin definir</option> 
-			       <option value="Ingenieria de Software">Ingenieria de Software</option> 
-			       <option value="Tecnologias Web">Tecnologias Web</option>
-			       <option value="Sistemes de Informacio">Sistemas de la Informacion</option> 
-			       <option value="Ingenieria de Computadores">Ingenieria de computadores</option> 
-		</select></tr> 
-		<tr>
-				<td><label>notaMedia</label></td>
-				<td><input type="text" th:field="*{notaMedia}" /></td>
-			</tr>
-				<tr>
-				<td><label>numAsigPen</label></td>
-				<td><input type="text" th:field="*{numAsigPendiente}" /></td>
+				<td><label>despacho</label></td>
+				<td><input type="text" th:field="*{despacho}" /></td>
 			</tr>
 			<tr>
-				<td><label>numcreditosaprov</label></td>
-				<td><input type="text" th:field="*{numCreditosAprobados}" /></td>
+				<td><label>departamento</label></td>
+				<td><input type="text" th:field="*{departamento}" /></td>
 			</tr>
 			<tr>
-				<td><label>semestreInicioEstancia</label></td>
-				<td><input type="text" th:field="*{semestreInicioEstancia}" /></td>
+				<td><label>email</label></td>
+				<td><input type="text" th:field="*{email}" /></td>
+			</tr>
+			<tr>
+				<td><label>telefono</label></td>
+				<td><input type="number" th:field="*{telefono}" /></td>
 			</tr>
 			
 			<tr>
-				<td colspan="2"><input type="submit" value="Actualitza estudiante" /></td>
+				<td colspan="2"><input type="submit" value="Actualitza tutor" /></td>
 				
 			</tr>
 		</table>
 	</form>
+	<li><a href="list.html">cancelar</a></li>
+	
 </body>
 </html>

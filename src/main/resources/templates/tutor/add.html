@@ -2,21 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
 	<meta charset="UTF-8" />
-	<title>Crear nova oferta</title>
+	<title>Añadir un tutor nuevo</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-	<h2>Nuevo estudiante</h2>
-	<form action="#" th:action="@{/estudiante/add}" th:object="${estudiante}" method="post">
+	<h2>Nuevo tutor</h2>
+	<form action="#" th:action="@{/tutor/add}" th:object="${tutor}" method="post">
 		<table>
 			  <tr>
 				<td><label>dni</label></td>
-				<td><input type="text" th:field="*{dni}" placeholder="identificador estudiante" /></td>
+				<td><input type="text" th:field="*{dni}" placeholder="dni del tutor" /></td>
 			</tr>  
 			<tr>
-				<td><label>al</label></td>
-				<td><input type="text" th:field="*{al}" /></td>
+				<td><label>id direccion</label></td>
+				<td><input type="number" th:field="*{id_dir}" /></td>
 			</tr>
 			<tr>
 				<td><label>nombre</label></td>
@@ -24,8 +24,12 @@
 			</tr>
 			
 			<tr>
-				<td><label>apellidos</label></td>
-				<td><input type="text" th:field="*{apellidos}" /></td>
+				<td><label>despacho</label></td>
+				<td><input type="text" th:field="*{despacho}" /></td>
+			</tr>
+			<tr>
+				<td><label>departamento</label></td>
+				<td><input type="text" th:field="*{departamento}" /></td>
 			</tr>
 			<tr>
 				<td><label>email</label></td>
@@ -33,39 +37,10 @@
 			</tr>
 			<tr>
 				<td><label>telefono</label></td>
-				<td><input type="text" th:field="*{telefono}" /></td>
-			</tr>
-		
-			<tr>
-			<label>Itinerario</label>
-			
-		<select name="Itinerarios" th:field="*{itinerario}">       			
-			       <option value="Sin definir">Sin definir</option> 
-			       <option value="Ingenieria de Software">Ingenieria de Software</option> 
-			       <option value="Tecnologias Web">Tecnologias de la Informacion</option>
-			       <option value="Sistemes de Informacio">Sistemas de la Informacion</option> 
-			       <option value="Ingenieria de Computadores">Ingenieria de computadores</option> 
-		</select></tr>
-		
-			<tr>
-				<td><label>notaMedia</label></td>
-				<td><input type="text" th:field="*{notaMedia}" /></td>
-			</tr>
-			
-			<tr>
-				<td><label>numAsigPen</label></td>
-				<td><input type="text" th:field="*{numAsigPendiente}" /></td>
+				<td><input type="number" th:field="*{telefono}" /></td>
 			</tr>
 			<tr>
-				<td><label>numcreditosaprov</label></td>
-				<td><input type="text" th:field="*{numCreditosAprobados}" /></td>
-			</tr>
-			<tr>
-				<td><label>semestreInicioEstancia</label></td>
-				<td><input type="text" th:field="*{semestreInicioEstancia}" /></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="Afegeix estudiant" /></td>
+				<td colspan="2"><input type="submit" value="Afegeix tutor" /></td>
 				
 			</tr>
 		</table>
