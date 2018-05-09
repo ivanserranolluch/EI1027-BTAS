@@ -17,7 +17,7 @@ public class Estudiante extends Contacto {
 
 	public Estudiante() {super();}
 
-	public Estudiante(String dni, List<Direccion> direccion, String nombre, String apellidos, int telefono, String email, 
+	public Estudiante(String dni, Direccion direccion, String nombre, String apellidos, int telefono, String email, 
 			int numCreditosAprobados, double notaMedia, int numAsigPendiente, int semestreInicioEstancia, String al, HashSet<PreferenciasEstudiante> preferencias) {
 		super(dni,direccion,nombre,telefono,email);
 		this.al= al;
@@ -39,9 +39,7 @@ public class Estudiante extends Contacto {
 		this.itinerario=estudiante.itinerario;
 		this.numAsigPendiente= estudiante.numAsigPendiente;
 		this.semestreInicioEstancia= estudiante.semestreInicioEstancia;
-		this.preferencias = estudiante.preferencias;
-
-		
+		this.preferencias = estudiante.preferencias
 	}*/
 
 	
@@ -134,8 +132,8 @@ public class Estudiante extends Contacto {
 		super.setId(nuevoDni);
 	}
 	
-	public List<Direccion> getDirecciones(){
-		return super.getDirecciones();
+	public Direccion getDireccion(){
+		return super.getDireccion();
 	}
 	
 	public String getNombre() {
