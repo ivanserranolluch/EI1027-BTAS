@@ -31,7 +31,7 @@ public class TutorDAO implements TutorDAOInterface{
 	        tutor.setNombre(rs.getString("nombre"));
 	        tutor.setEmail(rs.getString("email"));
 	        tutor.setTelefono(rs.getInt("telefono"));
-	        tutor.setDepartamento(rs.getString("departame"));
+	        tutor.setDepartamento(rs.getString("departamento"));
 	        tutor.setDespacho(rs.getString("despacho"));
 	        tutor.setDireccion(rs.getInt("id_dir"));
 	        return tutor;
@@ -55,7 +55,7 @@ public class TutorDAO implements TutorDAOInterface{
 		this.jdbcTemplate.update(
 				"insert into Contacto(dni,nombre,email,telefono,id_dir) values(?,?,?,?,?)",tutor.getDni(),tutor.getNombre(),tutor.getEmail(),tutor.getTelefono(), tutor.getDireccion())
 ;				
-		this.jdbcTemplate.update("insert into Tutor(dni,departame,despacho,email) values(?,?,?,?)",
+		this.jdbcTemplate.update("insert into Tutor(dni,departamento,despacho,email) values(?,?,?,?)",
 				tutor.getDni(), tutor.getDepartamento(),tutor.getDespacho(),tutor.getEmail());
 	}		
 
@@ -66,7 +66,7 @@ public class TutorDAO implements TutorDAOInterface{
 		this.jdbcTemplate.update(
 				"update Contacto set email=?,telefono=?,nombre=?,id_dir=? where dni = ?", email,telefono,nombre, id_dir,dni);
 		this.jdbcTemplate.update(
-				"update Tutor set departame=?,despacho=?,email=? where dni = ?", departamento,despacho,email,dni);
+				"update Tutor set departamento=?,despacho=?,email=? where dni = ?", departamento,despacho,email,dni);
 		
 	}
 

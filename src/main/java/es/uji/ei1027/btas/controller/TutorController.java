@@ -64,7 +64,7 @@ public class TutorController {
 		return "tutor/update";
 	}
 	
-	@RequestMapping(value="/update/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/update/{dni}", method=RequestMethod.POST)
 	public String processUpdateSubmit(@PathVariable String dni, @ModelAttribute("tutor") Tutor tutor, BindingResult bindingResult){
 		if(bindingResult.hasErrors()){
 			System.out.println(bindingResult.hasErrors());
