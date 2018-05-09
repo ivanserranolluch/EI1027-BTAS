@@ -61,7 +61,7 @@ public class Tutor extends Contacto {
 		return super.getEmail();
 	}
 	
-	public void setDirecciones(int idDirNuevo) {
+	public void setDireccion(int idDirNuevo) {
 		super.setDirecciones(idDirNuevo);
 	}
 	
