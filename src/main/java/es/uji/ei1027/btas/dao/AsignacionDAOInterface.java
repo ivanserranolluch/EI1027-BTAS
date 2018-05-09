@@ -19,7 +19,7 @@ public interface AsignacionDAOInterface {
 	public void addAsignacion(Asignacion asignacion);
 	
 	//Modifica la asignacion por estado.
-	public void updateAsignacionEstado(int id,String estado);
+	public void updateAsignacionEstado(String estado);
 	
 	public void updateAsignacion();
 	

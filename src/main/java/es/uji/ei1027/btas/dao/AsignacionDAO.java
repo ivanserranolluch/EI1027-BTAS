@@ -43,14 +43,11 @@ public class AsignacionDAO  implements AsignacionDAOInterface{
 	
 	@Override
 	public List<Asignacion> getAsignacion() {
-		
 		return this.jdbcTemplate.query("select * from asignacion", new AsignacionMapper());
-		
 	}
 
 	@Override
 	public Asignacion getAsignacionEstudiante(String dniE) {
-		
 		return this.jdbcTemplate.queryForObject("select * from asignacion where dniE=?", new Object[] {dniE}, new AsignacionMapper());
 	}
 	
@@ -62,8 +59,8 @@ public class AsignacionDAO  implements AsignacionDAOInterface{
 	}
 
 	@Override
-	public void updateAsignacionEstado(int id, String estado) {
-		
+	public void updateAsignacionEstado(String estado) {
+		this.jdbcTemplate.update("update asignacion set estado = ?",estado);
 		
 	}
 
