@@ -64,13 +64,7 @@ public class Empresa extends Contacto{
 		return personasContacto;
 	}
 
-	public String getCIF(){
-		return super.getId();
-	}
-	
-	public void setCIF(String nuevoDni) {
-		super.setId(nuevoDni);
-	}
+
 	
 	public int getDireccion(){
 		return super.getDireccion();
