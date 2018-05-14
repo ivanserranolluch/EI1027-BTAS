@@ -64,5 +64,44 @@ public class Empresa extends Contacto{
 		return personasContacto;
 	}
 
+	public String getCIF(){
+		return super.getId();
+	}
+	
+	public void setCIF(String nuevoDni) {
+		super.setId(nuevoDni);
+	}
+	
+	public int getDireccion(){
+		return super.getDireccion();
+	}
+	
+	public String getNombre() {
+		return super.getNombre();
+	}
+	
+	public int getTelefono() {
+		return super.getTelefono();
+	}
+	
+	public String getEmail() {
+		return super.getEmail();
+	}
+	
+	public void setDireccion(int idDirNuevo) {
+		super.setDirecciones(idDirNuevo);
+	}
+	
+	public void setNombre(String nombreNuevo) {
+		super.setNombre(nombreNuevo);
+	}
+	
+	public void setTelefono(int telefonoNuevo) {
+		super.setTelefono(telefonoNuevo);
+	}
+	
+	public void setEmail(String emailNuevo) {
+		super.setEmail(emailNuevo);
+	}
 	
 }
