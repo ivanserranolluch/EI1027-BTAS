@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
 	<meta charset="UTF-8" />
-	<title>Borrar un tutor</title>
+	<title>Borrar una empresa</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
 	
@@ -12,8 +12,8 @@
 	<form action="#" th:action="@{/Empresa/delete}" th:object="${empresa}" method="post">
 		<table>
 			<tr>
-				<td><label>dni</label></td>
-				<td><input type="text" th:field="*{dni}" /></td>
+				<td><label>cif</label></td>
+				<td><input type="text" th:field="*{cif}" /></td>
 			</tr>
 			
 			<tr>

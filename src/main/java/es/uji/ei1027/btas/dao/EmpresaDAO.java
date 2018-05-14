@@ -41,31 +41,32 @@ public class EmpresaDAO {
 	public List<Empresa> getEmpresas() {  
 
 		 return this.jdbcTemplate.query("select * from empresa"
-, new 	EmpresaMapper());
+				 , new 	EmpresaMapper());
 	}
 	
 	public Empresa getEmpresa(String cif) {
 		return this.jdbcTemplate.queryForObject("select * from empresa where cif=?",  new Object[] {cif}, new EmpresaMapper());
 	}
 	
-public void addEmpresa(Empresa empresa) {
+	public void addEmpresa(Empresa empresa) {
 						
-		this.jdbcTemplate.update("insert into empresa(cif,id_dir,nombre,web,telefono, email) values(?, 2, ?, ?,?,?,?,?,?)",
+		this.jdbcTemplate.update("insert into empresa(cif,id_dir,nombre,web,telefono, email) values(?, ?, ?, ?,?,?)",
 				empresa.getCif(),
+				empresa.getDireccion(),
 				empresa.getNombre(),
 				empresa.getDireccionWeb(),
 				empresa.getTelefono(),
 				empresa.getEmail());
 	}
-public void updateEmpresa(String cif, int id_dir, String nombre, int telefono, String email, String web) {
-	this.jdbcTemplate.update(
-			"update Emrpresa set email=?,telefono=?,nombre=?,id_dir=?,web=? where cif = ?", email,telefono,nombre, id_dir,web,cif);
-
+	public void updateEmpresa(String cif, int id_dir, String nombre, int telefono, String email, String web) {
+		this.jdbcTemplate.update(
+				"update Empresa set email=?,telefono=?,nombre=?,id_dir=?,web=? where cif = ?", email,telefono,nombre, id_dir,web,cif);
 	
-}
-public void deleteEmpresa(String cif) {
-	this.jdbcTemplate.update(
-	        "delete from empresa where cif = ?",
-	        cif);		
-}
+		
+	}
+	public void deleteEmpresa(String cif) {
+		this.jdbcTemplate.update(
+		        "delete from Empresa where cif = ?",
+		        cif);		
+	}
 }
