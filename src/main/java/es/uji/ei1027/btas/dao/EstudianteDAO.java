@@ -4,13 +4,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import javax.sql.DataSource;
-import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,63 +18,6 @@ import es.uji.ei1027.btas.model.Itinerario;
 public class EstudianteDAO {
 	
 	private JdbcTemplate jdbcTemplate;
-	
-	private final Properties properties = new Properties();
-	private Session session;
-	private String password;
-	private void init() {
-		 
-		properties.put("mail.smtp.host", "mail.gmail.com");
-		properties.put("mail.smtp.starttls.enable", "true");
-		properties.put("mail.smtp.port",25);
-		properties.put("mail.smtp.mail.sender","betasuji@gmail.com");
-		properties.put("mail.smtp.user", "betasuji@gmail.com");
-		properties.put("mail.smtp.auth", "true");
- 
-		session = Session.getDefaultInstance(properties);
-	}
-	public void sendEmail(){
-		 
-		init();
-		try{
-			MimeMessage message = new MimeMessage(session);
-			message.setFrom(new InternetAddress((String)properties.get("mail.smtp.mail.sender")));
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress("ivanserranolluch@gmail.com"));
-			message.setSubject("Prueba");
-			message.setText("Texto");
-			Transport t = session.getTransport("smtp");
-			t.connect((String)properties.get("mail.smtp.user"), "betasuji1");
-			t.sendMessage(message, message.getAllRecipients());
-			t.close();
-		}catch (MessagingException me){
-                        //Aqui se deberia o mostrar un mensaje de error o en lugar
-                        //de no hacer nada con la excepcion, lanzarla para que el modulo
-                        //superior la capture y avise al usuario con un popup, por ejemplo.
-			return;
-		}
-		
-	}
-	public void sendEmailConCorreo(String correo){
-		 
-		init();
-		try{
-			MimeMessage message = new MimeMessage(session);
-			message.setFrom(new InternetAddress((String)properties.get("mail.smtp.mail.sender")));
-			message.addRecipient(Message.RecipientType.TO, new InternetAddress(correo));
-			message.setSubject("Prueba");
-			message.setText("Texto");
-			Transport t = session.getTransport("smtp");
-			t.connect((String)properties.get("mail.smtp.user"), "betasuji1");
-			t.sendMessage(message, message.getAllRecipients());
-			t.close();
-		}catch (MessagingException me){
-                        //Aqui se deberia o mostrar un mensaje de error o en lugar
-                        //de no hacer nada con la excepcion, lanzarla para que el modulo
-                        //superior la capture y avise al usuario con un popup, por ejemplo.
-			return;
-		}
-		
-	}
     
 	@Autowired
 	public void setDataSource(DataSource dataSource) { 
@@ -158,6 +94,17 @@ public class EstudianteDAO {
 
 	public List<Estudiante> getItinerario(Itinerario itinerario){
 		return this.jdbcTemplate.query("SELECT * FROM estudiante WHERE itinerario=?;", new Object[] {itinerario.getDescripcion()}, new EstudianteMapper());
+	}
+	
+	public String[] listarCorreosEstudiantes() {
+		String[] cadenaCorreos=[];
+		int cont=0;
+		List<Estudiantes> listaEstudiantes= getEstudiantes();
+		for (Estudiantes estudiante : listaEstudiantes){
+			String email = estudiante.getEmail();
+			cadenaCorreos[cont]=email;
+			cont++;
+		}
 	}
 
 }
