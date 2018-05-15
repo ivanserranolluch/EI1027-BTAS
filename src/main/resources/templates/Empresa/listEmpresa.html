@@ -24,29 +24,29 @@
 				<td th:text="${empresa.nombre}"></td>
 				<td th:text="${empresa.telefono}"></td>
 				<td th:text="${empresa.email}"></td>
-				<td th:text="${empresa.web}"></td>
-				<td><a th:href="@{/Empresa/listEmpresa/{cif}(cif=${empresa.cif)}">Ver mas</a></td>
+				<td th:text="${empresa.direccionWeb}"></td>
 				<td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
 				<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td>
 			</tr>
 		</tbody>
 	</table>
 	
-	<table class="table table-striped">
-	<thead>
-			<tr>
-				<th>CIF</th>
-				<th>DNI</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="personaContacto: ${personasContacto}">
-				<td th:text="${personaContacto.cif}"></td>
-				<td th:text="${personaContacto.dni}"></td>
-				<td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
-				<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td>
-			</tr>
-		</tbody>
-	<a href="list.html">Atrás</a>
+<!-- 	<table class="table table-striped"> -->
+<!-- 	<thead> -->
+<!-- 			<tr> -->
+<!-- 				<th>CIF</th> -->
+<!-- 				<th>DNI</th> -->
+<!-- 			</tr> -->
+<!-- 		</thead> -->
+<!-- 		<tbody> -->
+<!-- 			<tr th:each="personaContacto: ${personasContacto}"> -->
+<!-- 				<td th:text="${personaContacto.cif}"></td> -->
+<!-- 				<td th:text="${personaContacto.dni}"></td> -->
+<!-- 				<td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td> -->
+<!-- 				<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td> -->
+<!-- 			</tr> -->
+<!-- 		</tbody> -->
+<!-- 	</table> -->
+	<a href="../list.html">Atrás</a>
 </body>
 </html>

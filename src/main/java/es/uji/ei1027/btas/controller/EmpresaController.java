@@ -71,7 +71,6 @@ public class EmpresaController {
 				return "Empresa/update";
 			}
 			
-
 			empresaDAO.updateEmpresa(cif,empresa.getDireccion(),empresa.getNombre(),empresa.getTelefono(),empresa.getEmail(),empresa.getDireccionWeb());
 			
 			return "redirect:../list";
