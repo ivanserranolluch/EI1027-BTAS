@@ -81,8 +81,5 @@ public class EmpresaController {
 			return "redirect:../list";
 		}
 		
-		@RequestMapping(value="../indexaciones/index2")
-		public String processAtras() {
-			return "redirect:../indexaciones/index2";
-		}
+	
 }
