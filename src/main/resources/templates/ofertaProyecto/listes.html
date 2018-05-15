@@ -4,10 +4,13 @@
 	<title>Gestionar Ofertas</title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 	<h1>Lista de Ofertas</h1>
 	<table class="table table-bordered">
+
+
 		<thead>
 			<tr>
 				<th>Id_Oferta</th>
@@ -26,6 +29,8 @@
 				<td th:text="${oferta.descEstado}"></td>
 				<td th:text="${oferta.descItinerario}"></td>
 				<td th:text="${oferta.fechaAlta}"></td>
+		 		<td><a th:href="@{/preferenciasEstudiante/add/(id=oferta.id,dni=session.user.username)}">add</a></td>
+		 	<!-- 	<td><a th:href="@{/preferenciasEstudiante/add/{id}(id=${oferta.id}){dni}(dni=${session.user.username})}">add</a></td>--> 
 			</tr>
 		</tbody>
 	</table>

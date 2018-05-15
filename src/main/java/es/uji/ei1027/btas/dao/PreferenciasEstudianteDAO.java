@@ -1,5 +1,6 @@
 package es.uji.ei1027.btas.dao;
 
+import java.sql.Date;
 import java.sql.ResultSet;
 
 import java.sql.SQLException;
@@ -28,37 +29,55 @@ public class PreferenciasEstudianteDAO {
 
 	    public PreferenciasEstudiante mapRow(ResultSet rs, int rowNum) throws SQLException { 
 	        PreferenciasEstudiante preferenciasEstudiante = new PreferenciasEstudiante();
-	        preferenciasEstudiante.setId(rs.getInt("id"));
-	        preferenciasEstudiante.setOrden(rs.getInt("orden"));
+	        preferenciasEstudiante.setId(rs.getInt("id_oferta"));
+	        preferenciasEstudiante.setOrden(rs.getString("orden"));
 	        preferenciasEstudiante.setEstado(rs.getString("estado"));
-	        preferenciasEstudiante.setFechaUltimoCambio(rs.getDate("fechaUltimoCambio"));
+	        preferenciasEstudiante.setFechaUltimoCambio(rs.getDate("fechaultimocambio"));
+	        preferenciasEstudiante.setDni(rs.getString("dni"));
 	        return preferenciasEstudiante;
 	    }
 	}
 	public List<PreferenciasEstudiante> getPreferencies() {
 		return this.jdbcTemplate.query(
-		     	"select id,id_ofertaProyecto,id_estudiante,orden,fechaUltimoCambio, estado from preferenciasEstudiante;", 
+		     	"select id_oferta,orden,fechaultimocambio, estado,dni from preferenciasestudiante;", 
 		     	new PreferenciasEstudianteMapper());
 	}
-	public List<PreferenciasEstudiante> getOfertaDePreferencies(String id_estudiante){
-		return this.jdbcTemplate.query("SELECT * FROM preferenciasEstudiante WHERE id_estudiante=?;",
-				new Object[] {id_estudiante}, new PreferenciasEstudianteMapper());
+//	public List<PreferenciasEstudiante> getPreferencies2() {
+//		return this.jdbcTemplate.query(
+//		     	"select id,id_ofertaProyecto,id_estudiante,orden,fechaUltimoCambio, estado from preferenciasEstudiante;", 
+//		     	new PreferenciasEstudianteMapper());
+//	}
+	public List<PreferenciasEstudiante> getPreferenciaEstudiante(String dni){
+		return this.jdbcTemplate.query("SELECT * FROM preferenciasEstudiante WHERE dni=?;",
+				new Object[] {dni}, new PreferenciasEstudianteMapper());
 	}
-	public void addPreferenciasEstudiante(PreferenciasEstudiante preferenciasEstudiante) {
+	public List<PreferenciasEstudiante> getPreferencia(int id){
+	return this.jdbcTemplate.query("SELECT * FROM preferenciasestudiante WHERE id_oferta=?;",
+				new Object[] {id}, new PreferenciasEstudianteMapper());
+	}
+	public void addPreferenciasEstudiante(PreferenciasEstudiante preferenciasEstudiante,int id,String dni) {
 		this.jdbcTemplate.update(
-				"insert into PreferenciasEstudiante(id,id_oferta,id_estudiante,orden,estado,fechaUltimoCambio) values(?, ?, ?, ?,?,?)", preferenciasEstudiante.getId(),preferenciasEstudiante.getOfertaProyecto().getId(),preferenciasEstudiante.getEstudiante().getDni(),
+				"insert into PreferenciasEstudiante(id_oferta,dni,orden,estado,fechaultimocambio) values(?,?, ?, ?, ?)", id,dni,
 				preferenciasEstudiante.getOrden(),preferenciasEstudiante.getEstado(),preferenciasEstudiante.getFechaUltimoCambio());
 	}
-	public void deletePreferenciasEstudiante(String id) {
+//	public void addPreferenciasEstudiante(PreferenciasEstudiante preferenciasEstudiante) {
+//		this.jdbcTemplate.update(
+//				"insert into PreferenciasEstudiante(id,orden,estado,fechaultimocambio) values(?, ?, ?, ?,?,?)", preferenciasEstudiante.getId(),preferenciasEstudiante.getOfertaProyecto().getId(),preferenciasEstudiante.getEstudiante().getDni(),
+//				preferenciasEstudiante.getOrden(),preferenciasEstudiante.getEstado(),preferenciasEstudiante.getFechaUltimoCambio());
+//	}
+	public void deletePreferenciasEstudiante(int id) {
 		this.jdbcTemplate.update(
-		        "delete from preferenciasEstudiante where id = ?",
+		        "delete from preferenciasestudiante where id_oferta = ?",
 		       id);
 	}
 	//cambia el orden de la preferencia
-	public void updatePreferenciasEstudiante(PreferenciasEstudiante preferenciasEstudiante) {
+//	public void updatePreferenciasEstudiante(PreferenciasEstudiante preferenciasEstudiante) {
+//		this.jdbcTemplate.update(
+//				"update PreferenciasEstudiante set orden = ? est where id = ?", preferenciasEstudiante.getOrden(),preferenciasEstudiante.getId());
+//	}
+	public void updatePreferenciasEstudiante(int id,String orden,String estado,Date fechaUltimoCambio) {
 		this.jdbcTemplate.update(
-				"update PreferenciasEstudiante set orden = ? where id = ?", preferenciasEstudiante.getOrden(),preferenciasEstudiante.getId());
-	}
-			
+				"update PreferenciasEstudiante set orden = ? estado =? fechaultimocambio =? where id_oferta = ?", orden,estado,fechaUltimoCambio,id);
+	}		
 
 }

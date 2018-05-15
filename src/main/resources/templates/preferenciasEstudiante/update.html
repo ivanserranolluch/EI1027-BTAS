@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<meta charset="UTF-8" />
+	<title>Crear nou nadador</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+	
+</head>
+<body>
+	<h2>Nova oferta</h2>
+	<form action="#" th:action="@{/preferenciasEstudiante/update/} + ${preferenciasEstudiante.id}" th:object="${preferenciasEstudiante}" method="post">
+		<table>
+		
+<!-- 			<tr> -->
+<!-- 				<td><label>id</label></td> -->
+<!-- 				<td><input type="text" th:field="*{id}" /></td> -->
+<!-- 			</tr> -->
+			
+			<tr>
+				<td><label>orden</label></td>
+				<td><input type="text" th:field="*{orden}" /></td>
+			</tr>
+			
+			<tr>
+				<td><label>dni</label></td>
+				<td><input type="text" th:field="*{dni}"/></td>
+			</tr>
+	
+			<tr>
+				<label>Estado</label>
+				<select name="estado" th:field="*{descEstado}">       			
+			       <option value="Sin Definir">Sin definir</option> 
+			       <option value="Introducida">Introducida</option> 
+			       <option value="Aceptada">Aceptada</option>
+			       <option value="Rechazada">Rechazada</option> 
+			       <option value="Visible alumnos">Visible para los alumnos</option> 
+			       <option value="Asignada">Asignada</option>
+		
+		</select>
+			</tr>
+			<tr>
+				<td><label>fechaUltimoCambio</label></td>
+				<td><input type="date" th:field="*{fechaUltimoCambio}" /></td>
+			</tr>
+			
+			
+			<tr>
+				<td colspan="2"><input type="submit" value="Actualitza preferencia" /></td>
+				
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
