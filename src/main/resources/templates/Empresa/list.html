@@ -12,21 +12,14 @@
 		<thead>
 			<tr>
 				<th>CIF</th>
-				<th>id_direccion</th>
 				<th>nombre</th>
-				<th>telefono</th>
-				<th>email</th>
-				<th>web</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="empresa: ${empresas}">
 				<td th:text="${empresa.cif}"></td>
-				<td th:text="${empresa.direccion}"></td>
 				<td th:text="${empresa.nombre}"></td>
-				<td th:text="${empresa.telefono}"></td>
-				<td th:text="${empresa.email}"></td>
-				<td th:text="${empresa.direccionWeb}"></td>
+				<td><a th:href="@{/Empresa/listEmpresa/{cif}(cif=${empresa.cif})}">Ver mas</a></td>
 				<td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
 				<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td>
 			</tr>

@@ -33,7 +33,8 @@ public class EmpresaController {
 		
 		@RequestMapping(value="/listEmpresa/{cif}", method=RequestMethod.GET)
 		public String listEmpresa(Model model,@PathVariable String cif) {
-			model.addAttribute("empresa", empresaDAO.getEmpresa(cif));
+			model.addAttribute("empresas", empresaDAO.getEmpresa(cif));
+			//model.addAttribute("personaContactos",personaContactoDAO.getPersonas());
 			return "Empresa/listEmpresa";
 		}
 		
