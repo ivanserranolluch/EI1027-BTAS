@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>Personas Contacto</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>Lista Personas de Contacto</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>DNI</th>
+				<th>CIF</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="personaContacto: ${personaContactoList}">
+				<td th:text="${personaContacto.dni}"></td>
+				<td th:text="${personaContacto.cif}"></td>
+				<td><a th:href="@{/personaContacto/update/{dni}(dni=${personaContacto.dni})}">Editar</a></td>
+				<td><a th:href="@{/personaContacto/delete/{dni}(dni=${personaContacto.dni})}">Borrar</a></td>
+				
+			</tr>
+		</tbody>
+	</table>
+	<a href="add.html">Añadir PersonaContacto</a>
+</body>
+</html>

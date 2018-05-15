@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>AsignacionE</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>AsignacionE</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>FechaPropuesta</th>
+				<th>FechaAceptacion</th>
+				<th>Estado</th>
+				<th>FechaRechazo</th>
+				<th>FechaTraspaso</th>
+				<th>Comentario</th>
+				<th>DniE</th>
+				<th>DniT</th>
+				<th>idOferta</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="asig: ${asignacionListEstudiante}">
+				<td th:text="${asig.fechaPropuesta}"></td>
+				<td th:text="${asig.fechaAceptacion}"></td>
+				<td th:text="${asig.descEstadoAsignacion}"></td>
+				<td th:text="${asig.fechaRechazo}"></td>
+				<td th:text="${asig.fechaTraspaso}"></td>
+				<td th:text="${asig.comentarioPetCambio}"></td>
+				<td th:text="${asig.dniE}"></td>
+				<td th:text="${asig.dniT}"></td>
+				<td th:text="${asig.id_oferta}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="add.html">Nueva Asignación</a>
+</body>
+</html>

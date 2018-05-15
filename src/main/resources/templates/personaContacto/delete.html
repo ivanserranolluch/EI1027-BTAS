@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<meta charset="UTF-8" />
+	<title>Borrar Persona Contacto</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+	
+</head>
+<body>
+	<h2>Persona Contacto</h2>
+	<form action="#" th:action="@{/personaContacto/delete}" th:object="${personaContacto}" method="post">
+		<table>
+			<tr>
+				<td><label>DNI</label></td>
+				<td><input type="text" th:field="*{dni}" /></td>
+			</tr>
+		
+			
+			<tr>
+				<td colspan="2"><input type="submit" value="Borrar PersonaContacto" /></td>
+				
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
