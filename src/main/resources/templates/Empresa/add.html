@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<meta charset="UTF-8" />
+	<title>Añadir una empresa nueva</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h2>Nueva empresa</h2>
+	<form action="#" th:action="@{/Empresa/add}" th:object="${empresa}" method="post">
+		<table>
+			  <tr>
+				<td><label>cif</label></td>
+				<td><input type="text" th:field="*{cif}" placeholder="CIF de la empresa" /></td>
+			</tr>  
+			<tr>
+				<td><label>id direccion</label></td>
+				<td><input type="number" th:field="*{direccion}" /></td>
+			</tr>
+			<tr>
+				<td><label>nombre</label></td>
+				<td><input type="text" th:field="*{nombre}"  /></td>
+			</tr>
+			
+			<tr>
+				<td><label>Web</label></td>
+				<td><input type="text" th:field="*{direccionWeb}" /></td>
+			</tr>
+			<tr>
+				<td><label>email</label></td>
+				<td><input type="text" th:field="*{email}" /></td>
+			</tr>
+			<tr>
+				<td><label>telefono</label></td>
+				<td><input type="number" th:field="*{telefono}" /></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Afegeix empresa" /></td>
+				
+			</tr>
+		</table>
+		
+		
+	</form>
+	<li><a href="list.html">Atras</a></li>
+</body>
+</html>

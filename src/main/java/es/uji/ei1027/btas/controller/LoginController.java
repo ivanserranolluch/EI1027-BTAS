@@ -69,9 +69,9 @@ public class LoginController {
 		
 		// Torna a la pàgina principal
 		if(user.getUsername() == "alice") {
-		return "/index2";}
+		return "index2";}
 		
-		return "/index3";
+		return "index3";
 	}
 
 	@RequestMapping("/logout") 
