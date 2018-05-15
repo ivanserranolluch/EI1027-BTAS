@@ -32,4 +32,7 @@ public class UserController {
        model.addAttribute("users", userDao.listAllUsers());
        return "user/list";
    }
+   
+   
+   
 }
