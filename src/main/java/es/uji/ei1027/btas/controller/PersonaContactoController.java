@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.uji.ei1027.btas.dao.EmpresaDAO;
 import es.uji.ei1027.btas.dao.PersonaContactoDAO;
 import es.uji.ei1027.btas.model.OfertaProyecto;
 import es.uji.ei1027.btas.model.PersonaContacto;
@@ -18,19 +19,25 @@ import es.uji.ei1027.btas.model.PersonaContacto;
 public class PersonaContactoController{
 
 	private PersonaContactoDAO personaContactoDAO;
+	private EmpresaDAO empresaDAO;
 	
 	@Autowired
 	public void setPersonaContactoDAO (PersonaContactoDAO personaContactoDAO){
 		this.personaContactoDAO = personaContactoDAO;
 	}
 	
+	@Autowired
+	public void setEmpresaDAO (EmpresaDAO empresaDAO){
+		this.empresaDAO = empresaDAO;
+	}
 	
-	//LISTAR PERSONAS CONTACTO
+	
+	/*//LISTAR PERSONAS CONTACTO
 	@RequestMapping("/list")
 	public String listPersonaContacto(Model model) {
 		model.addAttribute("personaContactoList", personaContactoDAO.getPersonaContactos());
 		return "personaContacto/list";
-	}
+	}*/
 	
 	
 	
@@ -39,7 +46,7 @@ public class PersonaContactoController{
 	@RequestMapping(value="/delete/{dni}")
 	public String processDelete(@PathVariable String dni) {
 		personaContactoDAO.deletePersonaContacto(dni);
-		return "redirect:../list";
+		return "redirect:../../Empresa/list";
 	}
 	
 	
@@ -63,16 +70,17 @@ public class PersonaContactoController{
 		
 
 		personaContactoDAO.updatePersonaContacto(dni, personaContacto.getCif());
-		return "redirect:../list";
+		return "redirect:../../Empresa/list";
 	}
 	
 	
 	
 	
 	//AÑADIR PERSONA CONTACTO
-	@RequestMapping(value="/add")
-	public String addPersonaContacto(Model model) {
-		model.addAttribute("personaContacto", new PersonaContacto());
+	@RequestMapping(value="/add/{cif}")
+	public String addPersonaContacto(Model model,@PathVariable String cif) {
+		model.addAttribute("personaContacto", new PersonaContacto(cif));
+		model.addAttribute("empresa",empresaDAO.getEmpresa(cif));
 		return "personaContacto/add";
 	}
 	
@@ -85,6 +93,6 @@ public class PersonaContactoController{
 			
 		}
 		personaContactoDAO.addPersonaContacto(personaContacto);
-		return "redirect:list.html";
+		return "redirect:../Empresa/list.html";
 	}
 }

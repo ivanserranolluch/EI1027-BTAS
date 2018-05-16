@@ -9,7 +9,7 @@ import es.uji.ei1027.btas.model.PersonaContacto;
 
 public interface PersonaContactoDAOInterface {
 	
-	public List<PersonaContacto> getPersonaContactos();
+	public List<PersonaContacto> getPersonaContactos(String cif);
 	
 	public PersonaContacto getPersonaContacto(String dni);
 	

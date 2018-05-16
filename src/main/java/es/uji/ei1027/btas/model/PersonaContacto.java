@@ -10,6 +10,10 @@ public class PersonaContacto{
 	public PersonaContacto() {
 		super();
 	}
+	
+	public PersonaContacto(String cif) {
+		this.cif=cif;
+	}
 
 	public PersonaContacto(String dni, String cif) {
 		this.dni=dni;

@@ -35,8 +35,8 @@ private JdbcTemplate jdbcTemplate;
 	
 	//LISTAR PERSONAS CONTACTO
 	@Override
-	public List<PersonaContacto> getPersonaContactos() {
-		return jdbcTemplate.query("select * from personacontacto", new PersonaContactoMapper());
+	public List<PersonaContacto> getPersonaContactos(String cif) {		
+		return this.jdbcTemplate.query("select * from personacontacto where cif=?;",new Object[] {cif}, new PersonaContactoMapper());
 	}
 	
 	public PersonaContacto getPersonaContacto(String dni) {

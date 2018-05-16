@@ -8,13 +8,13 @@
 	
 </head>
 <body>
-	<h2>Modificar</h2>
+	<h2>Modificar responsable empresa</h2>
 	<form action="#" th:action="@{/personaContacto/update/} + ${personaContacto.dni}" th:object="${personaContacto}" method="post">
 		<table>
 
 			<tr>
-				<td><label>CIF</label></td>
-				<td><input type="text" th:field="*{cif}" /></td>
+				<td><label>DNI</label></td>
+				<td><input type="text" th:field="*{dni}" /></td>
 			</tr>
 			
 			

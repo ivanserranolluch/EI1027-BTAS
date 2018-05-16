@@ -14,9 +14,8 @@
 				<td><label>DNI</label></td>
 				<td><input type="text" th:field="*{dni}" placeholder="dni" /></td>
 			</tr>  
-			<tr>
-				<td><label>CIF</label></td>
-				<td><input type="text" th:field="*{cif}" placeholder="cif"/></td>
+			<tr>				
+				<td><input type="hidden" th:field="*{cif}" value="${personaContacto.cif}"/></td>
 			</tr>
 	
 			

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.btas.dao.EmpresaDAO;
+import es.uji.ei1027.btas.dao.PersonaContactoDAO;
 import es.uji.ei1027.btas.dao.TutorDAO;
 import es.uji.ei1027.btas.model.Empresa;
 import es.uji.ei1027.btas.model.Tutor;
@@ -18,10 +19,16 @@ import es.uji.ei1027.btas.model.Tutor;
 @RequestMapping("/Empresa")
 public class EmpresaController {
 	private EmpresaDAO empresaDAO;
+	private PersonaContactoDAO personaContactoDAO;
 	
 	@Autowired
 	public void setEmpresaDAO (EmpresaDAO empresaDAO){
 		this.empresaDAO = empresaDAO;
+	}
+	
+	@Autowired
+	public void setPersonaContactoDAO (PersonaContactoDAO personaContactoDAO){
+		this.personaContactoDAO = personaContactoDAO;
 	}
 	
 	//OPERACION LISTAR
@@ -34,7 +41,7 @@ public class EmpresaController {
 		@RequestMapping(value="/listEmpresa/{cif}", method=RequestMethod.GET)
 		public String listEmpresa(Model model,@PathVariable String cif) {
 			model.addAttribute("empresas", empresaDAO.getEmpresa(cif));
-			//model.addAttribute("personaContactos",personaContactoDAO.getPersonas());
+			model.addAttribute("personasContactos",personaContactoDAO.getPersonaContactos(cif));
 			return "Empresa/listEmpresa";
 		}
 		

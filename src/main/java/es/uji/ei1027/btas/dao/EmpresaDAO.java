@@ -65,6 +65,7 @@ public class EmpresaDAO {
 		
 	}
 	public void deleteEmpresa(String cif) {
+		this.jdbcTemplate.update("delete from personacontacto where cif=?",cif);
 		this.jdbcTemplate.update(
 		        "delete from Empresa where cif = ?",
 		        cif);		
