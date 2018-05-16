@@ -5,8 +5,6 @@ public class PersonaContacto{
 	private String dni;
 	private String cif;
 	
-
-
 	public PersonaContacto() {
 		super();
 	}
