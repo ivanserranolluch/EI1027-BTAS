@@ -8,14 +8,13 @@
 	
 </head>
 <body>
-	<h2>Nova oferta</h2>
-	<form action="#" th:action="@{/preferenciasEstudiante/update/} + ${preferenciasEstudiante.id}" th:object="${preferenciasEstudiante}" method="post">
+	<h2>Actualiza preferencia</h2>
+	<form action="#" th:action="@{/preferenciasEstudiante/update} " th:object="${preferenciasEstudiante}" method="post">
 		<table>
-		
-<!-- 			<tr> -->
-<!-- 				<td><label>id</label></td> -->
-<!-- 				<td><input type="text" th:field="*{id}" /></td> -->
-<!-- 			</tr> -->
+			<tr>
+			
+				<td><input type="hidden" th:field="*{id}" /></td>
+			</tr>
 			
 			<tr>
 				<td><label>orden</label></td>
@@ -52,4 +51,5 @@
 		</table>
 	</form>
 </body>
+>>>>>>> estaRama
 </html>

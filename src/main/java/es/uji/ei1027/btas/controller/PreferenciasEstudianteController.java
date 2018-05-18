@@ -1,7 +1,10 @@
+
 package es.uji.ei1027.btas.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -22,6 +25,7 @@ import es.uji.ei1027.btas.services.PreferenciasEstudianteService;
 
 @Controller
 @RequestMapping("/preferenciasEstudiante")
+
 public class PreferenciasEstudianteController {
 	
 private PreferenciasEstudianteDAO preferenciasEstudianteDao;
@@ -45,7 +49,7 @@ private PreferenciasEstudianteDAO preferenciasEstudianteDao;
 			public String listPreferencias(Model model) {
 				
 				model.addAttribute("preferencias", preferenciasEstudianteDao.getPreferencies());
-			System.out.println("haseqwuiiiiii");
+			System.out.println("entro en la lista de preferencias de lledo");
 				return "preferenciasEstudiante/list";
 			}
 			
@@ -54,7 +58,7 @@ private PreferenciasEstudianteDAO preferenciasEstudianteDao;
 				System.out.println(dni+"4");
 				
 				model.addAttribute("preferencias", preferenciasEstudianteDao.getPreferenciaEstudiante(dni));
-				System.out.println("hastaWWWWWWW aquiiiiii2");
+				System.out.println("entro en la lista de preferencias del estudiante");
 				return "preferenciasEstudiante/listes";
 			}
 			
@@ -69,50 +73,59 @@ private PreferenciasEstudianteDAO preferenciasEstudianteDao;
 			}*/
 
 			//OPERACION CREAR
-			@RequestMapping(value="/add/{id}{dni}")
-			public String addpreferenciaEstudiante(Model model,@PathVariable String dni,@PathVariable int id) {
-				model.addAttribute("preferenciasEstudiante", new PreferenciasEstudiante());
+			@RequestMapping(value="/add/{id}/{dni}")
+			public String addpreferenciaEstudiante(Model model,@PathVariable("id") int id,@PathVariable("dni") String dni) {
+				System.out.println("creo una preferencia con"+"id"+id+"dni"+dni);
+				model.addAttribute("preferenciasEstudiante", new PreferenciasEstudiante(id,dni));
+				
+				
+				//session.setAttribute("id", id);
+				//session.setAttribute("dni", dni);
 				return "preferenciasEstudiante/add";
 			}
 			
-			@RequestMapping(value="/add/{id}{dni}", method=RequestMethod.POST)
-			public String processAddSubmit(@ModelAttribute("preferenciasEstudiante") PreferenciasEstudiante preferenciasEstudiante,@PathVariable String dni,@PathVariable int id, BindingResult bindingResult){
+			@RequestMapping(value="/add", method=RequestMethod.POST)
+			public String processAddSubmit(@ModelAttribute("preferenciasEstudiante") PreferenciasEstudiante preferenciasEstudiante, BindingResult bindingResult){
+				System.out.println("creo un dao para preferencia con");
 				if (bindingResult.hasErrors()){
 					System.out.println(bindingResult);
 					return "preferenciasEstudiante/add";
 					
 				}
-					preferenciasEstudianteDao.addPreferenciasEstudiante(preferenciasEstudiante,id,dni);
-				return "redirect:listes.html";
+				System.out.println("id"+preferenciasEstudiante.getId()+"dni"+preferenciasEstudiante.getDni());
+					preferenciasEstudianteDao.addPreferenciasEstudiante(preferenciasEstudiante);
+				return "index3";
 			}
 			
-			@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
-			public String editOfertaProyecto(Model model, @PathVariable int id){
+			@RequestMapping(value="/update/{id}/{dni}", method=RequestMethod.GET)
+			public String editOfertaProyecto(Model model, @PathVariable int id,@PathVariable String dni){
+				System.out.println("entro en el get del update de preferendias con un id "+id+ "dni" +dni);
 				
-				model.addAttribute("preferenciasEstudiante", preferenciasEstudianteDao.getPreferencia(id));
+				model.addAttribute("preferenciasEstudiante", preferenciasEstudianteDao.getPreferencia(id,dni));
 				return "preferenciasEstudiante/update";
 			}
 			
-			@RequestMapping(value="/update/{id}", method=RequestMethod.POST)
-			public String processUpdateSubmit(@PathVariable int id, @ModelAttribute("preferenciasEstudiante") PreferenciasEstudiante preferenciasEstudiante, BindingResult bindingResult){
-				
+			@RequestMapping(value="/update", method=RequestMethod.POST)
+			public String processUpdateSubmit(@ModelAttribute("preferenciasEstudiante") PreferenciasEstudiante preferenciasEstudiante, BindingResult bindingResult){
+				//System.out.println("entro en el post del update de preferendias con un id "+id+ "dni" +dni);
+
 				if(bindingResult.hasErrors()){
 					System.out.println(bindingResult.hasErrors());
 					return "preferenciasEstudiante/update";
 				}
 				
-		
-				preferenciasEstudianteDao.updatePreferenciasEstudiante(id,preferenciasEstudiante.getOrden(),preferenciasEstudiante.getDescEstado(),preferenciasEstudiante.getFechaUltimoCambio());;
+				System.out.println("id:"+preferenciasEstudiante.getId() + "dni"+preferenciasEstudiante.getDni());
+				preferenciasEstudianteDao.updatePreferenciasEstudiante(preferenciasEstudiante.getId(),preferenciasEstudiante.getDni(),preferenciasEstudiante.getOrden(),preferenciasEstudiante.getDescEstado(),preferenciasEstudiante.getFechaUltimoCambio());
 				
-				return "redirect:../list";
+				return "index3";
 			}
 			
 				
 			//OPERACION  BORRAR
-			@RequestMapping(value="/delete/{id}")
-			public String processDelete(@PathVariable int id) {
-				preferenciasEstudianteDao.deletePreferenciasEstudiante(id);;
-				return "redirect:../list";
+			@RequestMapping(value="/delete/{id}/{dni}")
+			public String processDelete(@PathVariable int id,@PathVariable String dni) {
+				preferenciasEstudianteDao.deletePreferenciasEstudiante(id,dni);;
+				return "index3";
 			}
 			
 			@InitBinder
@@ -123,3 +136,4 @@ private PreferenciasEstudianteDAO preferenciasEstudianteDao;
 
 
 }
+
