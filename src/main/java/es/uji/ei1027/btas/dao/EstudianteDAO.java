@@ -60,8 +60,8 @@ public class EstudianteDAO {
 		this.jdbcTemplate.update(
 				"insert into Contacto(dni,nombre,email,telefono,id_dir) values(?,?,?,?,2)",estudiante.getDni(),estudiante.getNombre(),estudiante.getEmail(),estudiante.getTelefono())
 ;				
-		this.jdbcTemplate.update("insert into Estudiante(dni,al,nombre,apellidos,itinerario,notaMedia,numasigpen,numcreditosaprov,semestreiniestancia) values(?, ?, ?, ?,?,?,?,?,?)",
-				estudiante.getDni(), estudiante.getAl(),estudiante.getNombre(),
+		this.jdbcTemplate.update("insert into Estudiante(dni,al,apellidos,itinerario,notaMedia,numasigpen,numcreditosaprov,semestreiniestancia) values(?, ?,?,?,?,?,?,?)",
+				estudiante.getDni(), estudiante.getAl(),
 				estudiante.getApellidos(),
 				estudiante.getItinerario().getDescripcion()
 				,estudiante.getNotaMedia(),
@@ -80,7 +80,7 @@ public class EstudianteDAO {
 				"update Contacto set email=?,telefono=?,nombre=? where dni = ?", email,telefono,nombre,dni);
 		this.jdbcTemplate.update(
 				"update Estudiante set al= ?,apellidos=?,itinerario=?,notaMedia=?,numasigpen = ?,"
-				+ "numcreditosaprov=?,semestreInicioEstancia = ? where dni = ?", al,apellidos,itinerario,notaMedia,
+				+ "numcreditosaprov=?,semestreIniEstancia = ? where dni = ?", al,apellidos,itinerario,notaMedia,
 				numAsigPendiente,creditosAprobados,semestreInicioEstancia,dni);
 	
 	}

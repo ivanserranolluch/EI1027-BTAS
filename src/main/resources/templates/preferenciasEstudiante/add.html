@@ -8,21 +8,26 @@
 </head>
 <body>
 	<h2>Nova Preferencia</h2>
-	<form action="#" th:action="@{/preferenciasEstudiantes/add}" th:object="${preferenciasEstudiante}" method="post">
+	<form action="#" th:action="@{/preferenciasEstudiante/add}" th:object="${preferenciasEstudiante}" method="post">
+		
+		
 		<table>
-			  <tr>
-				<td><label>id</label></td>
-				<td><input type="text" th:field="*{id}" placeholder="identificador preferencia" /></td>
-			</tr>  
+			<tr>
+			
+				<td><input type="hidden" th:field="*{id}" /></td>
+			</tr>
+			
+		
+			<tr>
+				
+				<td><input type="hidden"   th:field="*{dni}" /></td>
+			</tr>
+			 
 			<tr>
 				<td><label>orden</label></td>
 				<td><input type="text" th:field="*{orden}" /></td>
 			</tr>
 			
-			<tr>
-				<td><label>dni</label></td>
-				<td><input type="text" th:field="*{dni}"/></td>
-			</tr>
 		
 			<tr>
 				<td><label>fechaUltimoCambio</label></td>
@@ -30,13 +35,10 @@
 			</tr>
 	
 			<tr>
-				<td colspan="2"><input type="submit" value="Afegeix oferta" /></td>
+				<td colspan="2"><input type="submit" value="Afegeix preferencia" /></td>
 				
 			</tr>
 		</table>
-		
-		
 	</form>
-	<li><a href="list.html">Atras</a></li>
 </body>
 </html>

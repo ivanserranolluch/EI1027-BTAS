@@ -26,11 +26,10 @@
 				<td th:text="${preferenciasEstudiante.descEstado}"></td>
 				<td th:text="${preferenciasEstudiante.fechaUltimoCambio}"></td>
 				<td th:text="${preferenciasEstudiante.dni}"></td>
-				<td><a th:href="@{/preferenciasEstudiante/update/{id}(id=${preferenciasEstudiante.id})}">Edita</a></td>
-				<td><a th:href="@{/preferenciasEstudiante/delete/{id}(id=${preferenciasEstudiante.id})}">Esborra</a></td>
+				<td><a th:href="@{'/preferenciasEstudiante/update/'+ ${preferenciasEstudiante.id} + '/' + ${preferenciasEstudiante.dni}}">Edita</a></td>
+				<td><a th:href="@{'/preferenciasEstudiante/delete/'+ ${preferenciasEstudiante.id} + '/' + ${preferenciasEstudiante.dni}}">Esborra</a></td>
 			</tr>
 		</tbody>
 	</table>
-	<a href="add.html">Afegeix preferencia</a>
 </body>
 </html>

@@ -9,10 +9,9 @@ public interface PreferenciasDAOInterface {
 	
 	public List<PreferenciasEstudiante> getPreferencias();
 	
-	public List<PreferenciasEstudiante> getPreferenciaEstudiante(String dni);
+	public PreferenciasEstudiante getPreferenciaEstudiante(String dni);
 	
-	public PreferenciasEstudiante getPreferencia(int id);
-	
+	public PreferenciasEstudiante getPreferencia(int id,String dni);
 	
 	public void addPrefereciaEstudiante(PreferenciasEstudiante preferenciaEstudiante);
 	

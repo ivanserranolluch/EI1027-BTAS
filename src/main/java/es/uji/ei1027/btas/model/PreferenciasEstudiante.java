@@ -6,7 +6,7 @@ public class PreferenciasEstudiante {
 	private int id;
 	private Estudiante estudiante;
 	private OfertaProyecto ofertaProyecto;
-	private String orden;
+	private int orden;
 	private EstadoOferta estado;
 	private String dni;
 	private String descEstado;
@@ -15,13 +15,18 @@ public class PreferenciasEstudiante {
 	
 	
 	public PreferenciasEstudiante() {
-		super();
 		this.estado=EstadoOferta.INTRODUCIDA;
 		this.descEstado=EstadoOferta.INTRODUCIDA.getDescripcion();
 	}
-	
+	public PreferenciasEstudiante(int id,String dni) {
+		//System.out.println("la creo");
+		this.id=id;
+		this.dni=dni;
+		this.estado=EstadoOferta.INTRODUCIDA;
+		this.descEstado=EstadoOferta.INTRODUCIDA.getDescripcion();
+	}
 	public PreferenciasEstudiante(int id,Estudiante estudiante, OfertaProyecto ofertaProyecto,
-			String orden,Date fechaUltimoCambio,String dni) {
+			int orden,Date fechaUltimoCambio,String dni) {
 		this.id= id;
 		this.dni=dni;
 		this.estudiante = estudiante;
@@ -73,10 +78,10 @@ public class PreferenciasEstudiante {
 		this.id = id;
 	}
 	
-	public String getOrden() {
+	public int getOrden() {
 		return orden;
 	}
-	public void setOrden(String orden) {
+	public void setOrden(int orden) {
 		this.orden = orden;
 	}
 	public Date getFechaUltimoCambio() {
