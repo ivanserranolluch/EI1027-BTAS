@@ -1,3 +1,4 @@
+
 package es.uji.ei1027.btas.model;
 
 import java.util.HashSet;
@@ -41,7 +42,9 @@ public class Estudiante extends Contacto {
 		this.itinerario=estudiante.itinerario;
 		this.numAsigPendiente= estudiante.numAsigPendiente;
 		this.semestreInicioEstancia= estudiante.semestreInicioEstancia;
-		this.preferencias = estudiante.preferencias
+		this.preferencias = estudiante.preferencias;
+
+		
 	}*/
 
 	
@@ -149,7 +152,7 @@ public class Estudiante extends Contacto {
 		super.setId(nuevoDni);
 	}
 	
-	public int getDireccion(){
+	public int Direccion(){
 		return super.getDireccion();
 	}
 	
@@ -165,9 +168,7 @@ public class Estudiante extends Contacto {
 		return super.getEmail();
 	}
 	
-	public void setDirecciones(int lista) {
-		super.setDirecciones(lista);
-	}
+	
 	
 	public void setNombre(String nombreNuevo) {
 		super.setNombre(nombreNuevo);
@@ -182,3 +183,4 @@ public class Estudiante extends Contacto {
 	}
 	
 }
+
