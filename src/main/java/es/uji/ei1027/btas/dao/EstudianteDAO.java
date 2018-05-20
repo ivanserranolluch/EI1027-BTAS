@@ -88,6 +88,10 @@ public class EstudianteDAO {
 	
 		
 	public void deleteEstudiante(String dni) {
+		this.jdbcTemplate.update("delete from preferenciasestudiante where dni=?",
+				dni);
+		this.jdbcTemplate.update("delete from asignacion where dnie=?",
+				dni);
 		this.jdbcTemplate.update(
 		        "delete from estudiante where dni = ?",
 		        dni);
