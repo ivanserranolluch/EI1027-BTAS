@@ -72,6 +72,7 @@ public class TutorDAO implements TutorDAOInterface{
 
 	@Override
 	public void deleteTutor(String dni) {
+		this.jdbcTemplate.update("delete from asignacion where dnit=?",dni);
 		this.jdbcTemplate.update(
 		        "delete from tutor where dni = ?",
 		        dni);		
