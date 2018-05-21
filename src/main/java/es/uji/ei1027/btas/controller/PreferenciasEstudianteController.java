@@ -2,6 +2,7 @@ package es.uji.ei1027.btas.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
 
 import javax.servlet.http.HttpSession;
 
@@ -28,6 +29,7 @@ import es.uji.ei1027.btas.services.NotificacionService;
 public class PreferenciasEstudianteController {
 	
 private PreferenciasEstudianteDAO preferenciasEstudianteDao;
+private  LinkedList<Integer> list = new LinkedList<Integer>();
 
 	
 	@Autowired
@@ -91,7 +93,8 @@ private PreferenciasEstudianteDAO preferenciasEstudianteDao;
 					return "preferenciasEstudiante/add";
 					
 				}
-				System.out.println("id"+preferenciasEstudiante.getId()+"dni"+preferenciasEstudiante.getDni());
+				System.out.println("orden"+preferenciasEstudiante.getOrden());
+				
 					preferenciasEstudianteDao.addPreferenciasEstudiante(preferenciasEstudiante);
 				return "index3";
 			}

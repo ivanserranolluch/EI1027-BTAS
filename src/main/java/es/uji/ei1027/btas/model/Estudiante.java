@@ -3,7 +3,7 @@ package es.uji.ei1027.btas.model;
 import java.util.HashSet;
 import java.util.List;
 
-public class Estudiante extends Contacto {
+public class Estudiante extends Contacto implements Comparable<Estudiante>{
 	
 	private String al;
 	private String apellidos;
@@ -180,5 +180,8 @@ public class Estudiante extends Contacto {
 	public void setEmail(String emailNuevo) {
 		super.setEmail(emailNuevo);
 	}
-	
+	public int compareTo(Estudiante altre) {
+	    return this.getNombre().compareTo(altre.getNombre());    
+	}
+
 }

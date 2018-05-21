@@ -6,12 +6,18 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
 </head>
-<body>
-	<h2>Nova Preferencia</h2>
-	<form action="#" th:action="@{/preferenciasEstudiante/add}" th:object="${preferenciasEstudiante}" method="post">
+<body >
+
+	
+	
+	
+	
+	<h2 style="margin-top:50px;text-align:center;margin-bottom:30px">Nova Preferencia</h2>
+	
+	<form action="#" th:action="@{/preferenciasEstudiante/add}" th:object="${preferenciasEstudiante}" method="post" >
 		
-		
-		<table>
+	
+		<table style="margin: 0 auto;">
 			<tr>
 			
 				<td><input type="hidden" th:field="*{id}" /></td>
@@ -24,21 +30,24 @@
 			</tr>
 			 
 			<tr>
-				<td><label>orden</label></td>
-				<td><input type="text" th:field="*{orden}" /></td>
+				<td><label style="text-align:left;margin-right:20px">Orden</label></td>
+				<td><input style="text-align:left" type="text" th:field="*{orden}" /></td>
 			</tr>
 			
 		
-			<tr>
-				<td><label>fechaUltimoCambio</label></td>
-				<td><input type="date" th:field="*{fechaUltimoCambio}" /></td>
+			<tr >
+				<td ><label style="text-align:left;margin-right:20px">Fecha Ultimo Cambio</label></td>
+				<td ><input style="text-align:left" type="date" th:field="*{fechaUltimoCambio}" /></td>
 			</tr>
 	
-			<tr>
-				<td colspan="2"><input type="submit" value="Afegeix preferencia" /></td>
+			<tr style="text-align:center">
+				<td colspan="2"><input style="margin-top:30px;" type="submit" value="Afegeix preferencia" /></td>
 				
 			</tr>
 		</table>
+		
+	
 	</form>
+	
 </body>
 </html>

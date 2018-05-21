@@ -6,12 +6,13 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
+
 <body>
 	<h1>Lista de Preferencias</h1>
 	<table   class="table table-striped">
 		<thead>
 			<tr>
-				<th>Id</th>
+				<th>id</th>
 				<th>orden</th>
 				<th>estado</th>
 				<th>fechaUltimoCambio</th>
@@ -20,7 +21,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="preferenciasEstudiante: ${preferencias}">
+			<tr th:each="preferenciasEstudiante: ${#lists.sort(preferencias)}">
 				<td th:text="${preferenciasEstudiante.id}"></td>
 				<td th:text="${preferenciasEstudiante.orden}"></td>
 				<td th:text="${preferenciasEstudiante.descEstado}"></td>
