@@ -73,7 +73,7 @@ public class OfertaProyectoController {
 		//OPERACION CREAR
 		@RequestMapping(value="/add")
 		public String addOfertaProyecto(Model model) {
-			System.out.println("enqweqwtro aqui");
+			System.out.println("entro en el add");
 			model.addAttribute("ofertaProyecto", new OfertaProyecto());
 			return "ofertaProyecto/add";
 		}
@@ -85,7 +85,7 @@ public class OfertaProyectoController {
 				return "ofertaProyecto/add";
 				
 			}
-				notificacion.notificaEstudiantes(id);
+				//notificacion.notificaEstudiantes(id);
 				ofertaProyectoDAO.addOferta(ofertaProyecto);
 			return "redirect:list.html";
 		}
