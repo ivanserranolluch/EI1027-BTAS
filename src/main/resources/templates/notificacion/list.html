@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>Gestionar Preferencias</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>Lista de Notificacion</h1>
+	<table   class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Dni</th>
+				<th>Mensaje</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="notificacion: ${notificaciones}">
+				<td th:text="${notificacion.id}"></td>
+				<td th:text="${notificacion.dni}"></td>
+				<td th:text="${notificacion.mensaje}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>

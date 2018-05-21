@@ -15,8 +15,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import es.uji.ei1027.btas.dao.NotificacionDAO;
 import es.uji.ei1027.btas.dao.OfertaProyectoDAO;
 import es.uji.ei1027.btas.model.OfertaProyecto;
+import es.uji.ei1027.btas.services.NotificacionService;
+import es.uji.ei1027.btas.services.NotificacionSvc;
 import es.uji.ei1027.btas.services.OfertaProyectoService;
 import es.uji.ei1027.btas.services.OfertaProyectoSvc;
 
@@ -28,6 +31,8 @@ public class OfertaProyectoController {
 //private OfertaProyectoService ofertaProyectoService;
 
 	private OfertaProyectoDAO ofertaProyectoDAO;
+	private NotificacionDAO notificacionDao;
+	private NotificacionService notificacion= new NotificacionSvc();
 	
 	/*@Autowired
 	public void set (OfertaProyectoService ofertaProyectoService){
@@ -73,13 +78,14 @@ public class OfertaProyectoController {
 			return "ofertaProyecto/add";
 		}
 		
-		@RequestMapping(value="/add", method=RequestMethod.POST)
-		public String processAddSubmit(@ModelAttribute("ofertaProyecto") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
+		@RequestMapping(value="/add/{id}", method=RequestMethod.POST)
+		public String processAddSubmit(@ModelAttribute("ofertaProyecto") OfertaProyecto ofertaProyecto,@PathVariable int id ,BindingResult bindingResult){
 			if (bindingResult.hasErrors()){
 				System.out.println(bindingResult);
 				return "ofertaProyecto/add";
 				
 			}
+				notificacion.notificaEstudiantes(id);
 				ofertaProyectoDAO.addOferta(ofertaProyecto);
 			return "redirect:list.html";
 		}
@@ -99,7 +105,7 @@ public class OfertaProyectoController {
 				return "ofertaProyecto/update";
 			}
 			
-	
+			
 			ofertaProyectoDAO.updateOfertaProyecto(id,ofertaProyecto.getDescEstado(), ofertaProyecto.getDescItinerario(), 
 					ofertaProyecto.getIdEstancia(),ofertaProyecto.getFechaAlta(),ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea());
 			

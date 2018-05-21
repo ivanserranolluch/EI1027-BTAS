@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import es.uji.ei1027.btas.dao.PreferenciasEstudianteDAO;
 import es.uji.ei1027.btas.model.OfertaProyecto;
 import es.uji.ei1027.btas.model.PreferenciasEstudiante;
-import es.uji.ei1027.btas.services.PreferenciasEstudianteService;
+import es.uji.ei1027.btas.services.NotificacionService;
 
 
 @Controller

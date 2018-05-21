@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>Nova oferta</h2>
-	<form action="#" th:action="@{/ofertaProyecto/add}" th:object="${ofertaProyecto}" method="post">
+	<form action="#" th:action="@{/ofertaProyecto/add} + ${oferta.id} " th:object="${ofertaProyecto}" method="post">
 		<table>
 			  <tr>
 				<td><label>id</label></td>
