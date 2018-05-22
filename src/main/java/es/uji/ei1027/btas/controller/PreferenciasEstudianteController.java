@@ -76,24 +76,22 @@ private  LinkedList<Integer> list = new LinkedList<Integer>();
 			//OPERACION CREAR
 			@RequestMapping(value="/add/{id}/{dni}")
 			public String addpreferenciaEstudiante(Model model,@PathVariable("id") int id,@PathVariable("dni") String dni) {
-				System.out.println("creo una preferencia con"+"id"+id+"dni"+dni);
+				//System.out.println("creo una preferencia con"+"id"+id+"dni"+dni);
 				model.addAttribute("preferenciasEstudiante", new PreferenciasEstudiante(id,dni));
 				
-				
-				//session.setAttribute("id", id);
-				//session.setAttribute("dni", dni);
+
 				return "preferenciasEstudiante/add";
 			}
 			
 			@RequestMapping(value="/add", method=RequestMethod.POST)
 			public String processAddSubmit(@ModelAttribute("preferenciasEstudiante") PreferenciasEstudiante preferenciasEstudiante, BindingResult bindingResult){
-				System.out.println("creo un dao para preferencia con");
+				//System.out.println("creo un dao para preferencia con");
 				if (bindingResult.hasErrors()){
 					System.out.println(bindingResult);
 					return "preferenciasEstudiante/add";
 					
 				}
-				System.out.println("orden"+preferenciasEstudiante.getOrden());
+				//System.out.println("orden"+preferenciasEstudiante.getOrden());
 				
 					preferenciasEstudianteDao.addPreferenciasEstudiante(preferenciasEstudiante);
 				return "index3";

@@ -71,15 +71,15 @@ public class OfertaProyectoController {
 		}*/
 
 		//OPERACION CREAR
-		@RequestMapping(value="/add")
-		public String addOfertaProyecto(Model model) {
+		@RequestMapping(value="/add/{id_estancia}")
+		public String addOfertaProyecto(Model model,@PathVariable("id_estancia") int id) {
 			System.out.println("entro en el add");
-			model.addAttribute("ofertaProyecto", new OfertaProyecto());
+			model.addAttribute("ofertaProyecto", new OfertaProyecto(id));
 			return "ofertaProyecto/add";
 		}
 		
-		@RequestMapping(value="/add/{id}", method=RequestMethod.POST)
-		public String processAddSubmit(@ModelAttribute("ofertaProyecto") OfertaProyecto ofertaProyecto,@PathVariable int id ,BindingResult bindingResult){
+		@RequestMapping(value="/add", method=RequestMethod.POST)
+		public String processAddSubmit(@ModelAttribute("ofertaProyecto") OfertaProyecto ofertaProyecto,BindingResult bindingResult){
 			if (bindingResult.hasErrors()){
 				System.out.println(bindingResult);
 				return "ofertaProyecto/add";
@@ -87,7 +87,7 @@ public class OfertaProyectoController {
 			}
 				//notificacion.notificaEstudiantes(id);
 				ofertaProyectoDAO.addOferta(ofertaProyecto);
-			return "redirect:list.html";
+			return "index2";
 		}
 		
 		@RequestMapping(value="/update/{id}", method=RequestMethod.GET)

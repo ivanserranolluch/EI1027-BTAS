@@ -14,4 +14,9 @@ public class IndexController {
 		
 		return "index3";									
 	}
+	@RequestMapping("/index2")
+	public String devuelveIndex2() {
+		
+		return "index2";									
+	}
 }

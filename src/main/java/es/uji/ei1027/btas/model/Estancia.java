@@ -8,7 +8,7 @@ public class Estancia {
 	private String cif;
 	
 	public Estancia() {
-		super();
+		
 	}
 	
 	public Estancia(String descripcion, String dni, String cif) {
@@ -20,6 +20,10 @@ public class Estancia {
 
 	public int getId_estancia() {
 		return id_estancia;
+	}
+	
+	public void setId_estancia(int id_estancia) {
+		this.id_estancia=id_estancia;
 	}
 
 	public String getDescripcion() {
