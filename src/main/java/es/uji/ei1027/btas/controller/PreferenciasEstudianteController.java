@@ -93,7 +93,12 @@ private  LinkedList<Integer> list = new LinkedList<Integer>();
 				}
 				//System.out.println("orden"+preferenciasEstudiante.getOrden());
 				
-					preferenciasEstudianteDao.addPreferenciasEstudiante(preferenciasEstudiante);
+					try {
+						preferenciasEstudianteDao.addPreferenciasEstudiante(preferenciasEstudiante);
+					} catch (Exception e) {
+						
+						return "excepciones/errorEstudianteAdd";
+					}
 				return "index3";
 			}
 			
@@ -115,7 +120,12 @@ private  LinkedList<Integer> list = new LinkedList<Integer>();
 				}
 				
 				System.out.println("id:"+preferenciasEstudiante.getId() + "dni"+preferenciasEstudiante.getDni());
-				preferenciasEstudianteDao.updatePreferenciasEstudiante(preferenciasEstudiante.getId(),preferenciasEstudiante.getDni(),preferenciasEstudiante.getOrden(),preferenciasEstudiante.getDescEstado(),preferenciasEstudiante.getFechaUltimoCambio());
+				try {
+					preferenciasEstudianteDao.updatePreferenciasEstudiante(preferenciasEstudiante.getId(),preferenciasEstudiante.getDni(),preferenciasEstudiante.getOrden(),preferenciasEstudiante.getDescEstado(),preferenciasEstudiante.getFechaUltimoCambio());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					return "excepciones/errorEstudianteUpdate";
+				}
 				
 				return "index3";
 			}

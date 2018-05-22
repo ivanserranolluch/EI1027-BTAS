@@ -8,17 +8,20 @@
 	
 </head>
 <body>
-	<h2>Actualiza preferencia</h2>
+	<h2 style="margin-top:50px;text-align:center;margin-bottom:30px">Actualiza preferencia</h2>
 	<form action="#" th:action="@{/preferenciasEstudiante/update} " th:object="${preferenciasEstudiante}" method="post">
-		<table>
+		<table style="margin: 0 auto;">
+		
 			<tr>
 			
-				<td><input type="hidden" th:field="*{id}" /></td>
+				<td><input type="hidden" th:field="*{id}" />
+				</td>
 			</tr>
 			
 			<tr>
 				<td><label>orden</label></td>
-				<td><input type="text" th:field="*{orden}" /></td>
+				<td><input type="text" th:field="*{orden}" />
+				 <div class="error" th:if="${#fields.hasErrors('orden')}" th:errors="*{orden}"></div></td>
 			</tr>
 			
 			<tr>
@@ -27,7 +30,11 @@
 			</tr>
 	
 			<tr>
-				<label>Estado</label>
+			
+			<td>
+				<label >Estado</label>
+			</td>
+			<td>
 				<select name="estado" th:field="*{descEstado}">       			
 			       <option value="Sin Definir">Sin definir</option> 
 			       <option value="Introducida">Introducida</option> 
@@ -35,8 +42,9 @@
 			       <option value="Rechazada">Rechazada</option> 
 			       <option value="Visible alumnos">Visible para los alumnos</option> 
 			       <option value="Asignada">Asignada</option>
-		
+			
 		</select>
+		</td>
 			</tr>
 			<tr>
 				<td><label>fechaUltimoCambio</label></td>
@@ -44,11 +52,16 @@
 			</tr>
 			
 			
-			<tr>
-				<td colspan="2"><input type="submit" value="Actualitza preferencia" /></td>
+			<tr style="text-align:center">
+				<td colspan="2"><input style="margin-top:30px;" type="submit" value="Actualitza preferencia" /></td>
 				
 			</tr>
 		</table>
+		
+		
 	</form>
+	<li><a th:href="@{/preferenciasEstudiante/listes/{dni}(dni=${session.user.username})}">Atras</a></li>
+	
+	
 </body>
 </html>

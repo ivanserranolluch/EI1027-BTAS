@@ -11,7 +11,6 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>Id_Oferta</th>
 				<th>tarea</th>
 				<th>objetivo</th>
 				<th>estado</th>
@@ -21,7 +20,6 @@
 		</thead>
 		<tbody>
 			<tr th:each="oferta: ${ofertas}">
-				<td th:text="${oferta.id}"></td>
 				<td th:text="${oferta.tarea}"></td>
 				<td th:text="${oferta.objetivo}"></td>
 				<td th:text="${oferta.descEstado}"></td>

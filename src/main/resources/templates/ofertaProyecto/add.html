@@ -11,10 +11,7 @@
 	<form action="#" th:action="@{/ofertaProyecto/add}" th:object="${ofertaProyecto}" method="post">
 		<table>
 		
-			  <tr>
-				<td><label>id</label></td>
-				<td><input type="text" th:field="*{id}" placeholder="identificador oferta" /></td>
-			</tr>  
+			
 			<tr>
 				<td><input type="hidden" th:field="*{idEstancia}" /></td>
 			</tr>

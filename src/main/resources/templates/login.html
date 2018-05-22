@@ -1,31 +1,29 @@
-<!DOCTYPE html>
+<!DOCTYPE html >
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
-<title>Login</title>
-<meta charset="UTF-8"/>
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-
+	<link rel="stylesheet" type="text/css" th:href="@{/css/stylelogin.css}"/>
+	<title>Gestión BTAS</title>
+	<meta charset="UTF-8"/>
 </head>
 <body>
-	<h2>Accés</h2>
-	<form action="#" th:action="@{/login}" 
+
+	<div class="loginbox">
+		
+		<h1>BTAS</h1>
+		<form action="#" th:action="@{/login}" 
 	      th:object="${user}" method="post">
-		<p>
-		   	<label>Nom d'usuari:</label>
-            <input class="form_control" type="text" th:field="*{username}"/>
-            <div class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+	      <p>
+			<label>Nom d'usuari:</label>
+			<input class="form_control" type="text" th:field="*{username}" placeholder="Usuario" />
 		</p>
-	
 		<p>
-		   	<label>Contrasenya:</label>
-            <input class="form_control" type="password" th:field="*{password}"/>
-            <div class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
-		</p>		
-		<input type="submit" value="Accedir" />
-		
-		
-	</form>
+			<label>Contrasenya:</label>
+			 <input class="form_control" type="password" th:field="*{password}" placeholder="Contraseña" />
+		</p>
+			
+			 <input type="submit" value="Iniciar Sesión" />
+		</form>
+	</div>
 
 </body>
 </html>
