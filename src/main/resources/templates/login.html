@@ -1,27 +1,23 @@
 <!DOCTYPE html >
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/stylelogin.css}"/>
+	<link rel="stylesheet" type="text/css" href="/css/styleLogin.css" th:href="@{/css/styleLogin.css}"/>
 	<title>Gestión BTAS</title>
 	<meta charset="UTF-8"/>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 </head>
-<body>
 
+<body>
 	<div class="loginbox">
-		
+		<img src="/img/icono_usuario.png" th:src="@{/img/icono_usuario.png}" class="avatar" />
 		<h1>BTAS</h1>
-		<form action="#" th:action="@{/login}" 
-	      th:object="${user}" method="post">
-	      <p>
-			<label>Nom d'usuari:</label>
+		<form action="#" th:action="@{/login}" th:object="${user}" method="post">
+			<p>Usuario</p>
 			<input class="form_control" type="text" th:field="*{username}" placeholder="Usuario" />
-		</p>
-		<p>
-			<label>Contrasenya:</label>
-			 <input class="form_control" type="password" th:field="*{password}" placeholder="Contraseña" />
-		</p>
-			
-			 <input type="submit" value="Iniciar Sesión" />
+			<p>Contraseña</p>
+			<input class="form_control" type="password" th:field="*{password}" placeholder="Contraseña" />
+			<a href="#">¿Has olvidado tu contraseña?, pulsa aquí.</a>
+			<input type="submit" value="Iniciar Sesión" />
 		</form>
 	</div>
 
