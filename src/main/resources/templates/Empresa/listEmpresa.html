@@ -35,13 +35,11 @@
 	<table class="table table-striped">
 	<thead>
 			<tr>
-				<th>CIF</th>
 				<th>DNI</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="personaContacto: ${personasContactos}">
-				<td th:text="${personaContacto.cif}"></td>
 				<td th:text="${personaContacto.dni}"></td>
 				<td><a th:href="@{'/personaContacto/update/'+${personaContacto.dni}}">Edita</a></td>
 				<td><a th:href="@{'/personaContacto/delete/'+${personaContacto.dni}}">Esborra</a></td>
@@ -49,6 +47,7 @@
 			<tr th:each="empresa: ${empresas}">
 			<td><a th:href="@{'/personaContacto/add/'+${empresa.cif}}">Añadir responsable empresa</a></td>
 			</tr>
+			
 		</tbody>
 	</table>
 	<a href="../list.html">Atrás</a>

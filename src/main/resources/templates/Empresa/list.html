@@ -19,12 +19,14 @@
 			<tr th:each="empresa: ${empresas}">
 				<td th:text="${empresa.cif}"></td>
 				<td th:text="${empresa.nombre}"></td>
-				<td><a th:href="@{/Empresa/listEmpresa/{cif}(cif=${empresa.cif})}">Ver mas</a></td>
+				<td><a th:href="@{/Empresa/listEmpresa/{cif}(cif=${empresa.cif})}">Ver más</a></td>
 				<!-- <td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
 				<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td> -->
 			</tr>
 		</tbody>
 	</table>
-	<a href="add.html">Afegeix Empresa</a>
+	<li><a href="add.html">Afegeix Empresa</a></li>
+	<li><a th:href="@{/index/index2}">Atras</a></li>
+	
 </body>
 </html>
