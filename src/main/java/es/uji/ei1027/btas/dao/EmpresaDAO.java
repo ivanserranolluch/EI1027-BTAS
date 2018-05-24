@@ -68,6 +68,11 @@ public class EmpresaDAO {
 		
 	}
 	public void deleteEmpresa(String cif) {
+		String query="select id_estancia from ofertaproyecto join estancia using (id_estancia) where cif='"+cif+"'";
+		List<Integer>lista=this.jdbcTemplate.queryForList(query, Integer.class);
+		for (int elem : lista) {
+			this.jdbcTemplate.update("delete from ofertaproyecto where id_estancia=?",elem);
+		}
 		this.jdbcTemplate.update("delete from estancia where cif=?",cif);
 		this.jdbcTemplate.update("delete from personacontacto where cif=?",cif);
 		this.jdbcTemplate.update(
