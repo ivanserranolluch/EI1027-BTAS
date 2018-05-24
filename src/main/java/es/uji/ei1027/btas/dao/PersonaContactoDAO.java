@@ -58,6 +58,7 @@ private JdbcTemplate jdbcTemplate;
 
 	@Override
 	public void deletePersonaContacto(String dni) {
+		this.jdbcTemplate.update("delete from estancia where dni=?",dni);
 		this.jdbcTemplate.update("delete from personacontacto where dni = ?",dni);
 	}
 
