@@ -10,24 +10,27 @@
 	<h2>EI1027 - Spring MVC</h2>
 	<h1>Gestio Administrador</h1>
     <ul>
-    <li><a href="ofertaProyecto/list.html">Gestionar ofertes</a></li>
-    
+    <li><a th:href="@{/ofertaProyecto/list}">Gestionar ofertes</a></li>
     </ul>
     
     <ul>
-    <li><a href="estudiante/list.html">Gestionar estudiants</a></li>
+    <li><a th:href="@{/estancia/list}">Llista de estancies</a></li>
     </ul>
     
     <ul>
-    <li><a href="preferenciasEstudiante/list.html">Llista de preferencies</a></li>
+    <li><a th:href="@{/estudiante/list}">Gestionar estudiants</a></li>
     </ul>
     
     <ul>
-    <li><a href="tutor/list.html">Llista de tutors</a></li>
+    <li><a th:href="@{/preferenciasEstudiante/list}">Llista de preferencies</a></li>
     </ul>
     
     <ul>
-    <li><a href="Empresa/list.html">Llista de empreses</a></li>
+    <li><a th:href="@{/tutor/list}">Llista de tutors</a></li>
+    </ul>
+    
+    <ul>
+    <li><a th:href="@{/empresa/list}">Llista de empreses</a></li>
     </ul>
 
     <!--

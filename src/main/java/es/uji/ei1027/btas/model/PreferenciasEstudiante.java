@@ -1,8 +1,9 @@
 
 package es.uji.ei1027.btas.model;
 import java.sql.Date;
+import java.util.LinkedList;
 
-public class PreferenciasEstudiante {
+public class PreferenciasEstudiante implements Comparable<PreferenciasEstudiante>{
 	
 	private int id;
 	private Estudiante estudiante;
@@ -12,6 +13,7 @@ public class PreferenciasEstudiante {
 	private String dni;
 	private String descEstado;
 	private Date fechaUltimoCambio;
+	
 	
 	
 	
@@ -131,6 +133,14 @@ public class PreferenciasEstudiante {
 			preferencia.estudiante.getPreferencias().add(preferencia);
 		return false;
 	}
+	public int compareTo(PreferenciasEstudiante altre) {
+		//System.out.println("entro en compare");
+	    if (this.getOrden() > altre.getOrden())
+			return 1;
+	    else
+	    	return -1;
+	}
+
 
 }
 

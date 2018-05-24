@@ -28,6 +28,14 @@ public class OfertaProyecto {
 		this.descEstado=EstadoOferta.INTRODUCIDA.getDescripcion();
 
 	}
+	public OfertaProyecto(int id) {
+		super();
+		//this.itinerario=Itinerario.SIN_DEFINIR;
+		this.idEstancia = id;
+		this.estado=EstadoOferta.INTRODUCIDA;
+		this.descEstado=EstadoOferta.INTRODUCIDA.getDescripcion();
+
+	}
 	
 	public OfertaProyecto(int id, String tarea, String objetivo, Date fechaAlta, HashSet<Asignacion> asignaciones,HashSet<PeticionRevision> peticionesRevision, int id_estancia) {
 		this.id=id;

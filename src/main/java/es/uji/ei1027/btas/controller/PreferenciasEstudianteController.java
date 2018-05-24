@@ -3,6 +3,7 @@ package es.uji.ei1027.btas.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedList;
 
 import javax.servlet.http.HttpSession;
 
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import es.uji.ei1027.btas.dao.PreferenciasEstudianteDAO;
 import es.uji.ei1027.btas.model.OfertaProyecto;
 import es.uji.ei1027.btas.model.PreferenciasEstudiante;
-import es.uji.ei1027.btas.services.PreferenciasEstudianteService;
+import es.uji.ei1027.btas.services.NotificacionService;
 
 
 @Controller
@@ -29,6 +30,7 @@ import es.uji.ei1027.btas.services.PreferenciasEstudianteService;
 public class PreferenciasEstudianteController {
 	
 private PreferenciasEstudianteDAO preferenciasEstudianteDao;
+private  LinkedList<Integer> list = new LinkedList<Integer>();
 
 	
 	@Autowired
@@ -75,25 +77,29 @@ private PreferenciasEstudianteDAO preferenciasEstudianteDao;
 			//OPERACION CREAR
 			@RequestMapping(value="/add/{id}/{dni}")
 			public String addpreferenciaEstudiante(Model model,@PathVariable("id") int id,@PathVariable("dni") String dni) {
-				System.out.println("creo una preferencia con"+"id"+id+"dni"+dni);
+				//System.out.println("creo una preferencia con"+"id"+id+"dni"+dni);
 				model.addAttribute("preferenciasEstudiante", new PreferenciasEstudiante(id,dni));
 				
-				
-				//session.setAttribute("id", id);
-				//session.setAttribute("dni", dni);
+
 				return "preferenciasEstudiante/add";
 			}
 			
 			@RequestMapping(value="/add", method=RequestMethod.POST)
 			public String processAddSubmit(@ModelAttribute("preferenciasEstudiante") PreferenciasEstudiante preferenciasEstudiante, BindingResult bindingResult){
-				System.out.println("creo un dao para preferencia con");
+				//System.out.println("creo un dao para preferencia con");
 				if (bindingResult.hasErrors()){
 					System.out.println(bindingResult);
 					return "preferenciasEstudiante/add";
 					
 				}
-				System.out.println("id"+preferenciasEstudiante.getId()+"dni"+preferenciasEstudiante.getDni());
-					preferenciasEstudianteDao.addPreferenciasEstudiante(preferenciasEstudiante);
+				//System.out.println("orden"+preferenciasEstudiante.getOrden());
+				
+					try {
+						preferenciasEstudianteDao.addPreferenciasEstudiante(preferenciasEstudiante);
+					} catch (Exception e) {
+						
+						return "excepciones/errorEstudianteAdd";
+					}
 				return "index3";
 			}
 			
@@ -115,7 +121,12 @@ private PreferenciasEstudianteDAO preferenciasEstudianteDao;
 				}
 				
 				System.out.println("id:"+preferenciasEstudiante.getId() + "dni"+preferenciasEstudiante.getDni());
-				preferenciasEstudianteDao.updatePreferenciasEstudiante(preferenciasEstudiante.getId(),preferenciasEstudiante.getDni(),preferenciasEstudiante.getOrden(),preferenciasEstudiante.getDescEstado(),preferenciasEstudiante.getFechaUltimoCambio());
+				try {
+					preferenciasEstudianteDao.updatePreferenciasEstudiante(preferenciasEstudiante.getId(),preferenciasEstudiante.getDni(),preferenciasEstudiante.getOrden(),preferenciasEstudiante.getDescEstado(),preferenciasEstudiante.getFechaUltimoCambio());
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					return "excepciones/errorEstudianteUpdate";
+				}
 				
 				return "index3";
 			}

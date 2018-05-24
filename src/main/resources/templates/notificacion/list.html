@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
@@ -8,28 +7,24 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-	<h1>Lista de Preferencias</h1>
+	<h1>Lista de Notificacion</h1>
 	<table   class="table table-striped">
 		<thead>
 			<tr>
 				<th>Id</th>
-				<th>orden</th>
-				<th>estado</th>
-				<th>fechaUltimoCambio</th>
-				<th>dni</th>
+				<th>Dni</th>
+				<th>Mensaje</th>
 				
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="preferenciasEstudiante: ${preferencias}">
-				<td th:text="${preferenciasEstudiante.id}"></td>
-				<td th:text="${preferenciasEstudiante.orden}"></td>
-				<td th:text="${preferenciasEstudiante.descEstado}"></td>
-				<td th:text="${preferenciasEstudiante.fechaUltimoCambio}"></td>
-				<td th:text="${preferenciasEstudiante.dni}"></td>
+			<tr th:each="notificacion: ${notificaciones}">
+				<td th:text="${notificacion.id}"></td>
+				<td th:text="${notificacion.dni}"></td>
+				<td th:text="${notificacion.mensaje}"></td>
 			</tr>
 		</tbody>
 	</table>
-</body>
 
+</body>
 </html>

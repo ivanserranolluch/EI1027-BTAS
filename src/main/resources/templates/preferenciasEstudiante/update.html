@@ -4,30 +4,39 @@
 	<meta charset="UTF-8" />
 	<title>Crear nou nadador</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/styleActualizarPreferencia.css}"/>
 	
 </head>
 <body>
 	<h2>Actualiza preferencia</h2>
+	<div class="externo">
 	<form action="#" th:action="@{/preferenciasEstudiante/update} " th:object="${preferenciasEstudiante}" method="post">
-		<table>
+		<table style="margin: 0 auto;">
+		
 			<tr>
 			
-				<td><input type="hidden" th:field="*{id}" /></td>
+				<td><input type="hidden" th:field="*{id}" />
+				</td>
 			</tr>
 			
 			<tr>
-				<td><label>orden</label></td>
-				<td><input type="text" th:field="*{orden}" /></td>
+				<td><label>Orden</label></td>
+				
+				<td><input type="text" th:field="*{orden}" />
+				 <div class="error" th:if="${#fields.hasErrors('orden')}" th:errors="*{orden}"></div></td>
 			</tr>
 			
 			<tr>
-				<td><label>dni</label></td>
+				<td><label>Dni</label></td>
 				<td><input type="text" th:field="*{dni}"/></td>
 			</tr>
 	
 			<tr>
-				<label>Estado</label>
+			
+			<td>
+				<label >Estado</label>
+			</td>
+			<td>
 				<select name="estado" th:field="*{descEstado}">       			
 			       <option value="Sin Definir">Sin definir</option> 
 			       <option value="Introducida">Introducida</option> 
@@ -35,20 +44,28 @@
 			       <option value="Rechazada">Rechazada</option> 
 			       <option value="Visible alumnos">Visible para los alumnos</option> 
 			       <option value="Asignada">Asignada</option>
-		
+			
 		</select>
+		</td>
 			</tr>
 			<tr>
-				<td><label>fechaUltimoCambio</label></td>
+				<td><label>Fecha Ultimo Cambio</label></td>
 				<td><input type="date" th:field="*{fechaUltimoCambio}" /></td>
 			</tr>
 			
 			
-			<tr>
-				<td colspan="2"><input type="submit" value="Actualitza preferencia" /></td>
+			<tr style="text-align:center">
+				<td colspan="2"><input style="margin-top:30px;" type="submit" value="Actualitza preferencia" /></td>
 				
 			</tr>
 		</table>
+		
+		
 	</form>
+	
+	
+	<li><a th:href="@{/preferenciasEstudiante/listes/{dni}(dni=${session.user.username})}">Atras</a></li>
+	
+	</div>
 </body>
 </html>

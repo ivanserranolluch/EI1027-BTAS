@@ -65,7 +65,7 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 		
 	public void addOferta(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
-				"insert into OfertaProyecto(id_oferta,fechaalta,itinerario,estado,objetivo,tarea,id_estancia) values(?, ?, ?, ?, ?, ?, ?)", ofertaProyecto.getId(), ofertaProyecto.getFechaAlta(),
+				"insert into OfertaProyecto(fechaalta,itinerario,estado,objetivo,tarea,id_estancia) values(?, ?, ?, ?, ?, ?)", ofertaProyecto.getFechaAlta(),
 				ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(), ofertaProyecto.getIdEstancia());
 	}
 		

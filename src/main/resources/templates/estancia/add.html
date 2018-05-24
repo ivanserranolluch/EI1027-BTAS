@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<meta charset="UTF-8" />
+	<title>Crear nueva Estancia</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h2>Nueva Estancia</h2>
+	<form action="#" th:action="@{/estancia/add}" th:object="${estanciaAdd}" method="post">
+		<table>
+			  <tr>
+				<td><label>id_estancia</label></td>
+				<td><input type="hidden" th:field="*{id_estancia}" /></td>
+			</tr>  
+			<tr>
+				<td><label>descripcion</label></td>
+				<td><input type="text" th:field="*{descripcion}" /></td>
+			</tr>
+			<tr>
+				<td><label>dni</label></td>
+				<td><input type="text" th:field="*{dni}" /></td>
+			</tr>
+			
+			<tr>
+				<td><label>cif</label></td>
+				<td><input type="text" th:field="*{cif}"/></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2"><input type="submit" value="Añadir Estancia" /></td>
+				
+			</tr>
+		</table>
+		
+		
+	</form>
+	<li><a href="list.html">Atras</a></li>
+</body>
+</html>

@@ -1,28 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+
+		}
+		.li {
+			display: inline-block;
+			width: 100%;
+			
+			padding-top:20px;
+			padding-left: 20px;
+			background-color: #A6A6A6;
+		}
+		h1{
+		text-align:center;
+		color:blue;
+		}
+		table{
+		width:100%;
+		marging:80px}
+		.desconecta{
+			width: 20px;
+			height: 20px;
+			float: left;
+		}
+		.link{text-decoration:none;
+		color:blue;
+		font-size:1.2em}
+		.desc{text-decoration:none;
+		color:blue;}
+	</style>
 <title>EI1027</title>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
-</meta>
+<meta charset="UTF-8"/>
+
 </head>
 <body>
-	<h2>EI1027 - Spring MVC</h2>
-	<h1>Gestio Estudiant</h1>
-   
-    <ul>
-    <li><a href="ofertaProyecto/listes.html">Llista de ofertes</a></li>
-    </ul>
-    
+	<table >
+	<tr><td><h1>Gestion Estudiante-BTAS</h1></td>
+	<td> <img src="/img/Logout.png" th:src="@{/img/Logout.png} " class="desconecta" /><li ><a class="desc" th:href="@{/login}">Desconectar</a></li></td></tr>
+   	</table>
+   	<table>
+   	<tr>
+   	<td>
 
-     <ul>
-	
-    <li><a href="xxxx" th:href="@{/preferenciasEstudiante/listes/{dni}(dni=${session.user.username})}">Lista de mis preferencias</a></li>
-   
+    <li class="li"><a th:href="@{/ofertaProyecto/listes}" class="link">Lista de ofertas</a></li>
     
-    </ul>
-    <!--
-	 <li><a href="prova/list.html">Gestió de proves</a></li>
-	 </ul> -->
+    </td>
+    </tr>
+    
+	<tr>
+	<td>
+   
+    <li class="li"><a th:href="@{/preferenciasEstudiante/listes/{dni}(dni=${session.user.username})}" class="link" >Lista de mis preferencias</a></li>
+   
+    </td>
+    </tr>
+    
+    </table>
 </body>
 </html>

@@ -10,13 +10,10 @@
 	<h2>Nova oferta</h2>
 	<form action="#" th:action="@{/ofertaProyecto/add}" th:object="${ofertaProyecto}" method="post">
 		<table>
-			  <tr>
-				<td><label>id</label></td>
-				<td><input type="text" th:field="*{id}" placeholder="identificador oferta" /></td>
-			</tr>  
+		
+			
 			<tr>
-				<td><label>id de la Estancia</label></td>
-				<td><input type="text" th:field="*{idEstancia}" /></td>
+				<td><input type="hidden" th:field="*{idEstancia}" /></td>
 			</tr>
 			<tr>
 				<td><label>tarea</label></td>
