@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.btas.dao.EmpresaDAO;
 import es.uji.ei1027.btas.dao.PersonaContactoDAO;
-import es.uji.ei1027.btas.dao.TutorDAO;
 import es.uji.ei1027.btas.model.Empresa;
-import es.uji.ei1027.btas.model.Tutor;
 
 @Controller
 @RequestMapping("/Empresa")
@@ -40,6 +38,7 @@ public class EmpresaController {
 		
 		@RequestMapping(value="/listEmpresa/{cif}", method=RequestMethod.GET)
 		public String listEmpresa(Model model,@PathVariable String cif) {
+			System.out.println("CIF"+cif);
 			model.addAttribute("empresas", empresaDAO.getEmpresa(cif));
 			model.addAttribute("personasContactos",personaContactoDAO.getPersonaContactos(cif));
 			return "Empresa/listEmpresa";
@@ -80,7 +79,7 @@ public class EmpresaController {
 			
 			empresaDAO.updateEmpresa(cif,empresa.getDireccion(),empresa.getNombre(),empresa.getTelefono(),empresa.getEmail(),empresa.getDireccionWeb());
 			
-			return "redirect:../list";
+			return "redirect:../listEmpresa/"+cif;
 		}
 		@RequestMapping(value="/delete/{cif}")
 		public String processDelete(@PathVariable String cif) {

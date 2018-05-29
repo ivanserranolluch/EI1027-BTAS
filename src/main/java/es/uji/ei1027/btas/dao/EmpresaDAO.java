@@ -2,9 +2,7 @@ package es.uji.ei1027.btas.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -14,8 +12,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import es.uji.ei1027.btas.model.Empresa;
-import es.uji.ei1027.btas.model.Estancia;
-import es.uji.ei1027.btas.model.Estudiante;
+
 
 @Repository
 public class EmpresaDAO {

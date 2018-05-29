@@ -5,7 +5,11 @@
 	<title>Actualiza empresa</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
-	
+	<script type="text/javascript">
+	function volverAtras(){
+		return window.location.assign("http://localhost:8080/Empresa/listEmpresa/"+document.getElementById("cif").innerHTML+".html");
+	}	
+	</script>
 </head>
 <body>
 	<h2>Tutor</h2>
@@ -35,7 +39,12 @@
 			
 			<tr>
 				<td colspan="2"><input type="submit" value="Actualitza empresa" /></td>
-				
+			</tr>
+			<tr>
+				<td><form><input type="button" value="Atrás" onclick="return volverAtras()"/></form></td>
+			</tr>
+			<tr>
+			<td th:text="*{id}" th:id="cif" hidden="true"></td>
 			</tr>
 		</table>
 	</form>

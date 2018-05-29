@@ -5,9 +5,15 @@
 	<title>Añadir Persona Contacto</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+	<script type="text/javascript">
+	function volverAtras(){
+		
+		return window.location.assign("http://localhost:8080/Empresa/listEmpresa/"+document.getElementById("cif").value+".html");
+	}	
+	</script>
 </head>
 <body>
-	<h2>Nova oferta</h2>
+	<h2>Nuevo Responsable</h2>
 	<form action="#" th:action="@{/personaContacto/add}" th:object="${personaContacto}" method="post">
 		<table>
 			  <tr>
@@ -15,19 +21,17 @@
 				<td><input type="text" th:field="*{dni}" placeholder="dni" /></td>
 			</tr>  
 			<tr>				
-				<td><input type="hidden" th:field="*{cif}" value="${personaContacto.cif}"/></td>
+				<td ><input type="text" th:field="*{cif}" hidden="true" th:id="cif" th:value="*{cif}"/></td>
 			</tr>
-	
-			
-			
 			<tr>
 				<td colspan="2"><input type="submit" value="Añadir Persona Contacto" /></td>
 				
 			</tr>
+			<tr>
+				<td><form><input type="button" value="Atrás" onclick="return volverAtras()"/></form></td>
+			</tr>
+			
 		</table>
-		
-		
 	</form>
-	<li><a href="list.html">Atras</a></li>
 </body>
 </html>

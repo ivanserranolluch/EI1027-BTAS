@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.btas.dao.EmpresaDAO;
 import es.uji.ei1027.btas.dao.PersonaContactoDAO;
-import es.uji.ei1027.btas.model.OfertaProyecto;
 import es.uji.ei1027.btas.model.PersonaContacto;
 
 @Controller
@@ -45,8 +44,9 @@ public class PersonaContactoController{
 	//BORRAR PERSONA CONTACTO
 	@RequestMapping(value="/delete/{dni}")
 	public String processDelete(@PathVariable String dni) {
+		PersonaContacto persona=personaContactoDAO.getPersonaContacto(dni);
 		personaContactoDAO.deletePersonaContacto(dni);
-		return "redirect:../../Empresa/list";
+		return "redirect:../../Empresa/listEmpresa/"+persona.getCif();
 	}
 	
 	
@@ -68,9 +68,9 @@ public class PersonaContactoController{
 			return "personaContacto/update";
 		}
 		
-
-		personaContactoDAO.updatePersonaContacto(dni, personaContacto.getCif());
-		return "redirect:../../Empresa/list";
+		System.out.println("Controller:\nDNI: "+personaContacto.getDni()+" CIF: "+personaContacto.getCif());
+		personaContactoDAO.updatePersonaContacto(dni,personaContacto.getDni(), personaContacto.getCif());
+		return "redirect:../../Empresa/listEmpresa/"+personaContacto.getCif();
 	}
 	
 	
@@ -86,13 +86,13 @@ public class PersonaContactoController{
 	
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public String processAddSubmit(@ModelAttribute("personaContacto")PersonaContacto personaContacto, BindingResult bindingResult){
+	public String processAddSubmit( @ModelAttribute("personaContacto")PersonaContacto personaContacto, BindingResult bindingResult){
 		if (bindingResult.hasErrors()){
 			System.out.println(bindingResult);
 			return "personaContacto/add";
 			
 		}
 		personaContactoDAO.addPersonaContacto(personaContacto);
-		return "redirect:../Empresa/list.html";
+		return "redirect:../Empresa/listEmpresa/"+personaContacto.getCif();
 	}
 }

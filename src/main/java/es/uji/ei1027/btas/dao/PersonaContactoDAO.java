@@ -52,8 +52,8 @@ private JdbcTemplate jdbcTemplate;
 	}
 
 	@Override
-	public void updatePersonaContacto(String dni, String cif) {
-		this.jdbcTemplate.update("update personacontacto set cif = ? where dni=?", cif,dni);
+	public void updatePersonaContacto(String dni, String dniN, String cif) {
+		this.jdbcTemplate.update("update personacontacto set dni = ? where cif=? and dni=?", dniN,cif,dni);
 	}
 
 	@Override

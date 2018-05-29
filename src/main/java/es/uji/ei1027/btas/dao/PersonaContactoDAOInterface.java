@@ -15,7 +15,7 @@ public interface PersonaContactoDAOInterface {
 	
 	public void addPersonaContacto(PersonaContacto personaContacto);
 		
-	public void updatePersonaContacto(String dni, String cif);
+	public void updatePersonaContacto(String dni, String dniN, String cif);
 	
 	public void deletePersonaContacto(String dni);
 
