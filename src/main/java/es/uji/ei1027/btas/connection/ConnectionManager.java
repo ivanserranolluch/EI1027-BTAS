@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Properties;
-
+//algo
 public class ConnectionManager {
 	private final static Logger Log = Logger.getLogger(ConnectionManager.class.getName()); 
 	static String url = "jdbc:postgresql://db-aules.uji.es/ei102717cmrs";
