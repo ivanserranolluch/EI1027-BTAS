@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>Gestionar Empresas</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>Lista de Empresas</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>CIF</th>
+				<th>nombre</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="empresa: ${empresas}">
+				<td th:text="${empresa.cif}"></td>
+				<td th:text="${empresa.nombre}"></td>
+ 				<td><a th:href="@{/Empresa/listEmpresa2/{cif}(cif=${empresa.cif})}">Ver más</a></td> 
+				<!-- <td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
+				<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td> -->
+			</tr>
+		</tbody>
+	</table>
+	<li><a th:href="@{/index/index4}">Atras</a></li>
+</body>
+</html>

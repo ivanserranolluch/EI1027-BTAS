@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>Gestionar Empresas</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+	<script type="text/javascript">
+	function confirmarEmpresa(){
+		if(confirm("¿Quiéres borrar esta empresa?"))
+			return window.location.assign("http://localhost:8080/Empresa/delete/"+document.getElementById("cif").innerHTML+".html");
+		return false;
+	}
+	function confirmarResponsable(){
+		if(confirm("¿Quiéres borrar esta persona?"))
+			return window.location.assign("http://localhost:8080/personaContacto/delete/"+document.getElementById("dni").innerHTML);
+		return false;
+	}
+	</script>
+</head>
+<body>
+	<h1>Empresa</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>CIF</th>
+				<th>nombre</th>
+				<th>telefono</th>
+				<th>email</th>
+				<th>web</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="empresa: ${empresas}">
+				<td th:text="${empresa.cif}" th:id="cif"></td>
+				<td th:text="${empresa.nombre}"></td>
+				<td th:text="${empresa.telefono}"></td>
+				<td th:text="${empresa.email}"></td>
+				<td th:text="${empresa.direccionWeb}"></td>
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	<h2>Responsable de la empresa</h2>
+	<table class="table table-striped">
+	<thead>
+			<tr>
+				<th>DNI</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="personaContacto: ${personasContactos}">
+				<td th:text="${personaContacto.dni}" th:id="dni"></td>
+				
+			
+			</tr>
+			
+		</tbody>
+	</table>
+	<a href="../list2.html">Atrás</a>
+	
+</body>
+</html>

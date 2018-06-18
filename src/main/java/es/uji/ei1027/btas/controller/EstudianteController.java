@@ -42,6 +42,12 @@ public class EstudianteController {
 				return "estudiante/list";
 			}
 			
+			@RequestMapping("/list2")
+			public String listEstudiantes2(Model model) {
+				model.addAttribute("estudiantes", estudianteDAO.getEstudiantes());
+				return "estudiante/list2";
+			}
+			
 	//OPERACION CREAR
 			
 			@RequestMapping(value="/add")

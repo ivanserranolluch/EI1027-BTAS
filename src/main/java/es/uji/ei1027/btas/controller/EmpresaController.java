@@ -36,12 +36,26 @@ public class EmpresaController {
 			return "Empresa/list";
 		}
 		
+		@RequestMapping("/list2")
+		public String listEmpresas2(Model model) {
+			model.addAttribute("empresas", empresaDAO.getEmpresas());
+			return "Empresa/list2";
+		}
+		
 		@RequestMapping(value="/listEmpresa/{cif}", method=RequestMethod.GET)
 		public String listEmpresa(Model model,@PathVariable String cif) {
 			System.out.println("CIF"+cif);
 			model.addAttribute("empresas", empresaDAO.getEmpresa(cif));
 			model.addAttribute("personasContactos",personaContactoDAO.getPersonaContactos(cif));
 			return "Empresa/listEmpresa";
+		}
+		
+		@RequestMapping(value="/listEmpresa2/{cif}", method=RequestMethod.GET)
+		public String listEmpresa2(Model model,@PathVariable String cif) {
+			System.out.println("CIF"+cif);
+			model.addAttribute("empresas", empresaDAO.getEmpresa(cif));
+			model.addAttribute("personasContactos",personaContactoDAO.getPersonaContactos(cif));
+			return "Empresa/listEmpresa2";
 		}
 		
 		//OPERACION CREAR

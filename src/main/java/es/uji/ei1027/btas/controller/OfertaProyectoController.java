@@ -64,6 +64,13 @@ public class OfertaProyectoController {
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
 			return "ofertaProyecto/listes";
 		}
+		
+		@RequestMapping("/listarCCT")
+		public String listOfertasCCT(Model model) {
+			System.out.println("entro aqui");
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
+			return "ofertaProyecto/listarCCT";
+		}
 		/*@RequestMapping("/listitinerario")
 		public String listOfertasItinerario(Model model) {
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
@@ -112,6 +119,27 @@ public class OfertaProyectoController {
 			return "redirect:../list";
 		}
 		
+		
+		@RequestMapping(value="/updateEstado/{id}", method=RequestMethod.GET)
+		public String editOfertaProyectoEstado(Model model, @PathVariable int id){
+			
+			model.addAttribute("ofertaProyecto", ofertaProyectoDAO.getOfertaProyecto(id));
+			return "ofertaProyecto/updateEstado";
+		}
+		
+		@RequestMapping(value="/updateEstado/{id}", method=RequestMethod.POST)
+		public String processUpdateSubmitEstado(@PathVariable int id, @ModelAttribute("ofertaProyecto") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
+			
+			if(bindingResult.hasErrors()){
+				System.out.println(bindingResult.hasErrors());
+				return "ofertaProyecto/updateEstado";
+			}
+			
+			
+			ofertaProyectoDAO.updateOfertaProyectoEstado(id,ofertaProyecto.getDescEstado());
+			
+			return "redirect:../listarCCT";
+		}
 			
 		//OPERACION  BORRAR
 		@RequestMapping(value="/delete/{id}")

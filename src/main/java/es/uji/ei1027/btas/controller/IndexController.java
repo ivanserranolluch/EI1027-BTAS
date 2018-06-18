@@ -19,4 +19,10 @@ public class IndexController {
 		
 		return "index2";									
 	}
+	
+	@RequestMapping("/index4")
+	public String devuelveIndex4() {
+		
+		return "index4";									
+	}
 }

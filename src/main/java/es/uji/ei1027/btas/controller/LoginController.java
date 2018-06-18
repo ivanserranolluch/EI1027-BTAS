@@ -71,6 +71,10 @@ public class LoginController {
 		if(user.getUsername() == "alice") {
 		return "index2";}
 		
+		if(user.getUsername() == "cct") {
+			return "index4";
+		}
+		
 		return "index3";
 	}
 
