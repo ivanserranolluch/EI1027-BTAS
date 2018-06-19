@@ -75,10 +75,6 @@ public class LoginController {
 			return "index4";
 		}
 		
-		if(user.getUsername() == "btc") {
-			return "btc.html";
-		}
-		
 		return "index3";
 	}
 
