@@ -35,6 +35,7 @@ private JdbcTemplate jdbcTemplate;
 	    	preferenciasOfertaEstancia.setItinerario(rs.getString("itinerario"));
 	    	preferenciasOfertaEstancia	.setId_estancia(rs.getInt("id_estancia"));
 	    	preferenciasOfertaEstancia.setDescripcion(rs.getString("descripcion"));
+	    	preferenciasOfertaEstancia.setSemestre(rs.getInt("semestre"));
 	        return preferenciasOfertaEstancia;
 	    }
 	}
@@ -42,7 +43,7 @@ private JdbcTemplate jdbcTemplate;
 	public List<PreferenciaOfertaEstancia> getPreferenciaOfertaEstancia() {
 		
 		return this.jdbcTemplate.query(
-		     	"select id_oferta,orden,o.estado,fechaultimocambio,p.dni,itinerario,id_estancia,descripcion from preferenciasestudiante p join ofertaproyecto o using(id_oferta) join estancia using(id_estancia);", 
+		     	"select id_oferta,orden,o.estado,fechaultimocambio,p.dni,itinerario,id_estancia,descripcion,semestre from preferenciasestudiante p join ofertaproyecto o using(id_oferta) join estancia using(id_estancia);", 
 		     	new PreferenciasOfertaEstanciaMapper());
 	
 }

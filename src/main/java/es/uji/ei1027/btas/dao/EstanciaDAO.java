@@ -36,6 +36,7 @@ public class EstanciaDAO implements EstanciaDAOInterface{
 	        estancia.setDescripcion(rs.getString("descripcion"));
 	        estancia.setDni(rs.getString("dni"));
 	        estancia.setCif(rs.getString("cif"));
+	        estancia.setSemestre(rs.getInt("semestre"));
 	        return estancia;
 	    }
 	}

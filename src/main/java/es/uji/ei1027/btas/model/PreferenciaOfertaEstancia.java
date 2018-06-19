@@ -16,6 +16,7 @@ public class PreferenciaOfertaEstancia {
 	private String descripcion;
 	private Itinerario itinerario;
 	private String descItinerario;
+	private int semestre;
 	
 	public PreferenciaOfertaEstancia() {
 		this.estado=EstadoOferta.INTRODUCIDA;
@@ -133,5 +134,15 @@ public class PreferenciaOfertaEstancia {
 	}
 	public void setDescItinerario(String descItinerario) {
 		this.descItinerario = descItinerario;
+	}
+
+
+	public int getSemestre() {
+		return semestre;
+	}
+
+
+	public void setSemestre(int semestre) {
+		this.semestre = semestre;
 	}
 }

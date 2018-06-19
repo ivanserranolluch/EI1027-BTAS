@@ -6,6 +6,7 @@ public class Estancia {
 	private String descripcion;
 	private String dni;
 	private String cif;
+	private int semestre;
 	
 	public Estancia() {
 		
@@ -48,6 +49,14 @@ public class Estancia {
 
 	public void setCif(String cif) {
 		this.cif = cif;
+	}
+
+	public int getSemestre() {
+		return semestre;
+	}
+
+	public void setSemestre(int semestre) {
+		this.semestre = semestre;
 	}
 	
 	
