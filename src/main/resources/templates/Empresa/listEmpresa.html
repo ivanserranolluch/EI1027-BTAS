@@ -37,8 +37,7 @@
 				<td th:text="${empresa.telefono}"></td>
 				<td th:text="${empresa.email}"></td>
 				<td th:text="${empresa.direccionWeb}"></td>
-				<td><a id="confirmacion" th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
-				<td><form><input type="button" value="Esborra" onclick="return confirmarEmpresa()"/></form></td>
+				
 			</tr>
 		</tbody>
 	</table>
@@ -53,15 +52,10 @@
 		<tbody>
 			<tr th:each="personaContacto: ${personasContactos}">
 				<td th:text="${personaContacto.dni}" th:id="dni"></td>
-				<td><a th:href="@{'/personaContacto/update/'+${personaContacto.dni}}">Edita</a></td>
+				
 				<td><form><input type="button" value="Esborra" onclick="return confirmarResponsable()"/></form></td>
 				
 <!-- 				<td><a th:href="@{'/personaContacto/delete/'+${personaContacto.dni}}">Esborra</a></td> -->
-			</tr>
-			<tr th:each="empresa: ${empresas}">
-			<td><a th:href="@{'/personaContacto/add/'+${empresa.cif}}">Añadir responsable empresa</a></td>
-			<td></td>
-			
 			</tr>
 			
 		</tbody>
