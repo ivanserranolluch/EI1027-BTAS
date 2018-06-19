@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>Estancias</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>Lista de Estancias</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id_Estancia</th>
+				<th>Descripcion</th>
+				<th>DNI</th>
+				<th>CIF</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="estancia: ${estancias}">
+				<td th:text="${estancia.id_estancia}"></td>
+				<td th:text="${estancia.descripcion}"></td>
+				<td th:text="${estancia.dni}"></td>
+				<td th:text="${estancia.cif}"></td>
+				<td><a th:href="@{'/ofertaProyecto/add/'+ ${estancia.id_estancia}}">Validar Estancia</a></td>
+				<td><a th:href="@{/estancia/update/{id}(id=${estancia.id_estancia})}">Modifica</a></td>
+				<!--  <td><a th:href="@{/estancia/delete/{id_estancia}(id_estancia=${estancia.id_estancia})}">Eliminar</a></td>-->
+				
+			</tr>
+		</tbody>
+	</table>
+	<li><a th:href="@{/index/vistaEmpresa}">Atras</a></li>
+</body>
+</html>

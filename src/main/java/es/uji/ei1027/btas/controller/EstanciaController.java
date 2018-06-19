@@ -35,6 +35,12 @@ public class EstanciaController {
 		return "estancia/list";
 	}
 	
+	@RequestMapping("/listarOfertasPropias/{cif}")
+	public String listEstancias2(Model model, @PathVariable("cif") String cif) {
+		model.addAttribute("estancias", estanciaDAO.getEstanciasPropias(cif));
+		return "estancia/listarOfertasPropias";
+	}
+	
 	//OPERACION CREAR
 	@RequestMapping(value="/add")
 	public String addEstancia(Model model,@PathVariable("id_estancia") int id_estancia ) {

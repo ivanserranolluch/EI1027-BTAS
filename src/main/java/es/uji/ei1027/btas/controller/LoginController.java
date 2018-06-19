@@ -74,6 +74,9 @@ public class LoginController {
 		if(user.getUsername() == "cct") {
 			return "index4";
 		}
+		if(user.getUsername() == "A207327737") {
+			return "vistaEmpresa";
+		}
 		
 		return "index3";
 	}

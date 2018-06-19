@@ -47,6 +47,9 @@ public class EstanciaDAO implements EstanciaDAOInterface{
 		return jdbcTemplate.query("select * from estancia", new EstanciaMapper());
 	}
 	
+	public List<Estancia> getEstanciasPropias(String cif) {
+		return jdbcTemplate.query("select * from estancia where cif = ?",new Object[] {cif}, new EstanciaMapper());
+	}
 	
 	public Estancia getEstancia(int id_estancia) {
 		return this.jdbcTemplate.queryForObject("select * from estancia where id_estancia=?",  new Object[] {id_estancia}, new EstanciaMapper());

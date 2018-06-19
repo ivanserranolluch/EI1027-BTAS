@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EI1027</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+</meta>
+</head>
+<body>
+
+	<h2>EI1027 - Spring MVC</h2>
+	<h1>Gestio Empresa</h1>
+    
+    
+     <ul>
+    <li><a th:href="@{/estancia/listarOfertasPropias/{cif}(cif=${session.user.username})}">Gestionar ofertas</a></li>
+    </ul>
+    
+   
+</body>
+</html>

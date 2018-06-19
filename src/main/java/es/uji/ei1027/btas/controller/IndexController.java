@@ -25,9 +25,8 @@ public class IndexController {
 		return "index4";									
 	}
 	
-	@RequestMapping("/btc")
+	@RequestMapping("/vistaEmpresa")
 	public String devuelvebtc() {
-		
-		return "btc";									
+		return "vistaEmpresa";									
 	}
 }
