@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/index")
-
 public class IndexController {
 
 	
@@ -24,5 +23,11 @@ public class IndexController {
 	public String devuelveIndex4() {
 		
 		return "index4";									
+	}
+	
+	@RequestMapping("/btc")
+	public String devuelvebtc() {
+		
+		return "btc";									
 	}
 }

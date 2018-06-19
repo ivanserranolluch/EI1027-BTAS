@@ -55,7 +55,7 @@ public class LoginController {
 		if (bindingResult.hasErrors()) {
 			return "login";
 		}
-	       // Comprova que el login siga correcte 
+	    // Comprueba que el login sea correcto 
 		// intentant carregar les dades de l'usuari 
 		user = userDao.loadUserByUsername(user.getUsername(),user.getPassword()); 
 		if (user == null) {
@@ -64,7 +64,7 @@ public class LoginController {
 			return "login";
 		}
 		// Autenticats correctament. 
-		// Guardem les dades de l'usuari autenticat a la sessió
+		// Guardamos los datos del usuario autentificado en la sessión
 		session.setAttribute("user", user); 
 		
 		// Torna a la pàgina principal
@@ -73,6 +73,10 @@ public class LoginController {
 		
 		if(user.getUsername() == "cct") {
 			return "index4";
+		}
+		
+		if(user.getUsername() == "btc") {
+			return "btc.html";
 		}
 		
 		return "index3";

@@ -10,7 +10,7 @@ import java.util.Properties;
 
 public class ConnectionManager {
 	private final static Logger Log = Logger.getLogger(ConnectionManager.class.getName()); 
-	static String url = "jdbc:postgresql://db-aules.uji.es/ei102717cmrs";
+	static String url = "jdbc:postgresql://db-aules.uji.es/ei102717cmrs2";
 	static String driverName= "org.postgresql.Driver";
 	static Connection connection=null;
 	final static String JDBC_PROPERTIES = "./jdbc.properties";

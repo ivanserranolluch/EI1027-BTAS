@@ -37,7 +37,7 @@ public class TestConnection {
  
 		try {
 			
-			String url = "jdbc:postgresql://db-aules.uji.es/ei102717cmrs";
+			String url = "jdbc:postgresql://db-aules.uji.es/ei102717cmrs2";
 			Properties props = new Properties();
 			ClassLoader loader = Thread.currentThread().getContextClassLoader();           
 			InputStream stream = loader.getResourceAsStream(JDBC_PROPERTIES);
