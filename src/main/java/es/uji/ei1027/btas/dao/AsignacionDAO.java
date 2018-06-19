@@ -62,4 +62,8 @@ private JdbcTemplate jdbcTemplate;
 				asignacion.getFechaPropuesta(),asignacion.getFechaAceptacion(),asignacion.getEstado(),asignacion.getFechaRechazo(),asignacion.getFechaTraspasoIglu(),asignacion.getComentarioPetCambio(),asignacion.getDniE(),asignacion.getDniT(),asignacion.getId_oferta());
 	}
 	
+	public List<Asignacion> getAsignacionesTutor(String dniT) {
+		return this.jdbcTemplate.query("select * from asignacion where dniT=?",  new Object[] {dniT}, new AsignacionMapper());
+	}
+	
 }

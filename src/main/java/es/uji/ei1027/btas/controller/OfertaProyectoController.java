@@ -71,6 +71,13 @@ public class OfertaProyectoController {
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
 			return "ofertaProyecto/listarCCT";
 		}
+		
+		@RequestMapping("/listarOfertasTutor")
+		public String listOfertasTutor(Model model) {
+			System.out.println("entro aqui");
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
+			return "ofertaProyecto/listarOfertasTutor";
+		}
 		/*@RequestMapping("/listitinerario")
 		public String listOfertasItinerario(Model model) {
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());

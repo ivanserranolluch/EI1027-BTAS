@@ -43,4 +43,12 @@ public class AsignacionController {
 		return "asignacion/listarAsignacionesEstudianteBTC";
 	}
 	
+	@RequestMapping("/listarAsignacionesTutor/{dniT}")
+	public String listAsignacionTutor(Model model, @PathVariable String dniT) {
+		System.out.println("entro en Asignaciones");
+		model.addAttribute("asignaciones", asignacionDAO.getAsignacionesTutor(dniT));
+		System.out.println("Salgo en Asignaciones");
+		return "asignacion/listarAsignacionesTutor";
+	}
+	
 }

@@ -78,6 +78,10 @@ public class LoginController {
 			return "vistaEmpresa";
 		}
 		
+		if(user.getUsername() == "5678") {
+			return "vistaTutor";
+		}
+		
 		return "index3";
 	}
 
