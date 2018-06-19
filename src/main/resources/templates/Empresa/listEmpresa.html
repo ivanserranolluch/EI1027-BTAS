@@ -53,7 +53,7 @@
 			<tr th:each="personaContacto: ${personasContactos}">
 				<td th:text="${personaContacto.dni}" th:id="dni"></td>
 				
-				<td><form><input type="button" value="Esborra" onclick="return confirmarResponsable()"/></form></td>
+				<!-- <td><form><input type="button" value="Esborra" onclick="return confirmarResponsable()"/></form></td> -->
 				
 <!-- 				<td><a th:href="@{'/personaContacto/delete/'+${personaContacto.dni}}">Esborra</a></td> -->
 			</tr>

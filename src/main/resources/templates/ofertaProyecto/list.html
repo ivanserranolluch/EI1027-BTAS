@@ -25,8 +25,7 @@
 				<td th:text="${oferta.descEstado}"></td>
 				<td th:text="${oferta.descItinerario}"></td>
 				<td th:text="${oferta.fechaAlta}"></td>
-				<td><a th:href="@{/ofertaProyecto/update/{id}(id=${oferta.id})}">Edita</a></td>
-				<td><a th:href="@{/ofertaProyecto/delete/{id}(id=${oferta.id})}">Esborra</a></td>
+				<td><a th:href="@{/ofertaProyecto/updateEstadoBTC/{id}(id=${oferta.id})}">Modificar Estado</a></td>
 			</tr>
 		</tbody>
 	</table>

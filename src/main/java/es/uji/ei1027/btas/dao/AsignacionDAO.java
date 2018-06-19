@@ -56,4 +56,10 @@ private JdbcTemplate jdbcTemplate;
 	public List<Asignacion> getAsignacionEstudiante(String dniE) {
 		return this.jdbcTemplate.query("select * from asignacion where dniE=?",  new Object[] {dniE}, new AsignacionMapper());
 	}
+	
+	public void addAsignacion(Asignacion asignacion) {
+		this.jdbcTemplate.update("insert into Asignacion(fechaPropuesta,fechaAceptacion,estadoaceptadorechazado,fecharechazo,fechatraspasoiglu,comentariopetcambio,dnie,dnit,id_oferta)values(?,?,?,?,?,?,?,?,?)",
+				asignacion.getFechaPropuesta(),asignacion.getFechaAceptacion(),asignacion.getEstado(),asignacion.getFechaRechazo(),asignacion.getFechaTraspasoIglu(),asignacion.getComentarioPetCambio(),asignacion.getDniE(),asignacion.getDniT(),asignacion.getId_oferta());
+	}
+	
 }

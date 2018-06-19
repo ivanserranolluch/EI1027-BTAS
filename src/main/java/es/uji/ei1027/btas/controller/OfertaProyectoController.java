@@ -141,6 +141,28 @@ public class OfertaProyectoController {
 			return "redirect:../listarCCT";
 		}
 			
+		
+		@RequestMapping(value="/updateEstadoBTC/{id}", method=RequestMethod.GET)
+		public String editOfertaProyectoEstadoBTC(Model model, @PathVariable int id){
+			
+			model.addAttribute("ofertaProyecto", ofertaProyectoDAO.getOfertaProyecto(id));
+			return "ofertaProyecto/updateEstadoBTC";
+		}
+		
+		@RequestMapping(value="/updateEstadoBTC/{id}", method=RequestMethod.POST)
+		public String processUpdateSubmitEstadoBTC(@PathVariable int id, @ModelAttribute("ofertaProyecto") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
+			
+			if(bindingResult.hasErrors()){
+				System.out.println(bindingResult.hasErrors());
+				return "ofertaProyecto/updateEstadoBTC";
+			}
+			
+			
+			ofertaProyectoDAO.updateOfertaProyectoEstado(id,ofertaProyecto.getDescEstado());
+			
+			return "redirect:../list";
+		}
+		
 		//OPERACION  BORRAR
 		@RequestMapping(value="/delete/{id}")
 		public String processDelete(@PathVariable int id) {
