@@ -50,7 +50,10 @@ private JdbcTemplate jdbcTemplate;
 	    		ofertaEstancia.setTarea(rs.getString("tarea"));
 	    		}
 	   	ofertaEstancia.setCif(rs.getString("cif"));
-	    	ofertaEstancia	.setId_estancia(rs.getInt("id_estancia"));
+	   	
+    	   	ofertaEstancia.setId_estancia(rs.getInt("id_estancia"));
+    	  
+	 
 	    	ofertaEstancia.setDescripcion(rs.getString("descripcion"));
 	    	ofertaEstancia.setSemestre(rs.getInt("semestre"));
 	     return ofertaEstancia;
@@ -64,5 +67,16 @@ public List<OfertaEstancia> getOfertaEstancia(String cif) {
 		     	new Object[] {cif}, new OfertaEstanciaMapper());
 	
 }
+
+public OfertaEstancia getOfertaEstancia(int id_estancia) {
+	return this.jdbcTemplate.queryForObject("select id_estancia,fechaAlta,estado,objetivo,tarea,cif,descripcion,semestre from ofertaProyecto right outer join estancia using (id_estancia) where id_estancia=?",  new Object[] {id_estancia}, new OfertaEstanciaMapper());
+}
+public void updateOfertaEstanciaEmpresa(int id_estancia,String descripcion) {
+	this.jdbcTemplate.update(
+			"update estancia set descripcion = ? where id_estancia=?", descripcion,id_estancia);
 	
 }
+
+}
+	
+

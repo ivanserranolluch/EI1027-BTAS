@@ -81,6 +81,8 @@ public class OfertaProyecto {
 			estado=EstadoOferta.VISIBLE_ALUMNOS;
 		case "Asignada":
 			estado=EstadoOferta.ASIGNADA;
+		case"Solicitar Revision":
+			estado=EstadoOferta.SOLICITAR_REVISION;
 			break;
 		}
 		this.descEstado=estado.getDescripcion();

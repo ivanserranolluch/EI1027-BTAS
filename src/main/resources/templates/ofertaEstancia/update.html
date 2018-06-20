@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<meta charset="UTF-8" />
+	<title>Modifica Estancia</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+	
+</head>
+<body>
+	<h2>Modificar Estancia</h2>
+	<form action="#" th:action="@{/ofertaEstancia/update/} + ${ofertasEstancias.id_estancia}" th:object="${ofertasEstancias}" method="post">
+		<table>
+		
+			
+			<tr>
+				<td><label>descripcion</label></td>
+				<td><input type="text" th:field="*{descripcion}" /></td>
+			</tr>
+			
+			
+			
+			
+			<tr>
+				<td colspan="2"><input type="submit" value="Modifica Oferta" /></td>
+				
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
