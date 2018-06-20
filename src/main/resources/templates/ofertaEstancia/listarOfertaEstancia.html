@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>Gestionar Preferencias CCD</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>Lista de Preferencias</h1>
+	<table   class="table table-striped">
+		<thead>
+			<tr>
+				<th>orden</th>
+				<th>estado</th>
+				<th>descEstado</th>
+				<th>fechaUltimoCambio</th>
+				<th>itinerario</th>
+				<th>descItinerario</th>
+				<th>descripcion</th>
+				<th>semestre</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="ofertaEstancia: ${ofertasEstancias}">
+				<td th:text="${ofertaEstancia.fechaAlta}"></td>
+				<td th:text="${ofertaEstancia.estado}"></td>
+				<td th:text="${ofertaEstancia.descEstado}"></td>
+				<td th:text="${ofertaEstancia.objetivo}"></td>
+				<td th:text="${ofertaEstancia.tarea}"></td>
+				<td th:text="${ofertaEstancia.cif}"></td>
+				<td th:text="${ofertaEstancia.descripcion}"></td>
+				<td th:text="${ofertaEstancia.semestre}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
