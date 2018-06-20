@@ -15,6 +15,7 @@
 				<th>Descripcion</th>
 				<th>DNI</th>
 				<th>CIF</th>
+				<th>semestre</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,7 +24,8 @@
 				<td th:text="${estancia.descripcion}"></td>
 				<td th:text="${estancia.dni}"></td>
 				<td th:text="${estancia.cif}"></td>
-				<td><a th:href="@{'/ofertaProyecto/add/'+ ${estancia.id_estancia}}">Validar Estancia</a></td>
+				<td th:text="${estancia.semestre}"></td>
+				<!--  <td><a th:href="@{'/ofertaProyecto/add/'+ ${estancia.id_estancia}}">Validar Estancia</a></td>-->
 				<td><a th:href="@{/estancia/update/{id}(id=${estancia.id_estancia})}">Modifica</a></td>
 				<!--  <td><a th:href="@{/estancia/delete/{id_estancia}(id_estancia=${estancia.id_estancia})}">Eliminar</a></td>-->
 				
@@ -31,5 +33,7 @@
 		</tbody>
 	</table>
 	<li><a th:href="@{/index/vistaEmpresa}">Atras</a></li>
+	<a th:href="@{/estancia/add/}">nueva</a>
+	
 </body>
 </html>

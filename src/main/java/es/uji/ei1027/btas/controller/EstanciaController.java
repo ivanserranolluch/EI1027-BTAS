@@ -43,7 +43,7 @@ public class EstanciaController {
 	
 	//OPERACION CREAR
 	@RequestMapping(value="/add")
-	public String addEstancia(Model model,@PathVariable("id_estancia") int id_estancia ) {
+	public String addEstancia(Model model) { //,@PathVariable("id_estancia") int id_estancia 
 		model.addAttribute("estanciaAdd", new Estancia());
 		System.out.println("he creado la estancia");
 		return "estancia/add";
@@ -57,7 +57,7 @@ public class EstanciaController {
 					
 		}
 		estanciaDAO.addEstancia(estancia);
-		return "index2";
+		return "vistaEmpresa";
 	}
 	
 	//MODIFICAR ESTANCIA
@@ -76,7 +76,7 @@ public class EstanciaController {
 		}
 		System.out.println("");
 		estanciaDAO.updateEstancia(id, estancia.getDescripcion(), estancia.getDni(), estancia.getCif());		
-		return "redirect:../list.html";
+		return "vistaEmpresa";
 	}
 	
 	//BORRAR ESTANCIA

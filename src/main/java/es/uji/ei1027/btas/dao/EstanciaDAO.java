@@ -60,7 +60,7 @@ public class EstanciaDAO implements EstanciaDAOInterface{
 	@Override
 	public void addEstancia(Estancia estancia) {
 		this.jdbcTemplate.update(
-				"insert into estancia(descripcion,dni,cif) values(?, ?, ?)",estancia.getDescripcion(),estancia.getDni(),estancia.getCif());
+				"insert into estancia(descripcion,dni,cif,semestre) values(?, ?, ?, ?)",estancia.getDescripcion(),estancia.getDni(),estancia.getCif(),estancia.getSemestre());
 		
 	}
 	
