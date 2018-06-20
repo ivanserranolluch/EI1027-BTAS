@@ -78,5 +78,10 @@ public class EstanciaDAO implements EstanciaDAOInterface{
 				"update estancia set descripcion = ?, dni=?, cif=? where id_estancia=?", descripcion,dni,cif,id_estancia);
 		
 	}
-
+	public void updateEstanciaEmpresa(int id_estancia,String descripcion) {
+		this.jdbcTemplate.update(
+				"update estancia set descripcion = ? where id_estancia=?", descripcion,id_estancia);
+		
+	}
+	
 }

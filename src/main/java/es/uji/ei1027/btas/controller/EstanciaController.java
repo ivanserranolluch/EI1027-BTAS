@@ -75,9 +75,27 @@ public class EstanciaController {
 			return "estancia/update";
 		}
 		System.out.println("");
-		estanciaDAO.updateEstancia(id, estancia.getDescripcion(), estancia.getDni(), estancia.getCif());		
+		estanciaDAO.updateEstanciaEmpresa(id, estancia.getDescripcion());		
 		return "vistaEmpresa";
 	}
+	
+	/*@RequestMapping(value="/updateEmpresa/{id}", method=RequestMethod.GET)
+	public String editEstanciaEmpresa(Model model, @PathVariable int id){
+			model.addAttribute("estanciaEdit", estanciaDAO.getEstancia(id));
+			return "estancia/updateEmpresa";
+	}
+	
+	
+	@RequestMapping(value="/updateEmpresa/{id}", method=RequestMethod.POST)
+	public String processUpdateSubmitEmpresa(@PathVariable int id, @ModelAttribute("estanciaEdit") Estancia estancia, BindingResult bindingResult){
+		if(bindingResult.hasErrors()){
+			System.out.println(bindingResult.hasErrors());
+			return "estancia/updateEmpresa";
+		}
+		System.out.println("");
+		estanciaDAO.updateEstancia(id, estancia.getDescripcion(), estancia.getDni(), estancia.getCif());		
+		return "vistaEmpresa";
+	}*/
 	
 	//BORRAR ESTANCIA
 	@RequestMapping(value="/delete/{id_estancia}")
