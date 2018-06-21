@@ -29,12 +29,11 @@
 				<td th:text="${oferta.fechaAlta}"></td>
 				<td th:text="${oferta.dni}"></td>
 				<td th:text="${oferta.cif}"></td>
-				<td><a th:href="@{/ofertaProyecto/updateEstadoEmpresa/{id}(id=${oferta.id})}">Editar</a></td>
+				<td><a th:href="@{'/ofertaProyecto/add/'+ ${oferta.id}}">Validar Oferta</a></td>
+				<td><a th:href="@{/ofertaProyecto/updateBTC/{id}(id=${oferta.id})}">Modificar Estado</a></td>
 			</tr>
 		</tbody>
 	</table>
-	<li><a th:href="@{/index/vistaEmpresa}">Atras</a></li>
-	
-	<li><a  th:href="@{/ofertaProyecto/addOfertaEmpresa}">Añadir Oferta</a></li>
+	<li><a th:href="@{/index/vistaEmpresa/{cif}(cif=${session.user.username})}">Atras</a></li>
 </body>
 </html>

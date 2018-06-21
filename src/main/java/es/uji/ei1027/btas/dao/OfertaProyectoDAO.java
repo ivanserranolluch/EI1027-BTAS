@@ -63,7 +63,14 @@ public List<OfertaProyecto> getOfertaCif(String cif) {
 		return jdbcTemplate.query(
 		     	"select * from ofertaproyecto where cif =?",
 		     	new Object[] {cif}, new OfertaProyectoMapper());
+		
+}
+public List<OfertaProyecto> getOfertasEstudiante() {
 	
+	return this.jdbcTemplate.query(
+	     	"select * from ofertaProyecto where estado='Aceptada'", 
+	     	new OfertaProyectoMapper());
+
 }
 	public OfertaProyecto getOfertaProyecto(int id) {
 		return this.jdbcTemplate.queryForObject("select * from ofertaProyecto where id_oferta=?",  new Object[] {id}, new OfertaProyectoMapper());

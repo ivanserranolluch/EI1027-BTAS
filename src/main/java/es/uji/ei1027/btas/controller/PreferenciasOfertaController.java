@@ -5,19 +5,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-import es.uji.ei1027.btas.dao.PreferenciasOfertaEstanciaDAO;
+import es.uji.ei1027.btas.dao.PreferenciasOfertaDAO;
 
 @Controller
-@RequestMapping("/preferenciasOfertaEstancia")
+@RequestMapping("/preferenciasOferta")
 
-public class PreferenciasOfertaEstanciaController {
-	private PreferenciasOfertaEstanciaDAO preferenciasOfertaEstanciaDao;
+public class PreferenciasOfertaController {
+	private PreferenciasOfertaDAO preferenciasOfertaDao;
 	
 	
 	@Autowired
-	public void setPreferenciasOfertaEstanciaDAO (PreferenciasOfertaEstanciaDAO preferenciasOfertaEstanciaDao){
-		this.preferenciasOfertaEstanciaDao = preferenciasOfertaEstanciaDao;
+	public void setPreferenciasOfertaDAO (PreferenciasOfertaDAO preferenciasOfertaDao){
+		this.preferenciasOfertaDao = preferenciasOfertaDao;
 	}
 	
 	//OPERACION LISTAR
@@ -26,10 +25,10 @@ public class PreferenciasOfertaEstanciaController {
 	@RequestMapping("/listar")
 	public String listPreferenciasEstudiante(Model model) {
 		System.out.println("He entrado");
-		model.addAttribute("preferencias", preferenciasOfertaEstanciaDao.getPreferenciaOfertaEstancia());
+		model.addAttribute("preferencias", preferenciasOfertaDao.getPreferenciaOferta());
 		System.out.println("entro en la lista de preferencias del estudiante CCD");
 		System.out.println("Aqio tmbien joder");
-		return "preferenciasOfertaEstancia/listar";
+		return "preferenciasOferta/listar";
 		
 	}
 	

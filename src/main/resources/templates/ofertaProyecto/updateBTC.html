@@ -2,24 +2,27 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
 	<meta charset="UTF-8" />
-	<title>Crear nou nadador</title>
+	<title>Modifica Estancia</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
 	
 </head>
 <body>
-	<h2>Modificar Estado</h2>
-	<form action="#" th:action="@{/ofertaProyecto/updateEstadoBTC/} + ${ofertaProyecto.id}" th:object="${ofertaProyecto}" method="post">
+	<h2>Modificar Estancia</h2>
+	<form action="#" th:action="@{/ofertaProyecto/updateBTC/} + ${ofertaProyectos.id}" th:object="${ofertaProyectos}" method="post">
 		<table>
 		
-<!-- 			<tr> -->
-<!-- 				<td><label>id</label></td> -->
-<!-- 				<td><input type="text" th:field="*{id}" /></td> -->
-<!-- 			</tr> -->
 			
-			  
 			<tr>
-				<label>Estado</label>
+				<td><label>tarea</label></td>
+				<td><input type="text" th:field="*{tarea}" /></td>
+			</tr>
+			
+			<tr>
+				<td><label>objetivo</label></td>
+				<td><input type="text" th:field="*{objetivo}" /></td>
+			</tr>
+			<tr>				<label>Estado</label>
 				<select name="estado" th:field="*{descEstado}">       			
 			        
 			       <option value="Introducida">Introducida</option> 
@@ -27,13 +30,10 @@
 			       <option value="Rechazada">Rechazada</option> 
 			       <option value="Asignada">Asignada</option>
 		
-		</select>
-			</tr>
-			
+		</select></tr>
 			
 			<tr>
-				<td colspan="2"><input type="submit" value="Actualitza oferta" /></td>
-				
+				<td colspan="2"><input type="submit" value="Modifica Oferta" /></td>
 			</tr>
 		</table>
 	</form>

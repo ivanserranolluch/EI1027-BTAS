@@ -2,7 +2,7 @@ package es.uji.ei1027.btas.model;
 
 import java.sql.Date;
 
-public class PreferenciaOfertaEstancia {
+public class PreferenciaOferta {
 	
 	private int id;
 	private Estudiante estudiante;
@@ -12,13 +12,14 @@ public class PreferenciaOfertaEstancia {
 	private String dni;
 	private String descEstado;
 	private Date fechaUltimoCambio;
-	private int id_estancia;
-	private String descripcion;
+	private Date fechaAlta;
 	private Itinerario itinerario;
 	private String descItinerario;
-	private int semestre;
+	private String cif;
+	private String tarea;
+	private String objetivo;
 	
-	public PreferenciaOfertaEstancia() {
+	public PreferenciaOferta() {
 		this.estado=EstadoOferta.INTRODUCIDA;
 		this.descEstado=EstadoOferta.INTRODUCIDA.getDescripcion();
 	}
@@ -47,24 +48,14 @@ public class PreferenciaOfertaEstancia {
 		}
 		this.setDescItinerario(itinerario.getDescripcion());
 	}
-	public String getDescripcion() {
-		return descripcion;
-	}
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+	
 	public Date getFechaUltimoCambio() {
 		return fechaUltimoCambio;
 	}
 	public void setFechaUltimoCambio(Date fechaUltimoCambio) {
 		this.fechaUltimoCambio = fechaUltimoCambio;
 	}
-	public int getId_estancia() {
-		return id_estancia;
-	}
-	public void setId_estancia(int id_estancia) {
-		this.id_estancia = id_estancia;
-	}
+
 	public String getDescEstado() {
 		return descEstado;
 	}
@@ -137,12 +128,45 @@ public class PreferenciaOfertaEstancia {
 	}
 
 
-	public int getSemestre() {
-		return semestre;
+	public String getTarea() {
+		return tarea;
 	}
 
 
-	public void setSemestre(int semestre) {
-		this.semestre = semestre;
+	public void setTarea(String tarea) {
+		this.tarea = tarea;
 	}
+
+
+	public String getObjetivo() {
+		return objetivo;
+	}
+
+
+	public void setObjetivo(String objetivo) {
+		this.objetivo = objetivo;
+	}
+
+
+	public Date getFechaAlta() {
+		return fechaAlta;
+	}
+
+
+	public void setFechaAlta(Date fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
+
+
+	public String getCif() {
+		return cif;
+	}
+
+
+	public void setCif(String cif) {
+		this.cif = cif;
+	}
+
+
+
 }

@@ -72,7 +72,7 @@ public class OfertaProyectoController {
 		
 		public String listOfertasEstudiant(Model model) {
 			System.out.println("entro aqui");
-			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertasEstudiante());
 			return "ofertaProyecto/listes";
 		}
 		
@@ -81,6 +81,13 @@ public class OfertaProyectoController {
 			System.out.println("entro aqui");
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
 			return "ofertaProyecto/listarCCT";
+		}
+		
+		@RequestMapping("/listBTC")
+		public String listOfertasBCT(Model model) {
+			System.out.println("entro aqui");
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
+			return "ofertaProyecto/listBTC";
 		}
 		
 		@RequestMapping("/listarOfertasTutor")
@@ -155,6 +162,30 @@ public class OfertaProyectoController {
 					ofertaProyecto.getFechaAlta(),ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea());
 			
 			return "redirect:../list";
+		}
+		
+		
+		@RequestMapping(value="/updateBTC/{id}", method=RequestMethod.GET)
+		public String editOfertaProyecto2(Model model, @PathVariable int id){
+			System.out.println("algo ago");
+			model.addAttribute("ofertaProyectos", ofertaProyectoDAO.getOfertaProyecto(id));
+			System.out.println("y ago return");
+			return "ofertaProyecto/updateBTC";
+		}
+		
+		@RequestMapping(value="/updateBTC/{id}", method=RequestMethod.POST)
+		public String processUpdateSubmit8(@PathVariable int id, @ModelAttribute("ofertaProyectos") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
+			System.out.println("Eiiii");
+			if(bindingResult.hasErrors()){
+				System.out.println(bindingResult.hasErrors());
+				return "ofertaProyecto/updateBTC";
+			}
+			
+			
+			ofertaProyectoDAO.updateOfertaProyectoEstadoObjetivoTarea(id,ofertaProyecto.getDescEstado(), 
+					ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea());
+			
+			return "index2";
 		}
 		
 		
