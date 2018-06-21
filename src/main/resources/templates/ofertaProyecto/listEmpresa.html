@@ -18,6 +18,7 @@
 				<th>fechaAlta</th>
 				<th>dni</th>
 				<th>cif</th>
+				<td>semestre</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,6 +30,7 @@
 				<td th:text="${oferta.fechaAlta}"></td>
 				<td th:text="${oferta.dni}"></td>
 				<td th:text="${oferta.cif}"></td>
+				<td th:text="${oferta.semestre}"></td>
 				<td><a th:href="@{/ofertaProyecto/updateEstadoEmpresa/{id}(id=${oferta.id})}">Editar</a></td>
 			</tr>
 		</tbody>

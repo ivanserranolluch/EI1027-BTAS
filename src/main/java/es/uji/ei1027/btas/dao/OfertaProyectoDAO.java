@@ -44,6 +44,7 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 	        ofertaProyecto.setFechaAlta(rs.getDate("fechaalta"));
 	        ofertaProyecto.setDni(rs.getString("dni"));
 	        ofertaProyecto.setCif(rs.getString("cif"));
+	        ofertaProyecto.setSemestre(rs.getInt("semestre"));
 	        return ofertaProyecto;
 	    }
 	}
@@ -84,8 +85,8 @@ public List<OfertaProyecto> getOfertasEstudiante() {
 		
 	public void addOferta(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
-				"insert into OfertaProyecto(fechaalta,itinerario,estado,objetivo,tarea,dni,cif) values(?, ?, ?, ?, ?, ?,?)", ofertaProyecto.getFechaAlta(),
-				ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(),ofertaProyecto.getDni(),ofertaProyecto.getCif());
+				"insert into OfertaProyecto(fechaalta,itinerario,estado,objetivo,tarea,dni,cif,semestre) values(?, ?, ?, ?, ?, ?,?,?)", ofertaProyecto.getFechaAlta(),
+				ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(),ofertaProyecto.getDni(),ofertaProyecto.getCif(),ofertaProyecto.getSemestre());
 	}
 		
 	public void updateOfertaProyectoEstado(int id,String estado) {

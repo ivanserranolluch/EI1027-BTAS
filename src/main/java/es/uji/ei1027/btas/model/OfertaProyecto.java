@@ -17,6 +17,7 @@ public class OfertaProyecto {
 	private Date fechaAlta;
 	private String cif;
 	private String dni;
+	private int semestre;
 
 	//private Time fechaUltimoCambio;
 	private HashSet<Asignacion> asignaciones;
@@ -39,7 +40,7 @@ public class OfertaProyecto {
 
 	}
 	
-	public OfertaProyecto(int id, String tarea, String objetivo, Date fechaAlta, HashSet<Asignacion> asignaciones,HashSet<PeticionRevision> peticionesRevision, int id_estancia) {
+	public OfertaProyecto(int id, String tarea, String objetivo, Date fechaAlta, HashSet<Asignacion> asignaciones,HashSet<PeticionRevision> peticionesRevision) {
 		this.id=id;
 		this.tarea=tarea;
 		this.objetivo=objetivo;
@@ -184,6 +185,12 @@ public class OfertaProyecto {
 	}
 	public void setCif(String cif) {
 		this.cif = cif;
+	}
+	public int getSemestre() {
+		return semestre;
+	}
+	public void setSemestre(int semestre) {
+		this.semestre = semestre;
 	}
 	
 	

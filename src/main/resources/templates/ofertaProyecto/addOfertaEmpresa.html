@@ -47,6 +47,11 @@
 				<td><label>dni</label></td>
 				<td><input type="text" th:field="*{dni}" /></td>
 			</tr>
+			
+			<tr>
+				<td><label>semestre</label></td>
+				<td><input type="number" min="1" max="2" th:field="*{semestre}"/></td>
+			</tr>
 			<label>Itinerario</label>
 			
 		<select name="Itinerarios" th:field="*{itinerario}">       			

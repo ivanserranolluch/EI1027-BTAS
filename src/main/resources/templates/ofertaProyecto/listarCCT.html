@@ -17,6 +17,7 @@
 				<th>estado</th>
 				<th>itinerario</th>
 				<th>fechaAlta</th>
+				<th>semestre</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,6 +28,7 @@
 				<td th:text="${oferta.descEstado}"></td>
 				<td th:text="${oferta.descItinerario}"></td>
 				<td th:text="${oferta.fechaAlta}"></td>
+				<td th:text="${oferta.semestre}"></td>
 		 	<!-- 	<td><a th:href="@{/preferenciasEstudiante/add/{id}(id=${oferta.id})/{dni}(dni=${session.user.username})}">add</a></td>--> 
 		 	<td><a th:href="@{/ofertaProyecto/updateEstado/{id}(id=${oferta.id})}">Modificar Estado</a></td>
 			</tr>

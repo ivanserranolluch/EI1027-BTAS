@@ -18,6 +18,7 @@
 				<th>fechaAlta</th>
 				<th>dni</th>
 				<th>cif</th>
+				<th>semestre</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,6 +30,7 @@
 				<td th:text="${oferta.fechaAlta}"></td>
 				<td th:text="${oferta.dni}"></td>
 				<td th:text="${oferta.cif}"></td>
+				<td th:text="${oferta.semestre}"></td>
 				<td><a th:href="@{'/ofertaProyecto/add/'+ ${oferta.id}}">Validar Oferta</a></td>
 				<td><a th:href="@{/ofertaProyecto/updateBTC/{id}(id=${oferta.id})}">Modificar Estado</a></td>
 			</tr>

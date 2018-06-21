@@ -68,8 +68,8 @@ public class OfertaProyectoController {
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
 			return "ofertaProyecto/list";
 		}
-		@RequestMapping("/listes")
 		
+		@RequestMapping("/listes")
 		public String listOfertasEstudiant(Model model) {
 			System.out.println("entro aqui");
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertasEstudiante());
@@ -110,7 +110,7 @@ public class OfertaProyectoController {
 			return "ofertaProyecto/addOfertaEmpresa";
 		}
 				
-		@RequestMapping(value="/addOfertaEmpres", method=RequestMethod.POST)
+		@RequestMapping(value="/addOfertaEmpresa", method=RequestMethod.POST)
 		public String processAddSubmit2(@ModelAttribute("ofertas") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
 			if (bindingResult.hasErrors()){
 				System.out.println(bindingResult);
