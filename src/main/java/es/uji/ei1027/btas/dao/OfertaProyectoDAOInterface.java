@@ -17,7 +17,7 @@ public interface OfertaProyectoDAOInterface {
 	
 	public void updateOfertaProyectoEstado(int id,String estado);
 	
-	public void updateOfertaProyecto(int id, String estado, String itinerario, int id_estancia, Date fechaAlta, String objetvio, String tarea);
+	public void updateOfertaProyecto(int id, String estado, String itinerario, Date fechaAlta, String objetvio, String tarea);
 	
 	public void deleteOferta(int id);
 	

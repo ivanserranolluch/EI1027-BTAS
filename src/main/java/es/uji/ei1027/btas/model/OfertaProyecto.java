@@ -15,7 +15,9 @@ public class OfertaProyecto {
 	private Itinerario itinerario;
 	private String descItinerario;
 	private Date fechaAlta;
-	private int idEstancia;
+	private String cif;
+	private String dni;
+
 	//private Time fechaUltimoCambio;
 	private HashSet<Asignacion> asignaciones;
 	private HashSet<PeticionRevision> peticionesRevision;
@@ -31,7 +33,7 @@ public class OfertaProyecto {
 	public OfertaProyecto(int id) {
 		super();
 		//this.itinerario=Itinerario.SIN_DEFINIR;
-		this.idEstancia = id;
+
 		this.estado=EstadoOferta.INTRODUCIDA;
 		this.descEstado=EstadoOferta.INTRODUCIDA.getDescripcion();
 
@@ -47,7 +49,7 @@ public class OfertaProyecto {
 		this.estado=EstadoOferta.INTRODUCIDA;
 		this.descEstado=EstadoOferta.INTRODUCIDA.getDescripcion();
 		this.itinerario=Itinerario.SIN_DEFINIR;
-		this.idEstancia=id_estancia;
+
 		this.descItinerario=Itinerario.SIN_DEFINIR.getDescripcion();
 	}
 //	public boolean introducirOferta() {
@@ -81,8 +83,8 @@ public class OfertaProyecto {
 			estado=EstadoOferta.VISIBLE_ALUMNOS;
 		case "Asignada":
 			estado=EstadoOferta.ASIGNADA;
-		case"Solicitar Revision":
-			estado=EstadoOferta.SOLICITAR_REVISION;
+		case"Solicitar Anulacion":
+			estado=EstadoOferta.SOLICITAR_ANULACION;
 			break;
 		}
 		this.descEstado=estado.getDescripcion();
@@ -171,14 +173,20 @@ public class OfertaProyecto {
 	public Date getFechaAlta() {
 		return fechaAlta;
 	}
-	
-	public int getIdEstancia(){
-		return idEstancia;
+	public String getDni() {
+		return dni;
+	}
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+	public String getCif() {
+		return cif;
+	}
+	public void setCif(String cif) {
+		this.cif = cif;
 	}
 	
-	public void setIdEstancia(int idEstancia){
-		this.idEstancia=idEstancia;
-	}
+	
 	
 	
 }

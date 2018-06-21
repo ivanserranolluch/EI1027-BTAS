@@ -19,6 +19,7 @@ import org.springframework.stereotype.Repository;
 import es.uji.ei1027.btas.connection.ConnectionManager;
 import es.uji.ei1027.btas.model.EstadoOferta;
 import es.uji.ei1027.btas.model.Itinerario;
+import es.uji.ei1027.btas.model.OfertaEstancia;
 import es.uji.ei1027.btas.model.OfertaProyecto;
 
 @Repository
@@ -41,11 +42,14 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 	        ofertaProyecto.setEstado(rs.getString("estado"));
 	        ofertaProyecto.setItinerario(rs.getString("itinerario"));
 	        ofertaProyecto.setFechaAlta(rs.getDate("fechaalta"));
-	        ofertaProyecto.setIdEstancia(rs.getInt("id_estancia"));
+	        ofertaProyecto.setDni(rs.getString("dni"));
+	        ofertaProyecto.setCif(rs.getString("cif"));
 	        return ofertaProyecto;
 	    }
 	}
 
+	
+	
 	public List<OfertaProyecto> getOfertas() {
 		
 			return this.jdbcTemplate.query(
@@ -53,6 +57,14 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 			     	new OfertaProyectoMapper());
 		
 	}
+	
+public List<OfertaProyecto> getOfertaCif(String cif) {
+		
+		return jdbcTemplate.query(
+		     	"select * from ofertaproyecto where cif =?",
+		     	new Object[] {cif}, new OfertaProyectoMapper());
+	
+}
 	public OfertaProyecto getOfertaProyecto(int id) {
 		return this.jdbcTemplate.queryForObject("select * from ofertaProyecto where id_oferta=?",  new Object[] {id}, new OfertaProyectoMapper());
 	}
@@ -65,13 +77,18 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 		
 	public void addOferta(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
-				"insert into OfertaProyecto(fechaalta,itinerario,estado,objetivo,tarea,id_estancia) values(?, ?, ?, ?, ?, ?)", ofertaProyecto.getFechaAlta(),
-				ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(), ofertaProyecto.getIdEstancia());
+				"insert into OfertaProyecto(fechaalta,itinerario,estado,objetivo,tarea,dni,cif) values(?, ?, ?, ?, ?, ?,?)", ofertaProyecto.getFechaAlta(),
+				ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(),ofertaProyecto.getDni(),ofertaProyecto.getCif());
 	}
 		
 	public void updateOfertaProyectoEstado(int id,String estado) {
 		this.jdbcTemplate.update(
 				"update OfertaProyecto set estado = ? where id_oferta=?", estado,id);
+	}
+	
+	public void updateOfertaProyectoEstadoObjetivoTarea(int id,String estado,String tarea, String objetivo) {
+		this.jdbcTemplate.update(
+				"update OfertaProyecto set estado = ?, objetivo=?,tarea=? where id_oferta=?", estado,tarea,objetivo,id);
 	}
 		
 	public void deleteOferta(int id) {
@@ -142,9 +159,9 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 	}
 */
 	@Override
-	public void updateOfertaProyecto(int id, String estado, String itinerario, int id_estancia, Date fechaAlta,
+	public void updateOfertaProyecto(int id, String estado, String itinerario, Date fechaAlta,
 			String objetivo, String tarea) {
 		this.jdbcTemplate.update(
-				"update OfertaProyecto set estado = ?,itinerario=?,id_estancia=?,fechaalta=?,tarea=?,objetivo=? where id_oferta=?", estado,itinerario,id_estancia,fechaAlta,tarea,objetivo,id);
+				"update OfertaProyecto set estado = ?,itinerario=?,fechaalta=?,tarea=?,objetivo=? where id_oferta=?", estado,itinerario,fechaAlta,tarea,objetivo,id);
 		
 	}}

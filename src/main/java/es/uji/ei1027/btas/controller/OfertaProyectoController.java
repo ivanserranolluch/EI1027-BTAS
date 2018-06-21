@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import es.uji.ei1027.btas.dao.NotificacionDAO;
 import es.uji.ei1027.btas.dao.OfertaProyectoDAO;
+import es.uji.ei1027.btas.model.Estancia;
 import es.uji.ei1027.btas.model.OfertaProyecto;
 import es.uji.ei1027.btas.services.NotificacionService;
 import es.uji.ei1027.btas.services.NotificacionSvc;
@@ -50,6 +51,16 @@ public class OfertaProyectoController {
 	}*/
 	
 	//OPERACION LISTAR
+	
+	
+		@RequestMapping("/listEmpresa/{cif}")
+		public String listOfertaEstancia(Model model,@PathVariable("cif") String cif) {
+			System.out.println("He entrado ofertasEstancias empresa");
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertaCif(cif));
+			System.out.println("entro en la lista de ofertas empresa");
+			return "ofertaProyecto/listEmpresa";
+			
+		}
 	
 		@RequestMapping("/list")
 		public String listOfertas(Model model) {
@@ -85,6 +96,26 @@ public class OfertaProyectoController {
 		}*/
 
 		//OPERACION CREAR
+		@RequestMapping(value="/addOfertaEmpresa")
+		public String addOferta(Model model) { //,@PathVariable("id_estancia") int id_estancia 
+			model.addAttribute("ofertas", new OfertaProyecto());
+			System.out.println("he creado la estancia");
+			return "ofertaProyecto/addOfertaEmpresa";
+		}
+				
+		@RequestMapping(value="/addOfertaEmpres", method=RequestMethod.POST)
+		public String processAddSubmit2(@ModelAttribute("ofertas") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
+			if (bindingResult.hasErrors()){
+				System.out.println(bindingResult);
+				return "ofertaEstancia/addOfertaEmpresa";
+						
+			}
+			ofertaProyectoDAO.addOferta(ofertaProyecto);
+			return "vistaEmpresa";
+		}
+		
+		
+		
 		@RequestMapping(value="/add/{id_estancia}")
 		public String addOfertaProyecto(Model model,@PathVariable("id_estancia") int id) {
 			System.out.println("entro en el add");
@@ -121,7 +152,7 @@ public class OfertaProyectoController {
 			
 			
 			ofertaProyectoDAO.updateOfertaProyecto(id,ofertaProyecto.getDescEstado(), ofertaProyecto.getDescItinerario(), 
-					ofertaProyecto.getIdEstancia(),ofertaProyecto.getFechaAlta(),ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea());
+					ofertaProyecto.getFechaAlta(),ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea());
 			
 			return "redirect:../list";
 		}
@@ -170,6 +201,27 @@ public class OfertaProyectoController {
 			return "redirect:../list";
 		}
 		
+		
+		@RequestMapping(value="/updateEstadoEmpresa/{id}", method=RequestMethod.GET)
+		public String editOfertaProyectoEmpresa(Model model, @PathVariable int id){
+			
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertaProyecto(id));
+			return "ofertaProyecto/updateEstadoEmpresa";
+		}
+		
+		@RequestMapping(value="/updateEstadoEmpresa/{id}", method=RequestMethod.POST)
+		public String processUpdateSubmitEmpresa(@PathVariable int id, @ModelAttribute("ofertas") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
+			
+			if(bindingResult.hasErrors()){
+				System.out.println(bindingResult.hasErrors());
+				return "ofertaProyecto/updateEstadoEmpresa";
+			}
+			
+			
+			ofertaProyectoDAO.updateOfertaProyectoEstadoObjetivoTarea(id,ofertaProyecto.getDescEstado(),ofertaProyecto.getTarea(),ofertaProyecto.getObjetivo());
+			
+			return "vistaEmpresa";
+		}
 		//OPERACION  BORRAR
 		@RequestMapping(value="/delete/{id}")
 		public String processDelete(@PathVariable int id) {

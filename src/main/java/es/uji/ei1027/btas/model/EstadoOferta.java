@@ -9,7 +9,7 @@ public enum EstadoOferta {
 	RECHAZADA("Rechazada"),
 	VISIBLE_ALUMNOS("Visible alumnos"),
 	ASIGNADA("Asignada"),
-	SOLICITAR_REVISION("Solicitar Revision");
+	SOLICITAR_ANULACION("Solicitar Anulacion");
 	
 	private String descripcion;
 	

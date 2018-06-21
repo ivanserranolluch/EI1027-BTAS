@@ -8,15 +8,12 @@
 </head>
 <body>
 	<h2>Nova oferta</h2>
-	<form action="#" th:action="@{/ofertaProyecto/add}" th:object="${ofertaProyecto}" method="post">
+	<form action="#" th:action="@{/ofertaProyecto/addOfertaEmpresa}" th:object="${ofertas}" method="post">
 		<table>
 		
 			
 			
-			<tr>
-				<td><label>tarea</label></td>
-				<td><input type="text" th:field="*{tarea}" placeholder="tarea a realizar" /></td>
-			</tr>
+			
 			
 			<tr>
 				<td><label>objetivo</label></td>
@@ -67,6 +64,5 @@
 		
 		
 	</form>
-	<li><a href="list.html">Atras</a></li>
 </body>
 </html>
