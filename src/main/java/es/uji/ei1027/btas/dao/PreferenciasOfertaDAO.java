@@ -37,6 +37,7 @@ private JdbcTemplate jdbcTemplate;
 	    	preferenciasOferta.setTarea(rs.getString("tarea"));
 	    	preferenciasOferta.setObjetivo(rs.getString("objetivo"));
 	    	preferenciasOferta.setFechaAlta(rs.getDate("fechaalta"));
+	    	preferenciasOferta.setSemestre(rs.getInt("semestre"));
 	    return preferenciasOferta;
 	    }
 	}
@@ -44,7 +45,7 @@ private JdbcTemplate jdbcTemplate;
 	public List<PreferenciaOferta> getPreferenciaOferta() {
 		
 		return this.jdbcTemplate.query(
-		     	"select id_oferta,orden,o.estado,fechaultimocambio,p.dni,itinerario,fechaalta,objetivo,tarea,cif from preferenciasestudiante p join ofertaproyecto o using(id_oferta) order by orden;", 
+		     	"select id_oferta,orden,o.estado,fechaultimocambio,p.dni,itinerario,fechaalta,objetivo,tarea,cif,semestre from preferenciasestudiante p join ofertaproyecto o using(id_oferta) order by orden;", 
 		     	new PreferenciasOfertaEstanciaMapper());
 	
 }

@@ -21,7 +21,7 @@ import es.uji.ei1027.btas.model.EstadoOferta;
 import es.uji.ei1027.btas.model.Itinerario;
 import es.uji.ei1027.btas.model.OfertaEstancia;
 import es.uji.ei1027.btas.model.OfertaProyecto;
-
+import es.uji.ei1027.btas.model.Estudiante;
 @Repository
 public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 	
@@ -59,6 +59,14 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 		
 	}
 	
+	public List<OfertaProyecto> getOfertasTUTOR() {
+		
+		return this.jdbcTemplate.query(
+		     	"select * from ofertaProyecto where estado='Aceptada'", 
+		     	new OfertaProyectoMapper());
+	
+}
+	
 public List<OfertaProyecto> getOfertaCif(String cif) {
 		
 		return jdbcTemplate.query(
@@ -71,6 +79,14 @@ public List<OfertaProyecto> getOfertasEstudiante() {
 	return this.jdbcTemplate.query(
 	     	"select * from ofertaProyecto where estado='Aceptada'", 
 	     	new OfertaProyectoMapper());
+
+}
+
+public List<OfertaProyecto> getOfertasEstudiante(String itinerario) {
+	
+	return this.jdbcTemplate.query(
+	     	"select * from ofertaProyecto where estado='Aceptada' and itinerario=(Select itinerario from estudiante where dni=?)", 
+	     	  new Object[] {itinerario}, new OfertaProyectoMapper());
 
 }
 	public OfertaProyecto getOfertaProyecto(int id) {

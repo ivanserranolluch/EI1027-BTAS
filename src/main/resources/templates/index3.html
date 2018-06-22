@@ -46,7 +46,7 @@
    	<tr>
    	<td>
 
-    <li class="li"><a th:href="@{/ofertaProyecto/listes}" class="link">Lista de ofertas</a></li>
+    <li class="li"><a th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}" class="link">Lista de ofertas</a></li>
     
     </td>
     </tr>

@@ -69,10 +69,10 @@ public class OfertaProyectoController {
 			return "ofertaProyecto/list";
 		}
 		
-		@RequestMapping("/listes")
-		public String listOfertasEstudiant(Model model) {
+		@RequestMapping("/listes/{dni}")
+		public String listOfertasEstudiant(Model model, @PathVariable("dni") String dni) {
 			System.out.println("entro aqui");
-			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertasEstudiante());
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertasEstudiante(dni));
 			return "ofertaProyecto/listes";
 		}
 		
@@ -93,7 +93,7 @@ public class OfertaProyectoController {
 		@RequestMapping("/listarOfertasTutor")
 		public String listOfertasTutor(Model model) {
 			System.out.println("entro aqui");
-			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertasTUTOR());
 			return "ofertaProyecto/listarOfertasTutor";
 		}
 		/*@RequestMapping("/listitinerario")

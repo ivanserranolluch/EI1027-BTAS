@@ -18,6 +18,7 @@ public class PreferenciaOferta {
 	private String cif;
 	private String tarea;
 	private String objetivo;
+	private int semestre;
 	
 	public PreferenciaOferta() {
 		this.estado=EstadoOferta.INTRODUCIDA;
@@ -165,6 +166,16 @@ public class PreferenciaOferta {
 
 	public void setCif(String cif) {
 		this.cif = cif;
+	}
+
+
+	public int getSemestre() {
+		return semestre;
+	}
+
+
+	public void setSemestre(int semsetre) {
+		this.semestre = semsetre;
 	}
 
 
