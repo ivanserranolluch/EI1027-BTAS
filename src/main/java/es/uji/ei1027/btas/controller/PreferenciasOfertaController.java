@@ -3,6 +3,7 @@ package es.uji.ei1027.btas.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.uji.ei1027.btas.dao.PreferenciasOfertaDAO;
@@ -32,6 +33,15 @@ public class PreferenciasOfertaController {
 		
 	}
 	
+	@RequestMapping("/listBTC/{dni}")
+	public String listPreferenciasEstudianteOferta(Model model, @PathVariable("dni") String dni) {
+		System.out.println("He entrado");
+		model.addAttribute("preferencias", preferenciasOfertaDao.getPreferenciaOfertaDNI(dni));
+		System.out.println("entro en la lista de preferencias del estudiante CCD");
+		System.out.println("Aqio tmbien joder");
+		return "preferenciasOferta/listBTC";
+		
+	}
 	
 	
 }

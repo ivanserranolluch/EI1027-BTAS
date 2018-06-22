@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>Gestionar Tutores</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>Lista de Tutores</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>dni</th>
+				<th>id_direccion</th>
+				<th>nombre</th>
+				<th>telefono</th>
+				<th>email</th>
+				<th>departamento</th>
+				<th>despacho</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="tutor: ${tutores}">
+				<td th:text="${tutor.dni}"></td>
+				<td th:text="${tutor.direccion}"></td>
+				<td th:text="${tutor.nombre}"></td>
+				<td th:text="${tutor.telefono}"></td>
+				<td th:text="${tutor.email}"></td>
+				<td th:text="${tutor.departamento}"></td>
+				<td th:text="${tutor.despacho}"></td>
+				<td><a th:href="@{'/preferenciasOferta/listBTC/'+ ${preferenciasOferta.dni}+'/tutor/listBTC/'+${preferenciasOferta.id}}">AÑADIR ASIGNACION</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="add.html">Afegeix tutor</a>
+</body>
+</html>

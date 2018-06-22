@@ -42,6 +42,12 @@ public class EstudianteController {
 				return "estudiante/list";
 			}
 			
+			@RequestMapping("/listBTC")
+			public String listEstudiantesBTC(Model model) {
+				model.addAttribute("estudiantes", estudianteDAO.getEstudiantes());
+				return "estudiante/listBTC";
+			}
+			
 			@RequestMapping("/list2")
 			public String listEstudiantes2(Model model) {
 				model.addAttribute("estudiantes", estudianteDAO.getEstudiantes());

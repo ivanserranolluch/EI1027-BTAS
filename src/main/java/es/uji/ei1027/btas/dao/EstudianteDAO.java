@@ -47,8 +47,7 @@ public class EstudianteDAO {
 	}
 
 	public List<Estudiante> getEstudiantes() {  
-
-		 return this.jdbcTemplate.query("select * from estudiante join contacto using (dni)"
+		 return jdbcTemplate.query("select * from estudiante join contacto using (dni) order by notamedia desc"
 , new 	EstudianteMapper());
 	}	 
 		

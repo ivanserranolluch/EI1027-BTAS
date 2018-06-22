@@ -11,12 +11,9 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>FechaPropuesta</th>
 				<th>FechaAceptacion</th>
 				<th>Estado</th>
-				<th>FechaRechazo</th>
-				<th>FechaTraspaso</th>
-				<th>Comentario</th>
+				
 				<th>DniE</th>
 				<th>DniT</th>
 				<th>idOferta</th>
@@ -24,12 +21,8 @@
 		</thead>
 		<tbody>
 			<tr th:each="asig: ${asignaciones}">
-				<td th:text="${asig.fechaPropuesta}"></td>
 				<td th:text="${asig.fechaAceptacion}"></td>
 				<td th:text="${asig.descEstado}"></td>
-				<td th:text="${asig.fechaRechazo}"></td>
-				<td th:text="${asig.fechaTraspasoIglu}"></td>
-				<td th:text="${asig.comentarioPetCambio}"></td>
 				<td th:text="${asig.dniE}"></td>
 				<td th:text="${asig.dniT}"></td>
 				<td th:text="${asig.id_oferta}"></td>

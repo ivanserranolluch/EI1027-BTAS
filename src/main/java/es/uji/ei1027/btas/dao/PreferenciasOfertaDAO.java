@@ -49,4 +49,12 @@ private JdbcTemplate jdbcTemplate;
 		     	new PreferenciasOfertaEstanciaMapper());
 	
 }
+	public List<PreferenciaOferta> getPreferenciaOfertaDNI(String dni) {
+		
+		return this.jdbcTemplate.query(
+		     	"select id_oferta,orden,o.estado,fechaultimocambio,p.dni,itinerario,fechaalta,objetivo,tarea,cif,semestre from preferenciasestudiante p join ofertaproyecto o using(id_oferta) where p.dni=? order by orden ", 
+		     	new Object[] {dni}, new PreferenciasOfertaEstanciaMapper());
+	
+}
+	
 }

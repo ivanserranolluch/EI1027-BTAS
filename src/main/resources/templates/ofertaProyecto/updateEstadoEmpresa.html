@@ -8,7 +8,7 @@
 	
 </head>
 <body>
-	<h2>Modificar Estado</h2>
+	<h2>Modificar Oferta</h2>
 	<form action="#" th:action="@{/ofertaProyecto/updateEstadoEmpresa/} + ${ofertas.id}" th:object="${ofertas}" method="post">
 		<table>
 		
@@ -19,15 +19,15 @@
 			
 			  
 			<tr>
-				<label>Estado</label>
+				<label>Itinerario</label>
 				
-				<select name="estado" th:field="*{descEstado}">       			
+				<select name="itinerario" th:field="*{descItinerario}">       			
 			       
-			       <option value="Introducida">Introducida</option> 
+			       <option value="Ingenieria de Software">Ingenieria de Software</option> 
 			       
-			       <option value="Solicitar Anulacion">Sol.licitar Anulacion</option>
-			       
-		
+			       <option value="Sistemes de Informacio">Sistemes de Informacio</option>
+			        <option value="Tecnologias Web">Tecnologias Web</option>
+					 <option value="Ingenieria de Computadores">Ingenieria de Computadores</option>
 		</select></tr>
 		
 		<tr>
@@ -38,6 +38,11 @@
 			<td><label>tarea</label></td>
 				<td><input type="text" th:field="*{objetivo}" placeholder="Objetivo" /></td>
 			</tr>
+			<tr>
+				<td><label>semestre</label></td>
+				<td><input type="number" min="1" max="2" th:field="*{semestre}" /></td>
+			</tr>
+			
 			<tr>
 				<td colspan="2"><input type="submit" value="Actualitza oferta" /></td>
 				

@@ -31,13 +31,12 @@
 				<td th:text="${oferta.dni}"></td>
 				<td th:text="${oferta.cif}"></td>
 				<td th:text="${oferta.semestre}"></td>
-				<td><a th:href="@{/ofertaProyecto/updateEstadoEmpresa/{id}(id=${oferta.id})}">Editar</a></td>
-				
+				<td><a th:href="@{/ofertaProyecto/updateEstadoSolAnulado/{id}(id=${oferta.id})}">Solicitar Anulacio</a></td>
 			</tr>
 		</tbody>
 	</table>
 	<li><a th:href="@{/index/vistaEmpresa}">Atras</a></li>
 	
-	<li><a  th:href="@{/ofertaProyecto/addOfertaEmpresa}">Añadir Oferta</a></li>
+	
 </body>
 </html>

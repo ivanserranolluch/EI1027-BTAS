@@ -29,15 +29,10 @@ private JdbcTemplate jdbcTemplate;
 
 	    public Asignacion mapRow(ResultSet rs, int rowNum) throws SQLException { 
 	        Asignacion asignacion = new Asignacion();
-	        asignacion.setFechaPropuesta(rs.getDate("fechaPropuesta"));
+	        
 	        asignacion.setFechaAceptacion(rs.getDate("fechaAceptacion"));
 	        
 	        asignacion.setEstado(rs.getString("estadoAceptadaRechazada"));
-	        asignacion.setFechaRechazo(rs.getDate("fechaRechazo"));
-	        
-	        asignacion.setFechaTraspasoIglu(rs.getDate("fechaTraspasoIglu"));
-	        asignacion.setComentarioPetCambio(rs.getString("comentarioPetCambio"));
-	        
 	        asignacion.setDniE(rs.getString("dniE"));
 	        asignacion.setDniT(rs.getString("dniT"));
 	        asignacion.setId_oferta(rs.getInt("id_oferta"));
@@ -58,8 +53,9 @@ private JdbcTemplate jdbcTemplate;
 	}
 	
 	public void addAsignacion(Asignacion asignacion) {
-		this.jdbcTemplate.update("insert into Asignacion(fechaPropuesta,fechaAceptacion,estadoaceptadorechazado,fecharechazo,fechatraspasoiglu,comentariopetcambio,dnie,dnit,id_oferta)values(?,?,?,?,?,?,?,?,?)",
-				asignacion.getFechaPropuesta(),asignacion.getFechaAceptacion(),asignacion.getEstado(),asignacion.getFechaRechazo(),asignacion.getFechaTraspasoIglu(),asignacion.getComentarioPetCambio(),asignacion.getDniE(),asignacion.getDniT(),asignacion.getId_oferta());
+		this.jdbcTemplate.update("insert into Asignacion(fechaAceptacion,estadoaceptadorechazado,dnie,dnit,id_oferta)values(?,?,?,?,?);",
+				asignacion.getFechaAceptacion(),asignacion.getEstado(),asignacion.getDniE(),asignacion.getDniT(),asignacion.getId_oferta());
+
 	}
 	
 	public List<Asignacion> getAsignacionesTutor(String dniT) {

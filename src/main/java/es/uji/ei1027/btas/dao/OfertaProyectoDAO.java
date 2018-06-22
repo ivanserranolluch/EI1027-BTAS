@@ -82,6 +82,13 @@ public List<OfertaProyecto> getOfertasEstudiante() {
 
 }
 
+public List<OfertaProyecto> getProyectoSolicitadoAnulacion(int id) {
+	
+	return this.jdbcTemplate.query(
+	     	"select * from ofertaProyecto where id_oferta=?",new Object[] {id}, 
+	     	new OfertaProyectoMapper());
+
+}
 public List<OfertaProyecto> getOfertasEstudiante(String itinerario) {
 	
 	return this.jdbcTemplate.query(
@@ -108,6 +115,11 @@ public List<OfertaProyecto> getOfertasEstudiante(String itinerario) {
 	public void updateOfertaProyectoEstado(int id,String estado) {
 		this.jdbcTemplate.update(
 				"update OfertaProyecto set estado = ? where id_oferta=?", estado,id);
+	}
+	
+	public void updateOfertaProyectoSolAnulacion(int id) {
+		this.jdbcTemplate.update(
+				"update OfertaProyecto set estado = 'Solicitar Anulacion' where id_oferta=?", id);
 	}
 	
 	public void updateOfertaProyectoEstadoObjetivoTarea(int id,String estado,String tarea, String objetivo) {

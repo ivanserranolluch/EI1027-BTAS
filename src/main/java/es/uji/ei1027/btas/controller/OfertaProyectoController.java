@@ -54,11 +54,19 @@ public class OfertaProyectoController {
 	
 	
 		@RequestMapping("/listEmpresa/{cif}")
-		public String listOfertaEstancia(Model model,@PathVariable("cif") String cif) {
+		public String listOfertaProyecto(Model model,@PathVariable("cif") String cif) {
 			System.out.println("He entrado ofertasEstancias empresa");
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertaCif(cif));
 			System.out.println("entro en la lista de ofertas empresa");
 			return "ofertaProyecto/listEmpresa";
+			
+		}
+		@RequestMapping("/listEmpresaAnulacion/{cif}")
+		public String listOfertaProyectoAnulacion(Model model,@PathVariable("cif") String cif) {
+			System.out.println("He entrado ofertasEstancias empresa");
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertaCif(cif));
+			System.out.println("entro en la lista de ofertas empresa");
+			return "ofertaProyecto/listEmpresaAnulacion";
 			
 		}
 	
@@ -141,6 +149,15 @@ public class OfertaProyectoController {
 				ofertaProyectoDAO.addOferta(ofertaProyecto);
 			return "index2";
 		}
+		
+		@RequestMapping(value="/updateEstadoSolAnulado/{id}", method=RequestMethod.GET)
+		public String editOfertaProyectoSolicitudAnulacion(Model model, @PathVariable int id){
+			ofertaProyectoDAO.updateOfertaProyectoSolAnulacion(id);
+			model.addAttribute("ofertas",ofertaProyectoDAO.getProyectoSolicitadoAnulacion(id));
+			return "ofertaProyecto/updateEstadoSolAnulado";
+		}
+		
+		
 		
 		@RequestMapping(value="/update/{id}", method=RequestMethod.GET)
 		public String editOfertaProyecto(Model model, @PathVariable int id){

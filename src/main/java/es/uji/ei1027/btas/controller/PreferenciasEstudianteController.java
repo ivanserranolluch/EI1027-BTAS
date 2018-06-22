@@ -65,7 +65,14 @@ private  LinkedList<Integer> list = new LinkedList<Integer>();
 			}
 			
 			
-		
+			@RequestMapping(value="/listBTCAsig/{dni}")
+			public String listPreferenciasEstudianteBTC(Model model, @PathVariable String dni) {
+				System.out.println(dni+"4");
+				
+				model.addAttribute("preferencias", preferenciasEstudianteDao.getPreferenciaEstudiante(dni));
+				System.out.println("entro en la lista de preferencias del estudiante");
+				return "preferenciasEstudiante/listBTCAsig";
+			}
 		
 		
 			/*@RequestMapping("/listitinerario")

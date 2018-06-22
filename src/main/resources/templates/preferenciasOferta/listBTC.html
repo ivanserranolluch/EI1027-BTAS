@@ -14,10 +14,10 @@
 			<tr>
 				<th>orden</th>
 				<th>estado</th>
-				
+				<th>descEstado</th>
 				<th>fechaUltimoCambio</th>
 				<th>itinerario</th>
-				
+				<th>descItinerario</th>
 				<th>dni</th>
 				<th>cif</th>
 				<th>tarea</th>
@@ -30,7 +30,9 @@
 			<tr th:each="preferenciasOferta: ${preferencias}">
 				<td th:text="${preferenciasOferta.orden}"></td>
 				<td th:text="${preferenciasOferta.estado}"></td>
+				<td th:text="${preferenciasOferta.descEstado}"></td>
 				<td th:text="${preferenciasOferta.fechaUltimoCambio}"></td>
+				<td th:text="${preferenciasOferta.itinerario}"></td>
 				<td th:text="${preferenciasOferta.descItinerario}"></td>
 				<td th:text="${preferenciasOferta.dni}"></td>
 				<td th:text="${preferenciasOferta.cif}"></td>
@@ -38,9 +40,18 @@
 				<td th:text="${preferenciasOferta.objetivo}"></td>
 				<td th:text="${preferenciasOferta.fechaAlta}"></td>
 				<td th:text="${preferenciasOferta.semestre}"></td>
+				<!-- <td><a th:href="@{/preferenciasOferta/listBTC/{dni}(dni=${estudiante.dni})}">Preferencias</a></td>-->
+				
+				<td><a th:href="@{'/preferenciasOferta/listBTC/'+ ${preferenciasOferta.dni}+'/asignacion/add/'+${preferenciasOferta.id}}">AÑADIR ASIGNACION</a></td>
+				<td><a th:href="@{'/preferenciasOferta/listBTC/'+ ${preferenciasOferta.dni}+'/tutor/listBTC/'+${preferenciasOferta.id}}">AÑADIR Tutor</a></td>
+				
 			</tr>
+			
+			
 		</tbody>
 	</table>
+	
+	
 </body>
 
 </html>

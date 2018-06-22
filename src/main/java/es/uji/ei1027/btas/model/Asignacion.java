@@ -3,13 +3,10 @@ package es.uji.ei1027.btas.model;
 import java.util.Date;
 
 public class Asignacion {
-	private Date fechaPropuesta;
+
 	private Date fechaAceptacion;
-	private Date fechaRechazo;
-	private Date fechaTraspasoIglu;
 	private AceptadaRechazada estadoAceptadaRechazada;
 	private String descEstado;
-	private String comentarioPetCambio;
 	private String dniE;
 	private String dniT;
 	private int id_oferta;
@@ -29,14 +26,11 @@ public class Asignacion {
 		
 	}
 	
-	public Asignacion(int id_oferta,Date fechaPropuesta,Date fechaAceptacion, Date fechaRechazo,Date fechaTraspasoIglu,String comentarioPetCambio,String dniE,String dniT) {
+	public Asignacion(int id_oferta,Date fechaAceptacion,String dniE,String dniT) {
 		super();
 		this.id_oferta=id_oferta;
 		this.fechaAceptacion=fechaAceptacion;
-		this.fechaPropuesta=fechaPropuesta;
-		this.fechaRechazo=fechaRechazo;
-		this.fechaTraspasoIglu=fechaTraspasoIglu;
-		this.comentarioPetCambio=comentarioPetCambio;
+		
 		this.dniE=dniE;
 		this.dniT=dniT;
 		this.estadoAceptadaRechazada=AceptadaRechazada.SIN_DEFINIR;
@@ -44,36 +38,14 @@ public class Asignacion {
 		
 	}
 	
-	public Date getFechaPropuesta() {
-		return fechaPropuesta;
-	}
-	public void setFechaPropuesta(Date fechaPropuesta) {
-		this.fechaPropuesta = fechaPropuesta;
-	}
+
 	public Date getFechaAceptacion() {
 		return fechaAceptacion;
 	}
 	public void setFechaAceptacion(Date fechaAceptacion) {
 		this.fechaAceptacion = fechaAceptacion;
 	}
-	public Date getFechaRechazo() {
-		return fechaRechazo;
-	}
-	public void setFechaRechazo(Date fechaRechazo) {
-		this.fechaRechazo = fechaRechazo;
-	}
-	public Date getFechaTraspasoIglu() {
-		return fechaTraspasoIglu;
-	}
-	public void setFechaTraspasoIglu(Date fechaTraspasoI) {
-		this.fechaTraspasoIglu = fechaTraspasoI;
-	}
-	public String getComentarioPetCambio() {
-		return comentarioPetCambio;
-	}
-	public void setComentarioPetCambio(String comentarioPetCambio) {
-		this.comentarioPetCambio = comentarioPetCambio;
-	}
+	
 	public String getDniE() {
 		return dniE;
 	}

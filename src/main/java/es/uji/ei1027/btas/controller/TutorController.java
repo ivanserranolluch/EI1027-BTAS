@@ -37,6 +37,15 @@ public class TutorController {
 		model.addAttribute("tutores", tutorDAO.getTutores());
 		return "tutor/list";
 	}
+	@RequestMapping("/preferenciasOferta/listBTC/{dni}/tutor/listBTC/{id}")
+	public String listTutoresBTCAsig(Model model, @PathVariable("dni") String dniEstudiante, @PathVariable("id") int id_oferta) {
+		System.out.println("Entro");
+		model.addAttribute("dni", dniEstudiante);
+		model.addAttribute("id", id_oferta);
+		model.addAttribute("tutores", tutorDAO.getTutores());
+		System.out.println("Salgo");
+		return "tutor/listBTC";
+	}
 	
 	//OPERACION CREAR
 	

@@ -23,11 +23,11 @@
 				<th>numAsigPend</th>
 				<th>creditosAprobados</th>
 				<th>semestreInicioEstancia</th>
+				
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="estudiante: ${estudiantes}">
-				
 				<td th:text="${estudiante.dni}"></td>
 				<td th:text="${estudiante.al}"></td>
 				<td th:text="${estudiante.nombre}"></td>
@@ -39,10 +39,10 @@
 				<td th:text="${estudiante.numAsigPendiente}"></td>
 				<td th:text="${estudiante.numCreditosAprobados}"></td>
 				<td th:text="${estudiante.semestreInicioEstancia}"></td>
-				<td><a th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${estudiante.dni})}">Consulta Asignaciones</a></td>
+				<td><a th:href="@{/preferenciasOferta/listBTC/{dni}(dni=${estudiante.dni})}">Preferencias</a></td>
 			</tr>
 		</tbody>
 	</table>
-	<a th:href="@{/index/index4}">Atras</a>
+	<a href="/index/index2">Atras</a>
 </body>
 </html>
