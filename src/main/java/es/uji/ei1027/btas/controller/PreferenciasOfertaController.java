@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import es.uji.ei1027.btas.dao.AsignacionDAO;
+import es.uji.ei1027.btas.dao.AsignacionEmpresaTutorEstudianteDAO;
 import es.uji.ei1027.btas.dao.PreferenciasOfertaDAO;
 import es.uji.ei1027.btas.dao.TutorDAO;
+import es.uji.ei1027.btas.services.AsignacionEmpresaTutorEstudianteService;
 
 @Controller
 @RequestMapping("/preferenciasOferta")
@@ -17,13 +19,16 @@ public class PreferenciasOfertaController {
 	private PreferenciasOfertaDAO preferenciasOfertaDao;
 	private TutorDAO tutorDAO;
 	private AsignacionDAO asignacionDAO;
+	private AsignacionEmpresaTutorEstudianteDAO asignacionEmpresaTutorEstudianteDAO;
 	
-	
+	private AsignacionEmpresaTutorEstudianteService asignacionEmpresaTutorEstudianteService;
 	@Autowired
-	public void setPreferenciasOfertaDAO (PreferenciasOfertaDAO preferenciasOfertaDao, TutorDAO tutorDao, AsignacionDAO asignacionDAO){
+	public void setPreferenciasOfertaDAO (PreferenciasOfertaDAO preferenciasOfertaDao, TutorDAO tutorDao, AsignacionDAO asignacionDAO,AsignacionEmpresaTutorEstudianteDAO asignacionEmpresaTutorEstudianteDAO){
 		this.preferenciasOfertaDao = preferenciasOfertaDao;
 		this.tutorDAO=tutorDao;
 		this.asignacionDAO=asignacionDAO;
+		this.asignacionEmpresaTutorEstudianteDAO=asignacionEmpresaTutorEstudianteDAO;
+		//this.asignacionEmpresaTutorEstudianteDAO=asignacionEmpresaTutorEstudianteDAO;
 	}
 	
 	//OPERACION LISTAR
@@ -68,7 +73,10 @@ public class PreferenciasOfertaController {
 		model.addAttribute("id", id_oferta);
 		model.addAttribute("dniT", dniT);
 		asignacionDAO.addAsignacion(id_oferta,dniEstudiante,dniT);
-		model.addAttribute("asignaciones", asignacionDAO.getAsignacion());
+		//model.addAttribute("asignaciones", asignacionDAO.getAsignacion());
+		System.out.println("Ya he insertado en asig");
+		model.addAttribute("asignaciones", asignacionEmpresaTutorEstudianteDAO.getAsignacionCompleta());
+		
 		System.out.println("Salgo");
 		return "asignacion/add";
 	}

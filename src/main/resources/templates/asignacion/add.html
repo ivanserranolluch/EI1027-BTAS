@@ -13,22 +13,30 @@
 			<tr>
 			
 				<th>FechaAceptacion</th>
-				<th>Estado</th>
+			
 				
 				<th>DniE</th>
+				<th>nombre Estudiante</th>
+					<th>nombre Tutor</th>
+				
 				<th>DniT</th>
 				<th>idOferta</th>
+					<th>nombreTutor</th>
+						<th>estado</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="asig: ${asignaciones}">
 				
 				<td th:text="${asig.fechaAceptacion}"></td>
-				<td >Aceptada</td>
 				
 				<td th:text="${asig.dniE}"></td>
+				<td th:text="${asig.nombreEstudiante}"></td>
+				<td th:text="${asig.nombreEmpresa}"></td>
+				<td th:text="${asig.cif}"></td>
 				<td th:text="${asig.dniT}"></td>
-				<td th:text="${asig.id_oferta}"></td>
+				<td th:text="${asig.nombreTutor}"></td>
+				<td th:text="${asig.descEstado}"></td>
 			</tr>
 		</tbody>
 	</table>

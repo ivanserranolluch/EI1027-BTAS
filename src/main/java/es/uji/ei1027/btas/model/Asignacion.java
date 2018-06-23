@@ -11,6 +11,8 @@ public class Asignacion {
 	private String dniT;
 	private int id_oferta;
 	
+
+	
 	public Asignacion() {
 		super();
 		this.estadoAceptadaRechazada=AceptadaRechazada.SIN_DEFINIR;
