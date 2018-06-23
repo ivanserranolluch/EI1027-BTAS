@@ -2,6 +2,7 @@ package es.uji.ei1027.btas.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 
 import es.uji.ei1027.btas.model.Asignacion;
+import es.uji.ei1027.btas.model.Estudiante;
 import es.uji.ei1027.btas.model.OfertaProyecto;
 
 @Repository
@@ -53,13 +55,23 @@ private JdbcTemplate jdbcTemplate;
 	}
 	
 	public void addAsignacion(Asignacion asignacion) {
-		this.jdbcTemplate.update("insert into Asignacion(fechaAceptacion,estadoaceptadorechazado,dnie,dnit,id_oferta)values(?,?,?,?,?);",
-				asignacion.getFechaAceptacion(),asignacion.getEstado(),asignacion.getDniE(),asignacion.getDniT(),asignacion.getId_oferta());
+		this.jdbcTemplate.update("insert into Asignacion(fechaAceptacion,estadoaceptadorechazado,dnie,dnit,id_oferta)values(?,'Aceptada',?,?,?);",
+				asignacion.getFechaAceptacion(),asignacion.getDniE(),asignacion.getDniT(),asignacion.getId_oferta());
 
 	}
 	
 	public List<Asignacion> getAsignacionesTutor(String dniT) {
 		return this.jdbcTemplate.query("select * from asignacion where dniT=?",  new Object[] {dniT}, new AsignacionMapper());
 	}
+	
+	//CREATES
+	
+public void addAsignacion(int id_oferta,String dniE, String dniT) {
+		
+	this.jdbcTemplate.update("insert into Asignacion(fechaAceptacion,estadoaceptadarechazada,dnie,dnit,id_oferta)values(?,'Aceptada',?,?,?);",
+			new Date(),dniE,dniT,id_oferta);
+
+}
+	
 	
 }

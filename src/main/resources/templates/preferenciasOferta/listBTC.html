@@ -47,6 +47,19 @@
 				
 			</tr>
 			
+			<tr><td colspan="3"><h1>Listado de tutores</h1></td></tr>
+			
+			<tr th:each="tutor: ${tutores}">
+				<td th:text="${tutor.dni}"></td>
+				<td th:text="${tutor.direccion}"></td>
+				<td th:text="${tutor.nombre}"></td>
+				<td th:text="${tutor.telefono}"></td>
+				<td th:text="${tutor.email}"></td>
+				<td th:text="${tutor.departamento}"></td>
+				<td th:text="${tutor.despacho}"></td>
+				<td><a th:href="@{'/preferenciasOferta/listBTC/'+ ${rellenar}+'/tutor/listBTC/'+${rellenar}}">AÑADIR ASIGNACION</a></td>
+			</tr>
+			
 			
 		</tbody>
 	</table>
