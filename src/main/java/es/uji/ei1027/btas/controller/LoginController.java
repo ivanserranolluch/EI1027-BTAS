@@ -71,14 +71,14 @@ public class LoginController {
 		if(user.getUsername() == "alice") {
 		return "index2";}
 		
-		if(user.getUsername() == "cct") {
+		if(user.getUsername() == "cct" || user.getUsername() == "ccd") {
 			return "index4";
 		}
-		if(user.getUsername() == "A207327737") {
+		if(user.getUsername() == "A207327737" || user.getUsername() == "A11111111" || user.getUsername() == "A22222222" || user.getUsername() == "A33333333") {
 			return "vistaEmpresa";
 		}
 		
-		if(user.getUsername() == "5678") {
+		if(user.getUsername() == "5678" || user.getUsername() == "12345678T" || user.getUsername() == "12345676T" || user.getUsername() == "22345676T") {
 			return "vistaTutor";
 		}
 		
