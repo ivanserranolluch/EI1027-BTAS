@@ -11,8 +11,7 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-			
-				<th>FechaAceptacion</th>
+					<th>FechaAceptacion</th>
 			
 				
 				<th>DniE</th>
@@ -37,10 +36,11 @@
 				<td th:text="${asig.dniT}"></td>
 				<td th:text="${asig.nombreTutor}"></td>
 				<td th:text="${asig.descEstado}"></td>
+				<td><a th:href="@{'/preferenciasOferta/listBTCRechazar/'+ ${asig.dniE}+'/tutor/listBTCRechazar/'+${asig.id_oferta}+'/asignacion/rechazar/'+${asig.dniT}}">Anular ASIGNACION</a></td>
+				
 			</tr>
 		</tbody>
 	</table>
-	
 	<br></br>
 </body>
 </html>

@@ -8,31 +8,35 @@
 </head>
 <body>
 	<h1>AsignacionE</h1>
-	<table>
+	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>FechaPropuesta</th>
+			
 				<th>FechaAceptacion</th>
-				<th>Estado</th>
-				<th>FechaRechazo</th>
-				<th>FechaTraspaso</th>
-				<th>Comentario</th>
+			
+				
 				<th>DniE</th>
+				<th>nombre Estudiante</th>
+					<th>nombre Tutor</th>
+				
 				<th>DniT</th>
 				<th>idOferta</th>
+					<th>nombreTutor</th>
+						<th>estado</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="asig: ${asignacionListEstudiante}">
-				<td th:text="${asig.fechaPropuesta}"></td>
+			<tr th:each="asig: ${asignaciones}">
+				
 				<td th:text="${asig.fechaAceptacion}"></td>
-				<td th:text="${asig.descEstadoAsignacion}"></td>
-				<td th:text="${asig.fechaRechazo}"></td>
-				<td th:text="${asig.fechaTraspasoI}"></td>
-				<td th:text="${asig.comentarioPetCambio}"></td>
+				
 				<td th:text="${asig.dniE}"></td>
+				<td th:text="${asig.nombreEstudiante}"></td>
+				<td th:text="${asig.nombreEmpresa}"></td>
+				<td th:text="${asig.cif}"></td>
 				<td th:text="${asig.dniT}"></td>
-				<td th:text="${asig.id_oferta}"></td>
+				<td th:text="${asig.nombreTutor}"></td>
+				<td th:text="${asig.descEstado}"></td>
 			</tr>
 		</tbody>
 	</table>

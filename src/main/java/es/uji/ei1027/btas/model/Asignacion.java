@@ -16,7 +16,7 @@ public class Asignacion {
 	public Asignacion() {
 		super();
 		this.estadoAceptadaRechazada=AceptadaRechazada.SIN_DEFINIR;
-		this.setDescEstado(AceptadaRechazada.SIN_DEFINIR.getAceptadaRechazada());
+		this.descEstado=AceptadaRechazada.SIN_DEFINIR.getDescripcion();
 		
 	}
 	
@@ -24,8 +24,7 @@ public class Asignacion {
 		super();
 		this.id_oferta=id_oferta;
 		this.estadoAceptadaRechazada=AceptadaRechazada.SIN_DEFINIR;
-		this.setDescEstado(AceptadaRechazada.SIN_DEFINIR.getAceptadaRechazada());
-		
+		this.descEstado=AceptadaRechazada.SIN_DEFINIR.getDescripcion();		
 	}
 	
 	public Asignacion(int id_oferta,Date fechaAceptacion,String dniE,String dniT) {
@@ -36,8 +35,7 @@ public class Asignacion {
 		this.dniE=dniE;
 		this.dniT=dniT;
 		this.estadoAceptadaRechazada=AceptadaRechazada.SIN_DEFINIR;
-		this.setDescEstado(AceptadaRechazada.SIN_DEFINIR.getAceptadaRechazada());
-		
+		this.descEstado=AceptadaRechazada.SIN_DEFINIR.getDescripcion();		
 	}
 	
 
@@ -76,7 +74,7 @@ public class Asignacion {
 		case "Sin definir":
 			estadoAceptadaRechazada=AceptadaRechazada.SIN_DEFINIR;
 			break;
-		case "Introducida":
+		case "Rechazada":
 			estadoAceptadaRechazada=AceptadaRechazada.RECHAZADA;
 			break;
 		case "Aceptada":
@@ -84,7 +82,7 @@ public class Asignacion {
 			break;
 
 		}
-		this.setDescEstado(estadoAceptadaRechazada.getAceptadaRechazada());
+		this.descEstado=estadoAceptadaRechazada.getDescripcion();
 	}
 
 	public String getDescEstado() {

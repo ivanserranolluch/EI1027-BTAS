@@ -73,5 +73,17 @@ public void addAsignacion(int id_oferta,String dniE, String dniT) {
 
 }
 	
+public void anulaAsignacion(int id_oferta,String dniE, String dniT) {
 	
+	this.jdbcTemplate.update("update asignacion set estadoaceptadarechazada='Rechazada' where id_oferta=? and dniE=? and dniT=?",
+			id_oferta,dniE,dniT);
+
+}
+	
+public void updateTutor(int id_oferta,String dniE, String dniT) {
+	
+	this.jdbcTemplate.update("update asignacion set dniT=? where id_oferta=? and dniE=? and dniT=?",
+			dniT,id_oferta,dniE,dniT);
+
+}
 }

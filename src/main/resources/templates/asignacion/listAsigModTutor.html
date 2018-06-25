@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<meta charset="UTF-8" />
+	<title>Crear nova oferta</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>AsignacionE</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+			
+				<th>FechaAceptacion</th>
+			
+				
+				<th>DniE</th>
+				<th>nombre Estudiante</th>
+					<th>nombre Empresa</th>
+				
+				<th>DniT</th>
+				<th>idOferta</th>
+					<th>nombreTutor</th>
+						<th>estado</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="asig: ${asignaciones}">
+				
+				<td th:text="${asig.fechaAceptacion}"></td>
+				
+				<td th:text="${asig.dniE}"></td>
+				<td th:text="${asig.nombreEstudiante}"></td>
+				<td th:text="${asig.nombreEmpresa}"></td>
+				<td th:text="${asig.cif}"></td>
+				<td th:text="${asig.dniT}"></td>
+				<td th:text="${asig.nombreTutor}"></td>
+				<td th:text="${asig.descEstado}"></td>
+				<td><a th:href="@{'/preferenciasOferta/listAsigModTutor/'+ ${asig.dniE}+'/tutor/elegir/'+${asig.id_oferta}+'/asignacion/mod/'+${asig.dniT}}">Modificar TUTOR ASIGNACION</a></td>
+				
+			</tr>
+		</tbody>
+	</table>
+		<a href="/index/index2">Inicio</a>
+</body>
+</html>

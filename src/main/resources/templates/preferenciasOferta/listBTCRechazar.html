@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>Gestionar Preferencias CCD</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>Lista de Preferencias</h1>
+	<table   class="table table-striped">
+		<thead>
+			<tr>
+				<th>orden</th>
+				<th>estado</th>
+				<th>descEstado</th>
+				<th>fechaUltimoCambio</th>
+				<th>itinerario</th>
+				<th>descItinerario</th>
+				<th>dni</th>
+				<th>cif</th>
+				<th>tarea</th>
+				<th>objetivo</th>
+				<th>fechaalta</th>
+				<th>semestre</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="preferenciasOferta: ${preferencias}">
+				<td th:text="${preferenciasOferta.orden}"></td>
+				<td th:text="${preferenciasOferta.estado}"></td>
+				<td th:text="${preferenciasOferta.descEstado}"></td>
+				<td th:text="${preferenciasOferta.fechaUltimoCambio}"></td>
+				<td th:text="${preferenciasOferta.itinerario}"></td>
+				<td th:text="${preferenciasOferta.descItinerario}"></td>
+				<td th:text="${preferenciasOferta.dni}"></td>
+				<td th:text="${preferenciasOferta.cif}"></td>
+				<td th:text="${preferenciasOferta.tarea}"></td>
+				<td th:text="${preferenciasOferta.objetivo}"></td>
+				<td th:text="${preferenciasOferta.fechaAlta}"></td>
+				<td th:text="${preferenciasOferta.semestre}"></td>
+				<!-- <td><a th:href="@{/preferenciasOferta/listBTC/{dni}(dni=${estudiante.dni})}">Preferencias</a></td>-->
+				
+				<td><a th:href="@{'/preferenciasOferta/listBTCRechazar/'+ ${preferenciasOferta.dni}+'/asignacion/add/'+${preferenciasOferta.id}}">AÑADIR ASIGNACION</a></td>
+				<td><a th:href="@{'/preferenciasOferta/listBTCRechazar/'+ ${preferenciasOferta.dni}+'/tutor/listBTCRechazar/'+${preferenciasOferta.id}}">AÑADIR Tutor</a></td>
+				
+			</tr>
+			
+			<tr><td colspan="3"><h1>Listado de tutores</h1></td></tr>
+			
+			<tr th:each="tutor: ${tutores}">
+				<td th:text="${tutor.dni}"></td>
+				<td th:text="${tutor.direccion}"></td>
+				<td th:text="${tutor.nombre}"></td>
+				<td th:text="${tutor.telefono}"></td>
+				<td th:text="${tutor.email}"></td>
+				<td th:text="${tutor.departamento}"></td>
+				<td th:text="${tutor.despacho}"></td>
+				<td><a th:href="@{'/preferenciasOferta/listBTC/'+ ${rellenar}+'/tutor/listBTC/'+${rellenar}}">AÑADIR ASIGNACION</a></td>
+			</tr>
+			
+			
+		</tbody>
+	</table>
+	
+	
+</body>
+
+</html>

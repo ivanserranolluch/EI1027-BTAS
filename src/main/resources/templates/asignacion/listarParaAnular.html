@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+	<title>AsignacionE</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<h1>Asignacion/es del Estudiante</h1>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+			
+				<th>FechaAceptacion</th>
+			
+				
+				<th>DniE</th>
+				<th>nombre Estudiante</th>
+					<th>nombre Empresa</th>
+				
+				<th>DniT</th>
+				<th>idOferta</th>
+					<th>nombreTutor</th>
+						<th>estado</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="asig: ${asignaciones}">
+				
+				<td th:text="${asig.fechaAceptacion}"></td>
+				
+				<td th:text="${asig.dniE}"></td>
+				<td th:text="${asig.nombreEstudiante}"></td>
+				<td th:text="${asig.nombreEmpresa}"></td>
+				<td th:text="${asig.cif}"></td>
+				<td th:text="${asig.dniT}"></td>
+				<td th:text="${asig.nombreTutor}"></td>
+				<td th:text="${asig.descEstado}"></td>
+				<td><a th:href="@{'/asignacion/anular/'+${asig.id_oferta}+'/'+${asig.dniT}+'/'+{asig.dniE}}">Anular Asignacion</a></td>				
+				
+			</tr>
+		</tbody>
+	</table>
+	
+	<br></br>
+</body>
+</html>

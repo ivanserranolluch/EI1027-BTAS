@@ -55,6 +55,27 @@ public class PreferenciasOfertaController {
 		
 	}
 	
+	@RequestMapping("/listarPreferenciasEstudiante/{dni}")
+	public String listPreferenciasEstudianteOfertaE(Model model, @PathVariable("dni") String dni) {
+		System.out.println("He entrado");
+		model.addAttribute("preferencias", preferenciasOfertaDao.getPreferenciaOfertaDNI(dni));
+		System.out.println("entro en la lista de preferencias del estudiante CCD");
+		
+		System.out.println("Aqio tmbien joder");
+		return "preferenciasOferta/listarPreferenciasEstudiante";
+		
+	}
+	
+	@RequestMapping("/listBTCRechazar/{dni}")
+	public String listPreferenciasEstudianteOfertaRechazar(Model model, @PathVariable("dni") String dni) {
+		System.out.println("He entrado");
+		model.addAttribute("asignaciones", asignacionEmpresaTutorEstudianteDAO.getAsignacionCompletaDniE(dni));
+		System.out.println("entro en la lista de preferencias del estudiante CCD");
+		System.out.println("Aqio tmbien joder");
+		return "asignacion/listarAsignacionesEstudianteBTCRechazar";
+		
+	}
+	
 	@RequestMapping("/listBTC/{dni}/tutor/listBTC/{id}")
 	public String listTutoresBTCAsig(Model model, @PathVariable("dni") String dniEstudiante, @PathVariable("id") int id_oferta) {
 		System.out.println("Entro en la lista de tutores");
@@ -66,6 +87,17 @@ public class PreferenciasOfertaController {
 		return "tutor/listBTC";
 	}
 	
+	@RequestMapping("/listBTCRechazar/{dni}/tutor/listBTCRechazar/{id}")
+	public String listTutoresBTCAsigRechazar(Model model, @PathVariable("dni") String dniEstudiante, @PathVariable("id") int id_oferta) {
+		System.out.println("Entro en la lista de tutores");
+		model.addAttribute("dni", dniEstudiante);
+		model.addAttribute("id", id_oferta);
+		model.addAttribute("prefernacias", preferenciasOfertaDao.getPreferenciaOferta());
+		model.addAttribute("tutores", tutorDAO.getTutores());
+		System.out.println("Salgo lista tutores");
+		return "tutor/listBTCRechazar";
+	}
+	
 	@RequestMapping("/listBTC/{dni}/tutor/listBTC/{id}/asignacion/add/{dniT}")
 	public String listTutoresAddAsignacion(Model model, @PathVariable("dni") String dniEstudiante, @PathVariable("id") int id_oferta,@PathVariable("dniT") String dniT) {
 		System.out.println("Entro en el añadir asignacion");
@@ -74,6 +106,49 @@ public class PreferenciasOfertaController {
 		model.addAttribute("dniT", dniT);
 		asignacionDAO.addAsignacion(id_oferta,dniEstudiante,dniT);
 		//model.addAttribute("asignaciones", asignacionDAO.getAsignacion());
+		System.out.println("Ya he insertado en asig");
+		model.addAttribute("asignaciones", asignacionEmpresaTutorEstudianteDAO.getAsignacionCompleta());
+		
+		System.out.println("Salgo");
+		return "asignacion/add";
+	}
+	@RequestMapping("/listBTCRechazar/{dni}/tutor/listBTCRechazar/{id}/asignacion/rechazar/{dniT}")
+	public String listTutoresAddAsignacionRechazar(Model model, @PathVariable("dni") String dniEstudiante, @PathVariable("id") int id_oferta,@PathVariable("dniT") String dniT) {
+		System.out.println("Entro en el añadir asignacion");
+		model.addAttribute("dni", dniEstudiante);
+		model.addAttribute("id", id_oferta);
+		model.addAttribute("dniT", dniT);
+		asignacionDAO.anulaAsignacion(id_oferta,dniEstudiante,dniT);
+		//model.addAttribute("asignaciones", asignacionDAO.getAsignacion());
+		System.out.println("Ya he insertado en asig");
+		model.addAttribute("asignaciones", asignacionEmpresaTutorEstudianteDAO.getAsignacionCompleta());
+		
+		System.out.println("Salgo");
+		return "asignacion/add";
+	}
+	
+	@RequestMapping("/listAsigModTutor/{dni}/tutor/elegir/{id}/asignacion/mod/{dniT}")
+	public String listTutoresAddAsignacionModificar(Model model, @PathVariable("dni") String dniEstudiante, @PathVariable("id") int id_oferta,@PathVariable("dniT") String dniT) {
+		System.out.println("Entro en el añadir asignacion");
+		model.addAttribute("dni", dniEstudiante);
+		model.addAttribute("id", id_oferta);
+		model.addAttribute("dniT", dniT);
+		//model.addAttribute("asignaciones", asignacionDAO.getAsignacion());
+		System.out.println("Ya he insertado en asig");
+		model.addAttribute("tutores", tutorDAO.getTutores());
+		
+		System.out.println("Salgo");
+		return "tutor/listModAsig";
+	}
+	
+	@RequestMapping("/listBTCMod/{dni}/tutor/{id}/asignacion/mod/{dniT}")
+	public String listTutoresAddAsignacionModificar2(Model model, @PathVariable("dni") String dniEstudiante, @PathVariable("id") int id_oferta,@PathVariable("dniT") String dniT) {
+		System.out.println("Entro en el añadir asignacion");
+		model.addAttribute("dni", dniEstudiante);
+		model.addAttribute("id", id_oferta);
+		model.addAttribute("dniT", dniT);
+		//model.addAttribute("asignaciones", asignacionDAO.getAsignacion());
+		asignacionDAO.updateTutor(id_oferta,dniEstudiante,dniT);
 		System.out.println("Ya he insertado en asig");
 		model.addAttribute("asignaciones", asignacionEmpresaTutorEstudianteDAO.getAsignacionCompleta());
 		

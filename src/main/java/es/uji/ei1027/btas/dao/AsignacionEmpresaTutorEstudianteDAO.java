@@ -44,6 +44,17 @@ public class AsignacionEmpresaTutorEstudianteDAO {
 		     	"Select o.id_oferta,fechaAceptacion, e.nombre as nombreEstudiante, a.dniE as dniE, t.nombre as nombreTutor,a.dniT as dniT,em.nombre as nombreEmpresa,o.cif as cif,estadoaceptadarechazada from contacto e join asignacion a on e.dni=a.dniE join contacto t on a.dniT=t.dni join ofertaProyecto o on o.id_oferta=a.id_oferta join empresa em on em.cif=o.cif" 
 		     	 ,new AsignacionEmpresaTutorEstudianteMapper());
 	}
+public List<AsignacionEmpresaTutorEstudiante> getAsignacionCompletaDniE(String dniE) {
+		
+		return this.jdbcTemplate.query(
+		     	"Select o.id_oferta,fechaAceptacion, e.nombre as nombreEstudiante, a.dniE as dniE, t.nombre as nombreTutor,a.dniT as dniT,em.nombre as nombreEmpresa,o.cif as cif,estadoaceptadarechazada from contacto e join asignacion a on e.dni=a.dniE join contacto t on a.dniT=t.dni join ofertaProyecto o on o.id_oferta=a.id_oferta join empresa em on em.cif=o.cif where e.dni=?" 
+		     	 ,new Object[] {dniE},new AsignacionEmpresaTutorEstudianteMapper());
+	}
 	
+public List<AsignacionEmpresaTutorEstudiante> getAsignacionCompletaDniT(String dniT) {
 	
+	return this.jdbcTemplate.query(
+	     	"Select o.id_oferta,fechaAceptacion, e.nombre as nombreEstudiante, a.dniE as dniE, t.nombre as nombreTutor,a.dniT as dniT,em.nombre as nombreEmpresa,o.cif as cif,estadoaceptadarechazada from contacto e join asignacion a on e.dni=a.dniE join contacto t on a.dniT=t.dni join ofertaProyecto o on o.id_oferta=a.id_oferta join empresa em on em.cif=o.cif where t.dni=?" 
+	     	 ,new Object[] {dniT},new AsignacionEmpresaTutorEstudianteMapper());
+}
 }

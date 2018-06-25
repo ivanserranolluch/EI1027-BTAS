@@ -12,7 +12,7 @@ public enum AceptadaRechazada {
 		this.aceptadaRechazada=aceptadaRechazada;
 	}
 	
-	public String getAceptadaRechazada() {
+	public String getDescripcion() {
 		return aceptadaRechazada;
 	}
 	

@@ -14,8 +14,12 @@
     <li><a th:href="@{/ofertaProyecto/list}">Ver ofertas</a></li>
     </ul>
     
+    <!-- 
     <ul>
     <li><a th:href="@{/preferenciasOferta/listar}">Llista de preferencies</a></li>
+    </ul>  -->
+     <ul>
+    <li><a th:href="@{/estudiante/listarPreferencias(Per Estudiant)}">Llista de preferencies</a></li>
     </ul>
     
      <ul>
@@ -26,13 +30,31 @@
     <li><a th:href="@{/Empresa/list}">Llista de empreses</a></li>
     </ul>
 
+    
     <ul>
-    <li><a th:href="@{/estudiante/listEstudiantesBTCAsignaciones}">Llistar asignaciones (Por Estudiante)</a></li>
+    <li><a th:href="@{/estudiante/listBTC}">Asistent per a la creacio d'Asignacions</a></li>
     </ul>
     
     <ul>
-    <li><a th:href="@{/estudiante/listBTC}">Gestionar asignaciones</a></li>
+    <li><a th:href="@{/asignacion/add}">Llistat de totes les Asignacions</a></li>
     </ul>
+    
+     <ul>
+    <li><a th:href="@{/estudiante/listEstudiantesBTCAsignaciones}">Llistar Asignacions (Per Estudiant)</a></li>
+    </ul>
+    
+    <!-- 
+    <ul>
+    <li><a th:href="@{/asignacion/listarParaAnular}">Anular Asignacions</a></li>
+    </ul>
+     -->
+     <ul>
+    <li><a th:href="@{/estudiante/listBTCRechazar}">Asistent d'anulacio d'asignacions</a></li>
+    </ul>
+      <ul>
+    <li><a th:href="@{/asignacion/listAsigModTutor}">Modificar tutor de l'asignacio</a></li>
+    </ul>
+    
 
 </body>
 </html>

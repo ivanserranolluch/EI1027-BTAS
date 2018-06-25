@@ -47,6 +47,16 @@ public class EstudianteController {
 				model.addAttribute("estudiantes", estudianteDAO.getEstudiantes());
 				return "estudiante/listBTC";
 			}
+			@RequestMapping("/listarPreferencias")
+			public String listEstudiantesPreferencias(Model model) {
+				model.addAttribute("estudiantes", estudianteDAO.getEstudiantes());
+				return "estudiante/listarPreferencias";
+			}
+			@RequestMapping("/listarPreferenciasCCD")
+			public String listEstudiantesPreferenciasCCD(Model model) {
+				model.addAttribute("estudiantes", estudianteDAO.getEstudiantes());
+				return "estudiante/listarPreferenciasCCD";
+			}
 			
 			@RequestMapping("/list2")
 			public String listEstudiantes2(Model model) {
@@ -58,6 +68,13 @@ public class EstudianteController {
 			public String listEstudiantesBTCAsignaciones(Model model) {
 				model.addAttribute("estudiantes", estudianteDAO.getEstudiantes());
 				return "estudiante/listEstudiantesBTCAsignaciones";
+			}
+			
+			
+			@RequestMapping("/listBTCRechazar")
+			public String listEstudiantesBTCAsignacionesRechazar(Model model) {
+				model.addAttribute("estudiantes", estudianteDAO.getEstudiantes());
+				return "estudiante/listBTCRechazar";
 			}
 			
 	//OPERACION CREAR
