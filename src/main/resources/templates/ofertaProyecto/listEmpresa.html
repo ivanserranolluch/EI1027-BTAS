@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-	<title>Gestionar Ofertas</title>
+	<title>BTAS</title>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/PerfilEmpresa/listEmpresa.css" th:href="@{/css/PerfilEmpresa/listEmpresa.css}"/>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
+	
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 </head>
 <body>
 	<!-- HEADER -->
@@ -12,7 +15,21 @@
 		<h1>Ofertas Propias</h1>
 	</header>
 	
+	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listEmpresa/{cif}(cif=${session.user.username})}">Gestionar ofertas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listEmpresaAnulacion/{cif}(cif=${session.user.username})}">Solicitar Anulacion de alguna Oferta</a>
+					</li>
+				</ul>
+			</div>
+	</nav>
+	
 	<!-- CONTENIDO BD -->
+	
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -43,16 +60,18 @@
 	</table>
 	
 	<!-- ENLACES -->
-	<div class="local-button">
-			<a th:href="@{/ofertaProyecto/addOfertaEmpresa}" 
-				class="btn btn-success"> <span
-				class="glyphicon glyphicon-plus"></span> Oferta
-			</a>
-		</div>
 	
-	
-	
-	<a class="btn btn-primary btn-dark" th:href="@{/index/vistaEmpresa}" >Atras</a>
+		
+		<a class="btn btn-default" th:href="@{/ofertaProyecto/addOfertaEmpresa}" role="button"> 
+		<span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Nueva Oferta
+		</a>
+		
+
+		
+		
+		<a class="btn btn-primary btn-dark" th:href="@{/index/vistaEmpresa}" >
+			<span class="glyphicon glyphicon-plus"></span> Atras
+		</a>
 	
 </body>
 </html>

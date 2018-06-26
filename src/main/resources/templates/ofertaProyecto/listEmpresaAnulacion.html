@@ -1,42 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-	<title>Gestionar Ofertas</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
-</head>
-<body>
-	<h1>Lista de Ofertas</h1>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>tarea</th>
-				<th>objetivo</th>
-				<th>estado</th>
-				<th>itinerario</th>
-				<th>fechaAlta</th>
-				<th>dni</th>
-				<th>cif</th>
-				<td>semestre</td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="oferta: ${ofertas}">
-				<td th:text="${oferta.tarea}"></td>
-				<td th:text="${oferta.objetivo}"></td>
-				<td th:text="${oferta.descEstado}"></td>
-				<td th:text="${oferta.descItinerario}"></td>
-				<td th:text="${oferta.fechaAlta}"></td>
-				<td th:text="${oferta.dni}"></td>
-				<td th:text="${oferta.cif}"></td>
-				<td th:text="${oferta.semestre}"></td>
-				<td><a th:href="@{/ofertaProyecto/updateEstadoSolAnulado/{id}(id=${oferta.id})}">Solicitar Anulacio</a></td>
-			</tr>
-		</tbody>
-	</table>
-	<li><a th:href="@{/index/vistaEmpresa}">Atras</a></li>
+	<head> 
+		<title>BTAS</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+	</head>
 	
-	
-</body>
+	<body>
+		<header>
+			<h1>SOLICITUD DE ANULACIÓN</h1>
+		</header>
+		
+		<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listEmpresa/{cif}(cif=${session.user.username})}">Gestionar ofertas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listEmpresaAnulacion/{cif}(cif=${session.user.username})}">Solicitar Anulacion de alguna Oferta</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Fecha Alta</th>
+					<th>Objetivo</th>
+					<th>Descripcion</th>
+					<th>Estado</th>
+					<th>Itinerario</th>
+					<th>Responsable</th>
+					<th>Semestre</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="oferta: ${ofertas}">
+					<td th:text="${oferta.fechaAlta}"></td>
+					<td th:text="${oferta.tarea}"></td>
+					<td th:text="${oferta.objetivo}"></td>
+					<td th:text="${oferta.descEstado}"></td>
+					<td th:text="${oferta.descItinerario}"></td>
+					<td th:text="${oferta.dni}"></td>
+					<td th:text="${oferta.semestre}"></td>
+					<td><a th:href="@{/ofertaProyecto/updateEstadoSolAnulado/{id}(id=${oferta.id})}">Solicitar Anulacio</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<li><a th:href="@{/index/vistaEmpresa}">Atras</a></li>
+		
+		
+	</body>
 </html>
