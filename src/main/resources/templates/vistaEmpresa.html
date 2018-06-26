@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>EI1027</title>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
-	</meta>
+		<title>EI1027</title>
+		<meta charset="UTF-8"></meta>
+		<link rel="stylesheet" type="text/css" href="/css/vistaEmpresa.css" th:href="@{/css/vistaEmpresa.css}"/>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 	</head>
 	<body>
 	
-		<h1>Gestión Empresa</h1>
+		<!-- HEADER -->
+		
+		<header>
+			<h1>Gestión Empresa</h1>
+		</header>
+		
+		<!-- NAVEGACIÓN -->
+		
+		<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listEmpresa/{cif}(cif=${session.user.username})}">Gestionar ofertas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listEmpresaAnulacion/{cif}(cif=${session.user.username})}">Solicitar Anulacion de alguna Oferta</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!-- PIE DE PAGINA -->
+		
+	    <footer>
+	    	<p class="text-muted">EI1027 - Diseño e Implementación de Sistemas de Información</p>
+	    </footer>
 	    
 	    <!--  
 	     <ul>
@@ -17,12 +44,12 @@
 	    <ul>
 	    <li><a th:href="@{/ofertaEstancia/listarOfertaEstancia/{cif}(cif=${session.user.username})}">Gestionar ofertas</a></li>
 	    </ul>
-	     -->
+	     
 	   	<ul>
 	    <li><a th:href="@{/ofertaProyecto/listEmpresa/{cif}(cif=${session.user.username})}">Gestionar ofertas</a></li>
 	    </ul>
 	     <ul>
 	    <li><a th:href="@{/ofertaProyecto/listEmpresaAnulacion/{cif}(cif=${session.user.username})}">Solicitar Anulacion de alguna Oferta</a></li>
-	    </ul>
+	    </ul> -->
 	</body>
 </html>

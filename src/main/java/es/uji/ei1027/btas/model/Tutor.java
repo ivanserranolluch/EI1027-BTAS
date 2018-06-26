@@ -1,8 +1,6 @@
 package es.uji.ei1027.btas.model;
 
 
-
-
 public class Tutor extends Contacto {
 	
 	private String departamento;
