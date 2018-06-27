@@ -27,31 +27,12 @@
 			</tr>
 			
 			<tr>
-				<td><label>Dni</label></td>
-				<td><input type="text" th:field="*{dni}"/></td>
+				
+				<td><input type="hidden" th:field="*{dni}"/></td>
 			</tr>
 	
-			<tr>
 			
-			<td>
-				<label >Estado</label>
-			</td>
-			<td>
-				<select name="estado" th:field="*{descEstado}">       			
-			       <option value="Sin Definir">Sin definir</option> 
-			       <option value="Introducida">Introducida</option> 
-			       <option value="Aceptada">Aceptada</option>
-			       <option value="Rechazada">Rechazada</option> 
-			       <option value="Visible alumnos">Visible para los alumnos</option> 
-			       <option value="Asignada">Asignada</option>
 			
-		</select>
-		</td>
-			</tr>
-			<tr>
-				<td><label>Fecha Ultimo Cambio</label></td>
-				<td><input type="date" th:field="*{fechaUltimoCambio}" /></td>
-			</tr>
 			
 			
 			<tr style="text-align:center">
@@ -64,7 +45,7 @@
 	</form>
 	
 	
-	<li><a th:href="@{/preferenciasEstudiante/listes/{dni}(dni=${session.user.username})}">Atras</a></li>
+	<li><a th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}">Atras</a></li>
 	
 	</div>
 </body>

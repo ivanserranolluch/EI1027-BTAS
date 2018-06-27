@@ -51,6 +51,7 @@
     </td>
     </tr>
     
+    <!-- 
 	<tr>
 	<td>
    
@@ -58,12 +59,22 @@
    
     </td>
     </tr>
+     -->
     
     <tr>
    	<td>
 
     <li class="li"><a th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" class="link">Mis Asignaciones</a></li>
     
+    </td>
+    </tr>
+    
+    
+	<tr>
+	<td>
+   
+    <li class="li"><a th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" class="link" >Lista de mis preferencias</a></li>
+   
     </td>
     </tr>
     

@@ -112,6 +112,9 @@ private  LinkedList<Integer> list = new LinkedList<Integer>();
 			
 			@RequestMapping(value="/update/{id}/{dni}", method=RequestMethod.GET)
 			public String editOfertaProyecto(Model model, @PathVariable int id,@PathVariable String dni){
+				
+				model.addAttribute("dni",dni);
+				model.addAttribute("id",id);
 				System.out.println("entro en el get del update de preferendias con un id "+id+ "dni" +dni);
 				
 				model.addAttribute("preferenciasEstudiante", preferenciasEstudianteDao.getPreferencia(id,dni));
@@ -129,7 +132,7 @@ private  LinkedList<Integer> list = new LinkedList<Integer>();
 				
 				System.out.println("id:"+preferenciasEstudiante.getId() + "dni"+preferenciasEstudiante.getDni());
 				try {
-					preferenciasEstudianteDao.updatePreferenciasEstudiante(preferenciasEstudiante.getId(),preferenciasEstudiante.getDni(),preferenciasEstudiante.getOrden(),preferenciasEstudiante.getDescEstado(),preferenciasEstudiante.getFechaUltimoCambio());
+					preferenciasEstudianteDao.updatePreferenciasEstudiante(preferenciasEstudiante.getId(),preferenciasEstudiante.getDni(),preferenciasEstudiante.getOrden());
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					return "excepciones/errorEstudianteUpdate";

@@ -1,8 +1,9 @@
 
 package es.uji.ei1027.btas.dao;
 
-import java.sql.Date;
+
 import java.sql.ResultSet;
+import java.util.Date;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -50,16 +51,17 @@ public class PreferenciasEstudianteDAO {
 //		     	new PreferenciasEstudianteMapper());
 //	}
 	public List<PreferenciasEstudiante> getPreferenciaEstudiante(String dni){
-		return this.jdbcTemplate.query("SELECT * FROM preferenciasEstudiante WHERE dni=?;",
+		return this.jdbcTemplate.query("SELECT * FROM preferenciasEstudiante WHERE dni=? order by orden;",
 				new Object[] {dni}, new PreferenciasEstudianteMapper());
 	}
 	public PreferenciasEstudiante getPreferencia(int id,String dni){
 		return this.jdbcTemplate.queryForObject("select * from preferenciasEstudiante where id_oferta=? and dni =?",  new Object[] {id,dni}, new PreferenciasEstudianteMapper());
 	}
 	public void addPreferenciasEstudiante(PreferenciasEstudiante preferenciasEstudiante) {
+		Date fechaHoy= new Date();
 		this.jdbcTemplate.update(
 				"insert into PreferenciasEstudiante(id_oferta,dni,orden,estado,fechaultimocambio) values(?,?, ?, ?, ?)", preferenciasEstudiante.getId(),preferenciasEstudiante.getDni(),
-				preferenciasEstudiante.getOrden(),preferenciasEstudiante.getEstado().getDescripcion(),preferenciasEstudiante.getFechaUltimoCambio());
+				preferenciasEstudiante.getOrden(),preferenciasEstudiante.getEstado().getDescripcion(),fechaHoy);
 	}
 //	public void addPreferenciasEstudiante(PreferenciasEstudiante preferenciasEstudiante) {
 //		this.jdbcTemplate.update(
@@ -76,9 +78,9 @@ public class PreferenciasEstudianteDAO {
 //		this.jdbcTemplate.update(
 //				"update PreferenciasEstudiante set orden = ? est where id = ?", preferenciasEstudiante.getOrden(),preferenciasEstudiante.getId());
 //	}
-	public void updatePreferenciasEstudiante(int id,String dni,int orden,String estado,Date fechaUltimoCambio) {
+	public void updatePreferenciasEstudiante(int id,String dni,int orden) {
 		this.jdbcTemplate.update(
-				"update PreferenciasEstudiante set orden = ?, estado =?, fechaultimocambio =? where id_oferta = ? and dni =?", orden,estado,fechaUltimoCambio,id,dni);
+				"update PreferenciasEstudiante set orden = ?,  fechaultimocambio =? where id_oferta = ? and dni =?", orden,new Date(),id,dni);
 	}		
 
 }

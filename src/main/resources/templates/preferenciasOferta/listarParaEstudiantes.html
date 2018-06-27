@@ -1,12 +1,12 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-	<title>Gestionar Preferencias</title>
+	<title>Gestionar Preferencias CCD</title>
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
-
 <body>
 	<h1>Lista de Preferencias</h1>
 	
@@ -22,30 +22,51 @@
 				</ul>
 			</div>
 		</nav>
-	
 	<table   class="table table-striped">
 		<thead>
 			<tr>
-				
 				<th>orden</th>
 				<th>estado</th>
-				<th>fechaUltimoCambio</th>
-				<th>dni</th>
 				
+				<th>fechaUltimoCambio</th>
+				<th>itinerario</th>
+			
+				<th>dni</th>
+				<th>cif</th>
+				<th>tarea</th>
+				<th>objetivo</th>
+				<th>fechaalta</th>
+				<th>semestre</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="preferenciasEstudiante: ${preferencias}">
+			<tr th:each="preferenciasOferta: ${preferencias}">
+				<td th:text="${preferenciasOferta.orden}"></td>
 				
-				<td th:text="${preferenciasEstudiante.orden}"></td>
-				<td th:text="${preferenciasEstudiante.descEstado}"></td>
-				<td th:text="${preferenciasEstudiante.fechaUltimoCambio}"></td>
-				<td th:text="${preferenciasEstudiante.dni}"></td>
-				<td><a th:href="@{'/preferenciasEstudiante/update/'+ ${preferenciasEstudiante.id} + '/' + ${preferenciasEstudiante.dni}}">Edita</a></td>
-				<td><a th:href="@{'/preferenciasEstudiante/delete/'+ ${preferenciasEstudiante.id} + '/' + ${preferenciasEstudiante.dni}}">Esborra</a></td>
+				<td th:text="${preferenciasOferta.descEstado}"></td>
+				<td th:text="${preferenciasOferta.fechaUltimoCambio}"></td>
+				
+				<td th:text="${preferenciasOferta.descItinerario}"></td>
+				<td th:text="${preferenciasOferta.dni}"></td>
+				<td th:text="${preferenciasOferta.cif}"></td>
+				<td th:text="${preferenciasOferta.tarea}"></td>
+				<td th:text="${preferenciasOferta.objetivo}"></td>
+				<td th:text="${preferenciasOferta.fechaAlta}"></td>
+				<td th:text="${preferenciasOferta.semestre}"></td>
+				<!-- <td><a th:href="@{/preferenciasOferta/listBTC/{dni}(dni=${estudiante.dni})}">Preferencias</a></td>-->
+				
+				<td><a th:href="@{'/preferenciasEstudiante/update/'+ ${preferenciasOferta.id} + '/' + ${preferenciasOferta.dni}}">Edita</a></td>
+				<td><a th:href="@{'/preferenciasEstudiante/delete/'+ ${preferenciasOferta.id} + '/' + ${preferenciasOferta.dni}}">Esborra</a></td>
+				
 			</tr>
+			
+			
+			
+			
 		</tbody>
 	</table>
-	<li><a th:href="@{/index/index3}">Atras</a></li>
+	
+	
 </body>
+
 </html>
