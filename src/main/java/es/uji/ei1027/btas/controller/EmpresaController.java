@@ -35,6 +35,11 @@ public class EmpresaController {
 			model.addAttribute("empresas", empresaDAO.getEmpresas());
 			return "Empresa/list";
 		}
+		@RequestMapping("/listarTutor")
+		public String listEmpresasTutor(Model model) {
+			model.addAttribute("empresas", empresaDAO.getEmpresas());
+			return "Empresa/listarTutor";
+		}
 		
 		@RequestMapping("/list2")
 		public String listEmpresas2(Model model) {

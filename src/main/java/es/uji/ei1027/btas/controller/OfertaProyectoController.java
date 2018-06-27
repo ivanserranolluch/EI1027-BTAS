@@ -84,17 +84,17 @@ public class OfertaProyectoController {
 			return "ofertaProyecto/listes";
 		}
 		
-		@RequestMapping("/listarCCT")
-		public String listOfertasCCT(Model model) {
+		@RequestMapping("/listarCCT/{cif}")
+		public String listOfertasCCT(Model model, @PathVariable("cif") String cif) {
 			System.out.println("entro aqui");
-			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertasEmpresa(cif));
 			return "ofertaProyecto/listarCCT";
 		}
 		
-		@RequestMapping("/listBTC")
-		public String listOfertasBCT(Model model) {
+		@RequestMapping("/listBTC/{cif}")
+		public String listOfertasBCT(Model model,@PathVariable("cif") String cif) {
 			System.out.println("entro aqui");
-			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertas());
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertasEmpresa(cif));
 			return "ofertaProyecto/listBTC";
 		}
 		
@@ -102,6 +102,12 @@ public class OfertaProyectoController {
 		public String listOfertasTutor(Model model) {
 			System.out.println("entro aqui");
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertasTUTOR());
+			return "ofertaProyecto/listarOfertasTutor";
+		}
+		@RequestMapping("/listarOfertasTutor/{cif}")
+		public String listOfertasTutor(Model model,@PathVariable("cif") String cif) {
+			System.out.println("entro aqui");
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertasEmpresa(cif));
 			return "ofertaProyecto/listarOfertasTutor";
 		}
 		/*@RequestMapping("/listitinerario")
@@ -220,11 +226,11 @@ public class OfertaProyectoController {
 				System.out.println(bindingResult.hasErrors());
 				return "ofertaProyecto/updateEstado";
 			}
-			
+			String cif= ofertaProyecto.getCif();
 			
 			ofertaProyectoDAO.updateOfertaProyectoEstado(id,ofertaProyecto.getDescEstado());
 			
-			return "redirect:../listarCCT";
+			return "index4";
 		}
 			
 		

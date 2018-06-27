@@ -16,11 +16,11 @@
 	    </header>
 	    
 	    <!-- NAVEGACIÓN -->
-	    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+	  <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" th:href="@{/Empresa/list}">Empresas</a>
+						<a class="nav-link" th:href="@{/Empresa/list}">Empresas / Ofertas</a>
 					</li>
 					<!-- 
 					<li class="nav-item">
@@ -36,17 +36,15 @@
 					<li class="nav-item">
 						<a class="nav-link" th:href="@{/estudiante/listEstudiantesBTCAsignaciones}">Asignaciones por Estudiante</a>
 					</li>
+					
 					<li class="nav-item">
-						<a class="nav-link" th:href="@{/ofertaProyecto/listBTC}">Gestionar Ofertas</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/asignacion/add}">Todas las Asignaciones</a>
+						<a class="nav-link" th:href="@{/asignacion/add}">Todas las asignaciones</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" th:href="@{/estudiante/listBTCRechazar}">Asistente Anulación Asignaciones</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" th:href="@{/asignacion/listAsigModTutor}">Modificación Tutor</a>
+						<a class="nav-link" th:href="@{/asignacion/listAsigModTutor}">Modificación Tutor Asignacion</a>
 					</li>
 				</ul>
 			</div>
@@ -64,13 +62,14 @@
 				<tr th:each="empresa: ${empresas}">
 					<td th:text="${empresa.cif}"></td>
 					<td th:text="${empresa.nombre}"></td>
-	 				<td><a th:href="@{/Empresa/listEmpresa/{cif}(cif=${empresa.cif})}">Ver más</a></td> 
+	 				<td><a th:href="@{/Empresa/listEmpresa/{cif}(cif=${empresa.cif})}">Información</a></td> 
+	 				<td><a th:href="@{/ofertaProyecto/listBTC/{cif}(cif=${empresa.cif})}">Ver Ofertas</a></td> 
 					<!-- <td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
 					<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td> -->
 				</tr>
 			</tbody>
 		</table>
 	
-		<li><a th:href="@{/index/index2}">Atras</a></li>
+		<li><a th:href="@{/index/index2}">INICIO</a></li>
 	</body>
 </html>

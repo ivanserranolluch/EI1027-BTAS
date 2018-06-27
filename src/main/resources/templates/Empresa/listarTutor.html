@@ -1,61 +1,59 @@
-<!DOCTYPE html>
+		
+		<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head> 
 		<title>BTAS</title>
-		<meta charset="UTF-8" />
+		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
+		</meta>
 	</head>
-	
 	<body>
 		<!-- HEADER -->
-		<header><h1>Lista de Empresas</h1></header>
-		
-		<!-- NAVEGACIÓN -->
-	    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+		<header>
+		<h1>Lista Empresas</h1>
+		<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
 				<ul class="navbar-nav mr-auto">
+					
 					<li class="nav-item">
-						<a class="nav-link" th:href="@{/Empresa/list2}">Empresas</a>
+						<a class="nav-link" th:href="@{/asignacion/listarAsignacionesTutor/{dniT}(dniT=${session.user.username})}">Listado de mis Asignaciones</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" th:href="@{/ofertaProyecto/listarCCT}">Ofertas</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/estudiante/listarPreferenciasCCD}">Preferencias por Estudiante</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/estudiante/list2}">Asignaciones por Estudiante</a>
+						<a class="nav-link" th:href="@{/Empresa/listarTutor}">Empresas / Ofertas</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
+	    </header>
+	    
+	  		
 		
 		<!-- DATOS BD -->
-		
-		
-		<br></br>
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>CIF</th>
 					<th>Nombre Empresa</th>
+					<th>Correo</th>
+					<th>WEB</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="empresa: ${empresas}">
 					<td th:text="${empresa.cif}"></td>
 					<td th:text="${empresa.nombre}"></td>
-	 				<td><a th:href="@{/Empresa/listEmpresa2/{cif}(cif=${empresa.cif})}">INFORMACIÓN</a></td> 
+					<td th:text="${empresa.email}"></td>
+					<td th:text="${empresa.direccionWeb}"></td>
+	 				<td><a th:href="@{/ofertaProyecto/listarOfertasTutor/{cif}(cif=${empresa.cif})}">Ver Ofertas</a></td> 
 					<!-- <td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
 					<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td> -->
-					<td><a th:href="@{/ofertaProyecto/listarCCT/{cif}(cif=${empresa.cif})}">Ver Ofertas</a></td> 
-					
 				</tr>
 			</tbody>
 		</table>
-		<li><a th:href="@{/index/index4}">Atras</a></li>
+	
+		<li><a th:href="@{/index/vistaTutor}">INICIO</a></li>
 	</body>
 </html>

@@ -29,4 +29,8 @@ public class IndexController {
 	public String devuelvebtc() {
 		return "vistaEmpresa";									
 	}
+	@RequestMapping("/vistaTutor")
+	public String devuelveTutor() {
+		return "vistaTutor";									
+	}
 }

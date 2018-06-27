@@ -58,6 +58,13 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 			     	new OfertaProyectoMapper());
 		
 	}
+	public List<OfertaProyecto> getOfertasEmpresa(String cif) {
+		
+		return this.jdbcTemplate.query(
+		     	"select * from ofertaProyecto where cif=?",new Object[] {cif}, 
+		     	new OfertaProyectoMapper());
+	
+}
 	
 	public List<OfertaProyecto> getOfertasTUTOR() {
 		

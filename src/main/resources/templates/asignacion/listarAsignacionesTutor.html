@@ -17,11 +17,12 @@
 		<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/ofertaProyecto/listarOfertasTutor}">Listado de ofertas</a>
-					</li>
+					
 					<li class="nav-item">
 						<a class="nav-link" th:href="@{/asignacion/listarAsignacionesTutor/{dniT}(dniT=${session.user.username})}">Listado de mis Asignaciones</a>
+					</li>
+					<li>
+						<a class="nav-link" th:href="@{/Empresa/listarTutor}">Empresas / Ofertas</a>
 					</li>
 				</ul>
 			</div>
@@ -54,7 +55,7 @@
 		
 		
 		
-		
+				<li><a th:href="@{/index/vistaTutor}">INICIO</a></li>
 		
 	</body>
 </html>
