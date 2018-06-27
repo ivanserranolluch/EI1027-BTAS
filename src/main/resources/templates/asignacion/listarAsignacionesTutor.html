@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-	<title>AsignacionE</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
-</head>
-<body>
-	<h1>Asignacion/es del Estudiante</h1>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-			
-				<th>FechaAceptacion</th>
-			
-				
-				<th>DniE</th>
-				<th>nombre Estudiante</th>
-					<th>nombre Empresa</th>
-				
-				<th>DniT</th>
-				<th>idOferta</th>
-					<th>nombreTutor</th>
-						<th>estado</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="asig: ${asignaciones}">
-				
-				<td th:text="${asig.fechaAceptacion}"></td>
-				
-				<td th:text="${asig.dniE}"></td>
-				<td th:text="${asig.nombreEstudiante}"></td>
-				<td th:text="${asig.nombreEmpresa}"></td>
-				<td th:text="${asig.cif}"></td>
-				<td th:text="${asig.dniT}"></td>
-				<td th:text="${asig.nombreTutor}"></td>
-				<td th:text="${asig.descEstado}"></td>
-			</tr>
-		</tbody>
-	</table>
-	<br></br>
-</body>
+	<head> 
+		<title>BTAS</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
+	</head>
+	
+	<body>
+		
+		<!-- HEADER -->
+		<header><h1>Asignación/es Propias</h1></header>
+		
+		<!-- NAVEGACIÓN -->
+		
+		<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listarOfertasTutor}">Listado de ofertas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/asignacion/listarAsignacionesTutor/{dniT}(dniT=${session.user.username})}">Listado de mis Asignaciones</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!-- CONTENIDO BD -->
+		
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Fecha Aceptacion</th>		
+					<th>Estudiante</th>
+					<th>DNI Estudiante</th>
+					<th>Empresa</th>
+					<th>CIF</th>
+					<th>Estado Asignación</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="asig: ${asignaciones}">
+					<td th:text="${asig.fechaAceptacion}"></td>
+					<td th:text="${asig.nombreEstudiante}"></td>
+					<td th:text="${asig.dniE}"></td>
+					<td th:text="${asig.nombreEmpresa}"></td>
+					<td th:text="${asig.cif}"></td>
+					<td th:text="${asig.descEstado}"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		
+		
+		
+		
+	</body>
 </html>

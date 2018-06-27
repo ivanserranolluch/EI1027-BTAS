@@ -1,47 +1,73 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-	<title>Gestionar Estudiantes</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
-</head>
-<body>
-	<h1>Lista de Estudiantes</h1>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>dni</th>
-				<th>al</th>
-				<th>nombre</th>
-				<th>apellidos</th>
-				<th>telefono</th>
-				<th>email</th>
-				<th>itinerario</th>
-				<th>notaMedia</th>
-				<th>numAsigPend</th>
-				<th>creditosAprobados</th>
-				<th>semestreInicioEstancia</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="estudiante: ${estudiantes}">
-				
-				<td th:text="${estudiante.dni}"></td>
-				<td th:text="${estudiante.al}"></td>
-				<td th:text="${estudiante.nombre}"></td>
-				<td th:text="${estudiante.apellidos}"></td>
-				<td th:text="${estudiante.telefono}"></td>
-				<td th:text="${estudiante.email}"></td>
-				<td th:text="${estudiante.descItinerario}"></td>
-				<td th:text="${estudiante.notaMedia}"></td>
-				<td th:text="${estudiante.numAsigPendiente}"></td>
-				<td th:text="${estudiante.numCreditosAprobados}"></td>
-				<td th:text="${estudiante.semestreInicioEstancia}"></td>
-				<td><a th:href="@{/preferenciasOferta/listarPreferenciasEstudiante/{dni}(dni=${estudiante.dni})}">Consulta Preferencias</a></td>
-			</tr>
-		</tbody>
-	</table>
-	<a th:href="@{/index/index4}">Atras</a>
-</body>
+	<head> 
+		<title>BTAS</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
+	</head>
+	
+	<body>
+		<!-- HEADER -->
+		<header><h1>Preferencias por Estudiante</h1></header>
+		
+		<!-- NAVEGACIÓN -->
+	    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/Empresa/list2}">Empresas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listarCCT}">Ofertas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listarPreferenciasCCD}">Preferencias por Estudiante</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/list2}">Asignaciones por Estudiante</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!-- DATOS BD -->
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>dni</th>
+					<th>al</th>
+					<th>nombre</th>
+					<th>apellidos</th>
+					<th>telefono</th>
+					<th>email</th>
+					<th>itinerario</th>
+					<th>notaMedia</th>
+					<th>numAsigPend</th>
+					<th>creditosAprobados</th>
+					<th>semestreInicioEstancia</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="estudiante: ${estudiantes}">
+					
+					<td th:text="${estudiante.dni}"></td>
+					<td th:text="${estudiante.al}"></td>
+					<td th:text="${estudiante.nombre}"></td>
+					<td th:text="${estudiante.apellidos}"></td>
+					<td th:text="${estudiante.telefono}"></td>
+					<td th:text="${estudiante.email}"></td>
+					<td th:text="${estudiante.descItinerario}"></td>
+					<td th:text="${estudiante.notaMedia}"></td>
+					<td th:text="${estudiante.numAsigPendiente}"></td>
+					<td th:text="${estudiante.numCreditosAprobados}"></td>
+					<td th:text="${estudiante.semestreInicioEstancia}"></td>
+					<td><a th:href="@{/preferenciasOferta/listarPreferenciasEstudiante/{dni}(dni=${estudiante.dni})}">Consulta Preferencias</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/index/index4}">Atras</a>
+	</body>
 </html>

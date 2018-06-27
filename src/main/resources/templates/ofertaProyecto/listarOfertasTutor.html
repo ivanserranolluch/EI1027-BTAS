@@ -1,35 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-	<title>Gestionar Ofertas</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
-</head>
-<body>
-	<h1>Lista de Ofertas</h1>
-	<table  class="table table-striped">
-		<thead>
-			<tr>
-				<th>tarea</th>
-				<th>objetivo</th>
-				<th>estado</th>
-				<th>itinerario</th>
-				<th>fechaAlta</th>
-				<th>semestre</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="oferta: ${ofertas}">
-				<td th:text="${oferta.tarea}"></td>
-				<td th:text="${oferta.objetivo}"></td>
-				<td th:text="${oferta.descEstado}"></td>
-				<td th:text="${oferta.descItinerario}"></td>
-				<td th:text="${oferta.fechaAlta}"></td>
-				<td th:text="${oferta.semestre}"></td>
-		 	<!-- 	<td><a th:href="@{/preferenciasEstudiante/add/{id}(id=${oferta.id})/{dni}(dni=${session.user.username})}">add</a></td>-->
-			</tr>
-		</tbody>
-	</table>
-</body>
+	<head> 
+		<title>BTAS</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"/>
+	</head>
+	<body>
+	
+		<!-- HEADER -->
+		
+		<header>
+			<h1>Lista de Ofertas</h1>
+		</header>
+		
+		<!-- NAVEGACIÓN -->
+		
+		<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listarOfertasTutor}">Listado de ofertas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/asignacion/listarAsignacionesTutor/{dniT}(dniT=${session.user.username})}">Listado de mis Asignaciones</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!-- CONTENIDO BD -->
+	
+		<table  class="table table-striped">
+			<thead>
+				<tr>
+					<th>Fecha Alta</th>
+					<th>Objetivo</th>
+					<th>Descripcion</th>
+					<th>Itinerario</th>
+					<th>Semestre</th>
+					<th>Estado</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="oferta: ${ofertas}">
+					<td th:text="${oferta.fechaAlta}"></td>
+					<td th:text="${oferta.tarea}"></td>
+					<td th:text="${oferta.objetivo}"></td>
+					<td th:text="${oferta.descItinerario}"></td>			
+					<td th:text="${oferta.semestre}"></td>
+					<td th:text="${oferta.descEstado}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
 </html>

@@ -1,60 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>EI1027</title>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
-</meta>
-</head>
-<body>
-
-	<h2>EI1027 - Spring MVC</h2>
-	<h1>Gestio BTC</h1>
-    <ul>
-    <li><a th:href="@{/ofertaProyecto/list}">Ver ofertas</a></li>
-    </ul>
-    
-    <!-- 
-    <ul>
-    <li><a th:href="@{/preferenciasOferta/listar}">Llista de preferencies</a></li>
-    </ul>  -->
-     <ul>
-    <li><a th:href="@{/estudiante/listarPreferencias}">Listado de preferencias(Por Estudiante)</a></li>
-    </ul>
-    
-     <ul>
-    <li><a th:href="@{/ofertaProyecto/listBTC}">Gestionar ofertas</a></li>
-    </ul>
-    
-    <ul>
-    <li><a th:href="@{/Empresa/list}">Llista de empreses</a></li>
-    </ul>
-
-    
-    <ul>
-    <li><a th:href="@{/estudiante/listBTC}">Asistent per a la creacio d'Asignacions</a></li>
-    </ul>
-    
-    <ul>
-    <li><a th:href="@{/asignacion/add}">Llistat de totes les Asignacions</a></li>
-    </ul>
-    
-     <ul>
-    <li><a th:href="@{/estudiante/listEstudiantesBTCAsignaciones}">Llistar Asignacions (Per Estudiant)</a></li>
-    </ul>
-    
-    <!-- 
-    <ul>
-    <li><a th:href="@{/asignacion/listarParaAnular}">Anular Asignacions</a></li>
-    </ul>
-     -->
-     <ul>
-    <li><a th:href="@{/estudiante/listBTCRechazar}">Asistent d'anulacio d'asignacions</a></li>
-    </ul>
-      <ul>
-    <li><a th:href="@{/asignacion/listAsigModTutor}">Modificar tutor de l'asignacio</a></li>
-    </ul>
-    
-
-</body>
+	<head>
+		<title>BTAS</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
+		</meta>
+	</head>
+	<body>
+		<!-- HEADER -->
+		<header>
+		<h1>Gestión BTC</h1>
+	    </header>
+	    
+	    <!-- NAVEGACIÓN -->
+	    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/Empresa/list}">Empresas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/list}">Ofertas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listBTC}">Asignaciones</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listarPreferencias}">Preferencias por Estudiante</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listEstudiantesBTCAsignaciones}">Asignaciones por Estudiante</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listBTC}">Gestionar Ofertas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/asignacion/add}">Asistente Creación Asignación</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listBTCRechazar}">Asistente Anulación Asignaciones</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/asignacion/listAsigModTutor}">Modificación Tutor</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	
+	</body>
 </html>

@@ -1,41 +1,66 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-	<title>Gestionar Empresas</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
-</head>
-<body>
-	<h1>Lista de Empresas</h1>
-	<br></br>
-	<table class="table table-dark" >
-		<tr> 
-			<td><a th:href="@{/index/index4}">Inicio</a></td>
-			<td><a th:href="@{/preferenciasEstudiante/list}">Listado de Preferencias</a></td>
-			<td><a th:href="@{/ofertaProyecto/listarCCT}">Listado de Ofertas</a></td>
-			<td><a th:href="@{/estudiante/list2}">Listado de Asignaciones (Por Estudiante)</a></td>
-		</tr>
-	</table>
+	<head> 
+		<title>BTAS</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
+	</head>
 	
-	<br></br>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>CIF</th>
-				<th>nombre</th>
+	<body>
+		<!-- HEADER -->
+		<header><h1>Lista de Empresas</h1></header>
+		
+		<!-- NAVEGACIÓN -->
+	    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/Empresa/list2}">Empresas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listarCCT}">Ofertas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listarPreferenciasCCD}">Preferencias por Estudiante</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/list2}">Asignaciones por Estudiante</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!-- DATOS BD -->
+		<table class="table table-dark" >
+			<tr> 
+				<td><a th:href="@{/index/index4}">Inicio</a></td>
+				<td><a th:href="@{/preferenciasEstudiante/list}">Listado de Preferencias</a></td>
+				<td><a th:href="@{/ofertaProyecto/listarCCT}">Listado de Ofertas</a></td>
+				<td><a th:href="@{/estudiante/list2}">Listado de Asignaciones (Por Estudiante)</a></td>
 			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="empresa: ${empresas}">
-				<td th:text="${empresa.cif}"></td>
-				<td th:text="${empresa.nombre}"></td>
- 				<td><a th:href="@{/Empresa/listEmpresa2/{cif}(cif=${empresa.cif})}">Ver más</a></td> 
-				<!-- <td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
-				<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td> -->
-			</tr>
-		</tbody>
-	</table>
-	<li><a th:href="@{/index/index4}">Atras</a></li>
-</body>
+		</table>
+		
+		<br></br>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>CIF</th>
+					<th>nombre</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="empresa: ${empresas}">
+					<td th:text="${empresa.cif}"></td>
+					<td th:text="${empresa.nombre}"></td>
+	 				<td><a th:href="@{/Empresa/listEmpresa2/{cif}(cif=${empresa.cif})}">Ver más</a></td> 
+					<!-- <td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
+					<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td> -->
+				</tr>
+			</tbody>
+		</table>
+		<li><a th:href="@{/index/index4}">Atras</a></li>
+	</body>
 </html>
