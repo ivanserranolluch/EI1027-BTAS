@@ -21,9 +21,11 @@
 					<li class="nav-item">
 						<a class="nav-link" th:href="@{/Empresa/list}">Empresas</a>
 					</li>
+					<!-- 
 					<li class="nav-item">
 						<a class="nav-link" th:href="@{/ofertaProyecto/list}">Ofertas</a>
 					</li>
+					 -->
 					<li class="nav-item">
 						<a class="nav-link" th:href="@{/estudiante/listBTC}">Asignaciones</a>
 					</li>
@@ -53,6 +55,7 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
+				<th>Fecha Alta</th>
 				<th>tarea</th>
 				<th>objetivo</th>
 				<th>estado</th>
@@ -65,6 +68,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="oferta: ${ofertas}">
+				<td th:text="${oferta.fechaAlta}"></td>
 				<td th:text="${oferta.tarea}"></td>
 				<td th:text="${oferta.objetivo}"></td>
 				<td th:text="${oferta.descEstado}"></td>
@@ -73,7 +77,7 @@
 				<td th:text="${oferta.dni}"></td>
 				<td th:text="${oferta.cif}"></td>
 				<td th:text="${oferta.semestre}"></td>
-				<td><a th:href="@{'/ofertaProyecto/add/'+ ${oferta.id}}">Validar Oferta</a></td>
+			<!--  	<td><a th:href="@{'/ofertaProyecto/add/'+ ${oferta.id}}">Validar Oferta</a></td>-->
 				<td><a th:href="@{/ofertaProyecto/updateBTC/{id}(id=${oferta.id})}">Modificar Oferta</a></td>
 			</tr>
 		</tbody>

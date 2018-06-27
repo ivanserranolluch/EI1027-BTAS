@@ -54,7 +54,7 @@ public class OfertaProyectoDAO implements OfertaProyectoDAOInterface {
 	public List<OfertaProyecto> getOfertas() {
 		
 			return this.jdbcTemplate.query(
-			     	"select * from ofertaProyecto", 
+			     	"select * from ofertaProyecto order by cif", 
 			     	new OfertaProyectoMapper());
 		
 	}
