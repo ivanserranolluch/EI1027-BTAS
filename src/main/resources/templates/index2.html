@@ -15,32 +15,66 @@
 		<h1>Gestión BTC</h1>
 	    </header>
 	    
-	    <!-- NAVEGACIÓN -->
-	    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+	   
+		
+		
+		<br/><br/><h2>Ofertas</h2><br/>
+	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
+		
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/Empresa/list}">Empresas</a>
-					</li>
-					<!-- 
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/ofertaProyecto/list}">Ofertas</a>
-					</li>
-					 -->
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/estudiante/listBTC}">Asignaciones</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/estudiante/listarPreferencias}">Preferencias por Estudiante</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/estudiante/listEstudiantesBTCAsignaciones}">Asignaciones por Estudiante</a>
-					</li>
+						
 					<li class="nav-item">
 						<a class="nav-link" th:href="@{/ofertaProyecto/listBTC}">Gestionar Ofertas</a>
 					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<br/><br/><h2>Empresas</h2><br/>
+	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+		
+				<ul class="navbar-nav mr-auto">
+						
 					<li class="nav-item">
-						<a class="nav-link" th:href="@{/asignacion/add}">Asistente Creación Asignación</a>
+						<a class="nav-link" th:href="@{/Empresa/list}">Empresas</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+			<br/><br/><h2>Preferencias Por Estudiantes</h2><br/>
+	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+		
+				<ul class="navbar-nav mr-auto">
+						
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listarPreferencias}">Preferencias por Estudiante</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+			<br/><br/><h2>Asignaciones</h2><br/>
+	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+		
+				<ul class="navbar-nav mr-auto">
+					
+					
+					
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listBTC}">Asistente Creación Asignación</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listEstudiantesBTCAsignaciones}">Asignaciones por Estudiante</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/asignacion/add}">Todas las Asignaciones</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" th:href="@{/estudiante/listBTCRechazar}">Asistente Anulación Asignaciones</a>
@@ -51,6 +85,6 @@
 				</ul>
 			</div>
 		</nav>
-	
+		
 	</body>
 </html>

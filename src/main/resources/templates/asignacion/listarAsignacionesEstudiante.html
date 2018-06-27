@@ -8,6 +8,20 @@
 </head>
 <body>
 	<h1>Asignacion/es del Estudiante</h1>
+	
+	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}">Lista de ofertas</a></li>
+					
+					<li class="nav-item"><a class="nav-link" th:href="@{/preferenciasEstudiante/listes/{dni}(dni=${session.user.username})}" >Lista de mis preferencias</a></li>
+					
+					<li class="mav-item"><a class="nav-link" th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" >Mis Asignaciones</a></li>
+					
+				</ul>
+			</div>
+		</nav>
+	
 	<table class="table table-striped">
 		<thead>
 			<tr>
