@@ -9,7 +9,6 @@
 
 <body>
 	<h1>Lista de Preferencias</h1>
-	
 	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
 				<ul class="navbar-nav mr-auto">
@@ -26,7 +25,7 @@
 	<table   class="table table-striped">
 		<thead>
 			<tr>
-				
+				<th>id</th>
 				<th>orden</th>
 				<th>estado</th>
 				<th>fechaUltimoCambio</th>
@@ -36,7 +35,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="preferenciasEstudiante: ${preferencias}">
-				
+				<td th:text="${preferenciasEstudiante.id}"></td>
 				<td th:text="${preferenciasEstudiante.orden}"></td>
 				<td th:text="${preferenciasEstudiante.descEstado}"></td>
 				<td th:text="${preferenciasEstudiante.fechaUltimoCambio}"></td>

@@ -15,7 +15,7 @@
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link" th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}">Lista de ofertas</a></li>
 					
-					<li class="nav-item"><a class="nav-link" th:href="@{/preferenciasEstudiante/listes/{dni}(dni=${session.user.username})}" >Lista de mis preferencias</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" >Lista de mis preferencias</a></li>
 					
 					<li class="mav-item"><a class="nav-link" th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" >Mis Asignaciones</a></li>
 					
@@ -25,18 +25,18 @@
 	<table   class="table table-striped">
 		<thead>
 			<tr>
-				<th>orden</th>
-				<th>estado</th>
+				<th>Orden</th>
+				<th>Estado</th>
 				
-				<th>fechaUltimoCambio</th>
-				<th>itinerario</th>
+				<th>Fecha Ultimo Cambio</th>
+				<th>Itinerario</th>
 			
-				<th>dni</th>
-				<th>cif</th>
-				<th>tarea</th>
-				<th>objetivo</th>
-				<th>fechaalta</th>
-				<th>semestre</th>
+				<th>DNI</th>
+				<th>CIF</th>
+				<th>Tarea</th>
+				<th>Objetivo</th>
+				<th>Fecha Alta</th>
+				<th>Semestre Realización</th>
 			</tr>
 		</thead>
 		<tbody>

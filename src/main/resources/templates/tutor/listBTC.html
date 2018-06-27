@@ -11,19 +11,19 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-				<th>dni</th>
-				<th>id_direccion</th>
-				<th>nombre</th>
-				<th>telefono</th>
-				<th>email</th>
-				<th>departamento</th>
-				<th>despacho</th>
+				<th>DNI</th>
+			
+				<th>Nombre</th>
+				<th>Telefono</th>
+				<th>Correo</th>
+				<th>Departamento</th>
+				<th>Despacho</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="tutor: ${tutores}">
 				<td th:text="${tutor.dni}"></td>
-				<td th:text="${tutor.direccion}"></td>
+				
 				<td th:text="${tutor.nombre}"></td>
 				<td th:text="${tutor.telefono}"></td>
 				<td th:text="${tutor.email}"></td>
