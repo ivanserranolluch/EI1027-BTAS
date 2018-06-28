@@ -1,3 +1,6 @@
+body {
+	margin: 0;
+}
 h1 {
 	text-align: center;
 	text-transform: uppercase;
@@ -9,4 +12,33 @@ a {
 	color: white;
 	text-transform: uppercase;
 	text-align: center;
+	color: black;
 }
+
+#boton {
+ 	display: flex;
+  	justify-content: center;
+}
+
+label {
+	font-weight: bold;
+}
+
+
+.container {
+	float: right;
+	padding: 10px;
+	
+}
+
+label {
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+}
+
+.cent {
+	text-align: center;
+}
+
+
+

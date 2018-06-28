@@ -50,7 +50,7 @@
 		</nav>
 		
 		<!-- DATOS BD -->
-	<table class="table table-striped">
+		<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>DNI</th>
@@ -64,6 +64,7 @@
 				<th>Asignaturas Pendientes</th>
 				<th>Creditos Aprobados</th>
 				<th>Semestre Inicio</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -84,6 +85,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<a th:href="@{/index/index2}">INICIO</a>
+	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index2}" role="button">INICIO</a></div>
+	
 </body>
 </html>

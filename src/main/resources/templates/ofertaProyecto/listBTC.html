@@ -52,7 +52,7 @@
 		</nav>
 		
 		<!-- DATOS BD -->
-	<table class="table table-striped">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>Fecha Alta</th>
@@ -64,6 +64,7 @@
 				<th>DNI</th>
 				<th>CIF</th>
 				<th>Semestre Realización</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -77,11 +78,11 @@
 				<td th:text="${oferta.dni}"></td>
 				<td th:text="${oferta.cif}"></td>
 				<td th:text="${oferta.semestre}"></td>
-			<!--  	<td><a th:href="@{'/ofertaProyecto/add/'+ ${oferta.id}}">Validar Oferta</a></td>-->
 				<td><a th:href="@{/ofertaProyecto/updateBTC/{id}(id=${oferta.id})}">Modificar Oferta</a></td>
 			</tr>
 		</tbody>
 	</table>
-	<li><a class="link" th:href="@{/Empresa/list}">Atras</a></li>
+	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/Empresa/list}" role="button">ATRAS</a></div>
+	
 </body>
 </html>

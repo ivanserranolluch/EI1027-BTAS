@@ -12,7 +12,7 @@
 <body>
 	<!-- HEADER -->
 		<header>
-		<h1>Lista Asignaciones</h1>
+		<h1>Estudiantes</h1>
 	    </header>
 	    
 	    <!-- NAVEGACIÓN -->
@@ -51,40 +51,42 @@
 		</nav>
 		
 		<!-- DATOS BD -->
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>DNI</th>
-				<th>al</th>
-				<th>Nombre Estudiante</th>
-				<th>Apellidos Estudiante</th>
-				<th>Telefono</th>
-				<th>Correo</th>
-				<th>Itinerario</th>
-				<th>Nota Media</th>
-				<th>Asignaturas Pendientes</th>
-				<th>Creditos Aprobados</th>
-				<th>Semestre Inicio</th>
-				
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="estudiante: ${estudiantes}">
-				<td th:text="${estudiante.dni}"></td>
-				<td th:text="${estudiante.al}"></td>
-				<td th:text="${estudiante.nombre}"></td>
-				<td th:text="${estudiante.apellidos}"></td>
-				<td th:text="${estudiante.telefono}"></td>
-				<td th:text="${estudiante.email}"></td>
-				<td th:text="${estudiante.descItinerario}"></td>
-				<td th:text="${estudiante.notaMedia}"></td>
-				<td th:text="${estudiante.numAsigPendiente}"></td>
-				<td th:text="${estudiante.numCreditosAprobados}"></td>
-				<td th:text="${estudiante.semestreInicioEstancia}"></td>
-				<td><a th:href="@{/preferenciasOferta/listBTC/{dni}(dni=${estudiante.dni})}">Preferencias</a></td>
-			</tr>
-		</tbody>
-	</table>
-	<a href="/index/index2">INICIO</a>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>DNI</th>
+					<th>al</th>
+					<th>Nombre Estudiante</th>
+					<th>Apellidos Estudiante</th>
+					<th>Telefono</th>
+					<th>Correo</th>
+					<th>Itinerario</th>
+					<th>Nota Media</th>
+					<th>Asignaturas Pendientes</th>
+					<th>Creditos Aprobados</th>
+					<th>Semestre Inicio</th>
+					<th></th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="estudiante: ${estudiantes}">
+					<td th:text="${estudiante.dni}"></td>
+					<td th:text="${estudiante.al}"></td>
+					<td th:text="${estudiante.nombre}"></td>
+					<td th:text="${estudiante.apellidos}"></td>
+					<td th:text="${estudiante.telefono}"></td>
+					<td th:text="${estudiante.email}"></td>
+					<td th:text="${estudiante.descItinerario}"></td>
+					<td th:text="${estudiante.notaMedia}"></td>
+					<td th:text="${estudiante.numAsigPendiente}"></td>
+					<td th:text="${estudiante.numCreditosAprobados}"></td>
+					<td th:text="${estudiante.semestreInicioEstancia}"></td>
+					<td><a th:href="@{/preferenciasOferta/listBTC/{dni}(dni=${estudiante.dni})}">Preferencias</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index2}" role="button">INICIO</a></div>
+	
 </body>
 </html>
