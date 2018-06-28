@@ -73,6 +73,16 @@ public class PreferenciasOfertaController {
 		return "preferenciasOferta/listarPreferenciasEstudiante";
 		
 	}
+	@RequestMapping("/listarPreferenciasEstudianteCCD/{dni}")
+	public String listPreferenciasEstudianteOfertaECCD(Model model, @PathVariable("dni") String dni) {
+		System.out.println("He entrado");
+		model.addAttribute("preferencias", preferenciasOfertaDao.getPreferenciaOfertaDNI(dni));
+		System.out.println("entro en la lista de preferencias del estudiante CCD");
+		
+		System.out.println("Aqio tmbien joder");
+		return "preferenciasOferta/listarPreferenciasEstudianteCCD";
+		
+	}
 	
 	@RequestMapping("/listBTCRechazar/{dni}")
 	public String listPreferenciasEstudianteOfertaRechazar(Model model, @PathVariable("dni") String dni) {

@@ -54,7 +54,7 @@
 					<td th:text="${oferta.fechaAlta}"></td>
 					<td th:text="${oferta.semestre}"></td>
 			 	<!-- 	<td><a th:href="@{/preferenciasEstudiante/add/{id}(id=${oferta.id})/{dni}(dni=${session.user.username})}">add</a></td>--> 
-			 	<td><a th:href="@{/ofertaProyecto/updateEstado/{id}(id=${oferta.id})}">Modificar Estado</a></td>
+			 	<td><a class="btn btn-primary btn-sm" role="button" th:href="@{/ofertaProyecto/updateEstado/{id}(id=${oferta.id})}">Modificar Estado</a></td>
 				</tr>
 			</tbody>
 		</table>
