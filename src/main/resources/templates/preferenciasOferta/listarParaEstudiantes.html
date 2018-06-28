@@ -59,8 +59,8 @@
 				<td th:text="${preferenciasOferta.semestre}"></td>
 				<!-- <td><a th:href="@{/preferenciasOferta/listBTC/{dni}(dni=${estudiante.dni})}">Preferencias</a></td>-->
 				
-				<td><a th:href="@{'/preferenciasEstudiante/update/'+ ${preferenciasOferta.id} + '/' + ${preferenciasOferta.dni}}">Edita</a></td>
-				<td><a th:href="@{'/preferenciasEstudiante/delete/'+ ${preferenciasOferta.id} + '/' + ${preferenciasOferta.dni}}">Esborra</a></td>
+				<td><a class="btn btn-info btn-sm" role="button" th:href="@{'/preferenciasEstudiante/update/'+ ${preferenciasOferta.id} + '/' + ${preferenciasOferta.dni}}">Edita</a></td>
+				<td><a class="btn btn-danger btn-sm" role="button" th:href="@{'/preferenciasEstudiante/delete/'+ ${preferenciasOferta.id} + '/' + ${preferenciasOferta.dni}}">Esborra</a></td>
 				
 			</tr>
 			
