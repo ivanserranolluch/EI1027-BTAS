@@ -47,13 +47,14 @@
 					<td th:text="${preferenciasOferta.dni}"></td>
 					<td th:text="${preferenciasOferta.cif}"></td>
 					<td th:text="${preferenciasOferta.semestre}"></td>
-					<td><a th:href="@{'/preferenciasOferta/listBTC/'+ ${preferenciasOferta.dni}+'/asignacion/add/'+${preferenciasOferta.id}}">AÑADIR ASIGNACION</a></td>
+					<!-- <td><a th:href="@{'/preferenciasOferta/listBTC/'+ ${preferenciasOferta.dni}+'/asignacion/add/'+${preferenciasOferta.id}}">AÑADIR ASIGNACION</a></td> -->
 					<td><a th:href="@{'/preferenciasOferta/listBTC/'+ ${preferenciasOferta.dni}+'/tutor/listBTC/'+${preferenciasOferta.id}}">AÑADIR TUTOR</a></td>
 					
 				</tr>
 			</tbody>
 		</table>
 		
+		<!-- 
 		<header>
 			<h1>Lista Tutores</h1>
 	    </header>
@@ -85,7 +86,7 @@
 			</tr>
 			</tbody>
 		</table>
-		
+		 -->
 		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/estudiante/listBTC}" role="button">ATRAS</a></div>
 		
 </body>
