@@ -1,83 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style type="text/css">
-		* {
-			margin: 0;
-			padding: 0;
-
-		}
-		.li {
-			display: inline-block;
-			width: 100%;
-			
-			padding-top:20px;
-			padding-left: 20px;
-			background-color: #A6A6A6;
-		}
-		h1{
-		text-align:center;
-		color:blue;
-		}
-		table{
-		width:100%;
-		marging:80px}
-		.desconecta{
-			width: 20px;
-			height: 20px;
-			float: left;
-		}
-		.link{text-decoration:none;
-		color:blue;
-		font-size:1.2em}
-		.desc{text-decoration:none;
-		color:blue;}
-	</style>
-<title>EI1027</title>
-<meta charset="UTF-8"/>
-
+	<title>BTAS</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 </head>
+
 <body>
-	<table >
-	<tr><td><h1>Gestion Estudiante-BTAS</h1></td>
-	<td> <img src="/img/Logout.png" th:src="@{/img/Logout.png} " class="desconecta" /><li ><a class="desc" th:href="@{/login}">Desconectar</a></li></td></tr>
-   	</table>
-   	<table>
-   	<tr>
-   	<td>
+	
+	<!-- HEADER -->
+	<header><h1>Estudiante</h1></header>
+	
+	
+	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}">Lista de ofertas</a></li>
+					
+					<li class="nav-item"><a class="nav-link" th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" >Asignaciones</a></li>
+					
+					<li class="mav-item"><a class="nav-link" th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" >Preferencias</a></li>	
+				</ul>
+			</div>
+			
+			<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/login}" role="button">Salir</a></div>
+	</nav>
 
-    <li class="li"><a th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}" class="link">Lista de ofertas</a></li>
-    
-    </td>
-    </tr>
-    
-    <!-- 
-	<tr>
-	<td>
-   
-    <li class="li"><a th:href="@{/preferenciasEstudiante/listes/{dni}(dni=${session.user.username})}" class="link" >Lista de mis preferencias</a></li>
-   
-    </td>
-    </tr>
-     -->
-    
-    <tr>
-   	<td>
-
-    <li class="li"><a th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" class="link">Mis Asignaciones</a></li>
-    
-    </td>
-    </tr>
-    
-    
-	<tr>
-	<td>
-   
-    <li class="li"><a th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" class="link" >Lista de mis preferencias</a></li>
-   
-    </td>
-    </tr>
-    
-    </table>
 </body>
 </html>

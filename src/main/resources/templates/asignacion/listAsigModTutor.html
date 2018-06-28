@@ -51,28 +51,23 @@
 		</nav>
 		
 		<!-- DATOS BD -->
-	<table class="table table-striped">
+	<table class="table table-hover">
 		<thead>
 			<tr>
-			
 				<th>Fecha Aceptacion</th>
-			
-				
 				<th>Dni Estudiante</th>
 				<th>Nombre Estudiante</th>
-					<th>Nombre Empresa</th>
+				<th>Nombre Empresa</th>
 				<th>CIF</th>
 				<th>Dni Tutor</th>
-				
-					<th>Nombre Tutor</th>
-						<th>Estado</th>
+				<th>Nombre Tutor</th>
+				<th>Estado</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr th:each="asig: ${asignaciones}">
-				
 				<td th:text="${asig.fechaAceptacion}"></td>
-				
 				<td th:text="${asig.dniE}"></td>
 				<td th:text="${asig.nombreEstudiante}"></td>
 				<td th:text="${asig.nombreEmpresa}"></td>
@@ -85,6 +80,6 @@
 			</tr>
 		</tbody>
 	</table>
-		<a href="/index/index2">Inicio</a>
+		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index2}" role="button">INICIO</a></div>
 </body>
 </html>

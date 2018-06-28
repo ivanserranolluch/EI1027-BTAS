@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-	<title>Gestionar Empresas</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
+	<title>BTAS</title>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
+	
 	<script type="text/javascript">
 	function confirmarEmpresa(){
 		if(confirm("¿Quiéres borrar esta empresa?"))
@@ -19,8 +22,11 @@
 	</script>
 </head>
 <body>
-	<h1>Empresa</h1>
-	<table class="table table-striped">
+	<header>
+		<h1>Empresa</h1>
+	</header>
+	
+	<table class="table table-hover">
 		<thead>
 			<tr>
 				<th>CIF</th>
@@ -42,8 +48,12 @@
 		</tbody>
 	</table>
 	
-	<h2>Responsable de la empresa</h2>
-	<table class="table table-striped">
+	
+	<header>
+		<h1>Responsable de la empresa</h1>
+	</header>
+	
+	<table class="table table-hover">
 	<thead>
 			<tr>
 				<th>DNI</th>
@@ -52,13 +62,11 @@
 		<tbody>
 			<tr th:each="personaContacto: ${personasContactos}">
 				<td th:text="${personaContacto.dni}" th:id="dni"></td>
-				
-			
 			</tr>
-			
 		</tbody>
 	</table>
-	<a href="../list2.html">Atrás</a>
+	<div class="cent"><a class="btn btn-primary btn-dark" href="../list2.html" role="button">Atras</a></div>
+	
 	
 </body>
 </html>

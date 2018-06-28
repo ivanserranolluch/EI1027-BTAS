@@ -1,41 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-	<meta charset="UTF-8" />
-	<title>Crear nou nadador</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
-	
+		<title>BTAS</title>
+		<meta charset="UTF-8" />
+		<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 </head>
 <body>
-	<h2>Modificar Estado</h2>
-	<form action="#" th:action="@{/ofertaProyecto/updateEstado/} + ${ofertaProyecto.id}" th:object="${ofertaProyecto}" method="post">
-		<table>
+		<!-- HEADER -->
+		<header><h1>Modificar Estado</h1></header>
 		
-<!-- 			<tr> -->
-<!-- 				<td><label>id</label></td> -->
-<!-- 				<td><input type="text" th:field="*{id}" /></td> -->
-<!-- 			</tr> -->
+		<!-- NAVEGACIÓN -->
+	    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/Empresa/list2}">Empresas / Ofertas</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listarPreferenciasCCD}">Preferencias por Estudiante</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/list2}">Asignaciones por Estudiante</a>
+					</li>
+				</ul>
+			</div>
 			
-			  
-			<tr>
-				<label>Estado</label>
-				<select name="estado" th:field="*{descEstado}">       			
-			       <option value="Sin Definir">Sin definir</option> 
-			       <option value="Introducida">Introducida</option> 
-			       <option value="Aceptada">Aceptada</option>
-			       <option value="Rechazada">Rechazada</option> 
-			       <option value="Asignada">Asignada</option>
+			<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/Empresa/list2}" role="button">Atras</a></div>
+		</nav>
 		
-		</select>
-			</tr>
-			
-			
-			<tr>
-				<td colspan="2"><input type="submit" value="Actualitza oferta" /></td>
-				
-			</tr>
-		</table>
-	</form>
+		<!-- DATOS BD -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-7">
+					<form action="#" class="form-group justify-content-center" th:action="@{/ofertaProyecto/updateEstado/} + ${ofertaProyecto.id}" th:object="${ofertaProyecto}" method="post">
+							
+						<div class="form-group">
+							    <label for="exampleFormControlSelect1">Estado</label>
+							    <select name="estado" th:field="*{descEstado}" class="form-control" id="exampleFormControlSelect1">
+							      	<option value="Sin Definir">Sin definir</option> 
+			       					<option value="Introducida">Introducida</option> 
+			       					<option value="Aceptada">Aceptada</option>
+			       					<option value="Rechazada">Rechazada</option> 
+			       					<option value="Asignada">Asignada</option>
+							    </select>
+						  </div>
+						  
+						  <button type="submit" value="Actualizar" class="btn btn-primary btn-lg btn-success" id="boton" role="button">Actualizar</button>
+						  
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		
+	
 </body>
 </html>

@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-	<meta charset="UTF-8" />
-	<title>Crear nou nadador</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
-	
+	<title>BTAS</title>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 </head>
 <body>
-	<h2>Usted acava de solicitar la ANULACION de la siguiente oferta</h2>
-	<table class="table table-striped">
+	<header>
+		<h1>Anulación Solicitada</h1>
+	</header>
+	
+	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listEmpresa/{cif}(cif=${session.user.username})}">Gestionar ofertas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/listEmpresaAnulacion/{cif}(cif=${session.user.username})}">Solicitar Anulacion de alguna Oferta</a>
+					</li>
+				</ul>
+			</div>
+	</nav>
+		
+	<table class="table table-hover">
 		<thead>
 			<tr>
-				<th>tarea</th>
-				<th>objetivo</th>
-				<th>estado</th>
-				<th>itinerario</th>
-				<th>fechaAlta</th>
-				<th>dni</th>
-				<th>cif</th>
-				<th>semestre</th>
+				<th>Objetivo</th>
+				<th>Descripción</th>
+				<th>Estado</th>
+				<th>Itinerario</th>
+				<th>Fecha Alta</th>
+				<th>DNI</th>
+				<th>CIF</th>
+				<th>Semestre</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -35,6 +52,7 @@
 			</tr>
 		</tbody>
 	</table>
-	<li><a th:href="@{/index/vistaEmpresa}">Salir</a></li>
+	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/vistaEmpresa}" role="button">Atras</a></div>
+	
 </body>
 </html>

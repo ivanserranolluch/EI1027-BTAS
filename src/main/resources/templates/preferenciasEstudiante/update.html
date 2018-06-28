@@ -1,52 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
+	<title>BTAS</title>
 	<meta charset="UTF-8" />
-	<title>Crear nou nadador</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/styleActualizarPreferencia.css}"/>
+	<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 	
 </head>
 <body>
-	<h2>Actualiza preferencia</h2>
-	<div class="externo">
-	<form action="#" th:action="@{/preferenciasEstudiante/update} " th:object="${preferenciasEstudiante}" method="post">
-		<table style="margin: 0 auto;">
+	<!-- HEADER -->
+	<header><h1>Actualizar Preferencia</h1></header>
+	
+	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}">Lista de ofertas</a></li>
+					
+					<li class="nav-item"><a class="nav-link" th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" >Asignaciones</a></li>
+					
+					<li class="mav-item"><a class="nav-link" th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" >Preferencias</a></li>	
+				</ul>
+			</div>
+			
+			<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" role="button">Atras</a></div>
+	</nav>
+	
+	<div class="container">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-7">
+					<form action="#" class="form-group justify-content-center" th:action="@{/preferenciasEstudiante/update} " th:object="${preferenciasEstudiante}" method="post">
+						
+						<div class="form-group">
+						    <input type="hidden" th:field="*{id}" class="form-control" id="exampleInputEmail1"/>
+						  </div>
+						  
+						  <div class="form-group">
+						    <input type="hidden" th:field="*{dni}" class="form-control" id="exampleInputEmail1"/>
+						  </div>
+						  
+						  <div class="form-group">
+						    <label for="exampleInputEmail1">Orden</label>
+						    <input type="text" th:field="*{orden}" class="form-control" id="exampleInputEmail1"/>
+						    <div class="error" th:if="${#fields.hasErrors('orden')}" th:errors="*{orden}"></div>
+						  </div>
+						  
+						  
+						  
+						  <button type="submit" value="Actualizar" class="btn btn-primary btn-lg btn-success" id="boton" role="button">Actualizar</button>
+						  
+					</form>
+				</div>
+			</div>
+		</div>
+	
 		
-			<tr>
-			
-				<td><input type="hidden" th:field="*{id}" />
-				</td>
-			</tr>
-			
-			<tr>
-				<td><label>Orden</label></td>
-				
-				<td><input type="text" th:field="*{orden}" />
-				 <div class="error" th:if="${#fields.hasErrors('orden')}" th:errors="*{orden}"></div></td>
-			</tr>
-			
-			<tr>
-				
-				<td><input type="hidden" th:field="*{dni}"/></td>
-			</tr>
-	
-			
-			
-			
-			
-			<tr style="text-align:center">
-				<td colspan="2"><input style="margin-top:30px;" type="submit" value="Actualitza preferencia" /></td>
-				
-			</tr>
-		</table>
-		
-		
-	</form>
 	
 	
-	<li><a th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}">Atras</a></li>
-	
-	</div>
 </body>
 </html>

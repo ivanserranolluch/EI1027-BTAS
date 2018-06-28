@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-	<title>AsignacionE</title>
+	<title>BTAS</title>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+	<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 </head>
 <body>
-	<h1>Asignacion/es del Estudiante</h1>
+	<!-- HEADER -->
+	<header><h1>Asignacion/es del Estudiante</h1></header>
+	
 	
 	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item"><a class="nav-link" th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}">Lista de ofertas</a></li>
 					
-					<li class="nav-item"><a class="nav-link" th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" >Lista de mis preferencias</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" >Asignaciones</a></li>
 					
-					<li class="mav-item"><a class="nav-link" th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" >Mis Asignaciones</a></li>
-					
+					<li class="mav-item"><a class="nav-link" th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" >Preferencias</a></li>	
 				</ul>
 			</div>
-		</nav>
+			
+			<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index3}" role="button">Atras</a></div>
+	</nav>
 	
-	<table class="table table-striped">
+	<table class="table table-hover">
 		<thead>
 			<tr>
 			
 				<th>Fecha Aceptacion</th>
-			
-				
 				<th>Dni Estudiante</th>
 				<th>Nombre Estudiante</th>
-					<th>Nombre Empresa</th>
+				<th>Nombre Empresa</th>
 				<th>CIF Empresa</th>
 				<th>Dni Tutor</th>
-				
-					<th>Nombre Tutor</th>
-						<th>Estado</th>
+				<th>Nombre Tutor</th>
+				<th>Estado</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -55,8 +57,8 @@
 		</tbody>
 	</table>
 	
-	<br></br>
-	<li><a th:href="@{/index/index3}">INICIO</a></li>
+	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index4}" role="button">Atras</a></div>
+
 	
 </body>
 </html>

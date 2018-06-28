@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-	<meta charset="UTF-8" />
-	<title>BTAS</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+		<title>BTAS</title>
+		<meta charset="UTF-8"/>
+		<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 	
 </head>
 <body>
@@ -21,41 +23,48 @@
 					</li>
 				</ul>
 			</div>
+			<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/vistaEmpresa}" role="button">ATRAS</a></div>
 	</nav>
-	<center>
-	<form action="#" th:action="@{/ofertaProyecto/updateEstadoEmpresa/} + ${ofertas.id}" th:object="${ofertas}" method="post" role="form">
+	
+	<!-- FORM -->
+	
+	<div class="container">
+			<div class="row">
+				<div class="col-md-offset-3 col-md-7">
+					<form action="#" class="form-group justify-content-center" th:action="@{/ofertaProyecto/updateEstadoEmpresa/} + ${ofertas.id}" th:object="${ofertas}" method="post" role="form">
+						<div class="form-group">
+							<label for="exampleFormControlInput1">Objetivo</label>
+							<input type="text" class="form-control" id="exampleFormControlInput1" th:field="*{tarea}" placeholder="Objetivo" />
+						</div>
 		
-		<div class="form-group">
-			<label for="exampleFormControlInput1">Objetivo</label>
-			<div class="col-lg-4">
-			<input type="text" class="form-control" id="exampleFormControlInput1" th:field="*{tarea}" placeholder="Objetivo" />
+						<div class="form-group">
+							<label for="exampleFormControlInput1">Descripcion</label>
+							<input type="text" th:field="*{objetivo}" class="form-control" id="exampleFormControlInput1" placeholder="Descripción"/>
+						</div>
+		
+						<div class="form-group">
+							<label for="exampleFormControlInput1">Itinerario</label>
+				    		<select class="form-control" id="exampleFormControlSelect1" name="itinerario" th:field="*{descItinerario}">       			
+								<option value="Ingenieria de Software">Ingenieria de Software</option> 
+								<option value="Sistemes de Informacio">Sistemes de Informacio</option>
+								<option value="Tecnologias Web">Tecnologias Web</option>
+								<option value="Ingenieria de Computadores">Ingenieria de Computadores</option>
+							</select>
+				  		</div>
+  		
+				  		<div class="form-group">
+							<label for="exampleFormControlInput1">Semestre</label>
+							<input type="number" min="1" max="2" th:field="*{semestre}" class="form-control" id="exampleFormControlInput1" placeholder="Descripción"/>
+						</div>
+						  
+						<button type="submit" value="Actualizar Oferta" class="btn btn-primary btn-lg btn-success" id="boton" role="button">Actualizar Oferta</button>
+						  
+					</form>
+				</div>
 			</div>
 		</div>
 		
-		<div class="form-group">
-			<label for="exampleFormControlInput1">Descripcion</label>
-			<input type="text" th:field="*{objetivo}" class="form-control" id="exampleFormControlInput1" placeholder="Descripción"/>
-		</div>
 		
-		<div class="form-group">
-			<label for="exampleFormControlInput1">Itinerario</label>
-    		<select class="form-control" id="exampleFormControlSelect1" name="itinerario" th:field="*{descItinerario}">       			
-				<option value="Ingenieria de Software">Ingenieria de Software</option> 
-				<option value="Sistemes de Informacio">Sistemes de Informacio</option>
-				<option value="Tecnologias Web">Tecnologias Web</option>
-				<option value="Ingenieria de Computadores">Ingenieria de Computadores</option>
-			</select>
-  		</div>
-  		
-  		<div class="form-group">
-			<label for="exampleFormControlInput1">Semestre</label>
-			<input type="number" min="1" max="2" th:field="*{semestre}" class="form-control" id="exampleFormControlInput1" placeholder="Descripción"/>
-		</div>
 
-		<button type="submit" class="btn btn-primary">Actualizar oferta</button>
-
-				
-	</form>
-</center>
 </body>
 </html>

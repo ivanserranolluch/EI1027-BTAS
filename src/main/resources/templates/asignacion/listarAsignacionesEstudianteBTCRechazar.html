@@ -1,46 +1,89 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head> 
-	<title>AsignacionE</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<link rel="stylesheet" type="text/css" href="/css/natacio.css" th:href="@{/css/style.css}"/>
+	<title>BTAS</title>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 </head>
 <body>
-	<h1>Asignacion/es del Estudiante</h1>
-	<table class="table table-striped">
-		<thead>
-			<tr>
+	<!-- HEADER -->
+		<header>
+			<h1>Asignacion/es del Estudiante</h1>
+	    </header>
+	    
+	    <!-- NAVEGACIÓN -->
+	    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/Empresa/list}">Empresas / Ofertas</a>
+					</li>
+					<!-- 
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/list}">Ofertas</a>
+					</li>
+					 -->
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listBTC}">Asistente Creación Asignación</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listarPreferencias}">Preferencias por Estudiante</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listEstudiantesBTCAsignaciones}">Asignaciones por Estudiante</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/asignacion/add}">Todas las asignaciones</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listBTCRechazar}">Asistente Anulación Asignaciones</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/asignacion/listAsigModTutor}">Modificación Tutor Asignacion</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<!-- DATOS BD -->
+	
+		<table class="table table-striped">
+			<thead>
+				<tr>
 					<th>FechaAceptacion</th>
-			
-				
-				<th>Dni Estudiante</th>
-				<th>Nombre Estudiante</th>
+					<th>Dni Estudiante</th>
+					<th>Nombre Estudiante</th>
 					<th>Nombre Empresa</th>
-				<th>CIF</th>
-				
-				<th>Dni Tutor</th>
+					<th>CIF</th>
+					<th>Dni Tutor</th>
 					<th>Nombre Tutor</th>
-						<th>Estado</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="asig: ${asignaciones}">
-				
-				<td th:text="${asig.fechaAceptacion}"></td>
-				
-				<td th:text="${asig.dniE}"></td>
-				<td th:text="${asig.nombreEstudiante}"></td>
-				<td th:text="${asig.nombreEmpresa}"></td>
-				<td th:text="${asig.cif}"></td>
-				<td th:text="${asig.dniT}"></td>
-				<td th:text="${asig.nombreTutor}"></td>
-				<td th:text="${asig.descEstado}"></td>
-				<td><a th:href="@{'/preferenciasOferta/listBTCRechazar/'+ ${asig.dniE}+'/tutor/listBTCRechazar/'+${asig.id_oferta}+'/asignacion/rechazar/'+${asig.dniT}}">Anular ASIGNACION</a></td>
-				
-			</tr>
-		</tbody>
-	</table>
-	<br></br>
+					<th>Estado</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="asig: ${asignaciones}">
+					
+					<td th:text="${asig.fechaAceptacion}"></td>
+					
+					<td th:text="${asig.dniE}"></td>
+					<td th:text="${asig.nombreEstudiante}"></td>
+					<td th:text="${asig.nombreEmpresa}"></td>
+					<td th:text="${asig.cif}"></td>
+					<td th:text="${asig.dniT}"></td>
+					<td th:text="${asig.nombreTutor}"></td>
+					<td th:text="${asig.descEstado}"></td>
+					<td><a th:href="@{'/preferenciasOferta/listBTCRechazar/'+ ${asig.dniE}+'/tutor/listBTCRechazar/'+${asig.id_oferta}+'/asignacion/rechazar/'+${asig.dniT}}">Anular ASIGNACION</a></td>
+					
+				</tr>
+			</tbody>
+		</table>
+		
+		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/estudiante/listBTCRechazar}" role="button">ATRAS</a></div>
+	
 </body>
 </html>
