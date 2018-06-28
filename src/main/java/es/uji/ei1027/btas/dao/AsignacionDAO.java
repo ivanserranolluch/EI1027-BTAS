@@ -66,12 +66,20 @@ private JdbcTemplate jdbcTemplate;
 	
 	//CREATES
 	
-public void addAsignacion(int id_oferta,String dniE, String dniT) {
+public boolean addAsignacion(int id_oferta,String dniE, String dniT) {
 		
-	this.jdbcTemplate.update("insert into Asignacion(fechaAceptacion,estadoaceptadarechazada,dnie,dnit,id_oferta)values(?,'Aceptada',?,?,?);",
-			new Date(),dniE,dniT,id_oferta);
+	try {
+		this.jdbcTemplate.update("insert into Asignacion(fechaAceptacion,estadoaceptadarechazada,dnie,dnit,id_oferta)values(?,'Aceptada',?,?,?);",
+				new Date(),dniE,dniT,id_oferta);
+		return true;
+	}catch(Exception e) {
+		return false;
+	}
+	
 
 }
+
+
 	
 public void anulaAsignacion(int id_oferta,String dniE, String dniT) {
 	

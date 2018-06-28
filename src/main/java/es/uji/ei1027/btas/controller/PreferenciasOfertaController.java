@@ -122,9 +122,15 @@ public class PreferenciasOfertaController {
 		model.addAttribute("dni", dniEstudiante);
 		model.addAttribute("id", id_oferta);
 		model.addAttribute("dniT", dniT);
-		asignacionDAO.addAsignacion(id_oferta,dniEstudiante,dniT);
+		
+		//Controlamos que ya hayamos introducido la asignacion
+		if(false==asignacionDAO.addAsignacion(id_oferta,dniEstudiante,dniT)) {
+			return "asignacion/errorPrimaryKey";
+		}
+		//asignacionDAO.addAsignacion(id_oferta,dniEstudiante,dniT);
 		//model.addAttribute("asignaciones", asignacionDAO.getAsignacion());
 		System.out.println("Ya he insertado en asig");
+		
 		model.addAttribute("asignaciones", asignacionEmpresaTutorEstudianteDAO.getAsignacionCompleta());
 		
 		System.out.println("Salgo");
