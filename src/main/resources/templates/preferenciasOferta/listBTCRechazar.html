@@ -8,9 +8,17 @@
 	<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-	<h1>Lista de Preferencias</h1>
+<div class="cabecera">
+		<header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Lista de Preferencias</h1>
+			</div>
+		</header>
+	   </div>
+	
 	<table   class="table table-striped">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 				<th>Orden</th>
 				<th>Estado</th>
@@ -41,8 +49,8 @@
 				<td th:text="${preferenciasOferta.semestre}"></td>
 				<!-- <td><a th:href="@{/preferenciasOferta/listBTC/{dni}(dni=${estudiante.dni})}">Preferencias</a></td>-->
 				
-				<td><a th:href="@{'/preferenciasOferta/listBTCRechazar/'+ ${preferenciasOferta.dni}+'/asignacion/add/'+${preferenciasOferta.id}}">AÑADIR ASIGNACION</a></td>
-				<td><a th:href="@{'/preferenciasOferta/listBTCRechazar/'+ ${preferenciasOferta.dni}+'/tutor/listBTCRechazar/'+${preferenciasOferta.id}}">AÑADIR Tutor</a></td>
+				<td><a class="btn btn-success btn-sm" th:href="@{'/preferenciasOferta/listBTCRechazar/'+ ${preferenciasOferta.dni}+'/asignacion/add/'+${preferenciasOferta.id}}">AÑADIR ASIGNACION</a></td>
+				<td><a class="btn btn-success btn-sm" th:href="@{'/preferenciasOferta/listBTCRechazar/'+ ${preferenciasOferta.dni}+'/tutor/listBTCRechazar/'+${preferenciasOferta.id}}">AÑADIR Tutor</a></td>
 				
 			</tr>
 			
@@ -63,6 +71,13 @@
 		</tbody>
 	</table>
 	
+	<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 	
 </body>
 

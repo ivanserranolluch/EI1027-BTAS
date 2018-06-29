@@ -10,13 +10,21 @@
 </head>
 <body>
 	<!-- HEADER -->
-	<header><h1>Lista de Ofertas</h1></header>
+	<div class="cabecera">
+		<header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Lista de Ofertas</h1>
+			</div>
+		</header>
+	</div>
+	
 	
 	
 	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}">Lista de ofertas</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}">ofertas</a></li>
 					
 					<li class="nav-item"><a class="nav-link" th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" >Asignaciones</a></li>
 					
@@ -24,12 +32,12 @@
 				</ul>
 			</div>
 			
-			<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/login}" role="button">Salir</a></div>
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 	</nav>
 	
 	
 	<table  class="table table-hover">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 				<th>Fecha Alta</th>
 				<th>Tarea</th>
@@ -54,11 +62,18 @@
 				<td th:text="${oferta.dni}"></td>
 				<td th:text="${oferta.cif}"></td>
 		 	<!-- 	<td><a th:href="@{/preferenciasEstudiante/add/{id}(id=${oferta.id})/{dni}(dni=${session.user.username})}">add</a></td>--> 
-		 	<td><a th:href="@{'/preferenciasEstudiante/add/'+ ${oferta.id} + '/' + ${session.user.username}}">Añadir</a></td>
+		 	<td><a class="btn btn-success btn-sm" th:href="@{'/preferenciasEstudiante/add/'+ ${oferta.id} + '/' + ${session.user.username}}">Añadir</a></td>
 			</tr>
 		</tbody>
 	</table>
-	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index3}" role="button">Atras</a></div>
+	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index3}" role="button">Inicio</a></div>
 	
+	<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 </body>
 </html>

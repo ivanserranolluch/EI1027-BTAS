@@ -9,7 +9,15 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 </head>
 <body>
-	<header><h1>Nueva Oferta</h1></header>
+<div class="cabecera">
+		<header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Nueva Oferta</h1>
+			</div>
+		</header>
+	   </div>
+	
 	
 	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
@@ -22,7 +30,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/vistaEmpresa}" role="button">ATRAS</a></div>
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 	</nav>
 	
 	
@@ -79,8 +87,8 @@
 						  
 					</form>
 				</div>
+				<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/vistaEmpresa}" role="button">INICIO</a></div>
 			</div>
 		</div>
-
 </body>
 </html>

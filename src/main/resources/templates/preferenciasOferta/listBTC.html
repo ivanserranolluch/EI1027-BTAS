@@ -10,11 +10,17 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 </head>
 <body>
+<div class="cabecera">
+		<header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Preferencias Estudiante</h1>
+			</div>
+		</header>
+	   </div>
 	
 		
-		<header>
-			<h1>Preferencias Estudiante</h1>
-	    </header>
+		
 	    
 	      <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
@@ -48,6 +54,7 @@
 					</li>
 				</ul>
 			</div>
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 		</nav>
 	    
 	    <!-- DATOS BD -->
@@ -59,7 +66,7 @@
 	    
 	     <div th:unless="${#lists.isEmpty(preferencias)}">
 	    <table class="table table-hover">
-			<thead>
+			<thead class="thead-dark">
 				<tr>
 					<th>Orden</th>
 					<th>Fecha Alta</th>
@@ -72,7 +79,7 @@
 					<th>CIF</th>
 					<th>Semestre</th>
 					<th></th>
-					<th></th>
+				
 					
 				</tr>
 			</thead>
@@ -89,7 +96,7 @@
 					<td th:text="${preferenciasOferta.cif}"></td>
 					<td th:text="${preferenciasOferta.semestre}"></td>
 					<!-- <td><a th:href="@{'/preferenciasOferta/listBTC/'+ ${preferenciasOferta.dni}+'/asignacion/add/'+${preferenciasOferta.id}}">AÑADIR ASIGNACION</a></td> -->
-					<td><a th:href="@{'/preferenciasOferta/listBTC/'+ ${preferenciasOferta.dni}+'/tutor/listBTC/'+${preferenciasOferta.id}}">AÑADIR TUTOR</a></td>
+					<td><a class="btn btn-info btn-sm" th:href="@{'/preferenciasOferta/listBTC/'+ ${preferenciasOferta.dni}+'/tutor/listBTC/'+${preferenciasOferta.id}}">AÑADIR TUTOR</a></td>
 					
 				</tr>
 			</tbody>
@@ -131,6 +138,13 @@
 		 -->
 		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/estudiante/listBTC}" role="button">ATRAS</a></div>
 		
+		<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 </body>
 
 </html>

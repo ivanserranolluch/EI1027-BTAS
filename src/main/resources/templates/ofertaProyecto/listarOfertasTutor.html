@@ -11,10 +11,15 @@
 	<body>
 	
 		<!-- HEADER -->
-		
+		<div class="cabecera">
 		<header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
 			<h1>Lista de Ofertas</h1>
+			</div>
 		</header>
+	   </div>
+		
 		
 		<!-- NAVEGACIÓN -->
 		
@@ -29,12 +34,13 @@
 					</li>
 				</ul>
 			</div>
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 		</nav>
 		
 		<!-- CONTENIDO BD -->
 	
 		<table  class="table table-hover">
-			<thead>
+			<thead class="thead-dark">
 				<tr>
 					<th>Fecha Alta</th>
 					<th>Objetivo</th>
@@ -58,6 +64,13 @@
 		
 		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/Empresa/listarTutor}" role="button">ATRAS</a></div>
 		
+		<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 		
 	</body>
 </html>

@@ -12,9 +12,15 @@
 	<body>
 		
 		<!-- HEADER -->
+		<div class="cabecera">
 		<header>
-		<h1>Gestión CCD</h1>
-	    </header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Gestión CCD</h1>
+			</div>
+		</header>
+	   	</div>
+		
 	    
 	    <!-- NAVEGACIÓN -->
 	    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
@@ -32,9 +38,20 @@
 					</li>
 				</ul>
 			</div>
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 		</nav>
 	    
-	    	
+	    <center>
+			<img src="/img/ccd.png" th:src="@{/img/ccd.png}" class="avatar" />
+		</center>	
+		
+		<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 		 
 	</body>
 </html>

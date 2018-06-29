@@ -11,7 +11,15 @@
 	
 	<body>
 		<!-- HEADER -->
-		<header><h1>Asignaciones por Estudiante</h1></header>
+		<div class="cabecera">
+		<header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Asignaciones por Estudiante</h1>
+			</div>
+		</header>
+	   	</div>
+		
 		
 		<!-- NAVEGACIÓN -->
 	    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
@@ -29,11 +37,12 @@
 					</li>
 				</ul>
 			</div>
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 		</nav>
 		
 		<!-- DATOS BD -->
 		<table class="table table-hover">
-			<thead>
+			<thead class="thead-dark">
 				<tr>
 					<th>Dni</th>
 					<th>al</th>
@@ -63,10 +72,18 @@
 					<td th:text="${estudiante.numAsigPendiente}"></td>
 					<td th:text="${estudiante.numCreditosAprobados}"></td>
 					<td th:text="${estudiante.semestreInicioEstancia}"></td>
-					<td><a  role="button" th:href="@{/asignacion/listarAsignacionesEstudianteCCD/{dni}(dni=${estudiante.dni})}">Asignaciones</a></td>
+					<td><a class="btn btn-info btn-sm" role="button" th:href="@{/asignacion/listarAsignacionesEstudianteCCD/{dni}(dni=${estudiante.dni})}">Asignaciones</a></td>
 				</tr>
 			</tbody>
 		</table>
-		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index4}" role="button">Atras</a></div>
+		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index4}" role="button">Inicio</a></div>
+		
+		<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 	</body>
 </html>

@@ -12,8 +12,18 @@
 	</head>
 	<body>
 		<!-- HEADER -->
+		<div class="cabecera">
 		<header>
-		<h1>Lista Empresas</h1>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Lista Empresas</h1>
+			</div>
+		</header>
+	   </div>
+		
+		
+		
+		
 		<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
 				<ul class="navbar-nav mr-auto">
@@ -26,14 +36,15 @@
 					</li>
 				</ul>
 			</div>
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 		</nav>
-	    </header>
+	   
 	    
 	  		
 		
 		<!-- DATOS BD -->
 		<table class="table table-hover">
-			<thead>
+			<thead class="thead-dark">
 				<tr>
 					<th>CIF</th>
 					<th>Nombre Empresa</th>
@@ -48,13 +59,19 @@
 					<td th:text="${empresa.nombre}"></td>
 					<td th:text="${empresa.email}"></td>
 					<td th:text="${empresa.direccionWeb}"></td>
-	 				<td><a th:href="@{/ofertaProyecto/listarOfertasTutor/{cif}(cif=${empresa.cif})}">Ver Ofertas</a></td> 
+	 				<td><a class="btn btn-info btn-sm" th:href="@{/ofertaProyecto/listarOfertasTutor/{cif}(cif=${empresa.cif})}">Ofertas</a></td> 
 					<!-- <td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
 					<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td> -->
 				</tr>
 			</tbody>
 		</table>
-		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/vistaTutor}" role="button">ATRAS</a></div>
-		
+		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/vistaTutor}" role="button">INICIO</a></div>
+		<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 	</body>
 </html>

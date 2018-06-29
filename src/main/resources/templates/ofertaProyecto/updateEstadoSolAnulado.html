@@ -9,10 +9,15 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 </head>
 <body>
-	<header>
-		<h1>Anulación Solicitada</h1>
-	</header>
-	
+	<div class="cabecera">
+		<header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Anulación Solicitada</h1>
+			</div>
+		</header>
+	   </div>
+		
 	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
 				<ul class="navbar-nav mr-auto">
@@ -24,10 +29,11 @@
 					</li>
 				</ul>
 			</div>
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 	</nav>
 		
 	<table class="table table-hover">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 				<th>Objetivo</th>
 				<th>Descripción</th>
@@ -52,7 +58,14 @@
 			</tr>
 		</tbody>
 	</table>
-	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/vistaEmpresa}" role="button">Atras</a></div>
+	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/vistaEmpresa}" role="button">INICIO</a></div>
 	
+	<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 </body>
 </html>

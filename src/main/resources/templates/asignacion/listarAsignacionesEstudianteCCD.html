@@ -10,7 +10,15 @@
 </head>
 <body>
 	<!-- HEADER -->
-	<header><h1>Asignacion/es del Estudiante</h1></header>
+	<div class="cabecera">
+		<header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Asignacion/es del Estudiante</h1>
+			</div>
+		</header>
+	   	</div>
+	
 	
 	
 	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
@@ -23,12 +31,12 @@
 					<li class="mav-item"><a class="nav-link" th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" >Preferencias</a></li>	
 				</ul>
 			</div>
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 			
-			<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index3}" role="button">Atras</a></div>
 	</nav>
 	
 	<table class="table table-hover">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 			
 				<th>Fecha Aceptacion</th>
@@ -58,7 +66,14 @@
 	</table>
 	
 	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/estudiante/list2}" role="button">Atras</a></div>
-
+	
+	<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 	
 </body>
 </html>

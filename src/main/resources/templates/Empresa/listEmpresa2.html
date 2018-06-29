@@ -22,12 +22,37 @@
 	</script>
 </head>
 <body>
-	<header>
-		<h1>Empresa</h1>
-	</header>
+	<div class="cabecera">
+		<header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Empresa</h1>
+			</div>
+		</header>
+	   	</div>
+	
+	<!-- NAVEGACIÓN -->
+	    <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/Empresa/list2}">Empresas / Ofertas</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listarPreferenciasCCD}">Preferencias por Estudiante</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/list2}">Asignaciones por Estudiante</a>
+					</li>
+				</ul>
+			</div>
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
+			
+		</nav>
 	
 	<table class="table table-hover">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 				<th>CIF</th>
 				<th>Nombre Empresa</th>
@@ -54,7 +79,7 @@
 	</header>
 	
 	<table class="table table-hover">
-	<thead>
+	<thead class="thead-dark">
 			<tr>
 				<th>DNI</th>
 			</tr>
@@ -67,6 +92,13 @@
 	</table>
 	<div class="cent"><a class="btn btn-primary btn-dark" href="../list2.html" role="button">Atras</a></div>
 	
+	<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 	
 </body>
 </html>

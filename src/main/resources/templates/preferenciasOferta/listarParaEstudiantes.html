@@ -1,39 +1,60 @@
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head> 
-	<title>BTAS</title>
-	<meta charset="UTF-8" />
-	<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
+<head>
+<title>BTAS</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css" href="/css/header.css"
+	th:href="@{/css/header.css}" />
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	rel="stylesheet" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
-	<header>
-	<h1>Lista de Preferencias</h1>
-	</header>
-	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
-			<div class="navbar-collapse collapse" >
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}">Ofertas</a></li>
-					<li class="mav-item"><a class="nav-link" th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" >Asignaciones</a></li>
-					
-					<li class="nav-item"><a class="nav-link" th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" >Preferencias</a></li>
-					
-					
-				</ul>
+	<div class="cabecera">
+		<header>
+			<div class="page-header-btc">
+				<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar"
+					id="logo" />
+				<h1>Lista de Preferencias</h1>
 			</div>
-		</nav>
-	<table   class="table table-hover">
-		<thead>
+		</header>
+	</div>
+
+	<nav class="navbar navbar-light navbar-expand-lg"
+		style="background-color: #e3f2fd;">
+		<div class="navbar-collapse collapse">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}">Ofertas</a></li>
+				<li class="mav-item"><a class="nav-link"
+					th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}">Asignaciones</a></li>
+
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}">Preferencias</a></li>
+
+
+			</ul>
+		</div>
+		<div class="cent">
+			<a class="btn btn-primary btn-dark" th:href="@{/index/index3}"
+				role="button">Salir</a>
+		</div>
+	</nav>
+
+	<table class="table table-hover">
+		<thead class="thead-dark">
 			<tr>
 				<th>Orden</th>
 				<th>Estado</th>
-				
+
 				<th>Fecha Ultimo Cambio</th>
 				<th>Itinerario</th>
-			
+
 				<th>DNI</th>
 				<th>CIF</th>
 				<th>Tarea</th>
@@ -47,10 +68,10 @@
 		<tbody>
 			<tr th:each="preferenciasOferta: ${preferencias}">
 				<td th:text="${preferenciasOferta.orden}"></td>
-				
+
 				<td th:text="${preferenciasOferta.descEstado}"></td>
 				<td th:text="${preferenciasOferta.fechaUltimoCambio}"></td>
-				
+
 				<td th:text="${preferenciasOferta.descItinerario}"></td>
 				<td th:text="${preferenciasOferta.dni}"></td>
 				<td th:text="${preferenciasOferta.cif}"></td>
@@ -59,19 +80,31 @@
 				<td th:text="${preferenciasOferta.fechaAlta}"></td>
 				<td th:text="${preferenciasOferta.semestre}"></td>
 				<!-- <td><a th:href="@{/preferenciasOferta/listBTC/{dni}(dni=${estudiante.dni})}">Preferencias</a></td>-->
-				
-				<td><a class="btn btn-info btn-sm" role="button" th:href="@{'/preferenciasEstudiante/update/'+ ${preferenciasOferta.id} + '/' + ${preferenciasOferta.dni}}">Edita</a></td>
-				<td><a class="btn btn-danger btn-sm" role="button" th:href="@{'/preferenciasEstudiante/delete/'+ ${preferenciasOferta.id} + '/' + ${preferenciasOferta.dni}}">Esborra</a></td>
-				
+
+				<td><a class="btn btn-info btn-sm" role="button"
+					th:href="@{'/preferenciasEstudiante/update/'+ ${preferenciasOferta.id} + '/' + ${preferenciasOferta.dni}}">Edita</a></td>
+				<td><a class="btn btn-danger btn-sm" role="button"
+					th:href="@{'/preferenciasEstudiante/delete/'+ ${preferenciasOferta.id} + '/' + ${preferenciasOferta.dni}}">Esborra</a></td>
+
 			</tr>
-			
-			
-			
-			
+
+
+
+
 		</tbody>
 	</table>
-	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index3}" role="button">Atras</a></div>
-	
+	<div class="cent">
+		<a class="btn btn-primary btn-dark" th:href="@{/index/index3}"
+			role="button">Atras</a>
+	</div>
+
+	<footer class="page-footer font-small blue pt-4 mt-4">
+		<div class="footer-copyright text-center py-3">
+			© 2018 Copyright: <a> Ivan Serrano y Jessica Cheto</a>
+
+		</div>
+		<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+	</footer>
 </body>
 
 </html>

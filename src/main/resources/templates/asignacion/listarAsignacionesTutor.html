@@ -12,7 +12,14 @@
 	<body>
 		
 		<!-- HEADER -->
-		<header><h1>Asignación/es Propias</h1></header>
+		<div class="cabecera">
+		<header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Asignación/es Propias</h1>
+			</div>
+		</header>
+	   </div>
 		
 		<!-- NAVEGACIÓN -->
 		
@@ -28,12 +35,13 @@
 					</li>
 				</ul>
 			</div>
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 		</nav>
 		
 		<!-- CONTENIDO BD -->
 		
 		<table class="table table-hover">
-			<thead>
+			<thead class="thead-dark">
 				<tr>
 					<th>Fecha Aceptacion</th>		
 					<th>Estudiante</th>
@@ -55,8 +63,15 @@
 			</tbody>
 		</table>
 		
-		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/vistaTutor}" role="button">ATRAS</a></div>
+		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/vistaTutor}" role="button">INICIO</a></div>
 		
+		<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 				
 	</body>
 </html>

@@ -2,27 +2,23 @@
 <html>
 	<head>
 		<title>BTAS</title>
-		<meta charset="UTF-8">
+		<meta charset="UTF-8"/>
 		<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
-		</meta>
+		
 	</head>
 	<body>
 		<!-- HEADER -->
-		
+		<div class="cabecera">
 		<header>
-		
-		<div class="page-header-btc">
-		<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
-			
-			
-		<h1>BTC - Coordinador de TFG</h1>
-	
-</div>
-</header>
-	   
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>BTC - Coordinador de TFG</h1>
+			</div>
+		</header>
+	   </div>
 	    
 	   
 		
@@ -40,6 +36,7 @@
 							</li>
 						</ul>
 					</div>
+					
 			</nav>
 		
 			<br/><br/><h2>Preferencias Por Estudiantes</h2><br/>
@@ -81,6 +78,17 @@
 						</ul>
 					</div>
 			</nav>
-		
+			
+			<center>
+			<img src="/img/teacher.jpg" th:src="@{/img/teacher.jpg}" class="avatar" />
+			</center>
+			
+			<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 	</body>
 </html>

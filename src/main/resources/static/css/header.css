@@ -10,6 +10,7 @@ h1 {
 	
 }
 
+
 header{
 	background-color: #e3cef6;
 	padding: 20px;
@@ -36,6 +37,7 @@ label {
 .container {
 	float: right;
 	padding: 10px;
+	padding-bottom: 30px;
 	
 }
 
@@ -46,7 +48,26 @@ label {
 
 .cent {
 	text-align: center;
+
 }
+
+p {
+	text-align: center;
+}
+footer {
+	
+	position: static;
+  	bottom: 0;
+  	width: 100%;
+}
+
+#updateFooter {
+	margin-top: 30px;
+	position: fixed;
+  	bottom: 0;
+  	width: 100%;
+}
+
 
 
 
