@@ -25,6 +25,17 @@ public class FakeUserProvider implements UserDao {
        userBob.setPassword(passwordEncryptor.encryptPassword("53728161T")); 
        knownUsers.put("53728161T", userBob);
        
+       UserDetails userBob2 = new UserDetails(); 
+       userBob2.setUsername("16545455S"); 
+       userBob2.setPassword(passwordEncryptor.encryptPassword("16545455S")); 
+       knownUsers.put("16545455S", userBob2);
+       
+       UserDetails userBob3 = new UserDetails(); 
+       userBob3.setUsername("82128318M"); 
+       userBob3.setPassword(passwordEncryptor.encryptPassword("82128318M")); 
+       knownUsers.put("82128318M", userBob3);
+       
+       
        UserDetails userCCT = new UserDetails(); 
        userCCT.setUsername("cct"); 
        userCCT.setPassword(passwordEncryptor.encryptPassword("cct")); 
