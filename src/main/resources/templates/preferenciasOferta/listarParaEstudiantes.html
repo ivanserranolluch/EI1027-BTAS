@@ -46,6 +46,14 @@
 		</div>
 	</nav>
 
+<div th:if="${#lists.isEmpty(preferencias)}">
+			<div class="alert alert-warning" role = "alert">
+				Aun no has elegido ninguna preferencia, TIENES QUE ELEGIR AL MENOS 5 PARA QUE TE TENGAN EN CUENTA
+			</div>
+		</div>
+	    
+	     <div th:unless="${#lists.isEmpty(preferencias)}">
+
 	<table class="table table-hover">
 		<thead class="thead-dark">
 			<tr>
@@ -93,6 +101,7 @@
 
 		</tbody>
 	</table>
+		</div>
 	<div class="cent">
 		<a class="btn btn-primary btn-dark" th:href="@{/index/index3}"
 			role="button">INICIO</a>

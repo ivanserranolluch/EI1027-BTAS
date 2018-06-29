@@ -34,7 +34,13 @@
 			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 			
 	</nav>
-	
+	<div th:if="${#lists.isEmpty(asignaciones)}">
+			<div class="alert alert-warning" role = "alert">
+				Este estudiante no tiene Preferencias
+			</div>
+		</div>
+	    
+	     <div th:unless="${#lists.isEmpty(asignaciones)}">
 	<table class="table table-hover">
 		<thead class="thead-dark">
 			<tr>
@@ -64,7 +70,7 @@
 			</tr>
 		</tbody>
 	</table>
-	
+	</div>
 	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/estudiante/list2}" role="button">Atras</a></div>
 	
 	<footer class="page-footer font-small blue pt-4 mt-4">

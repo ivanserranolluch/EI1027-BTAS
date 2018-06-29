@@ -34,7 +34,13 @@
 			
 			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 	</nav>
-	
+	<div th:if="${#lists.isEmpty(ofertas)}">
+			<div class="alert alert-warning" role = "alert">
+				Aun no hay ofertas de tu itinerario
+			</div>
+		</div>
+	    
+	     <div th:unless="${#lists.isEmpty(ofertas)}">
 	
 	<table  class="table table-hover">
 		<thead class="thead-dark">
@@ -42,7 +48,7 @@
 				<th>Fecha Alta</th>
 				<th>Tarea</th>
 				<th>Objetivo</th>
-				<th>Estado</th>
+				
 				<th>Itinerario</th>
 				<th>Semestre</th>
 				<th>Responsable Empresa</th>
@@ -55,7 +61,7 @@
 				<td th:text="${oferta.fechaAlta}"></td>
 				<td th:text="${oferta.tarea}"></td>
 				<td th:text="${oferta.objetivo}"></td>
-				<td th:text="${oferta.descEstado}"></td>
+				
 				<td th:text="${oferta.descItinerario}"></td>
 				
 				<td th:text="${oferta.semestre}"></td>
@@ -66,6 +72,7 @@
 			</tr>
 		</tbody>
 	</table>
+	</div>
 	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index3}" role="button">Inicio</a></div>
 	
 	<footer class="page-footer font-small blue pt-4 mt-4">

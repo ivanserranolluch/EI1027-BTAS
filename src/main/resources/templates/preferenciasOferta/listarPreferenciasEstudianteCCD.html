@@ -41,7 +41,13 @@
 		</nav>
 		
 		<!-- DATOS BD -->
-	
+		<div th:if="${#lists.isEmpty(preferencias)}">
+			<div class="alert alert-warning" role = "alert">
+				Este estudiante no tiene Preferencias
+			</div>
+		</div>
+	    
+	     <div th:unless="${#lists.isEmpty(preferencias)}">
 		<table   class="table table-hover">
 			<thead class="thead-dark">
 				<tr>
@@ -74,6 +80,7 @@
 				</tr>
 			</tbody>
 		</table>
+		</div>
 		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/estudiante/listarPreferenciasCCD}" role="button">ATRAS</a></div>
 		
 		<footer class="page-footer font-small blue pt-4 mt-4">

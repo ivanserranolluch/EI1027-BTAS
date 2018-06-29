@@ -59,6 +59,14 @@
 			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 		</nav>
 		
+		
+	<div th:if="${#lists.isEmpty(ofertas)}">
+			<div class="alert alert-warning" role = "alert">
+				Esta Empresa no tiene Ofertas todavía
+			</div>
+		</div>
+	    
+	     <div th:unless="${#lists.isEmpty(ofertas)}">	
 		<!-- DATOS BD -->
 	<table class="table table-hover">
 		<thead class="thead-dark">
@@ -90,6 +98,7 @@
 			</tr>
 		</tbody>
 	</table>
+	</div>
 	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/Empresa/list}" role="button">ATRAS</a></div>
 	
 	<footer class="page-footer font-small blue pt-4 mt-4">

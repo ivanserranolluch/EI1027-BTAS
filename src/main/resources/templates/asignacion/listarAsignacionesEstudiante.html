@@ -34,7 +34,13 @@
 			
 			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">Salir</a></div>
 	</nav>
-	
+	<div th:if="${#lists.isEmpty(asignaciones)}">
+			<div class="alert alert-warning" role = "alert">
+				Aun no tienes ninguna asignación
+			</div>
+		</div>
+	    
+	     <div th:unless="${#lists.isEmpty(asignaciones)}">
 	<table class="table table-hover">
 		<thead class="thead-dark">
 			<tr>
@@ -64,6 +70,7 @@
 			</tr>
 		</tbody>
 	</table>
+	</div>
 	
 	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index3}" role="button">inicio</a></div>
 
