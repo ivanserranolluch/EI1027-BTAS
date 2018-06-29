@@ -124,21 +124,21 @@ public class OfertaProyectoController {
 		}*/
 
 		//OPERACION CREAR
-		@RequestMapping(value="/addOfertaEmpresa")
+		@RequestMapping(value="/addOfertaEmpresa", method=RequestMethod.GET)
 		public String addOferta(Model model) { //,@PathVariable("id_estancia") int id_estancia 
 			model.addAttribute("ofertas", new OfertaProyecto());
 			System.out.println("he creado la estancia");
 			return "ofertaProyecto/addOfertaEmpresa";
 		}
 				
-		@RequestMapping(value="/addOfertaEmpresa", method=RequestMethod.POST)
-		public String processAddSubmit2(@ModelAttribute("ofertas") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
+		@RequestMapping(value="/addOfertaEmpresa/{cif}", method=RequestMethod.POST)
+		public String processAddSubmit2(@PathVariable String cif,@ModelAttribute("ofertas") OfertaProyecto ofertaProyecto, BindingResult bindingResult){
 			if (bindingResult.hasErrors()){
 				System.out.println(bindingResult);
 				return "ofertaEstancia/addOfertaEmpresa";
 						
 			}
-			ofertaProyectoDAO.addOferta(ofertaProyecto);
+			ofertaProyectoDAO.addOferta(ofertaProyecto,cif);
 			return "vistaEmpresa";
 		}
 		

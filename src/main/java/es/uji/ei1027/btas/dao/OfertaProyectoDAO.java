@@ -115,8 +115,13 @@ public List<OfertaProyecto> getOfertasEstudiante(String itinerario) {
 		
 	public void addOferta(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
-				"insert into OfertaProyecto(fechaalta,itinerario,estado,objetivo,tarea,dni,cif,semestre) values(?, ?, ?, ?, ?, ?,?,?)", ofertaProyecto.getFechaAlta(),
+				"insert into OfertaProyecto(fechaalta,itinerario,estado,objetivo,tarea,dni,cif,semestre) values(?, ?, ?, ?, ?, ?,?,?)", new Date(),
 				ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(),ofertaProyecto.getDni(),ofertaProyecto.getCif(),ofertaProyecto.getSemestre());
+	}
+	public void addOferta(OfertaProyecto ofertaProyecto,String cif) {
+		this.jdbcTemplate.update(
+				"insert into OfertaProyecto(fechaalta,itinerario,estado,objetivo,tarea,dni,cif,semestre) values(?, ?, ?, ?, ?, ?,?,?)", new Date(),
+				ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(),ofertaProyecto.getDni(),cif,ofertaProyecto.getSemestre());
 	}
 		
 	public void updateOfertaProyectoEstado(int id,String estado) {
