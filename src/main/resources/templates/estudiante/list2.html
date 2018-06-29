@@ -63,7 +63,7 @@
 					<td th:text="${estudiante.numAsigPendiente}"></td>
 					<td th:text="${estudiante.numCreditosAprobados}"></td>
 					<td th:text="${estudiante.semestreInicioEstancia}"></td>
-					<td><a  role="button" th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${estudiante.dni})}">Consulta Asignaciones</a></td>
+					<td><a  role="button" th:href="@{/asignacion/listarAsignacionesEstudianteCCD/{dni}(dni=${estudiante.dni})}">Asignaciones</a></td>
 				</tr>
 			</tbody>
 		</table>

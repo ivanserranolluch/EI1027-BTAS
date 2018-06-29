@@ -51,7 +51,7 @@
 		
 		<!-- DATOS BD -->
 		<table class="table table-hover">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
 				<th>DNI</th>
 				<th>al</th>
@@ -81,7 +81,7 @@
 				<td th:text="${estudiante.numAsigPendiente}"></td>
 				<td th:text="${estudiante.numCreditosAprobados}"></td>
 				<td th:text="${estudiante.semestreInicioEstancia}"></td>
-				<td><a th:href="@{/preferenciasOferta/listarPreferenciasEstudiante/{dni}(dni=${estudiante.dni})}">Consulta Preferencias</a></td>
+				<td><a class="btn btn-info btn-sm"  th:href="@{/preferenciasOferta/listarPreferenciasEstudiante/{dni}(dni=${estudiante.dni})}">Preferencias</a></td>
 			</tr>
 		</tbody>
 	</table>

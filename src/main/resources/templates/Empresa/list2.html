@@ -34,7 +34,7 @@
 		<!-- DATOS BD -->
 		
 		
-		<br></br>
+		
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -48,15 +48,15 @@
 				<tr th:each="empresa: ${empresas}">
 					<td th:text="${empresa.cif}"></td>
 					<td th:text="${empresa.nombre}"></td>
-	 				<td><a class="btn btn-info btn-sm" role="button" th:href="@{/Empresa/listEmpresa2/{cif}(cif=${empresa.cif})}">INFORMACIÓN</a></td> 
+	 				<td><a class="btn btn-info btn-sm" role="button" th:href="@{/Empresa/listEmpresa2/{cif}(cif=${empresa.cif})}">INFO</a></td> 
 					<!-- <td><a th:href="@{/Empresa/update/{cif}(cif=${empresa.cif})}">Edita</a></td>
 					<td><a th:href="@{/Empresa/delete/{cif}(cif=${empresa.cif})}">Esborra</a></td> -->
-					<td><a class="btn btn-info btn-sm" role="button" th:href="@{/ofertaProyecto/listarCCT/{cif}(cif=${empresa.cif})}">Ver Ofertas</a></td> 
+					<td><a class="btn btn-info btn-sm" role="button" th:href="@{/ofertaProyecto/listarCCT/{cif}(cif=${empresa.cif})}">Ofertas</a></td> 
 					
 				</tr>
 			</tbody>
 		</table>
-		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index4}" role="button">Atras</a></div>
+		<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index4}" role="button">INICIO</a></div>
 		
 	</body>
 </html>

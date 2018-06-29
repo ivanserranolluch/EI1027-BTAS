@@ -2,11 +2,19 @@ body {
 	margin: 0;
 }
 h1 {
-	text-align: center;
+	text-align:center;
 	text-transform: uppercase;
-	letter-spacing: 0.3em;
+	letter-spacing: 0.1em;
 	font-size: 5;
+	
+	
 }
+
+header{
+	background-color: #e3cef6;
+	padding: 20px;
+}
+
 
 a {
 	color: white;

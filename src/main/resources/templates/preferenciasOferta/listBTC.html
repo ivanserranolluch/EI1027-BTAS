@@ -16,7 +16,48 @@
 			<h1>Preferencias Estudiante</h1>
 	    </header>
 	    
+	      <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/Empresa/list}">Empresas / Ofertas</a>
+					</li>
+					<!-- 
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/ofertaProyecto/list}">Ofertas</a>
+					</li>
+					 -->
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listBTC}">Asistente Creación Asignación</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listarPreferencias}">Preferencias por Estudiante</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listEstudiantesBTCAsignaciones}">Asignaciones por Estudiante</a>
+					</li>
+					
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/asignacion/add}">Todas las asignaciones</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listBTCRechazar}">Asistente Anulación Asignaciones</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/asignacion/listAsigModTutor}">Modificación Tutor Asignacion</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	    
 	    <!-- DATOS BD -->
+	    <div th:if="${#lists.isEmpty(preferencias)}">
+			<div class="alert alert-warning" role = "alert">
+				Este estudiante no tiene Preferencias
+			</div>
+		</div>
+	    
+	     <div th:unless="${#lists.isEmpty(preferencias)}">
 	    <table class="table table-hover">
 			<thead>
 				<tr>
@@ -53,6 +94,7 @@
 				</tr>
 			</tbody>
 		</table>
+		</div>
 		
 		<!-- 
 		<header>

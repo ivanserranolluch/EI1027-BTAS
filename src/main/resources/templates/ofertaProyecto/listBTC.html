@@ -78,7 +78,7 @@
 				<td th:text="${oferta.dni}"></td>
 				<td th:text="${oferta.cif}"></td>
 				<td th:text="${oferta.semestre}"></td>
-				<td><a th:href="@{/ofertaProyecto/updateBTC/{id}(id=${oferta.id})}">Modificar Oferta</a></td>
+				<td><a class="btn btn-info btn-sm"  th:href="@{/ofertaProyecto/updateBTC/{id}(id=${oferta.id})}">Modificar</a></td>
 			</tr>
 		</tbody>
 	</table>
