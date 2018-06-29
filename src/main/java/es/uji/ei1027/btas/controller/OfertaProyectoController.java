@@ -104,6 +104,13 @@ public class OfertaProyectoController {
 			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertasTUTOR());
 			return "ofertaProyecto/listarOfertasTutor";
 		}
+		@RequestMapping("/listarOfertasTutor2")
+		public String listOfertasTutor2(Model model) {
+			System.out.println("entro aqui");
+			model.addAttribute("ofertas", ofertaProyectoDAO.getOfertasTUTOR());
+			return "ofertaProyecto/listarOfertasTutor2";
+		}
+		
 		@RequestMapping("/listarOfertasTutor/{cif}")
 		public String listOfertasTutor(Model model,@PathVariable("cif") String cif) {
 			System.out.println("entro aqui");

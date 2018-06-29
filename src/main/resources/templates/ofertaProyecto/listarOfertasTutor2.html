@@ -7,19 +7,19 @@
 		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
-		</head>
-	
+	</head>
 	<body>
-		
+	
 		<!-- HEADER -->
 		<div class="cabecera">
 		<header>
 			<div class="page-header-btc">
 			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
-			<h1>Asignación/es Propias</h1>
+			<h1>Lista de Ofertas</h1>
 			</div>
 		</header>
 	   </div>
+		
 		
 		<!-- NAVEGACIÓN -->
 		
@@ -30,7 +30,7 @@
 					<li class="nav-item">
 						<a class="nav-link" th:href="@{/asignacion/listarAsignacionesTutor/{dniT}(dniT=${session.user.username})}">Listado de mis Asignaciones</a>
 					</li>
-					<li>
+					<li class="nav-item">
 						<a class="nav-link" th:href="@{/Empresa/listarTutor}">Empresas / Ofertas</a>
 					</li>
 					<li class="nav-item">
@@ -42,26 +42,26 @@
 		</nav>
 		
 		<!-- CONTENIDO BD -->
-		
-		<table class="table table-hover">
+	
+		<table  class="table table-hover">
 			<thead class="thead-dark">
 				<tr>
-					<th>Fecha Aceptacion</th>		
-					<th>Estudiante</th>
-					<th>DNI Estudiante</th>
-					<th>Empresa</th>
-					<th>CIF</th>
-					<th>Estado Asignación</th>
+					<th>Fecha Alta</th>
+					<th>Objetivo</th>
+					<th>Descripcion</th>
+					<th>Itinerario</th>
+					<th>Semestre</th>
+					<th>Estado</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="asig: ${asignaciones}">
-					<td th:text="${asig.fechaAceptacion}"></td>
-					<td th:text="${asig.nombreEstudiante}"></td>
-					<td th:text="${asig.dniE}"></td>
-					<td th:text="${asig.nombreEmpresa}"></td>
-					<td th:text="${asig.cif}"></td>
-					<td th:text="${asig.descEstado}"></td>
+				<tr th:each="oferta: ${ofertas}">
+					<td th:text="${oferta.fechaAlta}"></td>
+					<td th:text="${oferta.tarea}"></td>
+					<td th:text="${oferta.objetivo}"></td>
+					<td th:text="${oferta.descItinerario}"></td>			
+					<td th:text="${oferta.semestre}"></td>
+					<td th:text="${oferta.descEstado}"></td>
 				</tr>
 			</tbody>
 		</table>
@@ -75,6 +75,6 @@
     			</div>
     			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
 			</footer>
-				
+		
 	</body>
 </html>
