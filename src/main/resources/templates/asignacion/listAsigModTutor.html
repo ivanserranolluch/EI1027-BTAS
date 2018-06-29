@@ -34,10 +34,10 @@
 					</li>
 					 -->
 					<li class="nav-item">
-						<a class="nav-link" th:href="@{/estudiante/listBTC}">Asistente Creación Asignación</a>
+						<a class="nav-link" th:href="@{/estudiante/listarPreferencias}">Preferencias por Estudiante</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" th:href="@{/estudiante/listarPreferencias}">Preferencias por Estudiante</a>
+						<a class="nav-link" th:href="@{/estudiante/listBTC}">Asistente Creación Asignación</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" th:href="@{/estudiante/listEstudiantesBTCAsignaciones}">Asignaciones por Estudiante</a>
@@ -82,7 +82,7 @@
 				<td th:text="${asig.dniT}"></td>
 				<td th:text="${asig.nombreTutor}"></td>
 				<td th:text="${asig.descEstado}"></td>
-				<td><a class="btn btn-info btn-sm" th:href="@{'/preferenciasOferta/listAsigModTutor/'+ ${asig.dniE}+'/tutor/elegir/'+${asig.id_oferta}+'/asignacion/mod/'+${asig.dniT}}">MODIFICAR TUTOR ASIGNACION</a></td>
+				<td><a class="btn btn-info btn-sm" th:href="@{'/preferenciasOferta/listAsigModTutor/'+ ${asig.dniE}+'/tutor/elegir/'+${asig.id_oferta}+'/asignacion/mod/'+${asig.dniT}}">Remplazar Tutor</a></td>
 				
 			</tr>
 		</tbody>
