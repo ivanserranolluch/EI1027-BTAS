@@ -34,7 +34,7 @@ public class AsignacionController {
 	@RequestMapping("/listAsigModTutor")
 	public String listAsignacionaddlitarTutor(Model model) {
 		System.out.println("entro en Asignaciones");
-		model.addAttribute("asignaciones", asignacionEmpresaTutorEstudianteDao.getAsignacionCompleta());
+		model.addAttribute("asignaciones", asignacionEmpresaTutorEstudianteDao.getAsignacionCompletaAceptadas());
 		return "asignacion/listAsigModTutor";
 	}
 	

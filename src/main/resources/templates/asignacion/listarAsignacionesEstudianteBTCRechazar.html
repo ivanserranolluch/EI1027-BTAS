@@ -75,7 +75,7 @@
 					<th>CIF</th>
 					<th>Dni Tutor</th>
 					<th>Nombre Tutor</th>
-					<th>Estado</th>
+					
 					<th></th>
 				</tr>
 			</thead>
@@ -90,7 +90,7 @@
 					<td th:text="${asig.cif}"></td>
 					<td th:text="${asig.dniT}"></td>
 					<td th:text="${asig.nombreTutor}"></td>
-					<td th:text="${asig.descEstado}"></td>
+			
 					<td><a class="btn btn-danger btn-sm" th:href="@{'/preferenciasOferta/listBTCRechazar/'+ ${asig.dniE}+'/tutor/listBTCRechazar/'+${asig.id_oferta}+'/asignacion/rechazar/'+${asig.dniT}}">ANULAR ASIGNACIÓN</a></td>
 					
 				</tr>

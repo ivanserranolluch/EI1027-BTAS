@@ -87,7 +87,7 @@ public class PreferenciasOfertaController {
 	@RequestMapping("/listBTCRechazar/{dni}")
 	public String listPreferenciasEstudianteOfertaRechazar(Model model, @PathVariable("dni") String dni) {
 		System.out.println("He entrado");
-		model.addAttribute("asignaciones", asignacionEmpresaTutorEstudianteDAO.getAsignacionCompletaDniE(dni));
+		model.addAttribute("asignaciones", asignacionEmpresaTutorEstudianteDAO.getAsignacionCompletaDniEAceptada(dni));
 		System.out.println("entro en la lista de preferencias del estudiante CCD");
 		System.out.println("Aqio tmbien joder");
 		return "asignacion/listarAsignacionesEstudianteBTCRechazar";

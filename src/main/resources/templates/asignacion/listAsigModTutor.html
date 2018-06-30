@@ -68,7 +68,7 @@
 				<th>CIF</th>
 				<th>Dni Tutor</th>
 				<th>Nombre Tutor</th>
-				<th>Estado</th>
+			
 				<th></th>
 			</tr>
 		</thead>
@@ -81,8 +81,8 @@
 				<td th:text="${asig.cif}"></td>
 				<td th:text="${asig.dniT}"></td>
 				<td th:text="${asig.nombreTutor}"></td>
-				<td th:text="${asig.descEstado}"></td>
-				<td><a class="btn btn-info btn-sm" th:href="@{'/preferenciasOferta/listAsigModTutor/'+ ${asig.dniE}+'/tutor/elegir/'+${asig.id_oferta}+'/asignacion/mod/'+${asig.dniT}}">Remplazar Tutor</a></td>
+			
+				<td><a class="btn btn-info btn-sm" th:href="@{'/preferenciasOferta/listAsigModTutor/'+ ${asig.dniE}+'/tutor/elegir/'+${asig.id_oferta}+'/asignacion/mod/'+${asig.dniT}}">Reemplazar Tutor</a></td>
 				
 			</tr>
 		</tbody>
