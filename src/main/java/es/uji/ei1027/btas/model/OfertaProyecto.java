@@ -71,7 +71,7 @@ public class OfertaProyecto {
 		case "Introducida":
 			estado=EstadoOferta.INTRODUCIDA;
 			break;
-		case "Pendiente de revision":
+		case "Pendiente revision":
 			estado=EstadoOferta.PENDIENTE_REVISION;
 			break;
 		case "Aceptada":

@@ -4,7 +4,7 @@ public enum EstadoOferta {
 	
 	SIN_DEFINIR("Sin Definir"),
 	INTRODUCIDA("Introducida"),
-	PENDIENTE_REVISION("Pendiente de revision"),
+	PENDIENTE_REVISION("Pendiente revision"),
 	ACEPTADA("Aceptada"),
 	RECHAZADA("Rechazada"),
 	VISIBLE_ALUMNOS("Visible alumnos"),
