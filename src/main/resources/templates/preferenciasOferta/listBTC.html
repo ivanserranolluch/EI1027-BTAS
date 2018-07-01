@@ -14,7 +14,7 @@
 		<header>
 			<div class="page-header-btc">
 			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
-			<h1>Preferencias Estudiante</h1>
+			<h1>Asistente Asignación - Preferencias Estudiante</h1>
 			</div>
 		</header>
 	   </div>
@@ -56,7 +56,9 @@
 			</div>
 			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 		</nav>
-	    
+	    		<div class="alert alert-info" role = "alert">
+				¡¡Pincha en el botón AÑADIR TUTOR para elegir la preferencia del estudiante e ir a la lista de selección de los tutores!!
+			</div>
 	    <!-- DATOS BD -->
 	    <div th:if="${#lists.isEmpty(preferencias)}">
 			<div class="alert alert-warning" role = "alert">

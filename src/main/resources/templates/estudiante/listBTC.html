@@ -15,7 +15,7 @@
 		<header>
 			<div class="page-header-btc">
 			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
-			<h1>Estudiantes</h1>
+			<h1>Asistente Asignación - Estudiantes</h1>
 			</div>
 		</header>
 	   </div>
@@ -57,7 +57,9 @@
 			
 			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 		</nav>
-		
+			<div class="alert alert-info" role = "alert">
+				¡¡Pincha en el botón PREFERENCIAS para ver las preferencias del estudiante!!
+			</div>
 		<!-- DATOS BD -->
 		<table class="table table-hover">
 			<thead class="thead-dark">
@@ -90,7 +92,7 @@
 					<td th:text="${estudiante.numAsigPendiente}"></td>
 					<td th:text="${estudiante.numCreditosAprobados}"></td>
 					<td th:text="${estudiante.semestreInicioEstancia}"></td>
-					<td><a class="btn btn-info btn-sm"  th:href="@{/preferenciasOferta/listBTC/{dni}(dni=${estudiante.dni})}">Preferencias</a></td>
+					<td><a class="btn btn-info btn-sm"  th:href="@{/preferenciasOferta/listBTC/{dni}(dni=${estudiante.dni})}">PREFERENCIAS</a></td>
 				</tr>
 			</tbody>
 		</table>

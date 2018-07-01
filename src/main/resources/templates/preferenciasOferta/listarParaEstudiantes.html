@@ -52,8 +52,10 @@
 			</div>
 		</div>
 	    
-	     <div th:unless="${#lists.isEmpty(preferencias)}">
-
+	 <div th:unless="${#lists.isEmpty(preferencias)}">
+		<div class="alert alert-info" role = "alert">
+				¡Atencion! Recordamos que tienes que tener almenos 5 preferencias para que te tengan en cuenta en el proceso de Asignación
+			</div>
 	<table class="table table-hover">
 		<thead class="thead-dark">
 			<tr>
