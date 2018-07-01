@@ -67,7 +67,10 @@ private JdbcTemplate jdbcTemplate;
 	//CREATES
 	
 public boolean addAsignacion(int id_oferta,String dniE, String dniT) {
-		
+	List<Asignacion> lista=this.jdbcTemplate.query("select * from asignacion where dniE=? and id_oferta=?",new Object[] {dniE,id_oferta}, new AsignacionMapper());
+	if(!lista.isEmpty()) {
+		return false;
+	}
 	try {
 		this.jdbcTemplate.update("insert into Asignacion(fechaAceptacion,estadoaceptadarechazada,dnie,dnit,id_oferta)values(?,'Aceptada',?,?,?);",
 				new Date(),dniE,dniT,id_oferta);
