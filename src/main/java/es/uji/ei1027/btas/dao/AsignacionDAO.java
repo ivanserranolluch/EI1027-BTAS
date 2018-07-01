@@ -51,7 +51,7 @@ private JdbcTemplate jdbcTemplate;
 }
 	
 	public List<Asignacion> getAsignacionEstudiante(String dniE) {
-		return this.jdbcTemplate.query("select * from asignacion where dniE=?",  new Object[] {dniE}, new AsignacionMapper());
+		return this.jdbcTemplate.query("select * from asignacion where dniE=? ",  new Object[] {dniE}, new AsignacionMapper());
 	}
 	
 	public void addAsignacion(Asignacion asignacion) {
@@ -67,7 +67,7 @@ private JdbcTemplate jdbcTemplate;
 	//CREATES
 	
 public boolean addAsignacion(int id_oferta,String dniE, String dniT) {
-	List<Asignacion> lista=this.jdbcTemplate.query("select * from asignacion where dniE=? and id_oferta=?",new Object[] {dniE,id_oferta}, new AsignacionMapper());
+	List<Asignacion> lista=this.jdbcTemplate.query("select * from asignacion where dniE=? and id_oferta=? and estadoaceptadarechazada='Aceptada'",new Object[] {dniE,id_oferta}, new AsignacionMapper());
 	if(!lista.isEmpty()) {
 		return false;
 	}
