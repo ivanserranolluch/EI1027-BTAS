@@ -138,7 +138,10 @@ public class OfertaProyectoController {
 				return "ofertaEstancia/addOfertaEmpresa";
 						
 			}
-			ofertaProyectoDAO.addOferta(ofertaProyecto,cif);
+			
+			if(false==ofertaProyectoDAO.addOferta2(ofertaProyecto,cif)) {
+				return "excepciones/errorDniResponsableEmpresa";
+			}
 			return "vistaEmpresa";
 		}
 		

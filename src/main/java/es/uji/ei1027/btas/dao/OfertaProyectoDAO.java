@@ -112,7 +112,17 @@ public List<OfertaProyecto> getOfertasEstudiante(String itinerario) {
 				"insert into OfertaProyecto(id,tarea,objetivo,estado,itinerario,fechaDeAlta,fechaDeUltimoCambio) values(?, ?, ?, ?)", ofertaProyecto.getId(), ofertaProyecto.getTarea(),
 				ofertaProyecto.getObjetivo(),ofertaProyecto.getEstado(), ofertaProyecto.getItinerario(),ofertaProyecto.getFechaDeAlta(),ofertaProyecto.getFechaUltimoCambio());
 	}*/
+	public boolean addOferta2(OfertaProyecto ofertaProyecto,String cif) {
+		try {
+			this.jdbcTemplate.update(
+					"insert into OfertaProyecto(fechaalta,itinerario,estado,objetivo,tarea,dni,cif,semestre) values(?, ?, ?, ?, ?, ?,?,?)", new Date(),
+					ofertaProyecto.getItinerario().getDescripcion(),ofertaProyecto.getEstado().getDescripcion(), ofertaProyecto.getObjetivo(),ofertaProyecto.getTarea(),ofertaProyecto.getDni(),cif,ofertaProyecto.getSemestre());
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
 		
+	}	
 	public void addOferta(OfertaProyecto ofertaProyecto) {
 		this.jdbcTemplate.update(
 				"insert into OfertaProyecto(fechaalta,itinerario,estado,objetivo,tarea,dni,cif,semestre) values(?, ?, ?, ?, ?, ?,?,?)", new Date(),
