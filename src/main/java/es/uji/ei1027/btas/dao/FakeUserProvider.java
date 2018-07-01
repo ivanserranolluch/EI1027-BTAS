@@ -19,6 +19,11 @@ public class FakeUserProvider implements UserDao {
 	userAlice.setUsername("alice"); 
 	userAlice.setPassword(passwordEncryptor.encryptPassword("alice")); 
 	knownUsers.put("alice", userAlice);
+	
+	UserDetails btc = new UserDetails(); 
+	btc.setUsername("btc"); 
+	btc.setPassword(passwordEncryptor.encryptPassword("btc")); 
+	knownUsers.put("btc", btc);
 	  
        UserDetails userBob = new UserDetails(); 
        userBob.setUsername("53728161T"); 

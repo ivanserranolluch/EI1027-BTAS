@@ -68,7 +68,7 @@ public class LoginController {
 		session.setAttribute("user", user); 
 		
 		// Torna a la pàgina principal
-		if(user.getUsername() == "alice") {
+		if(user.getUsername() == "alice" || user.getUsername()=="btc") {
 		return "index2";}
 		
 		if(user.getUsername() == "cct" || user.getUsername() == "ccd") {
