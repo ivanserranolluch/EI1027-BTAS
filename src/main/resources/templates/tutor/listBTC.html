@@ -55,7 +55,7 @@
 			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
 		</nav>
 		<div class="alert alert-info" role = "alert">
-				¡¡Pincha en el botón AÑADIR ASIGNACIÓN para elegir el tutor y crear la asignación!!
+				¡¡Pincha en el botón CREAR ASIGNACIÓN para elegir el tutor y crear la asignación!!
 		</div>
 		<!-- DATOS BD -->
 	<table class="table table-hover">
@@ -78,7 +78,7 @@
 				<td th:text="${tutor.email}"></td>
 				<td th:text="${tutor.departamento}"></td>
 				<td th:text="${tutor.despacho}"></td>
-				<td><a class="btn btn-info btn-sm" th:href="@{'/preferenciasOferta/listBTC/'+ ${dni}+'/tutor/listBTC/'+${id}+'/asignacion/add/'+${tutor.dni}}">AÑADIR ASIGNACION</a></td>
+				<td><a class="btn btn-info btn-sm" th:href="@{'/preferenciasOferta/listBTC/'+ ${dni}+'/tutor/listBTC/'+${id}+'/asignacion/add/'+${tutor.dni}}">CREAR ASIGNACION</a></td>
 			</tr>
 		</tbody>
 	</table>
