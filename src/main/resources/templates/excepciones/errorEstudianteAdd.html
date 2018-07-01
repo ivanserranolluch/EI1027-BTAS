@@ -1,15 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>EI1027</title>
-<meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="/css/style.css" th:href="@{/css/style.css}"/>
-</meta>
+<head> 
+	<title>BTAS</title>
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="/css/header.css" th:href="@{/css/header.css}"/>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js" ></script>
 </head>
 <body>
-	<h2>EI1027 - Spring MVC</h2>
-	<h1>Detectado un error en la gestion del estudiante</h1>
-	
-	<li><a th:href="@{/ofertaProyecto/listes}">Atras</a></li>
+<div class="cabecera">
+		<header>
+			<div class="page-header-btc">
+			<img src="/img/uji.png" th:src="@{/img/uji.png}" class="avatar" id="logo" />
+			<h1>Error Preferencia</h1>
+			</div>
+		</header>
+	   </div>
+	   <nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
+			<div class="navbar-collapse collapse" >
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item"><a class="nav-link" th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}">ofertas</a></li>
+					
+					<li class="nav-item"><a class="nav-link" th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" >Asignaciones</a></li>
+					
+					<li class="mav-item"><a class="nav-link" th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" >Preferencias</a></li>	
+				</ul>
+			</div>
+			
+			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">Salir</a></div>
+	</nav>
+
+	<div class="alert alert-warning" role="alert">
+	Has introducido un orden que ya lo tienes en alguna preferencia o has intentado volver a introducir una preferencia sobre una oferta que ya tenias introducida. Para solucionar esto tienes que añadir un orden diferente a los que tines introducidos o fijarte si ya tienes introducida la preferencia que estas intentando añadir.
+	</div>
+	<div class="cent"><a class="btn btn-primary btn-dark" th:href="@{/index/index3}" role="button">INICIO</a></div>
+	<footer class="page-footer font-small blue pt-4 mt-4">
+				<div class="footer-copyright text-center py-3">© 2018 Copyright:
+      				<a > Ivan Serrano y Jessica Cheto</a>
+      				
+    			</div>
+    			<p>EI1027 - Diseño e Implementación Sistemas Información</p>
+			</footer>
 </body>
 </html>

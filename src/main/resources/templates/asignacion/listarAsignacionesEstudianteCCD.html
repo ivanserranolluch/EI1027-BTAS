@@ -20,20 +20,23 @@
 	   	</div>
 	
 	
-	
 	<nav class="navbar navbar-light navbar-expand-lg" style="background-color: #e3f2fd;">
 			<div class="navbar-collapse collapse" >
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item"><a class="nav-link" th:href="@{/ofertaProyecto/listes/{dni}(dni=${session.user.username})}">Lista de ofertas</a></li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/Empresa/list2}">Empresas / Ofertas</a>
+					</li>
 					
-					<li class="nav-item"><a class="nav-link" th:href="@{/asignacion/listarAsignacionesEstudiante/{dni}(dni=${session.user.username})}" >Asignaciones</a></li>
-					
-					<li class="mav-item"><a class="nav-link" th:href="@{/preferenciasOferta/listarParaEstudiantes/{dni}(dni=${session.user.username})}" >Preferencias</a></li>	
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/listarPreferenciasCCD}">Preferencias por Estudiante</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/estudiante/list2}">Asignaciones por Estudiante</a>
+					</li>
 				</ul>
 			</div>
 			<div class="cent"><a class="btn btn-primary btn-dark" href="/../login.html" role="button">SALIR</a></div>
-			
-	</nav>
+		</nav>
 	<div th:if="${#lists.isEmpty(asignaciones)}">
 			<div class="alert alert-warning" role = "alert">
 				Este estudiante no tiene Preferencias

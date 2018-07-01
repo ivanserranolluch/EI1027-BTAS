@@ -49,12 +49,12 @@
 		
 						<div class="form-group">
 							<label for="exampleFormControlInput1">Objetivo</label>
-							<input type="text" th:field="*{tarea}" class="form-control" id="exampleFormControlInput1" placeholder="Descripción"/>
+							<input type="text" maxlength="50" th:field="*{tarea}" class="form-control" id="exampleFormControlInput1" placeholder="Implementar DB"/>
 						</div>
 						
 						<div class="form-group">
 							<label for="exampleFormControlInput1">Descripción</label>
-							<input type="text" th:field="*{objetivo}" class="form-control" id="exampleFormControlInput1" placeholder="Descripción"/>
+							<input type="text" maxlength="50" th:field="*{objetivo}" class="form-control" id="exampleFormControlInput1" placeholder="Las tecnologias utilizadas seran de postgres"/>
 						</div>
 						<!-- 
 						<div class="form-group">
@@ -64,13 +64,13 @@
 						 -->
 						
 						<div class="form-group">
-							<label for="exampleFormControlInput1">DNI</label>
-							<input type="text" th:field="*{dni}" class="form-control" id="exampleFormControlInput1" placeholder="Descripción"/>
+							<label for="exampleFormControlInput1">DNI Responsable</label>
+							<input type="text" maxlength="9" th:field="*{dni}" class="form-control" id="exampleFormControlInput1" placeholder="53728161T"/>
 						</div>
 						
 						<div class="form-group">
 							<label for="exampleFormControlInput1">Semestre</label>
-							<input type="number" min="1" max="2" th:field="*{semestre}" class="form-control" id="exampleFormControlInput1" placeholder="Descripción"/>
+							<input type="number" min="1" max="2" th:field="*{semestre}" class="form-control" id="exampleFormControlInput1" placeholder="1"/>
 						</div>
 		
 						<div class="form-group">
